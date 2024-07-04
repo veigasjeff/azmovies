@@ -110,7 +110,7 @@ const latestDetail = ({ latest }) => {
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
-        description: `Welcome to AZ Movies™ where you watch the best movies from A to Z for free online. Your online source to download and watch free online movies, the latest movie trailers, hd streaming movies, find theater movie times and more at AZ Movies™.`,
+        description: `Welcome to AZ Movies™ – your go-to spot for free online movies! Watch films from A to Z, enjoy HD streaming, and catch the latest trailers. Dive into cinema with AZ Movies™!`,
         image: latest.image,
         name: `Watch ${latest.name} | AZMovies™`,
         isPartOf: {
@@ -134,7 +134,7 @@ const latestDetail = ({ latest }) => {
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
-        description: `Welcome to AZ Movies™ where you watch the best movies from A to Z for free online. Your online source to download and watch free online movies, the latest movie trailers, hd streaming movies, find theater movie times and more at AZ Movies™.`,
+        description: `Welcome to AZ Movies™ – your go-to spot for free online movies! Watch films from A to Z, enjoy HD streaming, and catch the latest trailers. Dive into cinema with AZ Movies™!`,
         image: latest.image,
         name: `Watch ${latest.name} | AZMovies™`,
         '@id': `/${latest['latest.watch']}#richSnippet`,
@@ -214,7 +214,7 @@ const latestDetail = ({ latest }) => {
 
         <meta
           property='og:description'
-          content='Welcome to AZ Movies™ where you watch the best movies from A to Z for free online. Your online source to download and watch free online movies, the latest movie trailers, hd streaming movies, find theater movie times and more at AZ Movies™.'
+          content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch films from A to Z, enjoy HD streaming, and catch the latest trailers. Dive into cinema with AZ Movies™!'
         />
         <meta property='og:url' content={`${latest && latest.url}`} />
         <meta name='keywords' content={`${latest && latest.keywords}`} />
@@ -236,6 +236,10 @@ const latestDetail = ({ latest }) => {
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:label1' content='Est. reading time' />
         <meta name='twitter:data1' content='1 minute' />
+        <meta
+          property='description'
+          content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch films from A to Z, enjoy HD streaming, and catch the latest trailers. Dive into cinema with AZ Movies™!'
+        />
         <meta
           name='google-site-verification'
           content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'

@@ -56,7 +56,7 @@ class MyDocument extends Document {
           />
           <meta
             property='og:description'
-            content='Welcome to AZ Movies™ where you watch the best movies from A to Z for free online. Your online source to download and watch free online movies, the latest movie trailers, hd streaming movies, find theater movie times and more at AZ Movies™.'
+            content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch films from A to Z, enjoy HD streaming, and catch the latest trailers. Dive into cinema with AZ Movies™!'
           />
           <meta
             property='og:url'

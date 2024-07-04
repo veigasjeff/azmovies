@@ -1,19 +1,18 @@
-import { useEffect, useState, useRef } from 'react'
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
 import latestData from '../../public/latest.json'
-import moviesData from '../../public/movies.json'
-// import Marquee from '../../components/Marquee'
-
-import Pagination from '../../components/Pagination'
+import moviesp1Data from '../../public/moviesp1.json'
+import Marquee from '../../components/Marquee'
 import Head from 'next/head'
 import Script from 'next/script'
+import Pagination from '../../components/Pagination';
 
 const uwatchfreeSchema = JSON.stringify([
   {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'AZMovies™ - Explore. Discover. Watch.',
+    name: 'AZ Movies™ - Explore. Discover. Watch.',
     url: 'https://azmovies.vercel.app/',
     image: ['https://azmovies.vercel.app/favicon.ico'],
     logo: {
@@ -42,9 +41,9 @@ const uwatchfreeSchema = JSON.stringify([
 const softwareSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Article',
-  '@id': 'https://azmovies.vercel.app/movies/',
-  headline: 'AZMovies™ - Explore. Discover. Watch.',
-  url: 'https://azmovies.vercel.app/movies/',
+  '@id': 'https://azmovies.vercel.app/movies-page1/',
+  headline: 'Download movies | AZ Movies™',
+  url: 'https://azmovies.vercel.app/movies-page1/',
   description:
     'Welcome to AZ Movies™ where you watch the best movies from A to Z for free online. Your online source to download and watch free online movies, the latest movie trailers, hd streaming movies, find theater movie times and more at AZ Movies™.',
   image: 'https://azmovies.vercel.app/wp-content/uploads/movies.webp',
@@ -55,7 +54,7 @@ const softwareSchema = JSON.stringify({
   },
   publisher: {
     '@type': 'Organization',
-    name: 'AZMovies™ - Explore. Discover. Watch.',
+    name: 'AZ Movies™ - Explore. Discover. Watch.',
     logo: {
       '@type': 'ImageObject',
       url: 'https://azmovies.vercel.app/og_image.jpg'
@@ -65,12 +64,12 @@ const softwareSchema = JSON.stringify({
   dateModified: '2024-06-02',
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://azmovies.vercel.app/movies/'
+    '@id': 'https://azmovies.vercel.app/movies-page1/'
   },
   additionalProperty: {
     '@type': 'PropertyValue',
     name: 'Action Platform',
-    value: ['Desktop Web Platform', 'iOS Platform', 'Android Platform']
+    'value': ['Desktop Web Platform', 'iOS Platform', 'Android Platform']
   }
 })
 
@@ -81,36 +80,34 @@ const breadcrumbSchema = JSON.stringify({
     {
       '@type': 'ListItem',
       position: 1,
-      name: 'AZMovies™.',
+      name: 'Windows',
       item: 'https://azmovies.vercel.app/'
     },
     {
       '@type': 'ListItem',
       position: 2,
-      name: 'Movies.',
+      name: 'Movies',
       item: 'https://azmovies.vercel.app/movies/'
+    },
+     {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Movies Page 1',
+      item: 'https://azmovies.vercel.app/movies-page1/'
     }
   ]
 })
-
-const moviesPage = ({ items }) => {
+const moviesp1 = ({ items }) => {
   const [latest, setLatest] = useState(latestData)
+  const [currentPage, setCurrentPage] = useState(1)
+  const totalPages = 0 // Assume there are 3 pages
 
-  // const [currentPage, setCurrentPage] = useState(1)
-  // const totalPages = 0 // Assume there are 3 pages
-
-  // useEffect(() => {
-  //   // Logic to fetch browsers for the current page
-  // }, [currentPage])
 
   return (
     <div className='w-full' style={{ backgroundColor: '#D3D3D3' }}>
       <Head>
-        <title> AZMovies™ - Movies Section.</title>
-        <link
-          rel='canonical'
-          href='https://azmovies.vercel.app/movies/'
-        />
+        <title> Download Movies | AZ Movies™</title>
+        <link rel='canonical' href='https://azmovies.vercel.app/movies-page1/' />
         <meta
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
@@ -119,32 +116,29 @@ const moviesPage = ({ items }) => {
         <meta name='googlebot' content='index,follow' />
         <meta name='revisit-after' content='1 days' />
         <meta property='og:locale' content='en_US' />
-        <meta property='og:type' content='video.movie' />
-        <meta
-          property='og:title'
-          content='  AZMovies™ - Explore. Discover. Watch.'
-        />
+        <meta property="og:type" content="video.movie" />
+        <meta property='og:title' content=' Download Movies | AZ Movies™' />
         <meta
           property='og:description'
-          content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch films from A to Z, enjoy HD streaming, and catch the latest trailers. Dive into cinema with AZ Movies™!'
+          content='Welcome to AZ Movies™ where you watch the best movies from A to Z for free online. Your online source to download and watch free online movies, the latest movie trailers, hd streaming movies, find theater movie times and more at AZ Movies™.'
         />
 
         <meta
           property='og:url'
-          content='https://azmovies.vercel.app/movies'
+          content='https://azmovies.vercel.app/movies-page1'
         />
 
-        <meta property='og:site_name' content='AZMovies™' />
+        <meta
+          name='keywords'
+          content='download, software, freeware, shareware, trial versions, program, utilities, security, network, multimedia, movies, movies, movies, graphic design, file sharing, movies, movies, movies, browser'
+        />
+        <meta property='og:site_name' content='AZ Movies™' />
         <meta property='og:type' content='article' />
         <meta
           property=' og:image:alt'
-          content='https://azmovies.vercel.app/wp-content/uploads/og_image.jpg'
+          content='https://azmovies.vercel.app/wp-content/uploads/movies.webp'
         />
-           <meta
-          property='description'
-          content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch films from A to Z, enjoy HD streaming, and catch the latest trailers. Dive into cinema with AZ Movies™!'
-        />
-        <meta name='mobile-web-app-capable' content='yes' />
+        <meta name='movies-web-app-capable' content='yes' />
         <meta property='article:section' content='Movies' />
         <meta name='author' content='admin' />
         <meta
@@ -153,11 +147,11 @@ const moviesPage = ({ items }) => {
         />
         <meta
           name='keywords'
-          content='azmovies, a to z movies, a-z movies, az movies, watch free movies, watch movies online, download movies, watch full movies, watch hd movies'
+          content='download, software, freeware, shareware, trial versions, program, utilities'
         />
         <meta
           property='og:image'
-          content='https://azmovies.vercel.app/wp-content/uploads/og_image.jpg'
+          content='https://azmovies.vercel.app/wp-content/uploads/movies.webp'
         />
         <meta property='og:image:width' content='1280px' />
         <meta property='og:image:height' content='720px' />
@@ -177,6 +171,28 @@ const moviesPage = ({ items }) => {
           name='dailymotion-domain-verification'
           content='dmv6sg06w9r5eji88'
         />
+
+        {/* <script src='https://www.youtube.com/iframe_api' /> */}
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: uwatchfreeSchema }}
+        />
+
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: softwareSchema }}
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: breadcrumbSchema }}
+        />
+        <link
+          rel='stylesheet'
+          href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'
+          integrity='sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=='
+          crossorigin='anonymous'
+          referrerpolicy='no-referrer'
+        />
         {/* Webpushr tracking code */}
         <script
           dangerouslySetInnerHTML={{
@@ -190,27 +206,15 @@ const moviesPage = ({ items }) => {
               fjs.parentNode.appendChild(js);
             }(window, document, 'script', 'webpushr-jssdk'));
 
-            webpushr('setup', { 'key': 'BF62CgftpZNZBnjQU2fKfnSn0BN4EXiaFhhNG2zzUpl6MudrZ7iOy_J-JxZrV1qLgwbP1Woa6w4HJLaYzzFVneQ' });
+            webpushr('setup', { 'key': ''BF62CgftpZNZBnjQU2fKfnSn0BN4EXiaFhhNG2zzUpl6MudrZ7iOy_J-JxZrV1qLgwbP1Woa6w4HJLaYzzFVneQ'' });
           `
           }}
         />
-   
       </Head>
       <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
-      <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: uwatchfreeSchema }}
-        />
 
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: softwareSchema }}
-        />
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: breadcrumbSchema }}
-        />
+      {/* <div className='container'> */}
       <h1
         className='badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6  shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
         style={{
@@ -224,9 +228,24 @@ const moviesPage = ({ items }) => {
           marginBottom: '15px'
         }}
       >
-        Latest Movies Section.
+        AZ Movies™ Movies Section.
       </h1>
-
+      <Marquee />
+      {/* <p
+        className='px-0 text-black font-bold bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl hover:text-blue-800 mt-2'
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: '10px',
+          fontSize: '35px',
+          fontFamily: 'Poppins, sans-serif',
+          fontWeight: 'bold',
+          textAlign: 'center',
+          marginBottom: '15px'
+        }}
+      >
+        Select Categories.{' '}
+      </p> */}
       <div
         className='shadow-lg flex items-center justify-center'
         role='navigation'
@@ -235,97 +254,174 @@ const moviesPage = ({ items }) => {
           id='menu-header-menu'
           className='menu flex flex-wrap justify-center'
         >
-          <button className='border border-black p-2 m-1 hover:bg-orange-100'>
-            <li id='menu-item-35' className='menu-home active'>
-              <a
-                href='/'
-                className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
-              >
-                Home<span className='p'></span>
-              </a>
-            </li>
-          </button>
-          {/* <button className='border border-black p-2 m-1 hover:bg-orange-100'>
-            <li id='menu-item-194' className='menu-tutorials'>
-              <a
-                href='../trailer/'
-                className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
-              >
-                Trailers<span className='p'></span>
-              </a>
-            </li>
-          </button> */}
-          {/* <button className='border border-black p-2 m-1 hover:bg-orange-100'>
-              <li id='menu-item-194' className='menu-tutorials'>
+           <button className='border border-black p-2 m-1 hover:bg-orange-100'>
+              <li id='menu-item-35' className='menu-home active'>
                 <a
-                  href='../reviews/'
+                  href='/'
                   className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
                 >
-                   Reviews<span className='p'></span>
+                  Home<span className='p'></span>
                 </a>
               </li>
             </button>
-           
+
+            <button className='border border-black p-2 m-1 hover:bg-orange-100'>
+              <li id='menu-item-284913' className='menu-softwarecategories'>
+                <a href='../browsers/'>
+                  <h3 className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'>
+                    Browser<span className='p'></span>
+                  </h3>
+                </a>
+              </li>
+            </button>
+            <button className='border border-black p-2 m-1 hover:bg-orange-100'>
+              <li id='menu-item-248' className='menu-operating-systems'>
+                <a
+                  href='../desktop/'
+                  className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
+                >
+                  Desktop<span className='p'></span>
+                </a>
+              </li>
+            </button>
+            <button className='border border-black p-2 m-1 hover:bg-orange-100'>
+              <li id='menu-item-11605' className='menu-3dcad'>
+                <a
+                  href='../multimedia/'
+                  className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
+                >
+                  Multimedia<span className='p'></span>
+                </a>
+              </li>
+            </button>
+            <button className='border border-black p-2 m-1 hover:bg-orange-100'>
+              <li id='menu-item-11610' className='menu-graphicdesign'>
+                <a
+                  href='../graphic-design/'
+                  className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
+                >
+                  Graphic Design<span className='p'></span>
+                </a>
+              </li>
+            </button>
+            <button className='border border-black p-2 m-1 hover:bg-orange-100'>
+              <li id='menu-item-196' className='menu-multimedia'>
+                <a
+                  href='../network/'
+                  className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
+                >
+                  Network<span className='p'></span>
+                </a>
+              </li>
+            </button>
+            <button className='border border-black p-2 m-1 hover:bg-orange-100'>
+              <li id='menu-item-161' className='menu-development'>
+                <a
+                  href='../development/'
+                  className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
+                >
+                  Development<span className='p'></span>
+                </a>
+              </li>
+            </button>
+            <button className='border border-black p-2 m-1 hover:bg-orange-100'>
+              <li id='menu-item-84' className='menu-antivirus'>
+                <a
+                  href='../file-sharing/'
+                  className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
+                >
+                  File Sharing<span className='p'></span>
+                </a>
+              </li>
+            </button>
+            <button className='border border-black p-2 m-1 hover:bg-orange-100'>
+              <li id='menu-item-84' className='menu-antivirus'>
+                <a
+                  href='../security/'
+                  className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
+                >
+                  Security<span className='p'></span>
+                </a>
+              </li>
+            </button>
             <button className='border border-black p-2 m-1 hover:bg-orange-100'>
               <li id='menu-item-11606' className='menu-security'>
                 <a
-                  href='../recaps/'
+                  href='../games/'
                   className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
                 >
-                   Recaps<span className='p'></span>
+                  Games<span className='p'></span>
                 </a>
               </li>
-            </button>  */}
-          <button className='border border-black p-2 m-1 hover:bg-orange-100'>
-            <li id='menu-item-194' className='menu-tutorials'>
-              <a
-                href='../movies/'
-                className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
-              >
-                Movies <span className='p'></span>
-              </a>
-            </li>
-          </button>
-          <button className='border border-black p-2 m-1 hover:bg-orange-100'>
-            <li id='menu-item-194' className='menu-tutorials'>
-              <a
-                href='../latest/'
-                className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
-              >
-                Latest News<span className='p'></span>
-              </a>
-            </li>
-          </button>
+            </button>
+            <button className='border border-black p-2 m-1 hover:bg-orange-100'>
+              <li id='menu-item-35' className='menu-home active'>
+                <a
+                  href='../education'
+                  className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
+                >
+                  Education<span className='p'></span>
+                </a>
+              </li>
+            </button>
+            <button className='border border-black p-2 m-1 hover:bg-orange-100'>
+              <li id='menu-item-35' className='menu-home active'>
+                <a
+                  href='../mobile'
+                  className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
+                >
+                  Mobile<span className='p'></span>
+                </a>
+              </li>
+            </button>
+            <button className='border border-black p-2 m-1 hover:bg-orange-100'>
+              <li id='menu-item-11606' className='menu-security'>
+                <a
+                  href='../utilities/'
+                  className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
+                >
+                  Utilities<span className='p'></span>
+                </a>
+              </li>
+            </button>
+            <button className='border border-black p-2 m-1 hover:bg-orange-100'>
+              <li id='menu-item-194' className='menu-tutorials'>
+                <a
+                  href='../movies/'
+                  className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
+                >
+                  Movies<span className='p'></span>
+                </a>
+              </li>
+            </button>
+            <button className='border border-black p-2 m-1 hover:bg-orange-100'>
+              <li id='menu-item-194' className='menu-tutorials'>
+                <a
+                  href='../latest/'
+                  className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
+                >
+                  Blog Post<span className='p'></span>
+                </a>
+              </li>
+            </button>
         </ul>
       </div>
-
-      <a
-          href='https://t.me/watchmovietvshow/'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent font-bold text-3xl mt-2 flex items-center justify-center'
-          style={{ marginTop: '15px' }}
-        >
-          <span className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-3xl hover:text-blue-800 font-bold mt-2'>
-            For Request or Demand Movies Join Telegram
-            <i className='fab fa-telegram text-blue-600 hover:text-gray-600 ml-2 w-12 h-12 animate-pulse '></i>
-          </span>
-        </a>
-
-
+      {/* </div> */}
+    
       <div className='container'>
-        {/* <h1  className='px-0 font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent'>movies Section</h1> */}
+        {/* <h1  className='px-0 font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent'>moviesp1 Section</h1> */}
         <div className='flex-container'>
           <div className='main-content'>
             <div className='card-container'>
-              {moviesData.map(item => (
+              {moviesp1Data.map(item => (
                 <div key={item.id}>
                   {/* <div key={item.id} className='card'> */}
-                  <Link href={`/movies/${item.id}`}>
+                  <Link href={`/movies-page1/${item.id}`}>
                     <div className='relative'>
                       <Image
                         src={item.image}
                         alt={item.title}
+                        loading='lazy'
                         className='rounded-lg'
                         width={140} // Specify the desired width
                         height={140} // Specify the desired height
@@ -333,7 +429,6 @@ const moviesPage = ({ items }) => {
                         style={{
                           width: '200px', // Ensures the image is displayed at this width
                           height: '300px', // Ensures the image is displayed at this height
-
                           filter:
                             'contrast(1.3) saturate(1.4) brightness(1.2) hue-rotate(10deg)'
                         }}
@@ -342,11 +437,10 @@ const moviesPage = ({ items }) => {
                         {item.name}
                       </p>
                       <p className='text-black text-bg font-semibold mt-2'>
-                        Genre: {item.genre}, Directed by: {item.directorname}
+                        License: {item.license}, Version: {item.version}
                       </p>
                       <p className='text-black text-bg font-semibold mt-2'>
-                        Country of origin: {item.country} Original language:{' '}
-                        {item.language}
+                        Developers: {item.developers}
                       </p>
 
                       <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-black text-lg font-semibold mt-2'>
@@ -371,9 +465,9 @@ const moviesPage = ({ items }) => {
                 Many More Coming Soon...
               </p>
             </div>
-            {/* <Pagination currentPage={currentPage} totalPages={totalPages} route="movies" /> */}
+            <Pagination currentPage={currentPage} totalPages={totalPages} route="movies" />
           </div>
-
+        
           <div className='sidebar'>
             <p
               className='text-black text-2xl font-bold mt-2'
@@ -384,7 +478,7 @@ const moviesPage = ({ items }) => {
                 textShadow: '1px 2px 2px #000'
               }}
             >
-              LATEST MOVIE NEWS.
+              LATEST SOFTWARE NEWS
             </p>
             <div className='categorylatest-container'>
               <div className='cardlatest-container'>
@@ -526,15 +620,9 @@ const moviesPage = ({ items }) => {
               margin-top: 20px;
             }
           }
-         @media (max-width: 768px) {
-      .text-3xl {
-        font-size: 1.5rem;
-      }
-      .ml-2 {
-        margin-left: 0.5rem;
-      }
-    }
         `}</style>
+
+
       </div>
     </div>
   )
@@ -542,7 +630,7 @@ const moviesPage = ({ items }) => {
 
 export async function getStaticProps () {
   try {
-    const res = await fetch('https://azmovies.vercel.app/movies.json')
+    const res = await fetch('https://azmovies.vercel.app/moviesp1.json')
     const data = await res.json()
 
     return {
@@ -560,4 +648,4 @@ export async function getStaticProps () {
   }
 }
 
-export default moviesPage
+export default moviesp1
