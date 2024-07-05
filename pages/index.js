@@ -386,7 +386,7 @@ const HomePage = () => {
             marginBottom: '15px'
           }}
         >
-          Welcome to AZMovies™
+          Welcome to AtoZ Movies™
         </h1>
         <p
           className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl  hover:text-blue-800 font-bold mt-2'
@@ -634,6 +634,43 @@ const HomePage = () => {
                 >
                   Many More Coming Soon...
                 </p> */}
+                 {moviesp1.map(moviesp1Item => (
+                  <div key={moviesp1Item.id} className='card'>
+                    <a href={`/movies-page1/${moviesp1Item.id}`}>
+                      <p
+                       className='text-black text-xl bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
+                    
+                        style={{ marginBottom: '20px' }}
+                      >
+                        {moviesp1Item.name}
+                      </p>
+                      <div className='relative'>
+                        <Image
+                          src={moviesp1Item.image}
+                          alt={moviesp1Item.title}
+                          className='rounded-lg '
+                          width={140} // Specify the desired width
+                          height={140} // Specify the desired height
+                          quality={90}
+                          priority
+                          style={{
+                            width: '200px', // Ensures the image is displayed at this width
+                            height: '300px', // Ensures the image is displayed at this height
+                            filter:
+                              'contrast(1.3) saturate(1.4) brightness(1.2) hue-rotate(10deg)'
+                          }}
+                        />
+
+                        <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-black text-lg font-semibold mt-2'>
+                          {moviesp1Item.text}
+                        </div>
+                        <div className='badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'>
+                          {moviesp1Item.badge}
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                ))}
                 {movies.map(moviesItem => (
                   <div key={moviesItem.id} className='card'>
                     <a href={`/movies/${moviesItem.id}`}>
@@ -671,43 +708,7 @@ const HomePage = () => {
                     </a>
                   </div>
                 ))}
-                  {moviesp1.map(moviesp1Item => (
-                  <div key={moviesp1Item.id} className='card'>
-                    <a href={`/movies-page1/${moviesp1Item.id}`}>
-                      <p
-                       className='text-black text-xl bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
-                    
-                        style={{ marginBottom: '20px' }}
-                      >
-                        {moviesp1Item.name}
-                      </p>
-                      <div className='relative'>
-                        <Image
-                          src={moviesp1Item.image}
-                          alt={moviesp1Item.title}
-                          className='rounded-lg '
-                          width={140} // Specify the desired width
-                          height={140} // Specify the desired height
-                          quality={90}
-                          priority
-                          style={{
-                            width: '200px', // Ensures the image is displayed at this width
-                            height: '300px', // Ensures the image is displayed at this height
-                            filter:
-                              'contrast(1.3) saturate(1.4) brightness(1.2) hue-rotate(10deg)'
-                          }}
-                        />
-
-                        <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-black text-lg font-semibold mt-2'>
-                          {moviesp1Item.text}
-                        </div>
-                        <div className='badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'>
-                          {moviesp1Item.badge}
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                ))}
+                 
                 <a
                   href='../movies/'
                   className='animate-pulse text-black hover:px-0 font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl'
