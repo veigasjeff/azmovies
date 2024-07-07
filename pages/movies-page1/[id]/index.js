@@ -18,6 +18,21 @@ const moviesp1Detail = ({ moviesp1Item }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = 1 // Assume there are 3 pages
 
+  let ogType;
+
+  switch (moviesp1Item.type) {
+    case 'movie':
+      ogType = 'video.movie';
+      break;
+    case 'episode':
+      ogType = 'video.episode';
+      break;
+    case 'tv_show':
+      ogType = 'video.tv_show';
+      break;
+    default:
+      ogType = 'video.other';
+  }
 
   useEffect(() => {
     // Logic to fetch browsers for the current page
@@ -29,56 +44,60 @@ const moviesp1Detail = ({ moviesp1Item }) => {
   const [seconds, setSeconds] = useState(30) // Example timer duration
   const [isMobileDevice, setIsMobileDevice] = useState(false)
 
-  const { badgegroup } = moviesp1Item; // Extract badgegroup from moviesp1Item
-  const isAdult = badgegroup === ' Adult'; // Check if badgegroup is " Adult"
+  const { badgegroup } = moviesp1Item // Extract badgegroup from moviesp1Item
+  const isAdult = badgegroup === ' Adult' // Check if badgegroup is " Adult"
 
-  const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
-  const videoPlayerRef = useRef(null);
+  const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0)
+  const videoPlayerRef = useRef(null)
 
-  const isTvShow = moviesp1Item.videotvitem && moviesp1Item.videotvitem.length > 0;
+  const isTvShow =
+    moviesp1Item.videotvitem && moviesp1Item.videotvitem.length > 0
 
   const handleNext = () => {
     if (isTvShow && currentEpisodeIndex < moviesp1Item.videotvitem.length - 1) {
-      setCurrentEpisodeIndex(currentEpisodeIndex + 1);
+      setCurrentEpisodeIndex(currentEpisodeIndex + 1)
     } else if (isTvShow) {
-      setCurrentEpisodeIndex(0); // Loop back to the first episode
+      setCurrentEpisodeIndex(0) // Loop back to the first episode
     }
-  };
+  }
 
   const handlePrevious = () => {
     if (isTvShow && currentEpisodeIndex > 0) {
-      setCurrentEpisodeIndex(currentEpisodeIndex - 1);
+      setCurrentEpisodeIndex(currentEpisodeIndex - 1)
     }
-  };
+  }
 
-  const parseVideoItem = (item) => {
-    if (!item) return { id: '', thumbnail: '' };
-    const [id, params] = item.split('?');
-    const thumbnail = new URLSearchParams(params).get('thumbnail');
-    return { id, thumbnail };
-  };
+  const parseVideoItem = item => {
+    if (!item) return { id: '', thumbnail: '' }
+    const [id, params] = item.split('?')
+    const thumbnail = new URLSearchParams(params).get('thumbnail')
+    return { id, thumbnail }
+  }
 
-  const currentVideoItem = isTvShow && moviesp1Item.videotvitem[currentEpisodeIndex]
-    ? parseVideoItem(moviesp1Item.videotvitem[currentEpisodeIndex])
-    : { id: '', thumbnail: '' };
+  const currentVideoItem =
+    isTvShow && moviesp1Item.videotvitem[currentEpisodeIndex]
+      ? parseVideoItem(moviesp1Item.videotvitem[currentEpisodeIndex])
+      : { id: '', thumbnail: '' }
 
-  const movieVideoItem = moviesp1Item.videomoviesp1Item && moviesp1Item.videomoviesp1Item.length > 0
-    ? parseVideoItem(moviesp1Item.videomoviesp1Item[0])
-    : { id: '', thumbnail: '' };
+  const movieVideoItem =
+    moviesp1Item.videomoviesp1Item && moviesp1Item.videomoviesp1Item.length > 0
+      ? parseVideoItem(moviesp1Item.videomoviesp1Item[0])
+      : { id: '', thumbnail: '' }
 
-  const additionalMovieVideoItem = moviesp1Item.videomoviesitem && moviesp1Item.videomoviesitem.length > 0
-    ? parseVideoItem(moviesp1Item.videomoviesitem[0])
-    : { id: '', thumbnail: '' };
+  const additionalMovieVideoItem =
+    moviesp1Item.videomoviesitem && moviesp1Item.videomoviesitem.length > 0
+      ? parseVideoItem(moviesp1Item.videomoviesitem[0])
+      : { id: '', thumbnail: '' }
 
   const src = isTvShow
     ? `https://short.ink/${currentVideoItem.id}/?thumbnail=${currentVideoItem.thumbnail}`
     : movieVideoItem.id
-      ? `https://short.ink/${movieVideoItem.id}/?thumbnail=${movieVideoItem.thumbnail}`
-      : `https://short.ink/${additionalMovieVideoItem.id}/?thumbnail=${additionalMovieVideoItem.thumbnail}`;
+    ? `https://short.ink/${movieVideoItem.id}/?thumbnail=${movieVideoItem.thumbnail}`
+    : `https://short.ink/${additionalMovieVideoItem.id}/?thumbnail=${additionalMovieVideoItem.thumbnail}`
 
   const currentThumbnail = isTvShow
     ? currentVideoItem.thumbnail
-    : movieVideoItem.thumbnail || additionalMovieVideoItem.thumbnail;
+    : movieVideoItem.thumbnail || additionalMovieVideoItem.thumbnail
 
   useEffect(() => {
     const detectMobileDevice = () => {
@@ -375,6 +394,9 @@ const moviesp1Detail = ({ moviesp1Item }) => {
         <meta name='googlebot' content='index,follow' />
         <meta name='revisit-after' content='1 days' />
         <meta property='og:locale' content='en_US' />
+        <meta property='og:type' content='video.movie' />
+        <meta property='og:type' content='video.episode' />
+        <meta property='og:type' content='video.tv_show' />
         <meta property='og:type' content='video.other' />
         <meta
           property='og:title'
@@ -385,7 +407,10 @@ const moviesp1Detail = ({ moviesp1Item }) => {
           content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch films from A to Z, enjoy HD streaming, and catch the latest trailers. Dive into cinema with AZ Movies™!'
         />
 
-        <meta property='og:url' content={`${moviesp1Item && moviesp1Item.url}`} />
+        <meta
+          property='og:url'
+          content={`${moviesp1Item && moviesp1Item.url}`}
+        />
         <meta
           name='keywords'
           content={`${moviesp1Item && moviesp1Item.keywords}`}
@@ -407,7 +432,14 @@ const moviesp1Detail = ({ moviesp1Item }) => {
           property='og:image'
           content={`${moviesp1Item && moviesp1Item.backimage}`}
         />
-
+        <meta
+          property='og:video:url'
+          content={`${moviesp1Item && moviesp1Item.siteurl}`}
+        />
+        <meta
+          property='og:video:secure_url'
+          content={`${moviesp1Item && moviesp1Item.videourl}`}
+        />
         <meta property='og:image:width' content='1280px' />
         <meta property='og:image:height' content='720px' />
         <meta property='og:image:type' content='image/webp' />
@@ -569,6 +601,11 @@ const moviesp1Detail = ({ moviesp1Item }) => {
             <i className='fab fa-telegram text-blue-600 hover:text-gray-600 ml-2 w-12 h-12 animate-pulse '></i>
           </span>
         </a>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          route='movies'
+        />
         <div className='flex-container'>
           <div className='category-container'>
             <Image
@@ -761,125 +798,133 @@ const moviesp1Detail = ({ moviesp1Item }) => {
               <Rating />
 
               <p
-                className='text-4xl font-bold mb-4'
+                // className='text-4xl font-bold mb-4'
+                className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-4xl hover:text-blue-800 font-bold mt-2'
                 style={{
-                  fontFamily: 'Poppins, sans-serif',
-                  color: '#000',
-                  textShadow: '2px 1px 1px #000000'
+                  fontFamily: 'Poppins, sans-serif'
+                  // color: '#000',
+                  // textShadow: '2px 1px 1px #000000'
                 }}
               >
                 Watch Online Movies & Tv Series.
               </p>
               <div
-      style={{
-        width: '100%',
-        height: '500px',
-        overflow: 'hidden',
-        position: 'relative'
-      }}
-      className='rounded-xl mr-8 flex flex-col border-1 border-blue-600 bg-black p-2'
-    >
-      {isTvShow && (
-        <button
-          onClick={handleNext}
-          disabled={currentEpisodeIndex === moviesp1Item.videotvitem.length - 1}
-          style={{
-            marginBottom: '10px',
-            padding: '8px 16px',
-            backgroundColor: '#51AFF7',
-            color: 'white',
-            border: 'none',
-            cursor: 'pointer',
-            borderRadius: '20px',
-            fontWeight: 'bold',
-            alignSelf: 'center'
-          }}
-        >
-          Next - Episode{' '}
-          {currentEpisodeIndex === moviesp1Item.videotvitem.length - 1
-            ? 1
-            : currentEpisodeIndex + 2}
-        </button>
-      )}
+                style={{
+                  width: '100%',
+                  height: '500px',
+                  overflow: 'hidden',
+                  position: 'relative'
+                }}
+                className='rounded-xl mr-8 flex flex-col border-1 border-blue-600 bg-black p-2'
+              >
+                {isTvShow && (
+                  <button
+                    onClick={handleNext}
+                    disabled={
+                      currentEpisodeIndex ===
+                      moviesp1Item.videotvitem.length - 1
+                    }
+                    style={{
+                      marginBottom: '10px',
+                      padding: '8px 16px',
+                      backgroundColor: '#51AFF7',
+                      color: 'white',
+                      border: 'none',
+                      cursor: 'pointer',
+                      borderRadius: '20px',
+                      fontWeight: 'bold',
+                      alignSelf: 'center'
+                    }}
+                  >
+                    Next - Episode{' '}
+                    {currentEpisodeIndex === moviesp1Item.videotvitem.length - 1
+                      ? 1
+                      : currentEpisodeIndex + 2}
+                  </button>
+                )}
 
-      {moviesp1Item.dailyitem ? (
-        <iframe
-          frameBorder='0'
-          src={`https://geo.dailymotion.com/player/xkdl0.html?video=${moviesp1Item.dailyitem}&mute=true&Autoquality=1080p`}
-          width='100%'
-          height='450px'
-          allowFullScreen
-          scrolling='0'
-          title='Video Player'
-          style={{
-            filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
-          }}
-        ></iframe>
-      ) : (
-        <iframe
-          frameBorder='0'
-          src={src}
-          width='100%'
-          height='450px'
-          allowFullScreen
-          scrolling='0'
-          title='Video Player'
-          style={{
-            filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
-          }}
-        ></iframe>
-      )}
+                {moviesp1Item.dailyitem ? (
+                  <iframe
+                    frameBorder='0'
+                    src={`https://geo.dailymotion.com/player/xkdl0.html?video=${moviesp1Item.dailyitem}&mute=true&Autoquality=1080p`}
+                    width='100%'
+                    height='450px'
+                    allowFullScreen
+                    scrolling='0'
+                    title='Video Player'
+                    style={{
+                      filter:
+                        'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
+                    }}
+                  ></iframe>
+                ) : (
+                  <iframe
+                    frameBorder='0'
+                    src={src}
+                    width='100%'
+                    height='450px'
+                    allowFullScreen
+                    scrolling='0'
+                    title='Video Player'
+                    style={{
+                      filter:
+                        'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
+                    }}
+                  ></iframe>
+                )}
 
-      <p className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-sm'>
-        *Note: Use Setting in Player to improve the Quality of video to HD Quality 1080p.
-      </p>
+                <p className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-sm'>
+                  *Note: Use Setting in Player to improve the Quality of video
+                  to HD Quality 1080p.
+                </p>
 
-      {isTvShow && (
-        <button
-          onClick={handlePrevious}
-          disabled={currentEpisodeIndex === 0}
-          style={{
-            marginTop: '10px',
-            padding: '8px 16px',
-            backgroundColor: '#32CD32',
-            color: 'white',
-            border: 'none',
-            cursor: 'pointer',
-            borderRadius: '20px',
-            fontWeight: 'bold',
-            alignSelf: 'center'
-          }}
-        >
-          Prev - Episode{' '}
-          {currentEpisodeIndex === 0
-            ? moviesp1Item.videotvitem.length
-            : currentEpisodeIndex}
-        </button>
-      )}
+                {isTvShow && (
+                  <button
+                    onClick={handlePrevious}
+                    disabled={currentEpisodeIndex === 0}
+                    style={{
+                      marginTop: '10px',
+                      padding: '8px 16px',
+                      backgroundColor: '#32CD32',
+                      color: 'white',
+                      border: 'none',
+                      cursor: 'pointer',
+                      borderRadius: '20px',
+                      fontWeight: 'bold',
+                      alignSelf: 'center'
+                    }}
+                  >
+                    Prev - Episode{' '}
+                    {currentEpisodeIndex === 0
+                      ? moviesp1Item.videotvitem.length
+                      : currentEpisodeIndex}
+                  </button>
+                )}
 
-      <img
-        src={
-          isTvShow
-            ? currentVideoItem.thumbnail
-            : movieVideoItem.thumbnail || additionalMovieVideoItem.thumbnail
-        }
-        alt='Video Thumbnail'
-        style={{
-          position: 'absolute',
-          top: '2px',
-          left: '10px',
-          width: '100px',
-          height: '56px',
-          borderRadius: '10px'
-        }}
-      />
-    </div>
+                <img
+                  src={
+                    isTvShow
+                      ? currentVideoItem.thumbnail
+                      : movieVideoItem.thumbnail ||
+                        additionalMovieVideoItem.thumbnail
+                  }
+                  alt='Video Thumbnail'
+                  style={{
+                    position: 'absolute',
+                    top: '2px',
+                    left: '10px',
+                    width: '100px',
+                    height: '56px',
+                    borderRadius: '10px'
+                  }}
+                />
+              </div>
               <div className='flex flex-col items-center justify-center'></div>
               {moviesp1Item.mp3player && (
                 <MP3Player mp3Url={moviesp1Item.mp3player} />
               )}
 
-              <Pagination
+              {/* <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}
                 route='movies'
@@ -891,8 +936,8 @@ const moviesp1Detail = ({ moviesp1Item }) => {
                   filter:
                     'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
                 }}
-              />
-     <div
+              /> */}
+              <div
                 className='flex flex-col items-center justify-center'
                 style={{
                   marginTop: '50px',
@@ -941,7 +986,7 @@ const moviesp1Detail = ({ moviesp1Item }) => {
                         overflow: 'hidden',
                         marginBottom: '20px'
                       }}
-                     className='rounded-xl flex border-1 border-blue-600 bg-gray-600 p-2  items-center justify-center'
+                      className='rounded-xl flex border-1 border-blue-600 bg-gray-600 p-2  items-center justify-center'
                     >
                       <div
                         itemscope
@@ -1215,7 +1260,19 @@ const moviesp1Detail = ({ moviesp1Item }) => {
                   />
                 )}
               </div>
-
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                route='movies'
+                style={{
+                  marginTop: '50px',
+                  marginBottom: '50px',
+                  borderRadius: '50px',
+                  boxShadow: '0 0 10px 0 #fff',
+                  filter:
+                    'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
+                }}
+              />
               {/* </div>
   </div> */}
             </div>

@@ -313,7 +313,7 @@ const moviesPage = ({ items }) => {
           </span>
         </a>
 
-
+        <Pagination currentPage={currentPage} totalPages={totalPages} route="movies" />
       <div className='container'>
         {/* <h1  className='px-0 font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent'>movies Section</h1> */}
         <div className='flex-container'>

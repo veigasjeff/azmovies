@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import moviesData from '../../../public/movies.json'
+import moviesp2Data from '../../../public/moviesp2.json'
 import latestData from '../../../public/latest.json'
 import { useEffect, useState, useRef } from 'react'
 import AdultSkipAds from '../../../components/AdultSkipAds'
@@ -12,28 +12,13 @@ import Link from 'next/link'
 import HomeStyles from '@styles/styles.module.css'
 import Script from 'next/script'
 
-const moviesDetail = ({ moviesItem }) => {
+const moviesp2Detail = ({ moviesp2Item }) => {
   const router = useRouter()
   const { id } = router.query
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = 1 // Assume there are 3 pages
 
-  let ogType;
 
-  switch (moviesItem.type) {
-    case 'movie':
-      ogType = 'video.movie';
-      break;
-    case 'episode':
-      ogType = 'video.episode';
-      break;
-    case 'tv_show':
-      ogType = 'video.tv_show';
-      break;
-    default:
-      ogType = 'video.other';
-  }
-  
   useEffect(() => {
     // Logic to fetch browsers for the current page
   }, [currentPage])
@@ -41,52 +26,58 @@ const moviesDetail = ({ moviesItem }) => {
   const [latest, setLatest] = useState(latestData)
   const [playerReady, setPlayerReady] = useState(false)
   const [showTimer, setShowTimer] = useState(false)
-  const [seconds, setSeconds] = useState(30) // Example timer duration
   const [isMobileDevice, setIsMobileDevice] = useState(false)
 
-  const { badgegroup } = moviesItem // Extract badgegroup from moviesItem
+  const { badgegroup } = moviesp2Item; // Extract badgegroup from moviesp2Item
+  const isAdult = badgegroup === ' Adult'; // Check if badgegroup is " Adult"
 
-  const isAdult = badgegroup === ' Adult' // Check if badgegroup is " Adult"
+  const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
+  const videoPlayerRef = useRef(null);
 
-  const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0)
+  const isTvShow = moviesp2Item.videotvitem && moviesp2Item.videotvitem.length > 0;
 
-  const videoPlayerRef = useRef(null)
-
-  const isTvShow = moviesItem.videotvitem && moviesItem.videotvitem.length > 0
   const handleNext = () => {
-    if (isTvShow && currentEpisodeIndex < moviesItem.videotvitem.length - 1) {
-      setCurrentEpisodeIndex(currentEpisodeIndex + 1)
+    if (isTvShow && currentEpisodeIndex < moviesp2Item.videotvitem.length - 1) {
+      setCurrentEpisodeIndex(currentEpisodeIndex + 1);
     } else if (isTvShow) {
-      setCurrentEpisodeIndex(0) // Loop back to the first episode
+      setCurrentEpisodeIndex(0); // Loop back to the first episode
     }
-  }
+  };
 
   const handlePrevious = () => {
     if (isTvShow && currentEpisodeIndex > 0) {
-      setCurrentEpisodeIndex(currentEpisodeIndex - 1)
+      setCurrentEpisodeIndex(currentEpisodeIndex - 1);
     }
-  }
+  };
 
-  const parseVideoItem = item => {
-    if (!item) return { id: '', thumbnail: '' }
-    const [id, params] = item.split('?')
-    const thumbnail = new URLSearchParams(params).get('thumbnail')
-    return { id, thumbnail }
-  }
+  const parseVideoItem = (item) => {
+    if (!item) return { id: '', thumbnail: '' };
+    const [id, params] = item.split('?');
+    const thumbnail = new URLSearchParams(params).get('thumbnail');
+    return { id, thumbnail };
+  };
 
-  const currentVideoItem =
-    isTvShow && moviesItem.videotvitem[currentEpisodeIndex]
-      ? parseVideoItem(moviesItem.videotvitem[currentEpisodeIndex])
-      : { id: '', thumbnail: '' }
+  const currentVideoItem = isTvShow && moviesp2Item.videotvitem[currentEpisodeIndex]
+    ? parseVideoItem(moviesp2Item.videotvitem[currentEpisodeIndex])
+    : { id: '', thumbnail: '' };
 
-  const movieVideoItem =
-    moviesItem.videomoviesitem && moviesItem.videomoviesitem.length > 0
-      ? parseVideoItem(moviesItem.videomoviesitem[0])
-      : { id: '', thumbnail: '' }
+  const movieVideoItem = moviesp2Item.videomoviesp2Item && moviesp2Item.videomoviesp2Item.length > 0
+    ? parseVideoItem(moviesp2Item.videomoviesp2Item[0])
+    : { id: '', thumbnail: '' };
+
+  const additionalMovieVideoItem = moviesp2Item.videomoviesitem && moviesp2Item.videomoviesitem.length > 0
+    ? parseVideoItem(moviesp2Item.videomoviesitem[0])
+    : { id: '', thumbnail: '' };
 
   const src = isTvShow
     ? `https://short.ink/${currentVideoItem.id}/?thumbnail=${currentVideoItem.thumbnail}`
-    : `https://short.ink/${movieVideoItem.id}/?thumbnail=${movieVideoItem.thumbnail}`
+    : movieVideoItem.id
+      ? `https://short.ink/${movieVideoItem.id}/?thumbnail=${movieVideoItem.thumbnail}`
+      : `https://short.ink/${additionalMovieVideoItem.id}/?thumbnail=${additionalMovieVideoItem.thumbnail}`;
+
+  const currentThumbnail = isTvShow
+    ? currentVideoItem.thumbnail
+    : movieVideoItem.thumbnail || additionalMovieVideoItem.thumbnail;
 
   useEffect(() => {
     const detectMobileDevice = () => {
@@ -102,14 +93,6 @@ const moviesDetail = ({ moviesItem }) => {
 
     detectMobileDevice()
   }, [])
-
-  useEffect(() => {
-    let timer
-    if (showTimer && seconds > 0) {
-      timer = setTimeout(() => setSeconds(seconds - 1), 1000)
-    }
-    return () => clearTimeout(timer)
-  }, [showTimer, seconds])
 
   const uwatchfreeSchema = JSON.stringify([
     {
@@ -157,13 +140,13 @@ const moviesDetail = ({ moviesItem }) => {
         '@type': 'ListItem',
         position: 2,
         name: 'movies',
-        item: moviesItem.baseurl
+        item: moviesp2Item.baseurl
       },
       {
         '@type': 'ListItem',
         position: 3,
-        name: moviesItem.name,
-        item: moviesItem.siteurl
+        name: moviesp2Item.name,
+        item: moviesp2Item.siteurl
       }
     ]
   })
@@ -188,11 +171,11 @@ const moviesDetail = ({ moviesItem }) => {
       },
       {
         '@type': 'WebPage',
-        '@id': `${moviesItem.siteurl}#webpage`,
-        url: moviesItem.siteurl,
-        name: `Watch ${moviesItem.name} | AZMovies™.`,
-        datePublished: moviesItem.datePublished,
-        dateModified: moviesItem.dateModified,
+        '@id': `${moviesp2Item.siteurl}#webpage`,
+        url: moviesp2Item.siteurl,
+        name: `Watch ${moviesp2Item.name} | AZMovies™.`,
+        datePublished: moviesp2Item.datePublished,
+        dateModified: moviesp2Item.dateModified,
         isPartOf: {
           '@id': 'https://azmovies.vercel.app/#website'
         },
@@ -214,34 +197,34 @@ const moviesDetail = ({ moviesItem }) => {
       },
       {
         '@type': 'Article',
-        '@id': `${moviesItem.siteurl}#article`,
-        headline: `Watch ${moviesItem.name} | AZMovies™.`,
-        datePublished: moviesItem.datePublished,
-        dateModified: moviesItem.dateModified,
+        '@id': `${moviesp2Item.siteurl}#article`,
+        headline: `Watch ${moviesp2Item.name} | AZMovies™.`,
+        datePublished: moviesp2Item.datePublished,
+        dateModified: moviesp2Item.dateModified,
         articleSection: 'Movies',
         author: {
-          '@id': 'https://azmovies.vercel.app/author/moviesItem/'
+          '@id': 'https://azmovies.vercel.app/author/moviesp2Item/'
         },
         publisher: {
           '@id': 'https://gravatar.com/drmovies2022/#person'
         },
-        description: moviesItem.synopsis,
-        image: moviesItem.image,
-        name: `Watch ${moviesItem.name} | AZMovies™.`,
+        description: moviesp2Item.synopsis,
+        image: moviesp2Item.image,
+        name: `Watch ${moviesp2Item.name} | AZMovies™.`,
         isPartOf: {
-          '@id': `${moviesItem.siteurl}#webpage`
+          '@id': `${moviesp2Item.siteurl}#webpage`
         },
         inLanguage: 'en-US',
         mainEntityOfPage: {
-          '@id': `${moviesItem.siteurl}#webpage`
+          '@id': `${moviesp2Item.siteurl}#webpage`
         }
       },
       {
         '@type': 'BlogPosting',
-        '@id': `${moviesItem.siteurl}#blogPost`,
-        headline: `Watch ${moviesItem.name} | AZMovies™.`,
-        datePublished: moviesItem.datePublished,
-        dateModified: moviesItem.dateModified,
+        '@id': `${moviesp2Item.siteurl}#blogPost`,
+        headline: `Watch ${moviesp2Item.name} | AZMovies™.`,
+        datePublished: moviesp2Item.datePublished,
+        dateModified: moviesp2Item.dateModified,
         articleSection: 'Movies',
         author: {
           '@id': 'https://azmovies.vercel.app/author/moviesmagazine./'
@@ -249,16 +232,16 @@ const moviesDetail = ({ moviesItem }) => {
         publisher: {
           '@id': 'https://gravatar.com/drmovies2022/#person'
         },
-        description: moviesItem.synopsis,
-        image: moviesItem.image,
-        name: `Watch ${moviesItem.name} | AZMovies™.`,
-        '@id': `${moviesItem.siteurl}#richSnippet`,
+        description: moviesp2Item.synopsis,
+        image: moviesp2Item.image,
+        name: `Watch ${moviesp2Item.name} | AZMovies™.`,
+        '@id': `${moviesp2Item.siteurl}#richSnippet`,
         isPartOf: {
-          '@id': `${moviesItem.siteurl}#webpage`
+          '@id': `${moviesp2Item.siteurl}#webpage`
         },
         inLanguage: 'en-US',
         mainEntityOfPage: {
-          '@id': `${moviesItem.siteurl}#webpage`
+          '@id': `${moviesp2Item.siteurl}#webpage`
         }
       }
     ]
@@ -267,23 +250,23 @@ const moviesDetail = ({ moviesItem }) => {
   const newsArticleSchema = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
-    '@id': `${moviesItem.siteurl}#webpage`, // Add a comma here
-    name: moviesItem.title,
-    url: moviesItem.siteurl,
-    description: moviesItem.synopsis,
-    image: moviesItem.image,
-    datePublished: moviesItem.startDate,
+    '@id': `${moviesp2Item.siteurl}#webpage`, // Add a comma here
+    name: moviesp2Item.title,
+    url: moviesp2Item.siteurl,
+    description: moviesp2Item.synopsis,
+    image: moviesp2Item.image,
+    datePublished: moviesp2Item.startDate,
     potentialAction: {
       '@type': 'WatchAction',
       target: {
         '@type': 'EntryPoint',
-        name: moviesItem.title,
-        urlTemplate: moviesItem.siteurl
+        name: moviesp2Item.title,
+        urlTemplate: moviesp2Item.siteurl
       }
     },
     locationCreated: {
       '@type': 'Place',
-      name: moviesItem.country
+      name: moviesp2Item.country
     },
     author: {
       '@type': 'Person',
@@ -311,18 +294,18 @@ const moviesDetail = ({ moviesItem }) => {
   const ldJsonData = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Movie',
-    '@id': `${moviesItem.siteurl}`,
-    name: moviesItem.title,
-    url: moviesItem.siteurl,
-    description: moviesItem.synopsis,
-    image: moviesItem.image,
-    genre: moviesItem.genre,
-    datePublished: moviesItem.datePublished,
+    '@id': `${moviesp2Item.siteurl}`,
+    name: moviesp2Item.title,
+    url: moviesp2Item.siteurl,
+    description: moviesp2Item.synopsis,
+    image: moviesp2Item.image,
+    genre: moviesp2Item.genre,
+    datePublished: moviesp2Item.datePublished,
     director: {
       '@type': 'Person',
-      name: moviesItem.director
+      name: moviesp2Item.director
     },
-    actor: moviesItem.starring.map(actor => ({
+    actor: moviesp2Item.starring.map(actor => ({
       '@type': 'Person',
       name: actor
     })),
@@ -330,13 +313,13 @@ const moviesDetail = ({ moviesItem }) => {
       '@type': 'WatchAction',
       target: {
         '@type': 'EntryPoint',
-        name: moviesItem.title,
-        urlTemplate: moviesItem.siteurl
+        name: moviesp2Item.title,
+        urlTemplate: moviesp2Item.siteurl
       }
     },
     locationCreated: {
       '@type': 'Place',
-      name: moviesItem.country
+      name: moviesp2Item.country
     },
 
     author: {
@@ -362,12 +345,12 @@ const moviesDetail = ({ moviesItem }) => {
   const moviesSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
-    name: moviesItem.title,
-    description: moviesItem.text,
-    uploadDate: moviesItem.datePublished,
-    thumbnailUrl: moviesItem.backimage,
+    name: moviesp2Item.title,
+    description: moviesp2Item.text,
+    uploadDate: moviesp2Item.datePublished,
+    thumbnailUrl: moviesp2Item.backimage,
     duration: 'P34S', // Replace with the actual duration if it's different
-    embedUrl: moviesItem.videourl
+    embedUrl: moviesp2Item.videourl
   })
 
   return (
@@ -377,35 +360,32 @@ const moviesDetail = ({ moviesItem }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title> {moviesItem && moviesItem.name}</title>
-        <link rel='canonical' href={moviesItem && moviesItem.siteurl} />
+        <title> {moviesp2Item && moviesp2Item.name}</title>
+        <link rel='canonical' href={moviesp2Item && moviesp2Item.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />
         <meta name='revisit-after' content='1 days' />
         <meta property='og:locale' content='en_US' />
-        <meta property='og:type' content='video.movie' />
-        <meta property='og:type' content='video.episode' />
-        <meta property='og:type' content='video.tv_show' />
         <meta property='og:type' content='video.other' />
         <meta
           property='og:title'
-          content={`${moviesItem && moviesItem.name} - AZMovies™.`}
+          content={`${moviesp2Item && moviesp2Item.name} - AZMovies™.`}
         />
         <meta
           property='og:description'
           content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch films from A to Z, enjoy HD streaming, and catch the latest trailers. Dive into cinema with AZ Movies™!'
         />
 
-        <meta property='og:url' content={`${moviesItem && moviesItem.url}`} />
+        <meta property='og:url' content={`${moviesp2Item && moviesp2Item.url}`} />
         <meta
           name='keywords'
-          content={`${moviesItem && moviesItem.keywords}`}
+          content={`${moviesp2Item && moviesp2Item.keywords}`}
         />
         <meta property='og:site_name' content='AZMovies™' />
         <meta property='og:type' content='article' />
         <meta
           property=' og:image:alt'
-          content={`${moviesItem && moviesItem.group}`}
+          content={`${moviesp2Item && moviesp2Item.group}`}
         />
         <meta name='mobile-web-app-capable' content='yes' />
         <meta property='article:section' content='Movies' />
@@ -416,17 +396,9 @@ const moviesDetail = ({ moviesItem }) => {
         />
         <meta
           property='og:image'
-          content={`${moviesItem && moviesItem.backimage}`}
+          content={`${moviesp2Item && moviesp2Item.backimage}`}
         />
-       
-        <meta
-          property='og:video:url'
-          content={`${moviesItem && moviesItem.siteurl}`}
-        />
-        <meta
-          property='og:video:secure_url'
-          content={`${moviesItem && moviesItem.videourl}`}
-        />
+
         <meta property='og:image:width' content='1280px' />
         <meta property='og:image:height' content='720px' />
         <meta property='og:image:type' content='image/webp' />
@@ -452,7 +424,7 @@ const moviesDetail = ({ moviesItem }) => {
       </Head>
       <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
-      {isAdult && <AdultSkipAds movie={moviesItem} />}
+      {isAdult && <AdultSkipAds movie={moviesp2Item} />}
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: ldJsonData }}
@@ -518,7 +490,7 @@ const moviesDetail = ({ moviesItem }) => {
             marginBottom: '12px'
           }}
         >
-          {moviesItem.name}
+          {moviesp2Item.name}
         </h1>
       </div>
       <div
@@ -588,16 +560,11 @@ const moviesDetail = ({ moviesItem }) => {
             <i className='fab fa-telegram text-blue-600 hover:text-gray-600 ml-2 w-12 h-12 animate-pulse '></i>
           </span>
         </a>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          route='movies'
-        />
         <div className='flex-container'>
           <div className='category-container'>
             <Image
-              src={moviesItem.channelposter}
-              alt={moviesItem.title}
+              src={moviesp2Item.channelposter}
+              alt={moviesp2Item.title}
               width={300}
               height={300}
               quality={90}
@@ -628,7 +595,7 @@ const moviesDetail = ({ moviesItem }) => {
                     marginBottom: '12px'
                   }}
                 >
-                  {moviesItem.title}
+                  {moviesp2Item.title}
                 </h2>
               </div>
 
@@ -640,7 +607,7 @@ const moviesDetail = ({ moviesItem }) => {
                   textShadow: '2px 1px 1px #000000'
                 }}
               >
-                Genre: {moviesItem.genre}
+                Genre: {moviesp2Item.genre}
               </p>
               <p
                 className='text-black text-2xl font-semibold mt-2'
@@ -650,7 +617,7 @@ const moviesDetail = ({ moviesItem }) => {
                   textShadow: '2px 1px 1px #000000'
                 }}
               >
-                Director: {moviesItem.directorname}
+                Director: {moviesp2Item.directorname}
               </p>
               <p
                 className='text-black text-2xl font-semibold mt-2'
@@ -660,7 +627,7 @@ const moviesDetail = ({ moviesItem }) => {
                   textShadow: '2px 1px 1px #000000'
                 }}
               >
-                Starring: {moviesItem.starring}
+                Starring: {moviesp2Item.starring}
               </p>
               <p
                 className='text-black text-2xl font-semibold mt-2'
@@ -670,7 +637,7 @@ const moviesDetail = ({ moviesItem }) => {
                   textShadow: '2px 1px 1px #000000'
                 }}
               >
-                Origin Country: {moviesItem.country}
+                Origin Country: {moviesp2Item.country}
               </p>
               <p
                 className='text-black text-2xl font-semibold mt-2'
@@ -680,15 +647,15 @@ const moviesDetail = ({ moviesItem }) => {
                   textShadow: '2px 1px 1px #000000'
                 }}
               >
-                Language: {moviesItem.language}
+                Language: {moviesp2Item.language}
               </p>
 
               <div className={`${HomeStyles.imageGrid} mt-5`}>
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload `}
-                  src={moviesItem.directorimg}
-                  alt={moviesItem.directorname}
-                  title={moviesItem.directorname}
+                  src={moviesp2Item.directorimg}
+                  alt={moviesp2Item.directorname}
+                  title={moviesp2Item.directorname}
                   style={{
                     width: '200px',
                     height: '200px',
@@ -702,9 +669,9 @@ const moviesDetail = ({ moviesItem }) => {
                 />
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload`}
-                  src={moviesItem.actor1img}
-                  alt={moviesItem.actor1}
-                  title={moviesItem.actor1}
+                  src={moviesp2Item.actor1img}
+                  alt={moviesp2Item.actor1}
+                  title={moviesp2Item.actor1}
                   style={{
                     width: '200px',
                     height: '200px',
@@ -718,9 +685,9 @@ const moviesDetail = ({ moviesItem }) => {
                 />
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload`}
-                  src={moviesItem.actor2img}
-                  alt={moviesItem.actor2}
-                  title={moviesItem.actor2}
+                  src={moviesp2Item.actor2img}
+                  alt={moviesp2Item.actor2}
+                  title={moviesp2Item.actor2}
                   style={{
                     width: '200px',
                     height: '200px',
@@ -734,9 +701,9 @@ const moviesDetail = ({ moviesItem }) => {
                 />
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload`}
-                  src={moviesItem.actor3img}
-                  alt={moviesItem.actor3}
-                  title={moviesItem.actor3}
+                  src={moviesp2Item.actor3img}
+                  alt={moviesp2Item.actor3}
+                  title={moviesp2Item.actor3}
                   style={{
                     width: '200px',
                     height: '200px',
@@ -750,9 +717,9 @@ const moviesDetail = ({ moviesItem }) => {
                 />
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload`}
-                  src={moviesItem.actor4img}
-                  alt={moviesItem.actor4}
-                  title={moviesItem.actor4}
+                  src={moviesp2Item.actor4img}
+                  alt={moviesp2Item.actor4}
+                  title={moviesp2Item.actor4}
                   style={{
                     width: '200px',
                     height: '200px',
@@ -766,9 +733,9 @@ const moviesDetail = ({ moviesItem }) => {
                 />
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload`}
-                  src={moviesItem.actor5img}
-                  alt={moviesItem.actor5}
-                  title={moviesItem.actor5}
+                  src={moviesp2Item.actor5img}
+                  alt={moviesp2Item.actor5}
+                  title={moviesp2Item.actor5}
                   style={{
                     width: '200px',
                     height: '200px',
@@ -785,116 +752,125 @@ const moviesDetail = ({ moviesItem }) => {
               <Rating />
 
               <p
-                // className='text-4xl font-bold mb-4'
-                className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-4xl hover:text-blue-800 font-bold mt-2'
+                className='text-4xl font-bold mb-4'
                 style={{
-                  fontFamily: 'Poppins, sans-serif'
-                  // color: '#000',
-                  // textShadow: '2px 1px 1px #000000'
+                  fontFamily: 'Poppins, sans-serif',
+                  color: '#000',
+                  textShadow: '2px 1px 1px #000000'
                 }}
               >
                 Watch Online Movies & Tv Series.
               </p>
               <div
-                style={{
-                  width: '100%',
-                  height: '500px',
-                  overflow: 'hidden',
-                  position: 'relative'
-                }}
-                className='rounded-xl mr-8 flex flex-col border-1 border-blue-600 bg-black p-2'
-              >
-                {isTvShow && (
-                  <button
-                    onClick={handleNext}
-                    disabled={
-                      currentEpisodeIndex === moviesItem.videotvitem.length - 1
-                    }
-                    style={{
-                      marginBottom: '10px',
-                      padding: '8px 16px',
-                      backgroundColor: '#51AFF7',
-                      color: 'white',
-                      border: 'none',
-                      cursor: 'pointer',
-                      borderRadius: '20px',
-                      fontWeight: 'bold',
-                      alignSelf: 'center'
-                    }}
-                  >
-                    Next - Episode{' '}
-                    {currentEpisodeIndex === moviesItem.videotvitem.length - 1
-                      ? 1
-                      : currentEpisodeIndex + 2}
-                  </button>
-                )}
+      style={{
+        width: '100%',
+        height: '500px',
+        overflow: 'hidden',
+        position: 'relative'
+      }}
+      className='rounded-xl mr-8 flex flex-col border-1 border-blue-600 bg-black p-2'
+    >
+      {isTvShow && (
+        <button
+          onClick={handleNext}
+          disabled={currentEpisodeIndex === moviesp2Item.videotvitem.length - 1}
+          style={{
+            marginBottom: '10px',
+            padding: '8px 16px',
+            backgroundColor: '#51AFF7',
+            color: 'white',
+            border: 'none',
+            cursor: 'pointer',
+            borderRadius: '20px',
+            fontWeight: 'bold',
+            alignSelf: 'center'
+          }}
+        >
+          Next - Episode{' '}
+          {currentEpisodeIndex === moviesp2Item.videotvitem.length - 1
+            ? 1
+            : currentEpisodeIndex + 2}
+        </button>
+      )}
 
-                <iframe
-                  frameBorder='0'
-                  src={src}
-                  width='100%'
-                  height='450px'
-                  allowFullScreen
-                  scrolling='0'
-                  title='Video Player'
-                  style={{
-                    filter:
-                      'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
-                  }}
-                ></iframe>
+      {moviesp2Item.dailyitem ? (
+        <iframe
+          frameBorder='0'
+          src={`https://geo.dailymotion.com/player/xkdl0.html?video=${moviesp2Item.dailyitem}&mute=true&Autoquality=1080p`}
+          width='100%'
+          height='450px'
+          allowFullScreen
+          scrolling='0'
+          title='Video Player'
+          style={{
+            filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
+          }}
+        ></iframe>
+      ) : (
+        <iframe
+          frameBorder='0'
+          src={src}
+          width='100%'
+          height='450px'
+          allowFullScreen
+          scrolling='0'
+          title='Video Player'
+          style={{
+            filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
+          }}
+        ></iframe>
+      )}
 
-                <p className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-sm'>
-                  *Note: Use Setting in Player to improve the Quality of video
-                  to HD Quality 1080p.
-                </p>
+      <p className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-sm'>
+        *Note: Use Setting in Player to improve the Quality of video to HD Quality 1080p.
+      </p>
 
-                {isTvShow && (
-                  <button
-                    onClick={handlePrevious}
-                    disabled={currentEpisodeIndex === 0}
-                    style={{
-                      marginTop: '10px',
-                      padding: '8px 16px',
-                      backgroundColor: '#32CD32',
-                      color: 'white',
-                      border: 'none',
-                      cursor: 'pointer',
-                      borderRadius: '20px',
-                      fontWeight: 'bold',
-                      alignSelf: 'center'
-                    }}
-                  >
-                    Prev - Episode{' '}
-                    {currentEpisodeIndex === 0
-                      ? moviesItem.videotvitem.length
-                      : currentEpisodeIndex}
-                  </button>
-                )}
+      {isTvShow && (
+        <button
+          onClick={handlePrevious}
+          disabled={currentEpisodeIndex === 0}
+          style={{
+            marginTop: '10px',
+            padding: '8px 16px',
+            backgroundColor: '#32CD32',
+            color: 'white',
+            border: 'none',
+            cursor: 'pointer',
+            borderRadius: '20px',
+            fontWeight: 'bold',
+            alignSelf: 'center'
+          }}
+        >
+          Prev - Episode{' '}
+          {currentEpisodeIndex === 0
+            ? moviesp2Item.videotvitem.length
+            : currentEpisodeIndex}
+        </button>
+      )}
 
-                <img
-                  src={
-                    isTvShow
-                      ? currentVideoItem.thumbnail
-                      : movieVideoItem.thumbnail
-                  }
-                  alt='Video Thumbnail'
-                  style={{
-                    position: 'absolute',
-                    top: '2px',
-                    left: '10px',
-                    width: '100px',
-                    height: '56px',
-                    borderRadius: '10px'
-                  }}
-                />
-              </div>
-
+      <img
+        src={
+          isTvShow
+            ? currentVideoItem.thumbnail
+            : movieVideoItem.thumbnail || additionalMovieVideoItem.thumbnail
+        }
+        alt='Video Thumbnail'
+        style={{
+          position: 'absolute',
+          top: '2px',
+          left: '10px',
+          width: '100px',
+          height: '56px',
+          borderRadius: '10px'
+        }}
+      />
+    </div>
               <div className='flex flex-col items-center justify-center'></div>
-              {moviesItem.mp3player && (
-                <MP3Player mp3Url={moviesItem.mp3player} />
+              {moviesp2Item.mp3player && (
+                <MP3Player mp3Url={moviesp2Item.mp3player} />
               )}
 
-              {/* <Pagination
+              <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}
                 route='movies'
@@ -906,152 +882,18 @@ const moviesDetail = ({ moviesItem }) => {
                   filter:
                     'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
                 }}
-              /> */}
-              <div
-                className='flex flex-col items-center justify-center'
-                style={{
-                  marginTop: '50px',
-                  marginBottom: '50px',
-                  filter:
-                    'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
-                }}
-              >
-                {!showTimer ? (
-                  <button
-                    onClick={() => setShowTimer(true)}
-                    className='animate-pulse bg-gradient-to-r from-amber-500 to-pink-500 text-black font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300 text-2xl'
-                  >
-                    Download Now
-                  </button>
-                ) : (
-                  <>
-                    <p className='text-3xl font-bold mb-4'>
-                      Your download link will be ready in {seconds} seconds...
-                    </p>
+              />
 
-                    <Script src='https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js'></Script>
-                    <lottie-player
-                      src='https://lottie.host/58d9c7ed-a39e-4cb6-b78a-e7cb1f9bf9cd/RHWR24wQSd.json'
-                      background='#D3D3D3'
-                      speed='1'
-                      style={{ width: '250px' }}
-                      loop
-                      autoplay
-                      direction='1'
-                      mode='normal'
-                    ></lottie-player>
-                    <p
-                      className='text-3xl font-bold mb-4 bg-gradient-to-r from-amber-500 to-pink-500 text-black py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
-                      style={{
-                        marginTop: '20px'
-                      }}
-                    >
-                      Official Trailer.
-                    </p>
-
-                    <div
-                      style={{
-                        width: '100%',
-                        height: '450px',
-                        overflow: 'hidden',
-                        marginBottom: '20px'
-                      }}
-                      className='rounded-xl flex border-1 border-blue-600 bg-gray-600 p-2  items-center justify-center'
-                    >
-                      <div
-                        itemscope
-                        itemtype='https://schema.org/VideoObject'
-                        style={{ display: 'none' }}
-                      >
-                        <meta itemprop='name' content={moviesItem.title} />
-                        <meta
-                          itemprop='description'
-                          content={moviesItem.text}
-                        />
-                        <meta
-                          itemprop='uploadDate'
-                          content={moviesItem.datePublished}
-                        />
-                        <meta
-                          itemprop='thumbnailUrl'
-                          content={moviesItem.backimage}
-                        />
-                        <meta itemprop='duration' content='P34S' />
-                        <meta
-                          itemprop='embedUrl'
-                          content={moviesItem.videourl}
-                        />
-                      </div>
-                      <iframe
-                        frameborder='0'
-                        type='text/html'
-                        src={`https://geo.dailymotion.com/player/xkdl0.html?video=${moviesItem.traileritem}&mute=true&Autoquality=1080p`}
-                        width='100%'
-                        height='100%'
-                        allowfullscreen
-                        title='Dailymotion Video Player'
-                        allow='autoplay; encrypted-media'
-                      ></iframe>
-                    </div>
-                    {showTimer && seconds <= 0 && (
-                      <div>
-                        {Object.keys(moviesItem)
-                          .filter(key => key.startsWith('downloadlink'))
-                          .map((key, index) => (
-                            <Link
-                              key={index}
-                              href={moviesItem[key]}
-                              target='_blank'
-                            >
-                              <div
-                                className='bg-gradient-to-r from-amber-500 to-pink-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
-                                style={{
-                                  margin: 'auto',
-                                  marginBottom: '50px',
-                                  borderRadius: '50px',
-                                  boxShadow: '0 0 10px 0 #fff',
-                                  filter:
-                                    'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
-                                }}
-                              >
-                                <span
-                                  style={{
-                                    color:
-                                      key === 'downloadlink1'
-                                        ? '#FF0000'
-                                        : '#0efa06',
-                                    fontSize: '24px',
-                                    textShadow: '3px 5px 5px #000'
-                                  }}
-                                >
-                                  <i
-                                    className={
-                                      key === 'downloadlink1'
-                                        ? 'fa fa-magnet'
-                                        : 'fa fa-download'
-                                    }
-                                    aria-hidden='true'
-                                  ></i>{' '}
-                                </span>
-                                Click Here to Download {index + 1}
-                              </div>
-                            </Link>
-                          ))}
-                      </div>
-                    )}
-                  </>
-                )}
-              </div>
               <div className='flex flex-col items-center justify-center'>
-                {moviesItem.head2 && (
+                {moviesp2Item.head2 && (
                   <p className='bg-gradient-to-r from-amber-500 to-pink-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300 text-bg text-black text-bg mt-2 text-3xl mb-2 items-center justify-center'>
-                    <strong>{moviesItem.head2}</strong>
+                    <strong>{moviesp2Item.head2}</strong>
                   </p>
                 )}
               </div>
               <Image
-                src={moviesItem.image1}
-                alt={moviesItem.name}
+                src={moviesp2Item.image1}
+                alt={moviesp2Item.name}
                 width={1280}
                 height={720}
                 quality={90}
@@ -1067,7 +909,7 @@ const moviesDetail = ({ moviesItem }) => {
                     'contrast(1.3) saturate(1.4) brightness(1.2) hue-rotate(10deg)'
                 }}
               />
-              {/* {moviesItem.news1.split('\n\n').map((paragraph, idx) => (
+              {/* {moviesp2Item.news1.split('\n\n').map((paragraph, idx) => (
                 <p
                   key={idx}
                   className='description text-black font-bold mt-2 text-xl'
@@ -1081,10 +923,10 @@ const moviesDetail = ({ moviesItem }) => {
               ))} */}
 
               <div className='flex flex-col items-center justify-center'>
-                {moviesItem.image2 && (
+                {moviesp2Item.image2 && (
                   <Image
-                    src={moviesItem.image2}
-                    alt={moviesItem.name}
+                    src={moviesp2Item.image2}
+                    alt={moviesp2Item.name}
                     width={1280}
                     height={720}
                     quality={90}
@@ -1102,10 +944,10 @@ const moviesDetail = ({ moviesItem }) => {
                   />
                 )}
 
-                {moviesItem.image3 && (
+                {moviesp2Item.image3 && (
                   <Image
-                    src={moviesItem.image3}
-                    alt={moviesItem.name}
+                    src={moviesp2Item.image3}
+                    alt={moviesp2Item.name}
                     width={1280}
                     height={720}
                     quality={90}
@@ -1123,10 +965,10 @@ const moviesDetail = ({ moviesItem }) => {
                   />
                 )}
 
-                {moviesItem.image4 && (
+                {moviesp2Item.image4 && (
                   <Image
-                    src={moviesItem.image4}
-                    alt={moviesItem.name}
+                    src={moviesp2Item.image4}
+                    alt={moviesp2Item.name}
                     width={1280}
                     height={720}
                     quality={90}
@@ -1144,32 +986,10 @@ const moviesDetail = ({ moviesItem }) => {
                   />
                 )}
 
-                {moviesItem.image5 && (
+                {moviesp2Item.image5 && (
                   <Image
-                    src={moviesItem.image5}
-                    alt={moviesItem.name}
-                    width={1280}
-                    height={720}
-                    quality={90}
-                    // objectFit='cover'
-                    loading='lazy'
-                    style={{
-                      width: '800px', // Ensures the image is displayed at this width
-                      height: '400px', // Ensures the image is displayed at this height
-                      margin: 'auto',
-                      marginBottom: '20px',
-                      borderRadius: '50px',
-                      boxShadow: '0 0 10px 0 #fff',
-                      filter:
-                        'contrast(1.3) saturate(1.4) brightness(1.2) hue-rotate(10deg)'
-                    }}
-                  />
-                )}
-
-                {moviesItem.image6 && (
-                  <Image
-                    src={moviesItem.image6}
-                    alt={moviesItem.name}
+                    src={moviesp2Item.image5}
+                    alt={moviesp2Item.name}
                     width={1280}
                     height={720}
                     quality={90}
@@ -1188,10 +1008,32 @@ const moviesDetail = ({ moviesItem }) => {
                   />
                 )}
 
-                {moviesItem.image7 && (
+                {moviesp2Item.image6 && (
                   <Image
-                    src={moviesItem.image7}
-                    alt={moviesItem.name}
+                    src={moviesp2Item.image6}
+                    alt={moviesp2Item.name}
+                    width={1280}
+                    height={720}
+                    quality={90}
+                    // objectFit='cover'
+                    loading='lazy'
+                    style={{
+                      width: '800px', // Ensures the image is displayed at this width
+                      height: '400px', // Ensures the image is displayed at this height
+                      margin: 'auto',
+                      marginBottom: '20px',
+                      borderRadius: '50px',
+                      boxShadow: '0 0 10px 0 #fff',
+                      filter:
+                        'contrast(1.3) saturate(1.4) brightness(1.2) hue-rotate(10deg)'
+                    }}
+                  />
+                )}
+
+                {moviesp2Item.image7 && (
+                  <Image
+                    src={moviesp2Item.image7}
+                    alt={moviesp2Item.name}
                     width={1280}
                     height={720}
                     quality={90}
@@ -1209,10 +1051,10 @@ const moviesDetail = ({ moviesItem }) => {
                   />
                 )}
 
-                {moviesItem.image8 && (
+                {moviesp2Item.image8 && (
                   <Image
-                    src={moviesItem.image8}
-                    alt={moviesItem.name}
+                    src={moviesp2Item.image8}
+                    alt={moviesp2Item.name}
                     width={1280}
                     height={720}
                     quality={90}
@@ -1230,19 +1072,7 @@ const moviesDetail = ({ moviesItem }) => {
                   />
                 )}
               </div>
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                route='movies'
-                style={{
-                  marginTop: '50px',
-                  marginBottom: '50px',
-                  borderRadius: '50px',
-                  boxShadow: '0 0 10px 0 #fff',
-                  filter:
-                    'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
-                }}
-              />
+
               {/* </div>
   </div> */}
             </div>
@@ -1415,7 +1245,7 @@ const moviesDetail = ({ moviesItem }) => {
 }
 
 export async function getStaticPaths () {
-  const paths = moviesData.map(item => ({
+  const paths = moviesp2Data.map(item => ({
     params: { id: item.id }
   }))
 
@@ -1423,7 +1253,7 @@ export async function getStaticPaths () {
 }
 
 export async function getStaticProps ({ params }) {
-  const moviesItem = moviesData.find(item => item.id === params.id)
-  return { props: { moviesItem } }
+  const moviesp2Item = moviesp2Data.find(item => item.id === params.id)
+  return { props: { moviesp2Item } }
 }
-export default moviesDetail
+export default moviesp2Detail
