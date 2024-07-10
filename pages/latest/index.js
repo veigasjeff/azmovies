@@ -358,10 +358,10 @@ const latestPage = ({ items }) => {
                         {item.name}
                       </p>
                       <p className='text-black text-bg font-semibold mt-2'>
-                        License: {item.license}, Version: {item.version}
+                        Date: {item.license}, Platform: {item.platform}
                       </p>
                       <p className='text-black text-bg font-semibold mt-2'>
-                        Developers: {item.developers}
+                      Country of origin: {item.country}
                       </p>
 
                       <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-black text-lg font-semibold mt-2'>

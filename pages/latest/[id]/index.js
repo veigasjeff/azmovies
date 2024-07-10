@@ -209,7 +209,7 @@ const latestDetail = ({ latest }) => {
           property='og:description'
           content='A to Z Movies is the top platform for exploring and downloading software,the premier platform for the latest releases and secure downloads.'
         />
-        <meta property='og:url' content={`${latest && latest.url}`} />
+        <meta property='og:url' content={`${latest && latest.siteurl}`} />
         <meta name='keywords' content={`${latest && latest.keywords}`} />
         <meta property='og:site_name' content='A to Z Movies' />
         <meta property='og:type' content='article' />
