@@ -509,7 +509,7 @@ const trailersDetail = ({ trailersItem }) => {
 
         <meta
           property='og:url'
-          content={`${trailersItem && trailersItem.url}`}
+          content={`${trailersItem && trailersItem.siteurl}`}
         />
         <meta
           name='keywords'

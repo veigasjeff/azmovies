@@ -446,7 +446,7 @@ const moviesDetail = ({ moviesItem }) => {
           content='Welcome to A to Z Movies™ – your go-to spot for free online movies! Watch and enjoy HD streaming, and catch the latest tvshows. Dive into cinema with A to Z Movies™!'
         />
 
-        <meta property='og:url' content={`${moviesItem && moviesItem.url}`} />
+        <meta property='og:url' content={`${moviesItem && moviesItem.siteurl}`} />
         <meta
           name='keywords'
           content={`${moviesItem && moviesItem.keywords}`}

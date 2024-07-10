@@ -426,7 +426,7 @@ const adultDetail = ({ adultItem }) => {
           content='Welcome to A to Z adult™ – your go-to spot for free online adult! Watch and enjoy HD streaming, and catch the latest tvshows. Dive into cinema with A to Z adult™!'
         />
 
-        <meta property='og:url' content={`${adultItem && adultItem.url}`} />
+        <meta property='og:url' content={`${adultItem && adultItem.siteurl}`} />
         <meta
           name='keywords'
           content={`${adultItem && adultItem.keywords}`}
