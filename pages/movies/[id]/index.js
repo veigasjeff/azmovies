@@ -387,6 +387,23 @@ const moviesDetail = ({ moviesItem }) => {
       '@type': 'Person',
       name: actor
     })),
+    review: {
+      '@type': 'Review',
+      reviewBody: 'This is a great movie!',
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: '5',
+        bestRating: '5'
+      },
+      author: {
+        '@type': 'Person',
+        name: 'Dr Trailer'
+      },
+      itemReviewed: {
+        '@type': 'Movie',
+        name: moviesItem.title
+      }
+    },
     potentialAction: {
       '@type': 'WatchAction',
       target: {
@@ -399,7 +416,6 @@ const moviesDetail = ({ moviesItem }) => {
       '@type': 'Place',
       name: moviesItem.country
     },
-
     author: {
       '@type': 'Person',
       name: 'DrTrailer',
@@ -418,7 +434,7 @@ const moviesDetail = ({ moviesItem }) => {
       name: 'Action Platform',
       value: ['Desktop Web Platform', 'iOS Platform', 'Android Platform']
     }
-  })
+  });
 
   const moviesSchema = JSON.stringify({
     '@context': 'https://schema.org',
