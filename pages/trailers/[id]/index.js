@@ -334,7 +334,7 @@ const trailersDetail = ({ trailersItem }) => {
         },
         aggregateRating: {
           '@type': 'AggregateRating',
-          '@id': moviesItem.siteurl,
+          '@id': trailersItem.siteurl,
           ratingValue: 8,
           ratingCount: 5,
           bestRating: '10',
@@ -367,7 +367,7 @@ const trailersDetail = ({ trailersItem }) => {
         },
         aggregateRating: {
           '@type': 'AggregateRating',
-          '@id': moviesItem.siteurl,
+          '@id': trailersItem.siteurl,
           ratingValue: 8,
           ratingCount: 5,
           bestRating: '10',
@@ -400,7 +400,7 @@ const trailersDetail = ({ trailersItem }) => {
     },
     aggregateRating: {
       '@type': 'AggregateRating',
-      '@id': moviesItem.siteurl,
+      '@id': trailersItem.siteurl,
       ratingValue: 8,
       ratingCount: 5,
       bestRating: '10',
