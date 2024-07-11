@@ -338,8 +338,13 @@ const trailersDetail = ({ trailersItem }) => {
           ratingValue: 8,
           ratingCount: 5,
           bestRating: '10',
-          worstRating: '1'
-        }
+          worstRating: '1',
+          itemReviewed: {
+            '@type': 'Movie',
+            name: trailersItem.title,
+            url: trailersItem.siteurl,
+          }
+        },
       },
       {
         '@type': 'BlogPosting',
@@ -371,9 +376,13 @@ const trailersDetail = ({ trailersItem }) => {
           ratingValue: 8,
           ratingCount: 5,
           bestRating: '10',
-          worstRating: '1'
-        }
-      }
+          worstRating: '1',
+          itemReviewed: {
+            '@type': 'Movie',
+            name: trailersItem.title,
+            url: trailersItem.siteurl,
+          }
+        },
     ]
   })
 
@@ -404,7 +413,12 @@ const trailersDetail = ({ trailersItem }) => {
       ratingValue: 8,
       ratingCount: 5,
       bestRating: '10',
-      worstRating: '1'
+      worstRating: '1',
+      itemReviewed: {
+        '@type': 'Movie',
+        name: trailersItem.title,
+        url: trailersItem.siteurl,
+      }
     },
     author: {
       '@type': 'Person',
