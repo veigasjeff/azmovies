@@ -578,7 +578,7 @@ const moviesDetail = ({ moviesItem }) => {
           style={{
             fontFamily: 'Poppins, sans-serif',
             fontWeight: 'bold',
-            marginBottom: '12px'
+            // marginBottom: '12px'
           }}
         >
           {moviesItem.title}

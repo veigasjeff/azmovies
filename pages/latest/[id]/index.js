@@ -306,7 +306,7 @@ const latestDetail = ({ latest }) => {
          style={{
            fontFamily: 'Poppins, sans-serif',
            fontWeight: 'bold',
-           marginBottom: '12px'
+          //  marginBottom: '12px'
          }}
        >
         LATEST ENTERTAINMENT NEWS

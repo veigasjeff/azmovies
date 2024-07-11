@@ -563,7 +563,7 @@ const adultDetail = ({ adultItem }) => {
           style={{
             fontFamily: 'Poppins, sans-serif',
             fontWeight: 'bold',
-            marginBottom: '12px'
+            // marginBottom: '12px'
           }}
         >
           {adultItem.title}
