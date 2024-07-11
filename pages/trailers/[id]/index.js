@@ -332,14 +332,7 @@ const trailersDetail = ({ trailersItem }) => {
         mainEntityOfPage: {
           '@id': `${trailersItem.siteurl}#webpage`
         },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          '@id': trailersItem.siteurl,
-          ratingValue: 8,
-          ratingCount: 5,
-          bestRating: '10',
-          worstRating: '1'
-        },
+     
       },
       {
         '@type': 'BlogPosting',
@@ -365,14 +358,7 @@ const trailersDetail = ({ trailersItem }) => {
         mainEntityOfPage: {
           '@id': `${trailersItem.siteurl}#webpage`
         },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          '@id': trailersItem.siteurl,
-          ratingValue: 8,
-          ratingCount: 5,
-          bestRating: '10',
-          worstRating: '1'
-        },
+     
       }
     ]
   })
@@ -398,14 +384,7 @@ const trailersDetail = ({ trailersItem }) => {
       '@type': 'Place',
       name: trailersItem.country
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      '@id': trailersItem.siteurl,
-      ratingValue: 8,
-      ratingCount: 5,
-      bestRating: '10',
-      worstRating: '1'
-    },
+  
     author: {
       '@type': 'Person',
       name: 'DrTrailer',
