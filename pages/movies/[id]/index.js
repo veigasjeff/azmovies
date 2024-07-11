@@ -404,7 +404,12 @@ const moviesDetail = ({ moviesItem }) => {
       ratingValue: 8,
       ratingCount: 5,
       bestRating: '10',
-      worstRating: '1'
+      worstRating: '1',
+      itemReviewed: {
+        '@type': 'Movie',
+        name: moviesItem.title,
+        url: moviesItem.siteurl,
+      }
     },
     author: {
       '@type': 'Person',
