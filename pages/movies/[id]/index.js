@@ -401,15 +401,11 @@ const moviesDetail = ({ moviesItem }) => {
     },
     aggregateRating: {
       '@type': 'AggregateRating',
+      '@id': moviesItem.siteurl,
       ratingValue: 8,
       ratingCount: 5,
       bestRating: '10',
-      worstRating: '1',
-      itemReviewed: {
-        '@type': 'Movie',
-        name: moviesItem.title,
-        url: moviesItem.siteurl,
-      }
+      worstRating: '1'
     },
     author: {
       '@type': 'Person',
