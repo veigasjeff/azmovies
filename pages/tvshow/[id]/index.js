@@ -441,7 +441,7 @@ const tvshowDetail = ({ tvshowItem }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title> Watch {tvshowItem && tvshowItem.name} | A to Z Tvshow™</title>
+        <title> {tvshowItem && tvshowItem.name} | A to Z Tvshow™</title>
         <link rel='canonical' href={tvshowItem && tvshowItem.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />

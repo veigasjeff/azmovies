@@ -450,7 +450,7 @@ const trailersDetail = ({ trailersItem }) => {
         />
         <title>
           {' '}
-          Watch {trailersItem && trailersItem.name} | A to Z Trailers™
+           {trailersItem && trailersItem.name} | A to Z Trailers™
         </title>
         <link rel='canonical' href={trailersItem && trailersItem.siteurl} />
         <meta name='robots' content='index, follow' />
