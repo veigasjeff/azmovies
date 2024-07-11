@@ -334,16 +334,11 @@ const trailersDetail = ({ trailersItem }) => {
         },
         aggregateRating: {
           '@type': 'AggregateRating',
-          '@id': trailersItem.siteurl,
+          '@id': moviesItem.siteurl,
           ratingValue: 8,
           ratingCount: 5,
           bestRating: '10',
-          worstRating: '1',
-          itemReviewed: {
-            '@type': 'Movie',
-            name: trailersItem.title,
-            url: trailersItem.siteurl,
-          }
+          worstRating: '1'
         },
       },
       {
@@ -372,17 +367,13 @@ const trailersDetail = ({ trailersItem }) => {
         },
         aggregateRating: {
           '@type': 'AggregateRating',
-          '@id': trailersItem.siteurl,
+          '@id': moviesItem.siteurl,
           ratingValue: 8,
           ratingCount: 5,
           bestRating: '10',
-          worstRating: '1',
-          itemReviewed: {
-            '@type': 'Movie',
-            name: trailersItem.title,
-            url: trailersItem.siteurl,
-          }
+          worstRating: '1'
         },
+      }
     ]
   })
 
@@ -409,16 +400,11 @@ const trailersDetail = ({ trailersItem }) => {
     },
     aggregateRating: {
       '@type': 'AggregateRating',
-      '@id': trailersItem.siteurl,
+      '@id': moviesItem.siteurl,
       ratingValue: 8,
       ratingCount: 5,
       bestRating: '10',
-      worstRating: '1',
-      itemReviewed: {
-        '@type': 'Movie',
-        name: trailersItem.title,
-        url: trailersItem.siteurl,
-      }
+      worstRating: '1'
     },
     author: {
       '@type': 'Person',
