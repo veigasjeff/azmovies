@@ -407,10 +407,10 @@ const moviesDetail = ({ moviesItem }) => {
     },
     publisher: {
       '@type': 'Organization',
-      name: '123 Movies Magazine™ - Explore. Discover. Watch.',
+      name: 'A to Z movies™',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://123moviesmagazine.vercel.app/og_image.jpg'
+        url: 'https://azmovies.vercel.app/og_image.jpg'
       }
     },
     additionalProperty: {
