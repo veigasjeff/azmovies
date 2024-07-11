@@ -451,7 +451,8 @@ const moviesDetail = ({ moviesItem }) => {
         <meta name='googlebot' content='index,follow' />
         <meta name='revisit-after' content='1 days' />
         <meta property='og:locale' content='en_US' />
-        <meta property='og:type' content='website' />
+        <meta property='og:type' content='video.movie' />
+        {/* <meta property='og:type' content='website' /> */}
         <meta
           property='og:title'
           content={`${moviesItem && moviesItem.name} - A to Z movies`}
@@ -467,7 +468,7 @@ const moviesDetail = ({ moviesItem }) => {
           content={`${moviesItem && moviesItem.keywords}`}
         />
         <meta property='og:site_name' content='A to Z movies' />
-        <meta property='og:type' content='article' />
+        {/* <meta property='og:type' content='article' /> */}
         <meta
           property=' og:image:alt'
           content={`${moviesItem && moviesItem.group}`}

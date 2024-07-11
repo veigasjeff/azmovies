@@ -436,7 +436,8 @@ const adultDetail = ({ adultItem }) => {
         <meta name='googlebot' content='index,follow' />
         <meta name='revisit-after' content='1 days' />
         <meta property='og:locale' content='en_US' />
-        <meta property='og:type' content='website' />
+        <meta property='og:type' content='video.movie' />
+        {/* <meta property='og:type' content='website' /> */}
         <meta
           property='og:title'
           content={`${adultItem && adultItem.name} - A to Z adult`}
@@ -451,8 +452,8 @@ const adultDetail = ({ adultItem }) => {
           name='keywords'
           content={`${adultItem && adultItem.keywords}`}
         />
-        <meta property='og:site_name' content='A to Z adult' />
-        <meta property='og:type' content='article' />
+        <meta property='og:site_name' content='A to Z movies' />
+        {/* <meta property='og:type' content='article' /> */}
         <meta
           property=' og:image:alt'
           content={`${adultItem && adultItem.group}`}

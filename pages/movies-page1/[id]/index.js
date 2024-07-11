@@ -371,7 +371,8 @@ const moviesDetail = ({ moviesp1Item }) => {
         <meta name='googlebot' content='index,follow' />
         <meta name='revisit-after' content='1 days' />
         <meta property='og:locale' content='en_US' />
-        <meta property='og:type' content='website' />
+        <meta property='og:type' content='video.movie' />
+        {/* <meta property='og:type' content='website' /> */}
         <meta
           property='og:title'
           content={`${moviesp1Item && moviesp1Item.name} - A to Z Movies`}
@@ -387,7 +388,7 @@ const moviesDetail = ({ moviesp1Item }) => {
           content={`${moviesp1Item && moviesp1Item.keywords}`}
         />
         <meta property='og:site_name' content='A to Z Movies' />
-        <meta property='og:type' content='article' />
+        {/* <meta property='og:type' content='article' /> */}
         <meta
           property=' og:image:alt'
           content={`${moviesp1Item && moviesp1Item.group}`}

@@ -114,7 +114,8 @@ const tvshowPage = ({ items }) => {
         <meta name='googlebot' content='index,follow' />
         <meta name='revisit-after' content='1 days' />
         <meta property='og:locale' content='en_US' />
-        <meta property='og:type' content='website' />
+        <meta property='og:type' content='video.movie' />
+        {/* <meta property='og:type' content='website' /> */}
         <meta property='og:title' content=' Watch Tvshow |  A to Z Tvshow™' />
         <meta
           property='og:description'
@@ -123,8 +124,8 @@ const tvshowPage = ({ items }) => {
 
         <meta property='og:url' content='https://azmovies.vercel.app/tvshow' />
 
-        <meta property='og:site_name' content='Tvshow' />
-        <meta property='og:type' content='article' />
+        <meta property='og:site_name' content='A to Z movies' />
+        {/* <meta property='og:type' content='article' /> */}
         <meta
           property=' og:image:alt'
           content='https://azmovies.vercel.app/og_image.jpg'

@@ -123,7 +123,7 @@ const trailersPage = ({ items }) => {
 
         <meta property='og:url' content='https://azmovies.vercel.app/trailers' />
 
-        <meta property='og:site_name' content='Trailers' />
+        <meta property='og:site_name' content='A to Z movies' />
         <meta property='og:type' content='article' />
         <meta
           property=' og:image:alt'

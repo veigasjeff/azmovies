@@ -199,7 +199,8 @@ const latestDetail = ({ latest }) => {
         <meta name='googlebot' content='index,follow' />
         <meta name='revisit-after' content='1 days' />
         <meta property='og:locale' content='en_US' />
-        <meta property='og:type' content='website' />
+        <meta property='og:type' content='video.movie' />
+        {/* <meta property='og:type' content='website' /> */}
         <meta
           property='og:title'
           content={`${latest && latest.name} - A to Z Movies`}
@@ -212,7 +213,7 @@ const latestDetail = ({ latest }) => {
         <meta property='og:url' content={`${latest && latest.siteurl}`} />
         <meta name='keywords' content={`${latest && latest.keywords}`} />
         <meta property='og:site_name' content='A to Z Movies' />
-        <meta property='og:type' content='article' />
+        {/* <meta property='og:type' content='article' /> */}
         <meta property=' og:image:alt' content={`${latest && latest.group}`} />
         <meta name='mobile-web-app-capable' content='yes' />
         <meta property='article:section' content='latest' />

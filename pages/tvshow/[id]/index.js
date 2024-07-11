@@ -447,7 +447,8 @@ const tvshowDetail = ({ tvshowItem }) => {
         <meta name='googlebot' content='index,follow' />
         <meta name='revisit-after' content='1 days' />
         <meta property='og:locale' content='en_US' />
-        <meta property='og:type' content='website' />
+        <meta property='og:type' content='video.movie' />
+        {/* <meta property='og:type' content='website' /> */}
         <meta
           property='og:title'
           content={`${tvshowItem && tvshowItem.name} - A to Z Tvshow`}
@@ -466,7 +467,7 @@ const tvshowDetail = ({ tvshowItem }) => {
           content={`${tvshowItem && tvshowItem.keywords}`}
         />
         <meta property='og:site_name' content='A to Z Tvshow' />
-        <meta property='og:type' content='article' />
+        {/* <meta property='og:type' content='article' /> */}
         <meta
           property=' og:image:alt'
           content={`${tvshowItem && tvshowItem.group}`}
