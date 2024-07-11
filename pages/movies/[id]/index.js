@@ -387,23 +387,6 @@ const moviesDetail = ({ moviesItem }) => {
       '@type': 'Person',
       name: actor
     })),
-    review: {
-      '@type': 'Review',
-      reviewBody: 'This is a great movie!',
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: '5',
-        bestRating: '5'
-      },
-      author: {
-        '@type': 'Person',
-        name: 'Dr Trailer'
-      },
-      itemReviewed: {
-        '@type': 'Movie',
-        name: moviesItem.title
-      }
-    },
     potentialAction: {
       '@type': 'WatchAction',
       target: {
@@ -415,6 +398,13 @@ const moviesDetail = ({ moviesItem }) => {
     locationCreated: {
       '@type': 'Place',
       name: moviesItem.country
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: 8,
+      ratingCount: 5,
+      bestRating: '10',
+      worstRating: '1'
     },
     author: {
       '@type': 'Person',
