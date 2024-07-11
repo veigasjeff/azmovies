@@ -104,7 +104,7 @@ const tvshowPage = ({ items }) => {
   return (
     <div className='w-full' style={{ backgroundColor: '#D3D3D3' }}>
       <Head>
-        <title> Watch AZ Tvshow™ | A to Z Tvshow™</title>
+        <title> Watch Tvshow | A to Z Tvshow™</title>
         <link rel='canonical' href='https://azmovies.vercel.app/tvshow/' />
         <meta
           name='robots'

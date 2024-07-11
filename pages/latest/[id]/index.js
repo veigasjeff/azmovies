@@ -193,7 +193,7 @@ const latestDetail = ({ latest }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title> Watch {latest && latest.name} | A to Z Movies</title>
+        <title> {latest && latest.name} | A to Z Entertainment News</title>
         <link rel='canonical' href={latest && latest.url} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />

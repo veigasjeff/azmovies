@@ -430,7 +430,7 @@ const adultDetail = ({ adultItem }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title> {adultItem && adultItem.name} | A to Z adult™</title>
+        <title> {adultItem && adultItem.name} | A to Z Adult™</title>
         <link rel='canonical' href={adultItem && adultItem.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />

@@ -105,7 +105,7 @@ const adultPage = ({ items }) => {
   return (
     <div className='w-full' style={{ backgroundColor: '#D3D3D3' }}>
       <Head>
-        <title> Watch AZ Adult™ - A to Z Adult™</title>
+        <title> Watch Adult Movies - A to Z Adult™</title>
         <link rel='canonical' href='https://azmovies.vercel.app/adult/' />
         <meta
           name='robots'

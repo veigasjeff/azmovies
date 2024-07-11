@@ -104,7 +104,7 @@ const latestPage = ({ items }) => {
   return (
     <div className='w-full' style={{ backgroundColor: '#D3D3D3' }}>
       <Head>
-        <title> Latest Blog | A to Z Movies™</title>
+        <title> Entertainment News | A to Z Movies™</title>
         <link rel='canonical' href='https://azmovies.vercel.app/latest/' />
         <meta
           name='robots'
