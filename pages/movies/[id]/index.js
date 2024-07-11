@@ -273,7 +273,7 @@ const moviesDetail = ({ moviesItem }) => {
           '@id': `${moviesItem.siteurl}#webpage`
         },
         aggregateRating: {
-          '@type': 'http://schema.org/AggregateRating',
+          '@type': 'AggregateRating',
           '@id': moviesItem.siteurl,
           ratingValue: 8,
           ratingCount: 5,
@@ -306,7 +306,7 @@ const moviesDetail = ({ moviesItem }) => {
           '@id': `${moviesItem.siteurl}#webpage`
         },
         aggregateRating: {
-          '@type': 'http://schema.org/AggregateRating',
+          '@type': 'AggregateRating',
           '@id': moviesItem.siteurl,
           ratingValue: 8,
           ratingCount: 5,
@@ -339,7 +339,7 @@ const moviesDetail = ({ moviesItem }) => {
       name: moviesItem.country
     },
     aggregateRating: {
-      '@type': 'http://schema.org/AggregateRating',
+      '@type': 'AggregateRating',
       '@id': moviesItem.siteurl,
       ratingValue: 8,
       ratingCount: 5,

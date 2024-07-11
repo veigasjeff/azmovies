@@ -333,7 +333,7 @@ const trailersDetail = ({ trailersItem }) => {
           '@id': `${trailersItem.siteurl}#webpage`
         },
         aggregateRating: {
-          '@type': 'http://schema.org/AggregateRating',
+          '@type': 'AggregateRating',
           '@id': trailersItem.siteurl,
           ratingValue: 8,
           ratingCount: 5,
@@ -366,7 +366,7 @@ const trailersDetail = ({ trailersItem }) => {
           '@id': `${trailersItem.siteurl}#webpage`
         },
         aggregateRating: {
-          '@type': 'http://schema.org/AggregateRating',
+          '@type': 'AggregateRating',
           '@id': trailersItem.siteurl,
           ratingValue: 8,
           ratingCount: 5,
@@ -399,7 +399,7 @@ const trailersDetail = ({ trailersItem }) => {
       name: trailersItem.country
     },
     aggregateRating: {
-      '@type': 'http://schema.org/AggregateRating',
+      '@type': 'AggregateRating',
       '@id': trailersItem.siteurl,
       ratingValue: 8,
       ratingCount: 5,

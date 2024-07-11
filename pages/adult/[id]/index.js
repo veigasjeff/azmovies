@@ -258,7 +258,7 @@ const adultDetail = ({ adultItem }) => {
           '@id': `${adultItem.siteurl}#webpage`
         },
         aggregateRating: {
-          '@type': 'http://schema.org/AggregateRating',
+          '@type': 'AggregateRating',
           '@id': adultItem.siteurl,
           ratingValue: 8,
           ratingCount: 5,
@@ -291,7 +291,7 @@ const adultDetail = ({ adultItem }) => {
           '@id': `${adultItem.siteurl}#webpage`
         },
         aggregateRating: {
-          '@type': 'http://schema.org/AggregateRating',
+          '@type': 'AggregateRating',
           '@id': adultItem.siteurl,
           ratingValue: 8,
           ratingCount: 5,
@@ -324,7 +324,7 @@ const adultDetail = ({ adultItem }) => {
       name: adultItem.country
     },
     aggregateRating: {
-      '@type': 'http://schema.org/AggregateRating',
+      '@type': 'AggregateRating',
       '@id': adultItem.siteurl,
       ratingValue: 8,
       ratingCount: 5,
@@ -385,7 +385,7 @@ const adultDetail = ({ adultItem }) => {
       name: adultItem.country
     },
     aggregateRating: {
-      '@type': 'http://schema.org/AggregateRating',
+      '@type': 'AggregateRating',
       '@id': adultItem.siteurl,
       ratingValue: 8,
       ratingCount: 5,

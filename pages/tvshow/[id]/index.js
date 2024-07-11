@@ -269,7 +269,7 @@ const tvshowDetail = ({ tvshowItem }) => {
           '@id': `${tvshowItem.siteurl}#webpage`
         },
         aggregateRating: {
-          '@type': 'http://schema.org/AggregateRating',
+          '@type': 'AggregateRating',
           '@id': tvshowItem.siteurl,
           ratingValue: 8,
           ratingCount: 5,
@@ -302,7 +302,7 @@ const tvshowDetail = ({ tvshowItem }) => {
           '@id': `${tvshowItem.siteurl}#webpage`
         },
         aggregateRating: {
-          '@type': 'http://schema.org/AggregateRating',
+          '@type': 'AggregateRating',
           '@id': tvshowItem.siteurl,
           ratingValue: 8,
           ratingCount: 5,
@@ -335,7 +335,7 @@ const tvshowDetail = ({ tvshowItem }) => {
       name: tvshowItem.country
     },
     aggregateRating: {
-      '@type': 'http://schema.org/AggregateRating',
+      '@type': 'AggregateRating',
       '@id': tvshowItem.siteurl,
       ratingValue: 8,
       ratingCount: 5,
@@ -396,7 +396,7 @@ const tvshowDetail = ({ tvshowItem }) => {
       name: tvshowItem.country
     },
     aggregateRating: {
-      '@type': 'http://schema.org/AggregateRating',
+      '@type': 'AggregateRating',
       '@id': tvshowItem.siteurl,
       ratingValue: 8,
       ratingCount: 5,
