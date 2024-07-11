@@ -559,17 +559,17 @@ const tvshowDetail = ({ tvshowItem }) => {
 
       <div
         className={`w-full`}
-        // style={{
-        //   display: 'flex',
-        //   flexDirection: 'column',
-        //   justifyContent: 'center',
-        //   alignItems: 'center',
-        //   padding: '20px',
-        //   fontFamily: 'Poppins, sans-serif',
-        //   fontWeight: 500,
-        //   textAlign: 'center',
-        //   backgroundColor: '#D3D3D3'
-        // }}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: '20px',
+          fontFamily: 'Poppins, sans-serif',
+          fontWeight: 500,
+          textAlign: 'center',
+          backgroundColor: '#D3D3D3'
+        }}
       >
         <h1
           className='text-black bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300 text-3xl'
@@ -582,21 +582,7 @@ const tvshowDetail = ({ tvshowItem }) => {
           {tvshowItem.title}
         </h1>
 
-        {/* <p
-          className='px-0 text-black font-bold bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl hover:text-blue-800 mt-2'
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: '10px',
-            fontSize: '35px',
-            fontFamily: 'Poppins, sans-serif',
-            fontWeight: 'bold',
-            textAlign: 'center',
-            marginBottom: '15px'
-          }}
-        >
-          Select Categories.{' '}
-        </p> */}
+     
       </div>
       <div
         className={`w-full`}
