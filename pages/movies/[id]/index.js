@@ -252,10 +252,10 @@ const moviesDetail = ({ moviesItem }) => {
       {
         '@type': 'Article',
         '@id': `${moviesItem.siteurl}#article`,
-        headline: `Watch ${moviesItem.name} | A to Z movies™`,
+        headline: ` ${moviesItem.name} | A to Z movies™`,
         datePublished: moviesItem.datePublished,
         dateModified: moviesItem.dateModified,
-        articleSection: 'Tv Show',
+        articleSection: 'Movies',
         author: {
           '@id': 'https://azmovies.vercel.app/author/azmovies/'
         },
@@ -264,7 +264,7 @@ const moviesDetail = ({ moviesItem }) => {
         },
         description: moviesItem.synopsis,
         image: moviesItem.image,
-        name: `Watch ${moviesItem.name} | A to Z movies™`,
+        name: ` ${moviesItem.name} | A to Z movies™`,
         isPartOf: {
           '@id': `${moviesItem.siteurl}#webpage`
         },
@@ -284,10 +284,10 @@ const moviesDetail = ({ moviesItem }) => {
       {
         '@type': 'BlogPosting',
         '@id': `${moviesItem.siteurl}#blogPost`,
-        headline: `Watch ${moviesItem.name} | A to Z movies™`,
+        headline: ` ${moviesItem.name} | A to Z movies™`,
         datePublished: moviesItem.datePublished,
         dateModified: moviesItem.dateModified,
-        articleSection: 'Tv Show',
+        articleSection: 'Movies',
         author: {
           '@id': 'https://azmovies.vercel.app/author/azmovies/'
         },
@@ -296,7 +296,7 @@ const moviesDetail = ({ moviesItem }) => {
         },
         description: moviesItem.synopsis,
         image: moviesItem.image,
-        name: `Watch ${moviesItem.name} | A to Z movies™`,
+        name: ` ${moviesItem.name} | A to Z movies™`,
         '@id': `${moviesItem.siteurl}#richSnippet`,
         isPartOf: {
           '@id': `${moviesItem.siteurl}#webpage`
@@ -399,14 +399,7 @@ const moviesDetail = ({ moviesItem }) => {
       '@type': 'Place',
       name: moviesItem.country
     },
-    aggregateRating: {
-      '@type': 'http://schema.org/AggregateRating',
-      '@id': moviesItem.siteurl,
-      ratingValue: 8,
-      ratingCount: 5,
-      bestRating: '10',
-      worstRating: '1'
-    },
+
     author: {
       '@type': 'Person',
       name: 'DrTrailer',
@@ -414,10 +407,10 @@ const moviesDetail = ({ moviesItem }) => {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'A to Z movies™',
+      name: '123 Movies Magazine™ - Explore. Discover. Watch.',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://azmovies.vercel.app/og_image.jpg'
+        url: 'https://123moviesmagazine.vercel.app/og_image.jpg'
       }
     },
     additionalProperty: {
@@ -445,7 +438,7 @@ const moviesDetail = ({ moviesItem }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title> Watch {moviesItem && moviesItem.name} | A to Z movies™</title>
+        <title>  {moviesItem && moviesItem.name} | A to Z movies™</title>
         <link rel='canonical' href={moviesItem && moviesItem.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />

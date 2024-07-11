@@ -178,7 +178,7 @@ const adultDetail = ({ adultItem }) => {
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Tv Show',
+        name: 'Adult',
         item: adultItem.baseurl
       },
       {
@@ -202,7 +202,7 @@ const adultDetail = ({ adultItem }) => {
         '@type': 'WebSite',
         '@id': 'https://azmovies.vercel.app#website',
         url: 'https://azmovies.vercel.app',
-        name: 'A to Z adult™',
+        name: 'A to Z Adult™',
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
@@ -237,10 +237,10 @@ const adultDetail = ({ adultItem }) => {
       {
         '@type': 'Article',
         '@id': `${adultItem.siteurl}#article`,
-        headline: `Watch ${adultItem.name} | A to Z adult™`,
+        headline: ` ${adultItem.name} | A to Z adult™`,
         datePublished: adultItem.datePublished,
         dateModified: adultItem.dateModified,
-        articleSection: 'Tv Show',
+        articleSection: 'Adult',
         author: {
           '@id': 'https://azmovies.vercel.app/author/azmovies/'
         },
@@ -249,7 +249,7 @@ const adultDetail = ({ adultItem }) => {
         },
         description: adultItem.synopsis,
         image: adultItem.image,
-        name: `Watch ${adultItem.name} | A to Z adult™`,
+        name: ` ${adultItem.name} | A to Z adult™`,
         isPartOf: {
           '@id': `${adultItem.siteurl}#webpage`
         },
@@ -269,10 +269,10 @@ const adultDetail = ({ adultItem }) => {
       {
         '@type': 'BlogPosting',
         '@id': `${adultItem.siteurl}#blogPost`,
-        headline: `Watch ${adultItem.name} | A to Z adult™`,
+        headline: ` ${adultItem.name} | A to Z adult™`,
         datePublished: adultItem.datePublished,
         dateModified: adultItem.dateModified,
-        articleSection: 'Tv Show',
+        articleSection: 'Adult',
         author: {
           '@id': 'https://azmovies.vercel.app/author/azmovies/'
         },
@@ -281,7 +281,7 @@ const adultDetail = ({ adultItem }) => {
         },
         description: adultItem.synopsis,
         image: adultItem.image,
-        name: `Watch ${adultItem.name} | A to Z adult™`,
+        name: ` ${adultItem.name} | A to Z adult™`,
         '@id': `${adultItem.siteurl}#richSnippet`,
         isPartOf: {
           '@id': `${adultItem.siteurl}#webpage`

@@ -253,7 +253,7 @@ const trailersDetail = ({ trailersItem }) => {
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'trailers & Tv Show',
+        name: 'Movies & Tv Show',
         item: trailersItem.baseurl
       },
       {
@@ -312,10 +312,10 @@ const trailersDetail = ({ trailersItem }) => {
       {
         '@type': 'Article',
         '@id': `${trailersItem.siteurl}#article`,
-        headline: `Watch ${trailersItem.name} | A to Z Trailers™`,
+        headline: ` ${trailersItem.name} | A to Z Trailers™`,
         datePublished: trailersItem.datePublished,
         dateModified: trailersItem.dateModified,
-        articleSection: 'trailers & Tv Show',
+        articleSection: 'Movies & Tv Show',
         author: {
           '@id': 'https://azmovies.vercel.app/author/azmovies/'
         },
@@ -324,7 +324,7 @@ const trailersDetail = ({ trailersItem }) => {
         },
         description: trailersItem.synopsis,
         image: trailersItem.image,
-        name: `Watch ${trailersItem.name} | A to Z Trailers™`,
+        name: ` ${trailersItem.name} | A to Z Trailers™`,
         isPartOf: {
           '@id': `${trailersItem.siteurl}#webpage`
         },
@@ -344,10 +344,10 @@ const trailersDetail = ({ trailersItem }) => {
       {
         '@type': 'BlogPosting',
         '@id': `${trailersItem.siteurl}#blogPost`,
-        headline: `Watch ${trailersItem.name} | A to Z Trailers™`,
+        headline: ` ${trailersItem.name} | A to Z Trailers™`,
         datePublished: trailersItem.datePublished,
         dateModified: trailersItem.dateModified,
-        articleSection: 'trailers & Tv Show',
+        articleSection: 'Movies & Tv Show',
         author: {
           '@id': 'https://azmovies.vercel.app/author/azmovies/'
         },
@@ -356,7 +356,7 @@ const trailersDetail = ({ trailersItem }) => {
         },
         description: trailersItem.synopsis,
         image: trailersItem.image,
-        name: `Watch ${trailersItem.name} | A to Z Trailers™`,
+        name: ` ${trailersItem.name} | A to Z Trailers™`,
         '@id': `${trailersItem.siteurl}#richSnippet`,
         isPartOf: {
           '@id': `${trailersItem.siteurl}#webpage`
@@ -429,64 +429,7 @@ const trailersDetail = ({ trailersItem }) => {
   // Convert newsArticleSchema and videoObjects to JSON strings
   const newsArticleJson = JSON.stringify(newsArticleSchema)
 
-  const ldJsonData = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'Movie',
-    '@id': `${trailersItem.siteurl}`,
-    name: trailersItem.title,
-    url: trailersItem.siteurl,
-    description: trailersItem.synopsis,
-    image: trailersItem.image,
-    genre: trailersItem.genre,
-    datePublished: trailersItem.datePublished,
-    director: {
-      '@type': 'Person',
-      name: trailersItem.director
-    },
-    actor: trailersItem.starring.map(actor => ({
-      '@type': 'Person',
-      name: actor
-    })),
-    potentialAction: {
-      '@type': 'WatchAction',
-      target: {
-        '@type': 'EntryPoint',
-        name: trailersItem.title,
-        urlTemplate: trailersItem.siteurl
-      }
-    },
-    locationCreated: {
-      '@type': 'Place',
-      name: trailersItem.country
-    },
-    aggregateRating: {
-      '@type': 'http://schema.org/AggregateRating',
-      '@id': trailersItem.siteurl,
-      ratingValue: 8,
-      ratingCount: 5,
-      bestRating: '10',
-      worstRating: '1'
-    },
-    author: {
-      '@type': 'Person',
-      name: 'DrTrailer',
-      url: 'https://gravatar.com/drtrailer2022'
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'A to Z Trailers™',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://azmovies.vercel.app/og_image.jpg'
-      }
-    },
-    additionalProperty: {
-      '@type': 'PropertyValue',
-      name: 'Action Platform',
-      value: ['Desktop Web Platform', 'iOS Platform', 'Android Platform']
-    }
-  })
-
+  
   const trailersSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
@@ -569,11 +512,7 @@ const trailersDetail = ({ trailersItem }) => {
           content='dmv6sg06w9r5eji88'
         />
 
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: ldJsonData }}
-        />
-
+    
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: uwatchfreeSchema }}

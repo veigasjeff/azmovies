@@ -248,7 +248,7 @@ const tvshowDetail = ({ tvshowItem }) => {
       {
         '@type': 'Article',
         '@id': `${tvshowItem.siteurl}#article`,
-        headline: `Watch ${tvshowItem.name} | A to Z Tvshow™`,
+        headline: ` ${tvshowItem.name} | A to Z Tvshow™`,
         datePublished: tvshowItem.datePublished,
         dateModified: tvshowItem.dateModified,
         articleSection: 'Tv Show',
@@ -260,7 +260,7 @@ const tvshowDetail = ({ tvshowItem }) => {
         },
         description: tvshowItem.synopsis,
         image: tvshowItem.image,
-        name: `Watch ${tvshowItem.name} | A to Z Tvshow™`,
+        name: ` ${tvshowItem.name} | A to Z Tvshow™`,
         isPartOf: {
           '@id': `${tvshowItem.siteurl}#webpage`
         },
@@ -280,7 +280,7 @@ const tvshowDetail = ({ tvshowItem }) => {
       {
         '@type': 'BlogPosting',
         '@id': `${tvshowItem.siteurl}#blogPost`,
-        headline: `Watch ${tvshowItem.name} | A to Z Tvshow™`,
+        headline: ` ${tvshowItem.name} | A to Z Tvshow™`,
         datePublished: tvshowItem.datePublished,
         dateModified: tvshowItem.dateModified,
         articleSection: 'Tv Show',
@@ -292,7 +292,7 @@ const tvshowDetail = ({ tvshowItem }) => {
         },
         description: tvshowItem.synopsis,
         image: tvshowItem.image,
-        name: `Watch ${tvshowItem.name} | A to Z Tvshow™`,
+        name: ` ${tvshowItem.name} | A to Z Tvshow™`,
         '@id': `${tvshowItem.siteurl}#richSnippet`,
         isPartOf: {
           '@id': `${tvshowItem.siteurl}#webpage`
@@ -367,7 +367,7 @@ const tvshowDetail = ({ tvshowItem }) => {
 
   const ldJsonData = JSON.stringify({
     '@context': 'https://schema.org',
-    '@type': 'Movie',
+    '@type': 'TVSeries',
     '@id': `${tvshowItem.siteurl}`,
     name: tvshowItem.title,
     url: tvshowItem.siteurl,

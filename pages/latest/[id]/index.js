@@ -93,7 +93,7 @@ const latestDetail = ({ latest }) => {
       {
         '@type': 'Article',
         '@id': `/${latest['latest.watch']}#article`,
-        headline: `Watch ${latest.name} | A to Z Movies`,
+        headline: ` ${latest.name} | A to Z Movies`,
         datePublished: '2024-01-13T13:00:00+00:00',
         dateModified: '2024-01-13T13:13:00+00:00',
         articleSection: 'latest',
@@ -105,7 +105,7 @@ const latestDetail = ({ latest }) => {
         },
         description: `Explore. Discover. Download - Free Your Desired Software.`,
         image: latest.image,
-        name: `Watch ${latest.name} | A to Z Movies`,
+        name: ` ${latest.name} | A to Z Movies`,
         isPartOf: {
           '@id': `/${latest['latest.watch']}#webpage`
         },
@@ -117,7 +117,7 @@ const latestDetail = ({ latest }) => {
       {
         '@type': 'BlogPosting',
         '@id': `/${latest['latest.watch']}#blogPost`,
-        headline: `Watch ${latest.name} | A to Z Movies`,
+        headline: ` ${latest.name} | A to Z Movies`,
         datePublished: '2024-01-13T13:00:00+00:00',
         dateModified: '2024-01-13T13:13:00+00:00',
         articleSection: 'latest',
@@ -129,7 +129,7 @@ const latestDetail = ({ latest }) => {
         },
         description: `Explore. Discover. Download - Free Your Desired Software.`,
         image: latest.image,
-        name: `Watch ${latest.name} | A to Z Movies`,
+        name: ` ${latest.name} | A to Z Movies`,
         '@id': `/${latest['latest.watch']}#richSnippet`,
         isPartOf: {
           '@id': `/${latest['latest.watch']}#webpage`
