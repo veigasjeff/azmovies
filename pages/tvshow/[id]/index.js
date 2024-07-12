@@ -367,7 +367,7 @@ const tvshowDetail = ({ tvshowItem }) => {
 
   const ldJsonData = JSON.stringify({
     '@context': 'https://schema.org',
-    '@type': 'Movie',
+    '@type': 'TVSeries',
     '@id': `${tvshowItem.siteurl}`,
     name: tvshowItem.title,
     url: tvshowItem.siteurl,
