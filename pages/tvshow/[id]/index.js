@@ -365,7 +365,7 @@ const tvshowDetail = ({ tvshowItem }) => {
   // Convert newsArticleSchema and videoObjects to JSON strings
   const newsArticleJson = JSON.stringify(newsArticleSchema)
 
-  const ldJsonData = {
+  const ldJsonData = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'TVSeries',
     '@id': `${tvshowItem.siteurl}`,
@@ -377,11 +377,11 @@ const tvshowDetail = ({ tvshowItem }) => {
     datePublished: tvshowItem.datePublished,
     director: {
       '@type': 'Person',
-      name: tvshowItem.directorname
+      name: tvshowItem.director
     },
     actor: tvshowItem.starring.map(actor => ({
       '@type': 'Person',
-      name: actor.trim()
+      name: actor
     })),
     potentialAction: {
       '@type': 'WatchAction',
@@ -397,19 +397,15 @@ const tvshowDetail = ({ tvshowItem }) => {
     },
     aggregateRating: {
       '@type': 'AggregateRating',
+      '@id': tvshowItem.siteurl,
       ratingValue: 8,
       ratingCount: 5,
       bestRating: '10',
-      worstRating: '1',
-      itemReviewed: {
-        '@type': 'TVSeries',
-        name: tvshowItem.title,
-        url: tvshowItem.siteurl,
-      }
+      worstRating: '1'
     },
     author: {
       '@type': 'Person',
-      name: tvshowItem.group,
+      name: 'DrTrailer',
       url: 'https://gravatar.com/drtrailer2022'
     },
     publisher: {
@@ -425,24 +421,20 @@ const tvshowDetail = ({ tvshowItem }) => {
       name: 'Action Platform',
       value: ['Desktop Web Platform', 'iOS Platform', 'Android Platform']
     },
-    containsSeason: [{
+    containsSeason: Array.isArray(tvshowItem.seasons) ? tvshowItem.seasons.map(season => ({
       '@type': 'TVSeason',
-      datePublished: tvshowItem.datePublished,
-      name: 'Season 1',
-      numberOfEpisodes: tvshowItem.videotvitem.length,
-      episode: tvshowItem.videotvitem.map((item, index) => {
-        const videoId = item.split('?')[0];
-        const thumbnail = new URL(item.split('=')[1]).href;
-        return {
-          '@type': 'TVEpisode',
-          episodeNumber: index + 1,
-          name: `Episode ${index + 1}`,
-          url: `${tvshowItem.movies.watch}${videoId}`,
-          image: thumbnail
-        };
-      })
-    }]
-  };
+      datePublished: season.datePublished,
+      name: season.name,
+      numberOfEpisodes: season.numberOfEpisodes,
+      episode: Array.isArray(tvshowItem.videotvitem) ? tvshowItem.videotvitem.map((videoId, index) => ({
+        '@type': 'TVEpisode',
+        episodeNumber: index + 1,
+        name: `Episode ${index + 1}`,
+        url: `${tvshowItem.tvshow.watch}${videoId}`,
+        image: `thumbnail`
+      })) : []
+    })) : []
+  });
 
 
   const tvshowSchema = JSON.stringify({
