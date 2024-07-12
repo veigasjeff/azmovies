@@ -57,7 +57,6 @@ const tvshowDetail = ({ tvshowItem }) => {
   const playerRef = useRef(null)
   const currentIndexRef = useRef(0)
 
-  
   const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0)
   const videoPlayerRef = useRef(null)
 
@@ -368,7 +367,7 @@ const tvshowDetail = ({ tvshowItem }) => {
 
   const ldJsonData = JSON.stringify({
     '@context': 'https://schema.org',
-    '@type': 'TVSeries',
+    '@type': 'Movie',
     '@id': `${tvshowItem.siteurl}`,
     name: tvshowItem.title,
     url: tvshowItem.siteurl,
@@ -378,7 +377,7 @@ const tvshowDetail = ({ tvshowItem }) => {
     datePublished: tvshowItem.datePublished,
     director: {
       '@type': 'Person',
-      name: tvshowItem.director
+      name: tvshowItem.directorname
     },
     actor: tvshowItem.starring.map(actor => ({
       '@type': 'Person',
@@ -421,22 +420,8 @@ const tvshowDetail = ({ tvshowItem }) => {
       '@type': 'PropertyValue',
       name: 'Action Platform',
       value: ['Desktop Web Platform', 'iOS Platform', 'Android Platform']
-    },
-    containsSeason: Array.isArray(tvshowItem.seasons) ? tvshowItem.seasons.map(season => ({
-      '@type': 'TVSeason',
-      datePublished: season.datePublished,
-      name: season.name,
-      numberOfEpisodes: season.numberOfEpisodes,
-      episode: Array.isArray(tvshowItem.videotvitem) ? tvshowItem.videotvitem.map((videoId, index) => ({
-        '@type': 'TVEpisode',
-        episodeNumber: index + 1,
-        name: `Episode ${index + 1}`,
-        url: `https://short.ink/${videoId}`, // Simplified URL here
-      })) : []
-    })) : []
-    
+    }
   });
-
 
   const tvshowSchema = JSON.stringify({
     '@context': 'https://schema.org',
