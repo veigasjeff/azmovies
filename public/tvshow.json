@@ -5,8 +5,13 @@
     "badge": " [ Tv Show ] ",
     "license": "Tv Show",
     "version": " Lectora_21.5.3_Build_12504.",
-    "developers": "7",
-    "seasons": "1",
+    "episode": "7",
+    "seasons": [
+      {
+        "datePublished": "2024-07-01",
+        "name": "Season 1"
+      }
+    ],
     "title": "Watch Hierarchy Season 1 (2024)",
     "name": "Watch Hierarchy Season 1 (2024) Tv Series",
     "channelposter": "https://res.cloudinary.com/db36kfuq3/image/upload/v1720726938/Hierarchy.S01_wgtudi.webp",
@@ -89,8 +94,13 @@
     "badge": " [ Tv Show ] ",
     "license": "Tv Show",
     "version": " Lectora_21.5.3_Build_12504.",
-    "developers": "6",
-    "seasons": "1",
+    "episode": "6",
+    "seasons": [
+      {
+        "datePublished": "2024-07-01",
+        "name": "Season 1"
+      }
+    ],
     "title": "Watch Passenger Season 1 (2024)",
     "name": "Watch Passenger Season 1 (2024) Tv Series",
     "channelposter": "https://res.cloudinary.com/db36kfuq3/image/upload/v1720718393/Passenger_season_1_bg0olg.webp",
@@ -172,8 +182,13 @@
     "badge": " [ Tv Show ] ",
     "license": "Tv Show",
     "version": " Lectora_21.5.3_Build_12504.",
-    "developers": "10",
-    "seasons": "3",
+    "episode": "10",
+    "seasons": [
+      {
+        "datePublished": "2024-07-01",
+        "name": "Season 3"
+      }
+    ],
     "title": "Watch Mirzapur Season 3 (2024)",
     "name": "Watch Mirzapur Season 3 (2024) Tv Series",
     "channelposter": "https://res.cloudinary.com/db36kfuq3/image/upload/v1720695122/Mirzapur_Season_3_hvntty.webp",
@@ -263,8 +278,13 @@
     "badge": " [ Tv Show ] ",
     "license": "Tv Show",
     "version": " Lectora_21.5.3_Build_12504.",
-    "developers": "8",
-    "seasons": "2",
+    "episode": "8",
+    "seasons": [
+      {
+        "datePublished": "2024-07-01",
+        "name": "Season 2"
+      }
+    ],
     "title": "Watch Halo Season 2 (2024)",
     "name": "Watch Halo Season 2 (2024) Tv Series",
     "channelposter": "https://res.cloudinary.com/db36kfuq3/image/upload/v1719644615/Halo_S2_nvexoa.webp",
@@ -351,8 +371,13 @@
     "badge": " [ Tv Show ] ",
     "license": "Tv Show",
     "version": " Lectora_21.5.3_Build_12504.",
-    "developers": "6",
-    "seasons": "1",
+    "episode": "6",
+    "seasons": [
+      {
+        "datePublished": "2024-07-01",
+        "name": "Season 1"
+      }
+    ],
     "title": "Watch Red Eye Season 1 (2024)",
     "name": " Watch Tv Series Red Eye Season 1 (2024)",
     "channelposter": "https://res.cloudinary.com/db36kfuq3/image/upload/v1719530872/Red_Eye_joyot4.webp",
@@ -433,8 +458,13 @@
     "badge": " [ Tv Show ] ",
     "license": "Tv Show",
     "version": " Lectora_21.5.3_Build_12504.",
-    "developers": "8",
-    "seasons": "2",
+    "episode": "8",
+    "seasons": [
+      {
+        "datePublished": "2024-07-01",
+        "name": "Season 2"
+      }
+    ],
     "title": "Watch Sunflower Season 2 (2024)",
     "name": " Watch Sunflower Season 2 (2024) Tv Series",
     "channelposter": "https://res.cloudinary.com/db36kfuq3/image/upload/v1719526100/Sunflower_xfso1w.webp",
@@ -519,8 +549,13 @@
     "badge": " [ Tv Show ] ",
     "license": "Tv Show",
     "version": " Lectora_21.5.3_Build_12504.",
-    "developers": "8",
-    "seasons": "3",
+    "episode": "8",
+    "seasons": [
+      {
+        "datePublished": "2024-07-01",
+        "name": "Season 3"
+      }
+    ],
     "title": "Watch Undekhi Season 3 (2024)",
     "name": "Watch Undekhi Season 3 (2024) Tv Series",
     "channelposter": "https://res.cloudinary.com/db36kfuq3/image/upload/v1719387409/undekhi_1_x6zllo.webp",
@@ -605,8 +640,13 @@
     "badge": " [ Tv Show ] ",
     "license": "Tv Show",
     "version": " Lectora_21.5.3_Build_12504.",
-    "developers": "10",
-    "seasons": "1",
+    "episode": "10",
+    "seasons": [
+      {
+        "datePublished": "2024-07-01",
+        "name": "Season 1"
+      }
+    ],
     "title": "Watch House of the Dragon Season 1 (2024)",
     "name": "Watch House of the Dragon Season 1 (2024) Tv Series",
     "channelposter": "https://res.cloudinary.com/db36kfuq3/image/upload/v1719719877/House_of_the_Dragon_n5unb3.webp",
@@ -695,8 +735,13 @@
     "badge": " [ Tv Show ] ",
     "license": "movies",
     "version": " Lectora_21.5.3_Build_12504.",
-    "developers": "8",
-    "seasons": "1",
+    "episode": "8",
+    "seasons": [
+      {
+        "datePublished": "2024-07-01",
+        "name": "Season 1"
+      }
+    ],
     "title": "Watch Heeramandi: The Diamond Bazaar Season 1 (2024)",
     "name": "Watch Heeramandi: The Diamond Bazaar Season 1 (2024) Tv Series",
     "channelposter": "https://res.cloudinary.com/db36kfuq3/image/upload/v1719819141/Heeramandi_z4glfw.webp",
@@ -781,8 +826,13 @@
     "badge": " [ Tv Show ] ",
     "license": "movies",
     "version": " Lectora_21.5.3_Build_12504.",
-    "developers": "Currently 4 ",
-    "seasons": "2",
+    "episode": "Currently 4 ",
+    "seasons": [
+      {
+        "datePublished": "2024-07-01",
+        "name": "Season 2"
+      }
+    ],
     "title": "Watch House of the Dragon Season 2 (2024) ",
     "name": "Watch House of the Dragon Season 2 (2024) Tv Series",
     "channelposter": "https://res.cloudinary.com/db36kfuq3/image/upload/v1719719877/House_of_the_Dragon_n5unb3.webp",

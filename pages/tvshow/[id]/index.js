@@ -57,6 +57,7 @@ const tvshowDetail = ({ tvshowItem }) => {
   const playerRef = useRef(null)
   const currentIndexRef = useRef(0)
 
+  
   const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0)
   const videoPlayerRef = useRef(null)
 
@@ -430,10 +431,10 @@ const tvshowDetail = ({ tvshowItem }) => {
         '@type': 'TVEpisode',
         episodeNumber: index + 1,
         name: `Episode ${index + 1}`,
-        url: `${tvshowItem.tvshow.watch}${videoId}`,
-        image: `thumbnail`
+        url: `https://short.ink/${videoId}`, // Simplified URL here
       })) : []
     })) : []
+    
   });
 
 
@@ -769,7 +770,7 @@ const tvshowDetail = ({ tvshowItem }) => {
                 Language: {tvshowItem.language}
               </p>
               <p className='text-black text-bg font-semibold mt-2'>
-                Total Episodes: {tvshowItem.developers}
+                Total Episodes: {tvshowItem.episode}
               </p>
               <div className={`${HomeStyles.imageGrid} mt-5`}>
                 <img
