@@ -381,7 +381,7 @@ const moviesDetail = ({ moviesItem }) => {
     datePublished: moviesItem.datePublished,
     director: {
       '@type': 'Person',
-      name: moviesItem.director
+      name: moviesItem.directorname
     },
     actor: moviesItem.starring.map(actor => ({
       '@type': 'Person',
