@@ -423,7 +423,7 @@ const tvshowDetail = ({ tvshowItem }) => {
     }
   });
 
-  const moviesSchema = JSON.stringify({
+  const tvshowSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
     name: tvshowItem.title,
