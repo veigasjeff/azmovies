@@ -256,10 +256,10 @@ const HomePage = () => {
             name='keywords'
             content='azmovies, a to z movies, a-z movies, az movies, watch free movies, watch movies online, download movies, watch full movies, watch hd movies'
           />
-          {/* <meta
+          <meta
             name='description'
             content='A to Z Movies™ - Explore. Discover. Download.'
-          /> */}
+          />
           <link rel='canonical' href='https://azmovies.vercel.app/' />
           <meta property='og:locale' content='en_US' />
           <meta property='og:type' content='video.movie' />
