@@ -193,7 +193,7 @@ const moviesDetail = ({ moviesItem }) => {
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Tv Show',
+        name: 'Movies',
         item: moviesItem.baseurl
       },
       {

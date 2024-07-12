@@ -150,7 +150,7 @@ const tvshowDetail = ({ tvshowItem }) => {
     {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'A to Z Tvshow™',
+      name: 'A to Z movies™',
       url: 'https://azmovies.vercel.app/',
       image: ['https://azmovies.vercel.app/favicon.ico'],
       logo: {
@@ -168,13 +168,13 @@ const tvshowDetail = ({ tvshowItem }) => {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate:
-            'https://azmovies.vercel.app/search?q={search_term_string}'
+          urlTemplate: 'https://azmovies.vercel.app/search?q={search_term_string}'
         },
         'query-input': 'required name=search_term_string'
       }
     }
   ])
+
 
   const breadcrumbSchema = JSON.stringify({
     '@context': 'https://schema.org',
@@ -183,7 +183,7 @@ const tvshowDetail = ({ tvshowItem }) => {
       {
         '@type': 'ListItem',
         position: 1,
-        name: 'A to Z Tvshow™',
+        name: 'A to Z TvShow™',
         item: 'https://azmovies.vercel.app/'
       },
       {
@@ -213,7 +213,7 @@ const tvshowDetail = ({ tvshowItem }) => {
         '@type': 'WebSite',
         '@id': 'https://azmovies.vercel.app#website',
         url: 'https://azmovies.vercel.app',
-        name: 'A to Z Tvshow™',
+        name: 'A to Z movies™',
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
@@ -223,7 +223,7 @@ const tvshowDetail = ({ tvshowItem }) => {
         '@type': 'WebPage',
         '@id': `${tvshowItem.siteurl}#webpage`,
         url: tvshowItem.siteurl,
-        name: `${tvshowItem.name} | A to Z Tvshow™`,
+        name: `${tvshowItem.name} | A to Z TvShow™`,
         datePublished: tvshowItem.datePublished,
         dateModified: tvshowItem.dateModified,
         isPartOf: {
@@ -248,10 +248,10 @@ const tvshowDetail = ({ tvshowItem }) => {
       {
         '@type': 'Article',
         '@id': `${tvshowItem.siteurl}#article`,
-        headline: ` ${tvshowItem.name} | A to Z Tvshow™`,
+        headline: ` ${tvshowItem.name} | A to Z TvShow™`,
         datePublished: tvshowItem.datePublished,
         dateModified: tvshowItem.dateModified,
-        articleSection: 'Tv Show',
+        articleSection: 'TvShow',
         author: {
           '@id': 'https://azmovies.vercel.app/author/azmovies/'
         },
@@ -260,7 +260,7 @@ const tvshowDetail = ({ tvshowItem }) => {
         },
         description: tvshowItem.synopsis,
         image: tvshowItem.image,
-        name: ` ${tvshowItem.name} | A to Z Tvshow™`,
+        name: ` ${tvshowItem.name} | A to Z TvShow™`,
         isPartOf: {
           '@id': `${tvshowItem.siteurl}#webpage`
         },
@@ -280,10 +280,10 @@ const tvshowDetail = ({ tvshowItem }) => {
       {
         '@type': 'BlogPosting',
         '@id': `${tvshowItem.siteurl}#blogPost`,
-        headline: ` ${tvshowItem.name} | A to Z Tvshow™`,
+        headline: ` ${tvshowItem.name} | A to Z TvShow™`,
         datePublished: tvshowItem.datePublished,
         dateModified: tvshowItem.dateModified,
-        articleSection: 'Tv Show',
+        articleSection: 'TvShow',
         author: {
           '@id': 'https://azmovies.vercel.app/author/azmovies/'
         },
@@ -292,7 +292,7 @@ const tvshowDetail = ({ tvshowItem }) => {
         },
         description: tvshowItem.synopsis,
         image: tvshowItem.image,
-        name: ` ${tvshowItem.name} | A to Z Tvshow™`,
+        name: ` ${tvshowItem.name} | A to Z TvShow™`,
         '@id': `${tvshowItem.siteurl}#richSnippet`,
         isPartOf: {
           '@id': `${tvshowItem.siteurl}#webpage`
@@ -349,7 +349,7 @@ const tvshowDetail = ({ tvshowItem }) => {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'A to Z Tvshow™',
+      name: 'A to Z movies™',
       logo: {
         '@type': 'ImageObject',
         url: 'https://azmovies.vercel.app/og_image.jpg'
@@ -367,7 +367,7 @@ const tvshowDetail = ({ tvshowItem }) => {
 
   const ldJsonData = JSON.stringify({
     '@context': 'https://schema.org',
-    '@type': 'TVSeries',
+    '@type': 'Movie',
     '@id': `${tvshowItem.siteurl}`,
     name: tvshowItem.title,
     url: tvshowItem.siteurl,
@@ -410,7 +410,7 @@ const tvshowDetail = ({ tvshowItem }) => {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'A to Z Tvshow™',
+      name: 'A to Z movies™',
       logo: {
         '@type': 'ImageObject',
         url: 'https://azmovies.vercel.app/og_image.jpg'
@@ -421,9 +421,9 @@ const tvshowDetail = ({ tvshowItem }) => {
       name: 'Action Platform',
       value: ['Desktop Web Platform', 'iOS Platform', 'Android Platform']
     }
-  })
+  });
 
-  const tvshowSchema = JSON.stringify({
+  const moviesSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
     name: tvshowItem.title,
@@ -433,6 +433,7 @@ const tvshowDetail = ({ tvshowItem }) => {
     duration: 'P34S', // Replace with the actual duration if it's different
     embedUrl: tvshowItem.videourl
   })
+
 
   return (
     <div>
