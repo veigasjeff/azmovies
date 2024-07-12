@@ -365,7 +365,7 @@ const tvshowDetail = ({ tvshowItem }) => {
   // Convert newsArticleSchema and videoObjects to JSON strings
   const newsArticleJson = JSON.stringify(newsArticleSchema)
 
-  const ldJsonData = JSON.stringify({
+  const ldJsonData = {
     '@context': 'https://schema.org',
     '@type': 'TVSeries',
     '@id': `${tvshowItem.siteurl}`,
@@ -377,11 +377,11 @@ const tvshowDetail = ({ tvshowItem }) => {
     datePublished: tvshowItem.datePublished,
     director: {
       '@type': 'Person',
-      name: tvshowItem.director
+      name: tvshowItem.directorname
     },
     actor: tvshowItem.starring.map(actor => ({
       '@type': 'Person',
-      name: actor
+      name: actor.trim()
     })),
     potentialAction: {
       '@type': 'WatchAction',
@@ -397,15 +397,19 @@ const tvshowDetail = ({ tvshowItem }) => {
     },
     aggregateRating: {
       '@type': 'AggregateRating',
-      '@id': tvshowItem.siteurl,
       ratingValue: 8,
       ratingCount: 5,
       bestRating: '10',
-      worstRating: '1'
+      worstRating: '1',
+      itemReviewed: {
+        '@type': 'TVSeries',
+        name: tvshowItem.title,
+        url: tvshowItem.siteurl,
+      }
     },
     author: {
       '@type': 'Person',
-      name: 'DrTrailer',
+      name: tvshowItem.group,
       url: 'https://gravatar.com/drtrailer2022'
     },
     publisher: {
@@ -420,8 +424,26 @@ const tvshowDetail = ({ tvshowItem }) => {
       '@type': 'PropertyValue',
       name: 'Action Platform',
       value: ['Desktop Web Platform', 'iOS Platform', 'Android Platform']
-    }
-  });
+    },
+    containsSeason: [{
+      '@type': 'TVSeason',
+      datePublished: tvshowItem.datePublished,
+      name: 'Season 1',
+      numberOfEpisodes: tvshowItem.videotvitem.length,
+      episode: tvshowItem.videotvitem.map((item, index) => {
+        const videoId = item.split('?')[0];
+        const thumbnail = new URL(item.split('=')[1]).href;
+        return {
+          '@type': 'TVEpisode',
+          episodeNumber: index + 1,
+          name: `Episode ${index + 1}`,
+          url: `${tvshowItem.movies.watch}${videoId}`,
+          image: thumbnail
+        };
+      })
+    }]
+  };
+
 
   const tvshowSchema = JSON.stringify({
     '@context': 'https://schema.org',
