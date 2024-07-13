@@ -105,7 +105,7 @@ export default function ytmag ({ movie }) {
                                 <div id="search-homepage-results"></div>
                             </div>
                         </div>
-                        <div className="hm-button"><a href="https://azmovies.vercel.app" className="btn btn-lg btn-successful" style={{ color: '#40D7BC', fontSize: '24px', textShadow: '3px 5px 5px #000' }}>Youtube Magazine™</a></div>
+                        <div className="hm-button"><a href="https://azmovies.vercel.app" className="btn btn-lg btn-successful" ></a></div>
                     </div>
                 </div>
             </div>
