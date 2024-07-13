@@ -22,7 +22,7 @@ export default function ytmag ({ movie }) {
             <Head>
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>A to Z Movies - Explore. Discover. Download.</title>
+                <title>A to Z Movies - Author</title>
                 {/* Add your other meta tags here */}
                 <script
                     type="application/ld+json"
