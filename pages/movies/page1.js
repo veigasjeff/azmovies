@@ -12,7 +12,7 @@ const uwatchfreeSchema = JSON.stringify([
   {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'A to Z moviesp1™ - Explore. Discover. Download.',
+    name: 'A to Z Movies™ - Explore. Discover. Download.',
     url: 'https://azmovies.vercel.app/',
     image: ['https://azmovies.vercel.app/favicon.ico'],
     logo: {
@@ -40,11 +40,11 @@ const uwatchfreeSchema = JSON.stringify([
 const softwareSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Article',
-  '@id': 'https://azmovies.vercel.app/moviesp1/',
-  headline: 'Watch Online moviesp1 | A to Z moviesp1™',
-  url: 'https://azmovies.vercel.app/moviesp1/',
+  '@id': 'https://azmovies.vercel.app/page1/',
+  headline: 'Watch Online Movies | A to Z Movies™',
+  url: 'https://azmovies.vercel.app/page1/',
   description:
-    'Welcome to A to Z moviesp1™ – your go-to spot for free online moviesp1! Watch and enjoy HD streaming, and catch the latest tvshows. Dive into cinema with A to Z moviesp1™!',
+    'Welcome to A to Z Movies™ – your go-to spot for free online Movies! Watch and enjoy HD streaming, and catch the latest tvshows. Dive into cinema with A to Z Movies™!',
   image: 'https://azmovies.vercel.app/og_image.jpg',
   author: {
     '@type': 'Person',
@@ -53,7 +53,7 @@ const softwareSchema = JSON.stringify({
   },
   publisher: {
     '@type': 'Organization',
-    name: 'A to Z moviesp1™ - Explore. Discover. Download.',
+    name: 'A to Z Movies™ - Explore. Discover. Download.',
     logo: {
       '@type': 'ImageObject',
       url: 'https://azmovies.vercel.app/og_image.jpg'
@@ -63,7 +63,7 @@ const softwareSchema = JSON.stringify({
   dateModified: '2024-06-02',
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://azmovies.vercel.app/moviesp1/'
+    '@id': 'https://azmovies.vercel.app/page1/'
   },
   additionalProperty: {
     '@type': 'PropertyValue',
@@ -79,13 +79,13 @@ const breadcrumbSchema = JSON.stringify({
     {
       '@type': 'ListItem',
       position: 1,
-      name: 'A to Z moviesp1™ - Explore. Discover. Download.',
+      name: 'A to Z Movies™ - Explore. Discover. Download.',
       item: 'https://azmovies.vercel.app/'
     },
     {
       '@type': 'ListItem',
       position: 2,
-      name: 'moviesp1',
+      name: 'movies',
       item: 'https://azmovies.vercel.app/page1/'
     }
   ]
@@ -104,7 +104,7 @@ const moviesp1Page1 = ({ items }) => {
   return (
     <div className='w-full' style={{ backgroundColor: '#D3D3D3' }}>
       <Head>
-        <title> Watch Online moviesp1 | A to Z moviesp1™</title>
+        <title> Watch Online Movies | A to Z Movies™</title>
         <link rel='canonical' href='https://azmovies.vercel.app/page1/' />
         <meta
           name='robots'
@@ -116,22 +116,22 @@ const moviesp1Page1 = ({ items }) => {
         <meta property='og:locale' content='en_US' />
         <meta property='og:type' content='video.movie' />
         {/* <meta property='og:type' content='website' /> */}
-        <meta property='og:title' content=' Watch Online moviesp1 | A to Z moviesp1' />
+        <meta property='og:title' content=' Watch Online movies | A to Z Movies' />
         <meta
           property='og:description'
-          content='Welcome to A to Z moviesp1™ – your go-to spot for free online moviesp1! Watch and enjoy HD streaming, and catch the latest tvshows. Dive into cinema with A to Z moviesp1™!'
+          content='Welcome to A to Z Movies™ – your go-to spot for free online movies! Watch and enjoy HD streaming, and catch the latest tvshows. Dive into cinema with A to Z Movies™!'
         />
 
         <meta property='og:url' content='https://azmovies.vercel.app/page1' />
 
-        <meta property='og:site_name' content='A to Z moviesp1' />
+        <meta property='og:site_name' content='A to Z Movies' />
         {/* <meta property='og:type' content='article' /> */}
         <meta
           property=' og:image:alt'
           content='https://azmovies.vercel.app/og_image.jpg'
         />
         <meta name='mobile-web-app-capable' content='yes' />
-        <meta property='article:section' content='moviesp1' />
+        <meta property='article:section' content='Movies' />
         <meta name='author' content='admin' />
         <meta
           property='article:modified_time'
@@ -139,7 +139,7 @@ const moviesp1Page1 = ({ items }) => {
         />
         <meta
           name='keywords'
-          content='azmoviesp1, a to z moviesp1, a-z moviesp1, az moviesp1, watch free moviesp1, watch moviesp1 online, download moviesp1, watch full moviesp1, watch hd moviesp1'
+          content='azmovies, A to Z movies, a-z movies, az movies, watch free movies, watch movies online, download movies, watch full movies, watch hd movies'
         />
         <meta
           property='og:image'
@@ -220,7 +220,7 @@ const moviesp1Page1 = ({ items }) => {
             marginBottom: '15px'
           }}
         >
-          A to Z moviesp1 moviesp1 Section.
+          A to Z Movies Section.
         </h1>
 
         {/* <Marquee  /> */}
@@ -257,10 +257,10 @@ const moviesp1Page1 = ({ items }) => {
           <button className='border border-black p-2 m-1 hover:bg-orange-100'>
               <li id='menu-item-11610' className='menu-graphicdesign'>
                 <a
-                  href='../moviesp1/'
+                  href='../movies/'
                   className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl'
                 >
-                  moviesp1<span className='p'></span>
+                  Movies<span className='p'></span>
                 </a>
               </li>
             </button>
@@ -305,7 +305,7 @@ const moviesp1Page1 = ({ items }) => {
         style={{ marginTop: '15px' }}
       >
         <span className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-3xl hover:text-blue-800 font-bold mt-2'>
-          For Request or Demand moviesp1 Join Telegram
+          For Request or Demand Movies Join Telegram
           <i className='fab fa-telegram text-blue-600 hover:text-gray-600 ml-2 w-12 h-12 animate-pulse '></i>
         </span>
       </a>
