@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-export default function ytmag ({ movie }) {
+export default function ytmag({ movie }) {
     const router = useRouter();
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -17,12 +17,13 @@ export default function ytmag ({ movie }) {
         }
         router.push(searchURL);
     };
+
     return (
         <div className={`w-full bg-gray-600 shadow`}>
             <Head>
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>A to Z Movies - Author</title>
+                <title>A to Z Movies - Explore. Discover. Download.</title>
                 {/* Add your other meta tags here */}
                 <script
                     type="application/ld+json"
@@ -54,10 +55,7 @@ export default function ytmag ({ movie }) {
                                     "isPartOf": {
                                         "@id": "https://azmovies.vercel.app#website"
                                     },
-                                    "inLanguage": "en-US",
-                                    "mainEntityOfPage": {
-                                        "@id": "https://azmovies.vercel.appauthor/A to Z Movies/#webpage"
-                                    }
+                                    "inLanguage": "en-US"
                                 },
                                 {
                                     "@type": "Person",
@@ -73,20 +71,17 @@ export default function ytmag ({ movie }) {
                                     },
                                     "sameAs": [
                                         "https://azmovies.vercel.app"
-                                    ],
-                                    "mainEntityOfPage": {
-                                        "@id": "https://azmovies.vercel.appauthor/A to Z Movies/#webpage"
-                                    }
+                                    ]
                                 }
                             ]
                         }`
                     }}
                 ></script>
             </Head>
- 
+
             <div id="main">
-            <h1 className="flex flex-col text-center py-5 font-bold text-3xl items-center justify-center" style={{ color: "#40D7BC", textShadow: "5px 5px 2px #000" }}>A to Z Movies - Explore. Discover. Download. </h1>
-                <div className="container" style={{justifyContent: 'center', alignItems: 'center', height: '10vh', marginTop: '100px', }}>
+                <h1 className="flex flex-col text-center py-5 font-bold text-3xl items-center justify-center" style={{ color: "#40D7BC", textShadow: "5px 5px 2px #000" }}>A to Z Movies - Explore. Discover. Download. </h1>
+                <div className="container" style={{ justifyContent: 'center', alignItems: 'center', height: '10vh', marginTop: '100px', }}>
                     <div className="home-main">
                         <div className="hm-logo"><a title="" href="https://azmovies.vercel.app" id="logo-home"></a></div>
                         <div className="addthis_inline_share_toolbox mb10"></div>
@@ -105,7 +100,7 @@ export default function ytmag ({ movie }) {
                                 <div id="search-homepage-results"></div>
                             </div>
                         </div>
-                        <div className="hm-button"><a href="https://azmovies.vercel.app" className="btn btn-lg btn-successful" ></a></div>
+                        <div className="hm-button"><a href="https://azmovies.vercel.app" className="btn btn-lg btn-successful" style={{ color: '#40D7BC', fontSize: '24px', textShadow: '3px 5px 5px #000' }}>Youtube Magazine™</a></div>
                     </div>
                 </div>
             </div>
