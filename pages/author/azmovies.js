@@ -31,48 +31,12 @@ export default function ytmag({ movie }) {
                     dangerouslySetInnerHTML={{
                         __html: `{
                             "@context": "https://schema.org",
-                            "@graph": [
-                                {
-                                    "@type": "Person",
-                                    "@id": "https://gravatar.com/drtrailer2022/#person",
-                                    "name": "Dr Trailer"
-                                },
-                                {
-                                    "@type": "WebSite",
-                                    "@id": "https://azmovies.vercel.app#website",
-                                    "url": "https://azmovies.vercel.app",
-                                    "name": "Youtube Magazine™",
-                                    "publisher": {
-                                        "@id": "https://gravatar.com/drtrailer2022/#person"
-                                    },
-                                    "inLanguage": "en-US"
-                                },
-                                {
-                                    "@type": "ProfilePage",
-                                    "@id": "https://azmovies.vercel.appauthor/ytmag/#webpage",
-                                    "url": "https://azmovies.vercel.appauthor/ytmag/",
-                                    "name": "Dr Trailer",
-                                    "isPartOf": {
-                                        "@id": "https://azmovies.vercel.app#website"
-                                    },
-                                    "inLanguage": "en-US"
-                                },
-                                {
-                                    "@type": "Person",
-                                    "@id": "https://azmovies.vercel.appauthor/A to Z Movies/",
-                                    "name": "Dr Trailer",
-                                    "url": "https://azmovies.vercel.appauthor/A to Z Movies/",
-                                    "image": {
-                                        "@type": "ImageObject",
-                                        "@id": "https://gravatar.com/drtrailer2022",
-                                        "url": "https://gravatar.com/drtrailer2022",
-                                        "caption": "Dr Trailer",
-                                        "inLanguage": "en-US"
-                                    },
-                                    "sameAs": [
-                                        "https://azmovies.vercel.app"
-                                    ]
-                                }
+                            "@type": "Person",
+                            "@id": "https://gravatar.com/drtrailer2022/#person",
+                            "name": "Dr Trailer",
+                            "url": "https://azmovies.vercel.appauthor/ytmag/",
+                            "sameAs": [
+                                "https://azmovies.vercel.app"
                             ]
                         }`
                     }}
