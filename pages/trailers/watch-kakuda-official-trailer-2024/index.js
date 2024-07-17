@@ -24,7 +24,7 @@ const trailersDetail = ({ trailers }) => {
       const data = await response.json();
 
       // Get 5 random trailers
-      const randomTrailersData = getRandomItems(data, 6);
+      const randomTrailersData = getRandomItems(data, 5);
       setRandomTrailers(randomTrailersData);
     } catch (error) {
       console.error('Error fetching data:', error);

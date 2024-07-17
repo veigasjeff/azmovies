@@ -15,7 +15,69 @@ const trailersDetail = ({ trailers }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = 0 // Assume there are 3 pages
 
+  // const [randomTrailers, setRandomTrailers] = useState([]);
+
+  // // Function to fetch data and set state
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch('https://azmovies.vercel.app/trailers.json');
+  //     const data = await response.json();
+
+  //     // Get 5 random trailers
+  //     const randomTrailersData = getRandomItems(data, 6);
+  //     setRandomTrailers(randomTrailersData);
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error);
+  //   }
+  // };
+
+  // // useEffect to fetch data on component mount
+  // useEffect(() => {
+  //   fetchData(); // Initial fetch
+
+  //   // Set interval to update trailers every 5 seconds
+  //   const interval = setInterval(() => {
+  //     fetchData();
+  //   }, 5000);
+
+  //   // Clean up interval on component unmount
+  //   return () => clearInterval(interval);
+  // }, []);
+
+  //   // Utility function to get random items from data
+  //   const getRandomItems = (data, count) => {
+  //     const shuffled = shuffleArray([...data]); // Create a copy and shuffle the array
+  //     return shuffled.slice(0, count);
+  //   };
+  
+  //   // Function to shuffle array items randomly
+  //   const shuffleArray = (array) => {
+  //     let currentIndex = array.length, temporaryValue, randomIndex;
+  
+  //     // While there remain elements to shuffle...
+  //     while (currentIndex !== 0) {
+  //       // Pick a remaining element...
+  //       randomIndex = Math.floor(Math.random() * currentIndex);
+  //       currentIndex -= 1;
+  
+  //       // And swap it with the current element.
+  //       temporaryValue = array[currentIndex];
+  //       array[currentIndex] = array[randomIndex];
+  //       array[randomIndex] = temporaryValue;
+  //     }
+  
+  //     return array;
+  //   };
+
+
+  const [showTimer, setShowTimer] = useState(false)
+  const [seconds, setSeconds] = useState(30) // Example timer duration
+  const [isMobileDevice, setIsMobileDevice] = useState(false)
+  const playerRef = useRef(null)
+  const currentIndexRef = useRef(0)
+
   const [randomTrailers, setRandomTrailers] = useState([]);
+
 
   // Function to fetch data and set state
   const fetchData = async () => {
@@ -24,7 +86,7 @@ const trailersDetail = ({ trailers }) => {
       const data = await response.json();
 
       // Get 5 random trailers
-      const randomTrailersData = getRandomItems(data, 5);
+      const randomTrailersData = getRandomItems(data, 5)
       setRandomTrailers(randomTrailersData);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -68,13 +130,7 @@ const trailersDetail = ({ trailers }) => {
   
       return array;
     };
-  
-  const [showTimer, setShowTimer] = useState(false)
-  const [seconds, setSeconds] = useState(30) // Example timer duration
-  const [isMobileDevice, setIsMobileDevice] = useState(false)
-  const playerRef = useRef(null)
-  const currentIndexRef = useRef(0)
-
+    
   const { badgegroup } = trailers // Extract badgegroup from trailers
 
   const isAdult = badgegroup === ' Adult' // Check if badgegroup is " Adult"
@@ -233,6 +289,8 @@ const trailersDetail = ({ trailers }) => {
     initializePlayer();
   }, [playerReady, trailers]);
 
+  
+ 
   const uwatchfreeSchema = JSON.stringify([
     {
       '@context': 'https://schema.org',
@@ -451,7 +509,7 @@ const trailersDetail = ({ trailers }) => {
         />
         <title>
       
-          Watch Gladiator II Official Trailer | A to Z Trailers™
+          Watch The Killer Official Trailer | A to Z Trailers™
         </title>
         <link rel='canonical' href={trailers && trailers.siteurl} />
         <meta name='robots' content='index, follow' />
@@ -1230,17 +1288,17 @@ const trailersDetail = ({ trailers }) => {
           textShadow: '1px 2px 2px #000'
         }}
       >
-        MOST POPULAR TRAILER
+        MOST POPULAR MOVIES
       </p>
       <div className='categorylatest-container'>
         <div className='cardlatest-container'>
-          {randomTrailers.map(trailer => (
-            <div key={trailer.id} className='cardlatest'>
-              <a href={trailer['trailers.watch']} id={trailer.id}>
+          {randomTrailers.map(trailers => (
+            <div key={trailers.id} className='cardlatest'>
+             <a href={trailers['trailers.watch']} id={trailers.id}>
                 <div className='relative'>
                   <img
-                    src={trailer.image}
-                    alt={trailer.title}
+                    src={trailers.image}
+                    alt={trailers.title}
                     className='rounded-lg mx-auto'
                     width={400} // Adjust according to your design
                     height={300} // Adjust according to your design
@@ -1251,10 +1309,10 @@ const trailersDetail = ({ trailers }) => {
                     }}
                   />
                   <p className='text-black text-lg font-semibold mt-2'>
-                    {trailer.name}
+                    {trailers.name}
                   </p>
                   <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-sm font-semibold mt-2'>
-                    {trailer.text}
+                    {trailers.text}
                   </div>
                 </div>
               </a>
@@ -1379,7 +1437,7 @@ const trailersDetail = ({ trailers }) => {
 export async function getServerSideProps() {
   const res = await fetch("https://azmovies.vercel.app/trailers.json");
   const data = await res.json();
-  const selectedTrailers = data.find((trailers) => trailers.id === "INDEX03");
+  const selectedTrailers = data.find((trailers) => trailers.id === "INDEX06");
   return {
     props: {
       trailers: selectedTrailers,
