@@ -451,7 +451,7 @@ const trailersDetail = ({ trailers }) => {
         />
         <title>
       
-          Watch Stree 2 Official Trailer | A to Z Trailers™
+          Watch Raayan Official Trailer | A to Z Trailers™
         </title>
         <link rel='canonical' href={trailers && trailers.siteurl} />
         <meta name='robots' content='index, follow' />
