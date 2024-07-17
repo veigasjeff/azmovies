@@ -451,7 +451,7 @@ const trailersDetail = ({ trailers }) => {
         />
         <title>
       
-          Watch Stree 2 Official Trailer | A to Z Trailers™
+          Watch Indian 2 Official Trailer | A to Z Trailers™
         </title>
         <link rel='canonical' href={trailers && trailers.siteurl} />
         <meta name='robots' content='index, follow' />
@@ -1247,7 +1247,8 @@ const trailersDetail = ({ trailers }) => {
                     style={{
                       width: '400px', // Ensures the image is displayed at this width
                       height: '300px', // Ensures the image is displayed at this height
-                      boxShadow: '0 0 10px 0 #000'
+                      boxShadow: '0 0 10px 0 #000',
+                       filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                     }}
                   />
                   <p className='text-black text-lg font-semibold mt-2'>

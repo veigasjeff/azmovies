@@ -893,7 +893,7 @@ const trailersDetail = ({ trailers }) => {
                 
                   style={{
                     filter:
-                      'contrast(1.2) saturate(1.5) brightness(1.3) hue-rotate(0deg)',
+                      'contrast(1.2) saturate(1.3) brightness(1.2) hue-rotate(15deg)',
                     // Additional styles for responsiveness
                     boxShadow: '0 0 10px 0 #000',
                     maxWidth: '100%',
@@ -1247,7 +1247,8 @@ const trailersDetail = ({ trailers }) => {
                     style={{
                       width: '400px', // Ensures the image is displayed at this width
                       height: '300px', // Ensures the image is displayed at this height
-                      boxShadow: '0 0 10px 0 #000'
+                      boxShadow: '0 0 10px 0 #000',
+                       filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                     }}
                   />
                   <p className='text-black text-lg font-semibold mt-2'>
