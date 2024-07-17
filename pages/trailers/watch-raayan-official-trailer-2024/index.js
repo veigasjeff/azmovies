@@ -1,50 +1,38 @@
 import { useRouter } from 'next/router'
-import { FaTelegram } from 'react-icons/fa'
-import tvshowData from '../../../public/tvshow.json'
+import trailersData from '../../../public/trailers.json'
 import latestData from '../../../public/latest.json'
 import { useEffect, useState, useRef } from 'react'
 import Pagination from '../../../components/Pagination'
 import Head from 'next/head'
 import Image from 'next/image'
-
 import Link from 'next/link'
 import HomeStyles from '@styles/styles.module.css'
 import Script from 'next/script'
 
-
-
-const tvshowDetail = ({ tvshow }) => {
+const trailersDetail = ({ trailers }) => {
   const router = useRouter()
   const { id } = router.query
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = 0 // Assume there are 3 pages
 
-
-  const [playerReady, setPlayerReady] = useState(false)
-  const [showTimer, setShowTimer] = useState(false)
-  const [seconds, setSeconds] = useState(30) // Example timer duration
-  const [isMobileDevice, setIsMobileDevice] = useState(false)
-  const playerRef = useRef(null)
-  const currentIndexRef = useRef(0)
-
-  const [randomTvshow, setRandomTvshow] = useState([]);
+  const [randomTrailers, setRandomTrailers] = useState([]);
 
   // Function to fetch data and set state
   const fetchData = async () => {
     try {
-      const response = await fetch('https://azmovies.vercel.app/tvshow.json');
+      const response = await fetch('https://azmovies.vercel.app/trailers.json');
       const data = await response.json();
 
-      // Get 6 random TV shows
-      const randomTvshowData = getRandomItems(data, 6);
-      setRandomTvshow(randomTvshowData);
+      // Get 5 random trailers
+      const randomTrailersData = getRandomItems(data, 6);
+      setRandomTrailers(randomTrailersData);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
 
-   // useEffect to fetch data on component mount
-   useEffect(() => {
+  // useEffect to fetch data on component mount
+  useEffect(() => {
     fetchData(); // Initial fetch
 
     // Set interval to update trailers every 5 seconds
@@ -56,41 +44,49 @@ const tvshowDetail = ({ tvshow }) => {
     return () => clearInterval(interval);
   }, []);
 
+    // Utility function to get random items from data
+    const getRandomItems = (data, count) => {
+      const shuffled = shuffleArray([...data]); // Create a copy and shuffle the array
+      return shuffled.slice(0, count);
+    };
+  
+    // Function to shuffle array items randomly
+    const shuffleArray = (array) => {
+      let currentIndex = array.length, temporaryValue, randomIndex;
+  
+      // While there remain elements to shuffle...
+      while (currentIndex !== 0) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+  
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+  
+      return array;
+    };
+  
+  const [showTimer, setShowTimer] = useState(false)
+  const [seconds, setSeconds] = useState(30) // Example timer duration
+  const [isMobileDevice, setIsMobileDevice] = useState(false)
+  const playerRef = useRef(null)
+  const currentIndexRef = useRef(0)
 
-  // Utility function to get random items from data
-  const getRandomItems = (data, count) => {
-    const shuffled = shuffleArray([...data]); // Create a copy and shuffle the array
-    return shuffled.slice(0, count);
-  };
+  const { badgegroup } = trailers // Extract badgegroup from trailers
 
-  // Function to shuffle array items randomly
-  const shuffleArray = (array) => {
-    let currentIndex = array.length, temporaryValue, randomIndex;
-
-    // While there remain elements to shuffle...
-    while (currentIndex !== 0) {
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-  };
+  const isAdult = badgegroup === ' Adult' // Check if badgegroup is " Adult"
 
   const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0)
+
   const videoPlayerRef = useRef(null)
 
-  // Check if tvshow and videotvitem exist before accessing properties
   const isTvShow =
-    tvshow && tvshow.videotvitem && tvshow.videotvitem.length > 0
-
+    trailers.videotvitem && trailers.videotvitem.length > 0
   const handleNext = () => {
-    if (isTvShow && currentEpisodeIndex < tvshow.videotvitem.length - 1) {
+    if (isTvShow && currentEpisodeIndex < trailers.videotvitem.length - 1) {
       setCurrentEpisodeIndex(currentEpisodeIndex + 1)
     } else if (isTvShow) {
       setCurrentEpisodeIndex(0) // Loop back to the first episode
@@ -111,22 +107,19 @@ const tvshowDetail = ({ tvshow }) => {
   }
 
   const currentVideoItem =
-    isTvShow && tvshow.videotvitem[currentEpisodeIndex]
-      ? parseVideoItem(tvshow.videotvitem[currentEpisodeIndex])
+    isTvShow && trailers.videotvitem[currentEpisodeIndex]
+      ? parseVideoItem(trailers.videotvitem[currentEpisodeIndex])
       : { id: '', thumbnail: '' }
 
   const movieVideoItem =
-    tvshow &&
-    tvshow.videotvshow &&
-    tvshow.videotvshow.length > 0
-      ? parseVideoItem(tvshow.videotvshow[0])
+    trailers.videotrailers && trailers.videotrailers.length > 0
+      ? parseVideoItem(trailers.videotrailers[0])
       : { id: '', thumbnail: '' }
 
   const src = isTvShow
     ? `https://short.ink/${currentVideoItem.id}/?thumbnail=${currentVideoItem.thumbnail}`
     : `https://short.ink/${movieVideoItem.id}/?thumbnail=${movieVideoItem.thumbnail}`
 
- 
   useEffect(() => {
     const detectMobileDevice = () => {
       const userAgent =
@@ -144,20 +137,20 @@ const tvshowDetail = ({ tvshow }) => {
 
   useEffect(() => {
     const handleRouteChange = () => {
-      window.scrollTo(0, 0) // Scroll to the top of the page on route change
-    }
+      window.scrollTo(0, 0); // Scroll to the top of the page on route change
+    };
 
     // Scroll to top on initial render
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
 
     // Listen for route changes
-    router.events.on('routeChangeComplete', handleRouteChange)
+    router.events.on('routeChangeComplete', handleRouteChange);
 
     // Cleanup event listener on unmount
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
 
   const handleDownloadClick = () => {
     setShowTimer(true)
@@ -172,11 +165,79 @@ const tvshowDetail = ({ tvshow }) => {
     return () => clearTimeout(timer)
   }, [showTimer, seconds])
 
+  const [playerReady, setPlayerReady] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const player = document.getElementById('player');
+      if (player) {
+        const vw = Math.max(
+          document.documentElement.clientWidth || 0,
+          window.innerWidth || 0
+        );
+        const vh = Math.max(
+          document.documentElement.clientHeight || 0,
+          window.innerHeight || 0
+        );
+        player.style.width = vw + 'px';
+        player.style.height = vh + 'px';
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && typeof YT === 'undefined') {
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      const firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      window.onYouTubeIframeAPIReady = () => setPlayerReady(true);
+    } else {
+      setPlayerReady(true);
+    }
+    return () => delete window.onYouTubeIframeAPIReady;
+  }, []);
+
+  useEffect(() => {
+    if (!playerReady || !trailers) return;
+
+    const initializePlayer = () => {
+      const videoId = trailers.videoId[0];
+
+      new YT.Player('player', {
+        width: '100%',
+        height: '100%',
+      
+        videoId: videoId,
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          disablekb: 1,
+          playsinline: 1,
+          enablejsapi: 1,
+          modestbranding: 1,
+          origin: window.location.origin,
+          rel: 0,
+          quality: 'hd1080'
+        },
+        events: {
+          onReady: () => setPlayerReady(true)
+        }
+      });
+    };
+
+    initializePlayer();
+  }, [playerReady, trailers]);
+
   const uwatchfreeSchema = JSON.stringify([
     {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'A to Z Movies™',
+      name: 'A to Z Trailers™',
       url: 'https://azmovies.vercel.app/',
       image: ['https://azmovies.vercel.app/favicon.ico'],
       logo: {
@@ -201,7 +262,6 @@ const tvshowDetail = ({ tvshow }) => {
     }
   ])
 
-
   const breadcrumbSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -209,20 +269,20 @@ const tvshowDetail = ({ tvshow }) => {
       {
         '@type': 'ListItem',
         position: 1,
-        name: 'A to Z TvShow™',
+        name: 'A to Z Trailers™',
         item: 'https://azmovies.vercel.app/'
       },
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Tv Show',
-        item: tvshow.baseurl
+        name: 'Trailer',
+        item: trailers.baseurl
       },
       {
         '@type': 'ListItem',
         position: 3,
-        name: tvshow.name,
-        item: tvshow.siteurl
+        name: trailers.name,
+        item: trailers.siteurl
       }
     ]
   })
@@ -239,7 +299,7 @@ const tvshowDetail = ({ tvshow }) => {
         '@type': 'WebSite',
         '@id': 'https://azmovies.vercel.app#website',
         url: 'https://azmovies.vercel.app',
-        name: 'A to Z Movies™',
+        name: 'A to Z Trailers™',
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
@@ -247,11 +307,11 @@ const tvshowDetail = ({ tvshow }) => {
       },
       {
         '@type': 'WebPage',
-        '@id': `${tvshow.siteurl}#webpage`,
-        url: tvshow.siteurl,
-        name: `${tvshow.name} | A to Z TvShow™`,
-        datePublished: tvshow.datePublished,
-        dateModified: tvshow.dateModified,
+        '@id': `${trailers.siteurl}#webpage`,
+        url: trailers.siteurl,
+        name: `${trailers.name} | A to Z Trailers™`,
+        datePublished: trailers.datePublished,
+        dateModified: trailers.dateModified,
         isPartOf: {
           '@id': 'https://azmovies.vercel.app#website'
         },
@@ -273,54 +333,54 @@ const tvshowDetail = ({ tvshow }) => {
       },
       {
         '@type': 'Article',
-        '@id': `${tvshow.siteurl}#article`,
-        headline: ` ${tvshow.name} | A to Z TvShow™`,
-        datePublished: tvshow.datePublished,
-        dateModified: tvshow.dateModified,
-        articleSection: 'TvShow',
+        '@id': `${trailers.siteurl}#article`,
+        headline: ` ${trailers.name} | A to Z Trailers™`,
+        datePublished: trailers.datePublished,
+        dateModified: trailers.dateModified,
+        articleSection: 'Movies & Tv Show',
         author: {
           '@id': 'https://azmovies.vercel.app/author/azmovies/'
         },
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
-        description: tvshow.synopsis,
-        image: tvshow.image,
-        name: ` ${tvshow.name} | A to Z TvShow™`,
+        description: trailers.synopsis,
+        image: trailers.image,
+        name: ` ${trailers.name} | A to Z Trailers™`,
         isPartOf: {
-          '@id': `${tvshow.siteurl}#webpage`
+          '@id': `${trailers.siteurl}#webpage`
         },
         inLanguage: 'en-US',
         mainEntityOfPage: {
-          '@id': `${tvshow.siteurl}#webpage`
+          '@id': `${trailers.siteurl}#webpage`
         },
      
       },
       {
         '@type': 'BlogPosting',
-        '@id': `${tvshow.siteurl}#blogPost`,
-        headline: ` ${tvshow.name} | A to Z TvShow™`,
-        datePublished: tvshow.datePublished,
-        dateModified: tvshow.dateModified,
-        articleSection: 'TvShow',
+        '@id': `${trailers.siteurl}#blogPost`,
+        headline: ` ${trailers.name} | A to Z Trailers™`,
+        datePublished: trailers.datePublished,
+        dateModified: trailers.dateModified,
+        articleSection: 'Movies & Tv Show',
         author: {
           '@id': 'https://azmovies.vercel.app/author/azmovies/'
         },
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
-        description: tvshow.synopsis,
-        image: tvshow.image,
-        name: ` ${tvshow.name} | A to Z TvShow™`,
-        '@id': `${tvshow.siteurl}#richSnippet`,
+        description: trailers.synopsis,
+        image: trailers.image,
+        name: ` ${trailers.name} | A to Z Trailers™`,
+        '@id': `${trailers.siteurl}#richSnippet`,
         isPartOf: {
-          '@id': `${tvshow.siteurl}#webpage`
+          '@id': `${trailers.siteurl}#webpage`
         },
         inLanguage: 'en-US',
         mainEntityOfPage: {
-          '@id': `${tvshow.siteurl}#webpage`
+          '@id': `${trailers.siteurl}#webpage`
         },
-      
+     
       }
     ]
   })
@@ -328,24 +388,25 @@ const tvshowDetail = ({ tvshow }) => {
   const newsArticleSchema = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
-    '@id': `${tvshow.siteurl}#webpage`, // Add a comma here
-    name: tvshow.title,
-    url: tvshow.siteurl,
-    description: tvshow.synopsis,
-    image: tvshow.image,
-    datePublished: tvshow.startDate,
+    '@id': `${trailers.siteurl}#webpage`, // Add a comma here
+    name: trailers.title,
+    url: trailers.siteurl,
+    description: trailers.synopsis,
+    image: trailers.image,
+    datePublished: trailers.startDate,
     potentialAction: {
       '@type': 'WatchAction',
       target: {
         '@type': 'EntryPoint',
-        name: tvshow.title,
-        urlTemplate: tvshow.siteurl
+        name: trailers.title,
+        urlTemplate: trailers.siteurl
       }
     },
     locationCreated: {
       '@type': 'Place',
-      name: tvshow.country
+      name: trailers.country
     },
+  
     author: {
       '@type': 'Person',
       name: 'DrTrailer',
@@ -353,7 +414,7 @@ const tvshowDetail = ({ tvshow }) => {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'A to Z movies™',
+      name: 'A to Z Trailers™',
       logo: {
         '@type': 'ImageObject',
         url: 'https://azmovies.vercel.app/og_image.jpg'
@@ -369,75 +430,17 @@ const tvshowDetail = ({ tvshow }) => {
   // Convert newsArticleSchema and videoObjects to JSON strings
   const newsArticleJson = JSON.stringify(newsArticleSchema)
 
-  const ldJsonData = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'Movie',
-    '@id': `${tvshow.siteurl}`,
-    name: tvshow.title,
-    url: tvshow.siteurl,
-    description: tvshow.synopsis,
-    image: tvshow.image,
-    genre: tvshow.genre,
-    datePublished: tvshow.datePublished,
-    director: {
-      '@type': 'Person',
-      name: tvshow.directorname
-    },
-    actor: tvshow.starring.map(actor => ({
-      '@type': 'Person',
-      name: actor
-    })),
-    potentialAction: {
-      '@type': 'WatchAction',
-      target: {
-        '@type': 'EntryPoint',
-        name: tvshow.title,
-        urlTemplate: tvshow.siteurl
-      }
-    },
-    locationCreated: {
-      '@type': 'Place',
-      name: tvshow.country
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      '@id': tvshow.siteurl,
-      ratingValue: 8,
-      ratingCount: 5,
-      bestRating: '10',
-      worstRating: '1'
-    },
-    author: {
-      '@type': 'Person',
-      name: 'DrTrailer',
-      url: 'https://gravatar.com/drtrailer2022'
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'A to Z movies™',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://azmovies.vercel.app/og_image.jpg'
-      }
-    },
-    additionalProperty: {
-      '@type': 'PropertyValue',
-      name: 'Action Platform',
-      value: ['Desktop Web Platform', 'iOS Platform', 'Android Platform']
-    }
-  });
-
-  const tvshowSchema = JSON.stringify({
+  
+  const trailersSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
-    name: tvshow.title,
-    description: tvshow.text,
-    uploadDate: tvshow.datePublished,
-    thumbnailUrl: tvshow.image,
+    name: trailers.title,
+    description: trailers.text,
+    uploadDate: trailers.datePublished,
+    thumbnailUrl: trailers.image,
     duration: 'P34S', // Replace with the actual duration if it's different
-    embedUrl: tvshow.videourl
+    embedUrl: trailers.videourl
   })
-
 
   return (
     <div>
@@ -446,42 +449,45 @@ const tvshowDetail = ({ tvshow }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title>Watch Heeramandi: The Diamond Bazaar Season 1 (2024) | A to Z Tvshow™</title>
-        <link rel='canonical' href={tvshow && tvshow.siteurl} />
+        <title>
+      
+          Watch Stree 2 Official Trailer | A to Z Trailers™
+        </title>
+        <link rel='canonical' href={trailers && trailers.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />
         <meta name='revisit-after' content='1 days' />
         <meta property='og:locale' content='en_US' />
         <meta property="og:type" content="video.movie" />
-        <meta property='og:video' content={`${tvshow && tvshow.videourl}`} />
+        <meta property='og:video' content={`${trailers && trailers.videourl}`} />
         <meta property='og:video:width' content='1280px' />
         <meta property='og:video:height' content='720px' />
         <meta property='og:video:type' content='video/mp4' />
         <meta
           property='og:title'
-          content={`${tvshow && tvshow.name} - A to Z Tvshow™`}
+          content={`${trailers && trailers.name} - A to Z Trailers`}
         />
         <meta
           property='og:description'
-          content='Welcome to A to Z Tvshow™ – your go-to spot for free online tvshow! Watch and enjoy HD streaming, and catch the latest tvshows. Dive into cinema with A to Z Tvshow™!'
+          content='Welcome to A to Z Trailers™ – your go-to spot for free online trailers! Watch and enjoy HD streaming, and catch the latest tvshows. Dive into cinema with A to Z Trailers™!'
         />
 
         <meta
           property='og:url'
-          content={`${tvshow && tvshow.siteurl}`}
+          content={`${trailers && trailers.siteurl}`}
         />
         <meta
           name='keywords'
-          content={`${tvshow && tvshow.keywords}`}
+          content={`${trailers && trailers.keywords}`}
         />
-        <meta property='og:site_name' content='A to Z Tvshow' />
-        {/* <meta property='og:type' content='article' /> */}
+        <meta property='og:site_name' content='A to Z Trailers' />
+        <meta property='og:type' content='article' />
         <meta
           property=' og:image:alt'
-          content={`${tvshow && tvshow.group}`}
+          content={`${trailers && trailers.group}`}
         />
         <meta name='mobile-web-app-capable' content='yes' />
-        <meta property='article:section' content='Tvshow' />
+        <meta property='article:section' content='Other Software' />
         <meta name='author' content='admin' />
         <meta
           property='article:modified_time'
@@ -489,7 +495,7 @@ const tvshowDetail = ({ tvshow }) => {
         />
         <meta
           property='og:image'
-          content={`${tvshow && tvshow.image}`}
+          content={`${trailers && trailers.image}`}
         />
 
         <meta property='og:image:width' content='1280px' />
@@ -511,11 +517,7 @@ const tvshowDetail = ({ tvshow }) => {
           content='dmv6sg06w9r5eji88'
         />
 
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: ldJsonData }}
-        />
-
+    
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: uwatchfreeSchema }}
@@ -531,7 +533,7 @@ const tvshowDetail = ({ tvshow }) => {
         />
         <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: tvshowSchema }}
+          dangerouslySetInnerHTML={{ __html: trailersSchema }}
         />
         <script
           type='application/ld+json'
@@ -562,6 +564,8 @@ const tvshowDetail = ({ tvshow }) => {
           }}
         />
       </Head>
+      <Script src='../../propler/ads.js' defer /> 
+      <Script src='../../propler/ads2.js' defer /> 
 
 
       <div
@@ -586,10 +590,9 @@ const tvshowDetail = ({ tvshow }) => {
             // marginBottom: '12px'
           }}
         >
-          {tvshow.title}
+          {trailers.title}
         </h1>
 
-     
       </div>
       <div
         className={`w-full`}
@@ -684,14 +687,14 @@ const tvshowDetail = ({ tvshow }) => {
           style={{ marginTop: '25px', marginBottom: '25px' }}
         >
           <span className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-3xl hover:text-blue-800 font-bold mt-2'>
-            For Request or Demand Tvshow Join Telegram
+            For Request or Demand Movies Join Telegram
             <i className='fab fa-telegram text-blue-600 hover:text-gray-600 ml-2 w-12 h-12 animate-pulse '></i>
           </span>
         </a>
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
-          route='tvshow'
+          route='trailers'
           style={{
             marginTop: '50px',
             marginBottom: '50px',
@@ -704,8 +707,8 @@ const tvshowDetail = ({ tvshow }) => {
         <div className='flex-container'>
           <div className='category-container'>
             <Image
-              src={tvshow.image}
-              alt={tvshow.title}
+              src={trailers.image}
+              alt={trailers.title}
               width={400}
               height={500}
               quality={90}
@@ -717,7 +720,7 @@ const tvshowDetail = ({ tvshow }) => {
                 marginTop: '50px',
                 marginBottom: '20px',
                 borderRadius: '50px',
-                boxShadow: '0 0 10px 0 #fff',
+                boxShadow: '0 0 10px 0 #000',
                 filter:
                   'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
               }}
@@ -725,141 +728,131 @@ const tvshowDetail = ({ tvshow }) => {
             <div
               style={{ maxWidth: '800px', width: '100%', marginBottom: '20px' }}
             >
-              {/* <div
-                className='flex flex-col items-center justify-center'
-                style={{
-                  maxWidth: '800px',
-                  width: '100%',
-                  marginBottom: '20px'
-                }}
-              >
-                <h2
-                  className='text-black bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300 text-2xl'
-                  style={{
-                    fontFamily: 'Poppins, sans-serif',
-                    fontWeight: 'bold',
-                    marginBottom: '12px'
-                  }}
-                >
-                  {tvshow.title}
-                </h2>
-              </div> */}
 
               <p className='text-black text-bg font-semibold mt-2'>
-                Genre: {tvshow.genre}
+                Genre: {trailers.genre}
               </p>
               <p className='text-black text-bg font-semibold mt-2'>
-                Director: {tvshow.directorname}
+                Director: {trailers.directorname}
               </p>
               <p className='text-black text-bg font-semibold mt-2'>
-                Starring: {tvshow.starring}
+                Starring: {trailers.starring}
               </p>
               <p className='text-black text-bg font-semibold mt-2'>
-                Origin Country: {tvshow.country}
+                Origin Country: {trailers.country}
               </p>
               <p className='text-black text-bg font-semibold mt-2'>
-                Language: {tvshow.language}
+                Language: {trailers.language}
               </p>
-              <p className='text-black text-bg font-semibold mt-2'>
-                Total Episodes: {tvshow.episode}
-              </p>
+
               <div className={`${HomeStyles.imageGrid} mt-5`}>
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload `}
-                  src={tvshow.directorimg}
-                  alt={tvshow.directorname}
-                  title={tvshow.directorname}
+                  src={trailers.directorimg}
+                  alt={trailers.directorname}
+                  title={trailers.directorname}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    filter: 'contrast(1.2) saturate(1.2)',
-                    boxShadow: '0 0 10px 0 #C0C0C0' // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)',
+                    boxShadow: '0 0 10px 0 #000' // Shadow effect with black color
                   }}
                   loading='lazy'
                   layout='responsive'
                 />
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload`}
-                  src={tvshow.actor1img}
-                  alt={tvshow.actor1}
-                  title={tvshow.actor1}
+                  src={trailers.actor1img}
+                  alt={trailers.actor1}
+                  title={trailers.actor1}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
                 />
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload`}
-                  src={tvshow.actor2img}
-                  alt={tvshow.actor2}
-                  title={tvshow.actor2}
+                  src={trailers.actor2img}
+                  alt={trailers.actor2}
+                  title={trailers.actor2}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
                 />
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload`}
-                  src={tvshow.actor3img}
-                  alt={tvshow.actor3}
-                  title={tvshow.actor3}
+                  src={trailers.actor3img}
+                  alt={trailers.actor3}
+                  title={trailers.actor3}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
                 />
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload`}
-                  src={tvshow.actor4img}
-                  alt={tvshow.actor4}
-                  title={tvshow.actor4}
+                  src={trailers.actor4img}
+                  alt={trailers.actor4}
+                  title={trailers.actor4}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
                 />
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload`}
-                  src={tvshow.actor5img}
-                  alt={tvshow.actor5}
-                  title={tvshow.actor5}
+                  src={trailers.actor5img}
+                  alt={trailers.actor5}
+                  title={trailers.actor5}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
                 />
               </div>
               <p
+                // className='text-4xl font-bold mb-4'
                 className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-4xl hover:text-blue-800 font-bold mt-2'
-                style={{ fontFamily: 'Poppins, sans-serif' }}
+                style={{
+                  fontFamily: 'Poppins, sans-serif'
+                  // color: '#000',
+                  // textShadow: '2px 1px 1px #000000'
+                }}
               >
-                Watch Online {tvshow.name}
+                {trailers.title} 
               </p>
               <div
                 style={{
@@ -874,7 +867,8 @@ const tvshowDetail = ({ tvshow }) => {
                   <button
                     onClick={handleNext}
                     disabled={
-                      currentEpisodeIndex === tvshow.videotvitem.length - 1
+                      currentEpisodeIndex ===
+                      trailers.videotvitem.length - 1
                     }
                     style={{
                       marginBottom: '10px',
@@ -889,36 +883,81 @@ const tvshowDetail = ({ tvshow }) => {
                     }}
                   >
                     Next - Episode{' '}
-                    {currentEpisodeIndex === tvshow.videotvitem.length - 1
+                    {currentEpisodeIndex === trailers.videotvitem.length - 1
                       ? 1
                       : currentEpisodeIndex + 2}
                   </button>
                 )}
-
-                <iframe
-                  frameBorder='0'
-                  src={src}
-                  width='100%'
-                  height='450px'
-                  allowFullScreen
-                  scrolling='0'
-                  title='Video Player'
+                <div
+                  id='player'
+                
                   style={{
                     filter:
-                      'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
+                      'contrast(1.2) saturate(1.5) brightness(1.3) hue-rotate(0deg)',
+                    // Additional styles for responsiveness
+                    boxShadow: '0 0 10px 0 #000',
+                    maxWidth: '100%',
+                    maxHeight: '100vh',
+                    borderRadius: '20px' // Add border-radius for rounded shape
                   }}
-                ></iframe>
-
-                <p className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-sm'>
+                ></div>
+        {/* <div
+                        itemscope
+                        itemtype='https://schema.org/VideoObject'
+                        style={{ display: 'none' }}
+                      >
+                        <meta itemprop='name' content={trailers.title} />
+                        <meta
+                          itemprop='description'
+                          content={trailers.text}
+                        />
+                        <meta
+                          itemprop='uploadDate'
+                          content={trailers.datePublished}
+                        />
+                        <meta
+                          itemprop='thumbnailUrl'
+                          content={trailers.backimage}
+                        />
+                        <meta itemprop='duration' content='P34S' />
+                        <meta
+                          itemprop='embedUrl'
+                          content={trailers.videourl}
+                        />
+                      </div>
+                      <iframe
+                        frameborder='0'
+                        src={`https://geo.dailymotion.com/player/xkdl0.html?video=${trailers.traileritem}&mute=true&Autoquality=1080p`}
+                        width='100%'
+                        height='100%'
+                        allowfullscreen
+                        title='Dailymotion Video Player'
+                        allow='autoplay; encrypted-media'
+                        style={{
+                          boxShadow: '0 0 10px 0 #000',
+                          filter:
+                            'contrast(1.2) saturate(1.3) brightness(1.2) hue-rotate(15deg)'
+                        }}
+                      ></iframe> */}
+                   
+                <p
+                  className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-sm hover:text-blue-800 font-bold mt-2'
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    boxShadow: '0 0 10px 0 #000',
+                    filter:
+                      'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
+                    // textShadow: '2px 1px 1px #000'
+                  }}
+                >
                   *Note: Use Setting in Player to improve the Quality of video
                   to HD Quality 1080p.
                 </p>
-
                 {isTvShow && (
                   <button
                     onClick={handlePrevious}
                     disabled={currentEpisodeIndex === 0}
-                    style={{
+                    style={{  
                       marginTop: '10px',
                       padding: '8px 16px',
                       backgroundColor: '#32CD32',
@@ -932,12 +971,12 @@ const tvshowDetail = ({ tvshow }) => {
                   >
                     Prev - Episode{' '}
                     {currentEpisodeIndex === 0
-                      ? tvshow.videotvitem.length
+                      ? trailers.videotvitem.length
                       : currentEpisodeIndex}
                   </button>
                 )}
 
-                <img
+                {/* <img
                   src={
                     isTvShow
                       ? currentVideoItem.thumbnail
@@ -952,166 +991,28 @@ const tvshowDetail = ({ tvshow }) => {
                     height: '56px',
                     borderRadius: '10px'
                   }}
-                />
+                /> */}
               </div>
-              <p
-                className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-3xl hover:text-blue-800 font-bold mt-2'
-                style={{ fontFamily: 'Poppins, sans-serif' }}
-              >
-               Click to Download Episode {tvshow.name}
-              </p>
+
               <div className='flex flex-col items-center justify-center'></div>
-              {tvshow.mp3player && (
-                <MP3Player mp3Url={tvshow.mp3player} />
+              {trailers.mp3player && (
+                <MP3Player mp3Url={trailers.mp3player} />
               )}
-              <div
-                className='flex flex-col items-center justify-center'
-                style={{
-                  marginTop: '50px',
-                  marginBottom: '50px',
-                  filter:
-                    'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
-                }}
-              >
-                {!showTimer ? (
-                  <button
-                    onClick={() => setShowTimer(true)}
-                    className='animate-pulse bg-gradient-to-r from-amber-500 to-pink-500 text-black font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300 text-2xl'
-                  >
-                    Download Now
-                  </button>
-                ) : (
-                  <>
-                    <p className='text-3xl font-bold mb-4'>
-                      Your download link will be ready in {seconds} seconds...
-                    </p>
 
-                    <Script src='https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js'></Script>
-                    <lottie-player
-                      src='https://lottie.host/58d9c7ed-a39e-4cb6-b78a-e7cb1f9bf9cd/RHWR24wQSd.json'
-                      background='#D3D3D3'
-                      speed='1'
-                      style={{ width: '250px' }}
-                      loop
-                      autoplay
-                      direction='1'
-                      mode='normal'
-                    ></lottie-player>
-                    <p
-                      className='text-3xl font-bold mb-4 bg-gradient-to-r from-amber-500 to-pink-500 text-black py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
-                      style={{
-                        marginTop: '20px'
-                      }}
-                    >
-                      Official Trailer.
-                    </p>
-
-                    <div
-                      style={{
-                        width: '100%',
-                        height: '450px',
-                        overflow: 'hidden',
-                        marginBottom: '20px'
-                      }}
-                      className='rounded-xl flex border-1 border-blue-600 bg-black p-2  items-center justify-center'
-                    >
-                      <div
-                        itemscope
-                        itemtype='https://schema.org/VideoObject'
-                        style={{ display: 'none' }}
-                      >
-                        <meta itemprop='name' content={tvshow.title} />
-                        <meta
-                          itemprop='description'
-                          content={tvshow.text}
-                        />
-                        <meta
-                          itemprop='uploadDate'
-                          content={tvshow.datePublished}
-                        />
-                        <meta
-                          itemprop='thumbnailUrl'
-                          content={tvshow.backimage}
-                        />
-                        <meta itemprop='duration' content='P34S' />
-                        <meta
-                          itemprop='embedUrl'
-                          content={tvshow.videourl}
-                        />
-                      </div>
-                      <iframe
-                        frameborder='0'
-                        src={`https://geo.dailymotion.com/player/xkdl0.html?video=${tvshow.traileritem}&mute=true&Autoquality=1080p`}
-                        width='100%'
-                        height='100%'
-                        allowfullscreen
-                        title='Dailymotion Video Player'
-                        allow='autoplay; encrypted-media'
-                      ></iframe>
-                    </div>
-                    {showTimer && seconds <= 0 && (
-                      <div>
-                        {Object.keys(tvshow)
-                          .filter(key => key.startsWith('downloadlink'))
-                          .map((key, index) => (
-                            <Link
-                              key={index}
-                              href={tvshow[key]}
-                              target='_blank'
-                            >
-                              <div
-                                className='bg-gradient-to-r from-amber-500 to-pink-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
-                                style={{
-                                  margin: 'auto',
-                                  marginBottom: '50px',
-                                  borderRadius: '50px',
-                                  boxShadow: '0 0 10px 0 #fff',
-                                  filter:
-                                    'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
-                                }}
-                              >
-                                <span
-                                  style={{
-                                    color:
-                                      key === 'downloadlink1'
-                                        ? '#FF0000'
-                                        : '#0efa06',
-                                    fontSize: '24px',
-                                    textShadow: '3px 5px 5px #000'
-                                  }}
-                                >
-                                  <i
-                                    className={
-                                      key === 'downloadlink1'
-                                        ? 'fa fa-magnet'
-                                        : 'fa fa-download'
-                                    }
-                                    aria-hidden='true'
-                                  ></i>{' '}
-                                </span>
-                                Click Here to Download {index + 1}
-                              </div>
-                            </Link>
-                          ))}
-                      </div>
-                    )}
-                  </>
-                )}
-              </div>
               <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}
-                route='tvshow'
+                route='trailers'
                 style={{
                   marginTop: '50px',
                   marginBottom: '50px',
                   borderRadius: '50px',
-                  boxShadow: '0 0 10px 0 #fff',
+                  boxShadow: '0 0 10px 0 #000',
                   filter:
                     'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
                 }}
               />
-              {/* <div className='flex flex-col items-center justify-center'>
+                 {/* <div className='flex flex-col items-center justify-center'>
                 <p
                   className='bg-gradient-to-r from-amber-500 to-pink-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300  text-bg text-black text-bg  mt-2 text-3xl mb-2 items-center justify-center '
                   style={{
@@ -1120,28 +1021,29 @@ const tvshowDetail = ({ tvshow }) => {
                       'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
                   }}
                 >
-                  <strong> {tvshow.head1} </strong>
+                  <strong> {trailers.head2} </strong>
                 </p>
               </div> */}
               <Image
-                src={tvshow.image1}
-                alt={tvshow.name}
+                src={trailers.image1}
+                alt={trailers.name}
                 width={1280}
                 height={720}
                 quality={90}
+                
                 loading='lazy'
                 style={{
-                
+               
                   margin: 'auto',
                   marginTop: '50px',
                   marginBottom: '20px',
                   borderRadius: '20px',
-                  boxShadow: '0 0 10px 0 #fff',
+                  boxShadow: '0 0 10px 0 #000',
                   filter:
                     'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
                 }}
               />
-              {/* {tvshow.news1.split('\n\n').map((paragraph, idx) => (
+              {/* {trailers.news1.split('\n\n').map((paragraph, idx) => (
                 <p
                   key={idx}
                   className='description text-black font-bold mt-2 text-xl'
@@ -1154,19 +1056,20 @@ const tvshowDetail = ({ tvshow }) => {
                 </p>
               ))}
               <div className='flex flex-col items-center justify-center'>
-                {tvshow.head2 && (
+                {trailers.head2 && (
                   <p className='bg-gradient-to-r from-amber-500 to-pink-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300 text-bg text-black text-bg mt-2 text-3xl mb-2 items-center justify-center'>
-                    <strong>{tvshow.head2}</strong>
+                    <strong>{trailers.head2}</strong>
                   </p>
                 )}
 
-                {tvshow.image2 && (
+                {trailers.image2 && (
                   <Image
-                    src={tvshow.image2}
-                    alt={tvshow.name}
+                    src={trailers.image2}
+                    alt={trailers.name}
                     width={1280}
                     height={720}
                     quality={90}
+                    
                     loading='lazy'
                     style={{
                       width: '800px', // Ensures the image is displayed at this width
@@ -1181,13 +1084,14 @@ const tvshowDetail = ({ tvshow }) => {
                   />
                 )}
 
-                {tvshow.image3 && (
+                {trailers.image3 && (
                   <Image
-                    src={tvshow.image3}
-                    alt={tvshow.name}
+                    src={trailers.image3}
+                    alt={trailers.name}
                     width={1280}
                     height={720}
                     quality={90}
+                    
                     loading='lazy'
                     style={{
                       width: '800px', // Ensures the image is displayed at this width
@@ -1202,13 +1106,14 @@ const tvshowDetail = ({ tvshow }) => {
                   />
                 )}
 
-                {tvshow.image4 && (
+                {trailers.image4 && (
                   <Image
-                    src={tvshow.image4}
-                    alt={tvshow.name}
+                    src={trailers.image4}
+                    alt={trailers.name}
                     width={1280}
                     height={720}
                     quality={90}
+                    
                     loading='lazy'
                     style={{
                       width: '800px', // Ensures the image is displayed at this width
@@ -1223,13 +1128,14 @@ const tvshowDetail = ({ tvshow }) => {
                   />
                 )}
 
-                {tvshow.image5 && (
+                {trailers.image5 && (
                   <Image
-                    src={tvshow.image5}
-                    alt={tvshow.name}
+                    src={trailers.image5}
+                    alt={trailers.name}
                     width={1280}
                     height={720}
                     quality={90}
+                    
                     loading='lazy'
                     style={{
                       width: '800px', // Ensures the image is displayed at this width
@@ -1244,13 +1150,14 @@ const tvshowDetail = ({ tvshow }) => {
                   />
                 )}
 
-                {tvshow.image6 && (
+                {trailers.image6 && (
                   <Image
-                    src={tvshow.image6}
-                    alt={tvshow.name}
+                    src={trailers.image6}
+                    alt={trailers.name}
                     width={1280}
                     height={720}
                     quality={90}
+                    
                     loading='lazy'
                     style={{
                       width: '800px', // Ensures the image is displayed at this width
@@ -1265,13 +1172,14 @@ const tvshowDetail = ({ tvshow }) => {
                   />
                 )}
 
-                {tvshow.image7 && (
+                {trailers.image7 && (
                   <Image
-                    src={tvshow.image7}
-                    alt={tvshow.name}
+                    src={trailers.image7}
+                    alt={trailers.name}
                     width={1280}
                     height={720}
                     quality={90}
+                    
                     loading='lazy'
                     style={{
                       width: '800px', // Ensures the image is displayed at this width
@@ -1286,13 +1194,14 @@ const tvshowDetail = ({ tvshow }) => {
                   />
                 )}
 
-                {tvshow.image8 && (
+                {trailers.image8 && (
                   <Image
-                    src={tvshow.image8}
-                    alt={tvshow.name}
+                    src={trailers.image8}
+                    alt={trailers.name}
                     width={1280}
                     height={720}
                     quality={90}
+                    
                     loading='lazy'
                     style={{
                       width: '800px', // Ensures the image is displayed at this width
@@ -1321,31 +1230,31 @@ const tvshowDetail = ({ tvshow }) => {
           textShadow: '1px 2px 2px #000'
         }}
       >
-        MOST POPULAR TV SHOWS
+        MOST POPULAR TRAILER
       </p>
       <div className='categorylatest-container'>
         <div className='cardlatest-container'>
-          {randomTvshow.map(tvshow => (
-            <div key={tvshow.id} className='cardlatest'>
-                <a href={tvshow['tvshow.watch']} id={tvshow.id}>
+          {randomTrailers.map(trailer => (
+            <div key={trailer.id} className='cardlatest'>
+              <a href={trailer['trailers.watch']} id={trailer.id}>
                 <div className='relative'>
                   <img
-                    src={tvshow.image}
-                    alt={tvshow.title}
+                    src={trailer.image}
+                    alt={trailer.title}
                     className='rounded-lg mx-auto'
                     width={400} // Adjust according to your design
                     height={300} // Adjust according to your design
                     style={{
-                      width: '400px',
-                      height: '300px',
+                      width: '400px', // Ensures the image is displayed at this width
+                      height: '300px', // Ensures the image is displayed at this height
                       boxShadow: '0 0 10px 0 #000'
                     }}
                   />
                   <p className='text-black text-lg font-semibold mt-2'>
-                    {tvshow.name}
+                    {trailer.name}
                   </p>
                   <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-sm font-semibold mt-2'>
-                    {tvshow.text}
+                    {trailer.text}
                   </div>
                 </div>
               </a>
@@ -1468,13 +1377,13 @@ const tvshowDetail = ({ tvshow }) => {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch("https://azmovies.vercel.app/tvshow.json");
+  const res = await fetch("https://azmovies.vercel.app/trailers.json");
   const data = await res.json();
-  const selectedTvshow = data.find((tvshow) => tvshow.id === "INDEX02");
+  const selectedTrailers = data.find((trailers) => trailers.id === "INDEX04");
   return {
     props: {
-      tvshow: selectedTvshow,
+      trailers: selectedTrailers,
     },
   };
 }
-export default tvshowDetail
+export default trailersDetail

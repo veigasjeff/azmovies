@@ -15,7 +15,60 @@ const trailersDetail = ({ trailers }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = 0 // Assume there are 3 pages
 
-  const [latest, setLatest] = useState(latestData)
+  const [randomTrailers, setRandomTrailers] = useState([]);
+
+  // Function to fetch data and set state
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://azmovies.vercel.app/trailers.json');
+      const data = await response.json();
+
+      // Get 5 random trailers
+      const randomTrailersData = getRandomItems(data, 6);
+      setRandomTrailers(randomTrailersData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  // useEffect to fetch data on component mount
+  useEffect(() => {
+    fetchData(); // Initial fetch
+
+    // Set interval to update trailers every 5 seconds
+    const interval = setInterval(() => {
+      fetchData();
+    }, 5000);
+
+    // Clean up interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+
+    // Utility function to get random items from data
+    const getRandomItems = (data, count) => {
+      const shuffled = shuffleArray([...data]); // Create a copy and shuffle the array
+      return shuffled.slice(0, count);
+    };
+  
+    // Function to shuffle array items randomly
+    const shuffleArray = (array) => {
+      let currentIndex = array.length, temporaryValue, randomIndex;
+  
+      // While there remain elements to shuffle...
+      while (currentIndex !== 0) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+  
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+  
+      return array;
+    };
+  
   const [showTimer, setShowTimer] = useState(false)
   const [seconds, setSeconds] = useState(30) // Example timer duration
   const [isMobileDevice, setIsMobileDevice] = useState(false)
@@ -397,7 +450,7 @@ const trailersDetail = ({ trailers }) => {
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
         <title>
-     
+      
           Watch Kakuda Official Trailer | A to Z Trailers™
         </title>
         <link rel='canonical' href={trailers && trailers.siteurl} />
@@ -659,7 +712,6 @@ const trailersDetail = ({ trailers }) => {
               width={400}
               height={500}
               quality={90}
-              
               loading='lazy'
               style={{
                 // width: '400px', // Ensures the image is displayed at this width
@@ -668,7 +720,7 @@ const trailersDetail = ({ trailers }) => {
                 marginTop: '50px',
                 marginBottom: '20px',
                 borderRadius: '50px',
-                boxShadow: '0 0 10px 0 #fff',
+                boxShadow: '0 0 10px 0 #000',
                 filter:
                   'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
               }}
@@ -676,7 +728,6 @@ const trailersDetail = ({ trailers }) => {
             <div
               style={{ maxWidth: '800px', width: '100%', marginBottom: '20px' }}
             >
-              
 
               <p className='text-black text-bg font-semibold mt-2'>
                 Genre: {trailers.genre}
@@ -700,12 +751,13 @@ const trailersDetail = ({ trailers }) => {
                   src={trailers.directorimg}
                   alt={trailers.directorname}
                   title={trailers.directorname}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    filter: 'contrast(1.2) saturate(1.2)',
-                    boxShadow: '0 0 10px 0 #C0C0C0' // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)',
+                    boxShadow: '0 0 10px 0 #000' // Shadow effect with black color
                   }}
                   loading='lazy'
                   layout='responsive'
@@ -715,12 +767,13 @@ const trailersDetail = ({ trailers }) => {
                   src={trailers.actor1img}
                   alt={trailers.actor1}
                   title={trailers.actor1}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
@@ -730,12 +783,13 @@ const trailersDetail = ({ trailers }) => {
                   src={trailers.actor2img}
                   alt={trailers.actor2}
                   title={trailers.actor2}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
@@ -745,12 +799,13 @@ const trailersDetail = ({ trailers }) => {
                   src={trailers.actor3img}
                   alt={trailers.actor3}
                   title={trailers.actor3}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
@@ -760,12 +815,13 @@ const trailersDetail = ({ trailers }) => {
                   src={trailers.actor4img}
                   alt={trailers.actor4}
                   title={trailers.actor4}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
@@ -775,12 +831,13 @@ const trailersDetail = ({ trailers }) => {
                   src={trailers.actor5img}
                   alt={trailers.actor5}
                   title={trailers.actor5}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
@@ -838,17 +895,59 @@ const trailersDetail = ({ trailers }) => {
                     filter:
                       'contrast(1.2) saturate(1.5) brightness(1.3) hue-rotate(0deg)',
                     // Additional styles for responsiveness
+                    boxShadow: '0 0 10px 0 #000',
                     maxWidth: '100%',
                     maxHeight: '100vh',
                     borderRadius: '20px' // Add border-radius for rounded shape
                   }}
                 ></div>
+        {/* <div
+                        itemscope
+                        itemtype='https://schema.org/VideoObject'
+                        style={{ display: 'none' }}
+                      >
+                        <meta itemprop='name' content={trailers.title} />
+                        <meta
+                          itemprop='description'
+                          content={trailers.text}
+                        />
+                        <meta
+                          itemprop='uploadDate'
+                          content={trailers.datePublished}
+                        />
+                        <meta
+                          itemprop='thumbnailUrl'
+                          content={trailers.backimage}
+                        />
+                        <meta itemprop='duration' content='P34S' />
+                        <meta
+                          itemprop='embedUrl'
+                          content={trailers.videourl}
+                        />
+                      </div>
+                      <iframe
+                        frameborder='0'
+                        src={`https://geo.dailymotion.com/player/xkdl0.html?video=${trailers.traileritem}&mute=true&Autoquality=1080p`}
+                        width='100%'
+                        height='100%'
+                        allowfullscreen
+                        title='Dailymotion Video Player'
+                        allow='autoplay; encrypted-media'
+                        style={{
+                          boxShadow: '0 0 10px 0 #000',
+                          filter:
+                            'contrast(1.2) saturate(1.3) brightness(1.2) hue-rotate(15deg)'
+                        }}
+                      ></iframe> */}
+                   
                 <p
                   className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-sm hover:text-blue-800 font-bold mt-2'
                   style={{
-                    fontFamily: 'Poppins, sans-serif'
-                    // color: '#000',
-                    // textShadow: '2px 1px 1px #000000'
+                    fontFamily: 'Poppins, sans-serif',
+                    boxShadow: '0 0 10px 0 #000',
+                    filter:
+                      'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
+                    // textShadow: '2px 1px 1px #000'
                   }}
                 >
                   *Note: Use Setting in Player to improve the Quality of video
@@ -858,7 +957,7 @@ const trailersDetail = ({ trailers }) => {
                   <button
                     onClick={handlePrevious}
                     disabled={currentEpisodeIndex === 0}
-                    style={{
+                    style={{  
                       marginTop: '10px',
                       padding: '8px 16px',
                       backgroundColor: '#32CD32',
@@ -908,7 +1007,7 @@ const trailersDetail = ({ trailers }) => {
                   marginTop: '50px',
                   marginBottom: '50px',
                   borderRadius: '50px',
-                  boxShadow: '0 0 10px 0 #fff',
+                  boxShadow: '0 0 10px 0 #000',
                   filter:
                     'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
                 }}
@@ -939,7 +1038,7 @@ const trailersDetail = ({ trailers }) => {
                   marginTop: '50px',
                   marginBottom: '20px',
                   borderRadius: '20px',
-                  boxShadow: '0 0 10px 0 #fff',
+                  boxShadow: '0 0 10px 0 #000',
                   filter:
                     'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
                 }}
@@ -1122,48 +1221,46 @@ const trailersDetail = ({ trailers }) => {
             </div>
           </div>
           <div className='sidebar'>
-            <p
-              className='text-black text-2xl font-bold mt-2'
-              style={{
-                marginTop: '15px',
-                color: '#000',
-                font: 'bold',
-                textShadow: '1px 2px 2px #000'
-              }}
-            >
-              LATEST ENTERTAINMENT NEWS
-            </p>
-            <div className='categorylatest-container'>
-              <div className='cardlatest-container'>
-                {latest.map(latestItem => (
-                  <div key={latestItem.id} className='cardlatest'>
-                    <a href={`/latest/${latestItem.id}`}>
-                      <div className='relative'>
-                        <Image
-                          src={latestItem.image}
-                          alt={latestItem.title}
-                          className='rounded-lg mx-auto'
-                          width={140} // Specify the desired width
-                          height={140} // Specify the desired height
-                          quality={90}
-                          style={{
-                            width: '300px', // Ensures the image is displayed at this width
-                            height: '300px', // Ensures the image is displayed at this height
-                            filter:
-                              'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
-                          }}
-                        />
-                        <p className='text-black text-lg font-semibold mt-2'>
-                          {latestItem.name}
-                        </p>
-                        <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-sm font-semibold mt-2'>
-                          {latestItem.text}
-                        </div>
-                      </div>
-                    </a>
+      <p
+        className='text-black text-2xl font-bold mt-2'
+        style={{
+          marginTop: '15px',
+          color: '#000',
+          font: 'bold',
+          textShadow: '1px 2px 2px #000'
+        }}
+      >
+        MOST POPULAR TRAILER
+      </p>
+      <div className='categorylatest-container'>
+        <div className='cardlatest-container'>
+          {randomTrailers.map(trailer => (
+            <div key={trailer.id} className='cardlatest'>
+              <a href={trailer['trailers.watch']} id={trailer.id}>
+                <div className='relative'>
+                  <img
+                    src={trailer.image}
+                    alt={trailer.title}
+                    className='rounded-lg mx-auto'
+                    width={400} // Adjust according to your design
+                    height={300} // Adjust according to your design
+                    style={{
+                      width: '400px', // Ensures the image is displayed at this width
+                      height: '300px', // Ensures the image is displayed at this height
+                      boxShadow: '0 0 10px 0 #000'
+                    }}
+                  />
+                  <p className='text-black text-lg font-semibold mt-2'>
+                    {trailer.name}
+                  </p>
+                  <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-sm font-semibold mt-2'>
+                    {trailer.text}
                   </div>
-                ))}
-              </div>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
             </div>
           </div>
         </div>

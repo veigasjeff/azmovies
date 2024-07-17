@@ -19,7 +19,7 @@ const moviesDetail = ({ movie }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = 0 // Assume there are 3 pages
 
-  const [latest, setLatest] = useState(latestData)
+  // const [latest, setLatest] = useState(latestData)
   const [playerReady, setPlayerReady] = useState(false)
   const [showTimer, setShowTimer] = useState(false)
   const [seconds, setSeconds] = useState(30) // Example timer duration
@@ -27,6 +27,60 @@ const moviesDetail = ({ movie }) => {
   const playerRef = useRef(null)
   const currentIndexRef = useRef(0)
 
+
+  const [randomMovies, setRandomMovies] = useState([]);
+
+  // Function to fetch data and set state
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://azmovies.vercel.app/movies.json');
+      const data = await response.json();
+
+      // Get 5 random trailers
+      const randomMoviesData = getRandomItems(data, 6)
+      setRandomMovies(randomMoviesData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  // useEffect to fetch data on component mount
+  useEffect(() => {
+    fetchData(); // Initial fetch
+
+    // Set interval to update trailers every 5 seconds
+    const interval = setInterval(() => {
+      fetchData();
+    }, 5000);
+
+    // Clean up interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+
+    // Utility function to get random items from data
+    const getRandomItems = (data, count) => {
+      const shuffled = shuffleArray([...data]); // Create a copy and shuffle the array
+      return shuffled.slice(0, count);
+    };
+  
+    // Function to shuffle array items randomly
+    const shuffleArray = (array) => {
+      let currentIndex = array.length, temporaryValue, randomIndex;
+  
+      // While there remain elements to shuffle...
+      while (currentIndex !== 0) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+  
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+  
+      return array;
+    };
 
   const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
   const videoPlayerRef = useRef(null);
@@ -690,12 +744,13 @@ const moviesDetail = ({ movie }) => {
                   src={movie.directorimg}
                   alt={movie.directorname}
                   title={movie.directorname}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    filter: 'contrast(1.2) saturate(1.2)',
-                    boxShadow: '0 0 10px 0 #C0C0C0' // Shadow effect with black color
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
@@ -705,12 +760,13 @@ const moviesDetail = ({ movie }) => {
                   src={movie.actor1img}
                   alt={movie.actor1}
                   title={movie.actor1}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
@@ -720,12 +776,13 @@ const moviesDetail = ({ movie }) => {
                   src={movie.actor2img}
                   alt={movie.actor2}
                   title={movie.actor2}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
@@ -735,12 +792,13 @@ const moviesDetail = ({ movie }) => {
                   src={movie.actor3img}
                   alt={movie.actor3}
                   title={movie.actor3}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
@@ -750,12 +808,13 @@ const moviesDetail = ({ movie }) => {
                   src={movie.actor4img}
                   alt={movie.actor4}
                   title={movie.actor4}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
@@ -765,12 +824,13 @@ const moviesDetail = ({ movie }) => {
                   src={movie.actor5img}
                   alt={movie.actor5}
                   title={movie.actor5}
+                  quality={90}
                   style={{
                     width: '200px',
                     height: '200px',
                     objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
                   }}
                   loading='lazy'
                   layout='responsive'
@@ -826,12 +886,19 @@ const moviesDetail = ({ movie }) => {
                   scrolling='0'
                   title='Video Player'
                   style={{
+                    boxShadow: '0 0 10px 0 #000',
                     filter:
                       'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
                   }}
                 ></iframe>
 
-                <p className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-sm'>
+                <p className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-sm'   
+                    style={{
+                      fontFamily: 'Poppins, sans-serif',
+                    boxShadow: '0 0 10px 0 #000',
+                    filter:
+                      'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
+                  }}>
                   *Note: Use Setting in Player to improve the Quality of video
                   to HD Quality 1080p.
                 </p>
@@ -872,6 +939,7 @@ const moviesDetail = ({ movie }) => {
                     left: '10px',
                     width: '100px',
                     height: '56px',
+                    boxShadow: '0 0 10px 0 #fff', // Shadow effect with black color
                     borderRadius: '10px'
                   }}
                 />
@@ -898,7 +966,7 @@ const moviesDetail = ({ movie }) => {
                 {!showTimer ? (
                   <button
                     onClick={() => setShowTimer(true)}
-                    className='animate-pulse bg-gradient-to-r from-amber-500 to-pink-500 text-black font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300 text-2xl'
+                    className='animate-pulse bg-gradient-to-r from-amber-500 to-pink-500 text-black font-bold py-3 px-6 rounded-lg shadow-lg hover:from-pink-600 hover:to-amber-600 transition duration-300 text-2xl'
                   >
                     Download Now
                   </button>
@@ -969,8 +1037,15 @@ const moviesDetail = ({ movie }) => {
                         allowfullscreen
                         title='Dailymotion Video Player'
                         allow='autoplay; encrypted-media'
+                        style={{
+                          boxShadow: '0 0 10px 0 #000',
+                          filter:
+                            'contrast(1.2) saturate(1.3) brightness(1.2) hue-rotate(15deg)'
+                        }}
                       ></iframe>
+                      
                     </div>
+                    
                     {showTimer && seconds <= 0 && (
                       <div>
                         {Object.keys(movie)
@@ -1028,7 +1103,7 @@ const moviesDetail = ({ movie }) => {
                   marginTop: '50px',
                   marginBottom: '50px',
                   borderRadius: '50px',
-                  boxShadow: '0 0 10px 0 #fff',
+                  boxShadow: '0 0 10px 0 #000',
                   filter:
                     'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
                 }}
@@ -1242,48 +1317,46 @@ const moviesDetail = ({ movie }) => {
             </div>
           </div>
           <div className='sidebar'>
-            <p
-              className='text-black text-2xl font-bold mt-2'
-              style={{
-                marginTop: '15px',
-                color: '#000',
-                font: 'bold',
-                textShadow: '1px 2px 2px #000'
-              }}
-            >
-              LATEST ENTERTAINMENT NEWS
-            </p>
-            <div className='categorylatest-container'>
-              <div className='cardlatest-container'>
-                {latest.map(latestItem => (
-                  <div key={latestItem.id} className='cardlatest'>
-                    <a href={`/latest/${latestItem.id}`}>
-                      <div className='relative'>
-                        <Image
-                          src={latestItem.image}
-                          alt={latestItem.title}
-                          className='rounded-lg mx-auto'
-                          width={140} // Specify the desired width
-                          height={140} // Specify the desired height
-                          quality={90}
-                          style={{
-                            width: '300px', // Ensures the image is displayed at this width
-                            height: '300px', // Ensures the image is displayed at this height
-                            filter:
-                              'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
-                          }}
-                        />
-                        <p className='text-black text-lg font-semibold mt-2'>
-                          {latestItem.name}
-                        </p>
-                        <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-sm font-semibold mt-2'>
-                          {latestItem.text}
-                        </div>
-                      </div>
-                    </a>
+      <p
+        className='text-black text-2xl font-bold mt-2'
+        style={{
+          marginTop: '15px',
+          color: '#000',
+          font: 'bold',
+          textShadow: '1px 2px 2px #000'
+        }}
+      >
+        MOST POPULAR MOVIES
+      </p>
+      <div className='categorylatest-container'>
+        <div className='cardlatest-container'>
+          {randomMovies.map(movies => (
+            <div key={movies.id} className='cardlatest'>
+             <a href={movies['movies.watch']} id={movies.id}>
+                <div className='relative'>
+                  <img
+                    src={movies.image}
+                    alt={movies.title}
+                    className='rounded-lg mx-auto'
+                    width={400} // Adjust according to your design
+                    height={300} // Adjust according to your design
+                    style={{
+                      width: '400px', // Ensures the image is displayed at this width
+                      height: '300px', // Ensures the image is displayed at this height
+                      boxShadow: '0 0 10px 0 #000'
+                    }}
+                  />
+                  <p className='text-black text-lg font-semibold mt-2'>
+                    {movies.name}
+                  </p>
+                  <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-sm font-semibold mt-2'>
+                    {movies.text}
                   </div>
-                ))}
-              </div>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
             </div>
           </div>
         </div>

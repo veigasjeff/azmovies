@@ -19,13 +19,68 @@ const tvshowDetail = ({ tvshow }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = 0 // Assume there are 3 pages
 
-  const [latest, setLatest] = useState(latestData)
+
   const [playerReady, setPlayerReady] = useState(false)
   const [showTimer, setShowTimer] = useState(false)
   const [seconds, setSeconds] = useState(30) // Example timer duration
   const [isMobileDevice, setIsMobileDevice] = useState(false)
   const playerRef = useRef(null)
   const currentIndexRef = useRef(0)
+
+  const [randomTvshow, setRandomTvshow] = useState([]);
+
+  // Function to fetch data and set state
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://azmovies.vercel.app/tvshow.json');
+      const data = await response.json();
+
+      // Get 6 random TV shows
+      const randomTvshowData = getRandomItems(data, 6);
+      setRandomTvshow(randomTvshowData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+   // useEffect to fetch data on component mount
+   useEffect(() => {
+    fetchData(); // Initial fetch
+
+    // Set interval to update trailers every 5 seconds
+    const interval = setInterval(() => {
+      fetchData();
+    }, 5000);
+
+    // Clean up interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+
+
+  // Utility function to get random items from data
+  const getRandomItems = (data, count) => {
+    const shuffled = shuffleArray([...data]); // Create a copy and shuffle the array
+    return shuffled.slice(0, count);
+  };
+
+  // Function to shuffle array items randomly
+  const shuffleArray = (array) => {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (currentIndex !== 0) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  };
 
   const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0)
   const videoPlayerRef = useRef(null)
@@ -1257,48 +1312,46 @@ const tvshowDetail = ({ tvshow }) => {
             </div>
           </div>
           <div className='sidebar'>
-            <p
-              className='text-black text-2xl font-bold mt-2'
-              style={{
-                marginTop: '15px',
-                color: '#000',
-                font: 'bold',
-                textShadow: '1px 2px 2px #000'
-              }}
-            >
-              LATEST ENTERTAINMENT NEWS
-            </p>
-            <div className='categorylatest-container'>
-              <div className='cardlatest-container'>
-                {latest.map(latestItem => (
-                  <div key={latestItem.id} className='cardlatest'>
-                    <a href={`/latest/${latestItem.id}`}>
-                      <div className='relative'>
-                        <Image
-                          src={latestItem.image}
-                          alt={latestItem.title}
-                          className='rounded-lg mx-auto'
-                          width={140} // Specify the desired width
-                          height={140} // Specify the desired height
-                          quality={90}
-                          style={{
-                            width: '300px', // Ensures the image is displayed at this width
-                            height: '300px', // Ensures the image is displayed at this height
-                            filter:
-                              'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
-                          }}
-                        />
-                        <p className='text-black text-lg font-semibold mt-2'>
-                          {latestItem.name}
-                        </p>
-                        <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-sm font-semibold mt-2'>
-                          {latestItem.text}
-                        </div>
-                      </div>
-                    </a>
+      <p
+        className='text-black text-2xl font-bold mt-2'
+        style={{
+          marginTop: '15px',
+          color: '#000',
+          font: 'bold',
+          textShadow: '1px 2px 2px #000'
+        }}
+      >
+        MOST POPULAR TV SHOWS
+      </p>
+      <div className='categorylatest-container'>
+        <div className='cardlatest-container'>
+          {randomTvshow.map(tvshow => (
+            <div key={tvshow.id} className='cardlatest'>
+                <a href={tvshow['tvshow.watch']} id={tvshow.id}>
+                <div className='relative'>
+                  <img
+                    src={tvshow.image}
+                    alt={tvshow.title}
+                    className='rounded-lg mx-auto'
+                    width={400} // Adjust according to your design
+                    height={300} // Adjust according to your design
+                    style={{
+                      width: '400px',
+                      height: '300px',
+                      boxShadow: '0 0 10px 0 #000'
+                    }}
+                  />
+                  <p className='text-black text-lg font-semibold mt-2'>
+                    {tvshow.name}
+                  </p>
+                  <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-sm font-semibold mt-2'>
+                    {tvshow.text}
                   </div>
-                ))}
-              </div>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
             </div>
           </div>
         </div>

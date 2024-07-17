@@ -91,8 +91,14 @@ const breadcrumbSchema = JSON.stringify({
   ]
 })
 
+// Utility function to get random items
+const getRandomItems = (data, count) => {
+  const shuffled = [...data].sort(() => 0.5 - Math.random())
+  return shuffled.slice(0, count)
+}
+
 const moviesPage = ({ items }) => {
-  const [latest, setLatest] = useState(latestData)
+
 
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages =  // Assume there are 3 pages
@@ -102,32 +108,35 @@ const moviesPage = ({ items }) => {
   }, [currentPage])
 
 
-  const [movies, setMovies] = useState([])
+  const [latest, setLatest] = useState([]);
  
-  useEffect(() => {
-    async function fetchData () {
-      try {
-        const [ moviesRes] = await Promise.all(
-          [
-            fetch('https://azmovies.vercel.app/movies.json'),
-         
-          ]
-        )
+  const fetchData = async () => {
+    try {
+      const [latestRes] = await Promise.all([
+        fetch('https://azmovies.vercel.app/latest.json'),
+        ]);
 
-        const [moviesData ] =
-          await Promise.all([
-           moviesRes.json(),
-           ])
+      const [latestData] = await Promise.all([
+        latestRes.json(),
+     
+      ]);
 
-       setMovies(getRandomItems(moviesData, 3))
-      
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
+      setLatest(getRandomItems(latestData, 3));
+     
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
+  };
 
-    fetchData()
-  }, [])
+  useEffect(() => {
+    fetchData();
+
+    const interval = setInterval(() => {
+      fetchData();
+    }, 5000 ); // 30000 seconds interval , 10000
+
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, []);
 
   return (
     <div className='w-full' style={{ backgroundColor: '#D3D3D3' }}>
@@ -353,6 +362,7 @@ const moviesPage = ({ items }) => {
                         style={{
                           width: '200px', // Ensures the image is displayed at this width
                           height: '300px', // Ensures the image is displayed at this height
+                          boxShadow: '0 0 10px 0 #000',
                           filter:
                             'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
                         }}
@@ -361,7 +371,10 @@ const moviesPage = ({ items }) => {
                         {item.name}
                       </p>
                       <p className='text-black text-bg font-semibold mt-2'>
-                        Genre: {item.genre}. Directed by: {item.directorname}
+                        Genre: {item.genre}.
+                        </p>
+                        <p className='text-black text-bg font-semibold mt-2'>   
+                         Directed by: {item.directorname}
                       </p>
                       
                       <p className='text-black text-bg font-semibold mt-2'>
@@ -372,8 +385,13 @@ const moviesPage = ({ items }) => {
                       <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-black text-lg font-semibold mt-2'>
                         {item.text}
                       </div>
-                      <div className='animate-pulse badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'>
-                        {item.badge}
+                      <div className='animate-pulse badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
+                      style={{
+                         boxShadow: '0 0 10px 0 #000',
+                         filter:
+                           'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
+                       }}>
+                        {item.lang}
                       </div>
                     </div>
                   </a>
@@ -428,12 +446,13 @@ const moviesPage = ({ items }) => {
                           src={latestItem.image}
                           alt={latestItem.title}
                           className='rounded-lg mx-auto'
-                          width={140} // Specify the desired width
-                          height={140} // Specify the desired height
+                          width={400} // Specify the desired width
+                          height={300} // Specify the desired height
                           quality={90}
                           style={{
-                            width: '300px', // Ensures the image is displayed at this width
+                            width: '400px', // Ensures the image is displayed at this width
                             height: '300px', // Ensures the image is displayed at this height
+                            boxShadow: '0 0 10px 0 #000',
                             filter:
                               'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
                           }}

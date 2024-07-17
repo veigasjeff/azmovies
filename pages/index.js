@@ -16,44 +16,51 @@ const getRandomItems = (data, count) => {
 }
 
 const HomePage = () => {
-  const [latest, setlatest] = useState(latestData)
+  // const [latest, setLatest] = useState(latestData);
 
-  const [adult, setAdult] = useState([])
-  const [movies, setMovies] = useState([])
-  const [tvShow, setTvShow] = useState([])
-  const [trailers, setTrailers] = useState([])
+  const [latest, setLatest] = useState([]);
+  const [adult, setAdult] = useState([]);
+  const [movies, setMovies] = useState([]);
+  const [tvShow, setTvShow] = useState([]);
+  const [trailers, setTrailers] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const [latestRes, adultRes, moviesRes, tvShowRes, trailersRes] = await Promise.all([
+        fetch('https://azmovies.vercel.app/latest.json'),
+        fetch('https://azmovies.vercel.app/adult.json'),
+        fetch('https://azmovies.vercel.app/movies.json'),
+        fetch('https://azmovies.vercel.app/tvshow.json'),
+        fetch('https://azmovies.vercel.app/trailers.json')
+      ]);
+
+      const [latestData, adultData, moviesData, tvShowData, trailersData] = await Promise.all([
+        latestRes.json(),
+        adultRes.json(),
+        moviesRes.json(),
+        tvShowRes.json(),
+        trailersRes.json()
+      ]);
+
+      setLatest(getRandomItems(latestData, 3));
+      setAdult(getRandomItems(adultData, 3));
+      setMovies(getRandomItems(moviesData, 3));
+      setTvShow(getRandomItems(tvShowData, 3));
+      setTrailers(getRandomItems(trailersData, 3));
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
   useEffect(() => {
-    async function fetchData () {
-      try {
-        const [adultRes, moviesRes, tvShowRes, trailersRes] = await Promise.all(
-          [
-            fetch('https://azmovies.vercel.app/adult.json'),
-            fetch('https://azmovies.vercel.app/movies.json'),
-            fetch('https://azmovies.vercel.app/tvshow.json'),
-            fetch('https://azmovies.vercel.app/trailers.json')
-          ]
-        )
+    fetchData();
 
-        const [adultData, moviesData, tvShowData, trailersData] =
-          await Promise.all([
-            adultRes.json(),
-            moviesRes.json(),
-            tvShowRes.json(),
-            trailersRes.json()
-          ])
+    const interval = setInterval(() => {
+      fetchData();
+    }, 5000 ); // 30000 seconds interval , 10000
 
-        setAdult(getRandomItems(adultData, 3))
-        setMovies(getRandomItems(moviesData, 3))
-        setTvShow(getRandomItems(tvShowData, 3))
-        setTrailers(getRandomItems(trailersData, 3))
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
-    }
-
-    fetchData()
-  }, [])
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, []);
 
   const pageTitle = 'A to Z Movies™ - Explore. Discover. Download.'
 
@@ -105,7 +112,7 @@ const HomePage = () => {
       {
         '@type': 'Organization',
         '@id': 'https://azmovies.vercel.app/#organization',
-        name: 'A to Z Movies - Explore. Discover. Download.',
+        name: 'A to Z Movies™ - Explore. Discover. Download.',
         url: 'https://azmovies.vercel.app'
       },
       {
@@ -396,7 +403,7 @@ const HomePage = () => {
               textAlign: 'center'
             }}
           >
-            Welcome to A to Z Movies.
+            Welcome to A to Z Movies™
           </h1>
           <p className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl hover:text-blue-800 font-bold mt-2'>
             {' '}
@@ -495,8 +502,8 @@ const HomePage = () => {
                   <div key={item.id} className='card'>
                     <a href={`${item.id}`}>
                       <p
-                        className='text-black text-xl bg-gradient-to-r from-amber-500 to-pink-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
-                        style={{ marginBottom: '20px' }}
+                        className='text-black text-xl bg-gradient-to-r from-amber-500 to-pink-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-pink-600 hover:to-amber-600 transition duration-300'
+                        style={{ marginBottom: '20px',  boxShadow: '0 0 10px 0 #000', }}
                       >
                         {item.name}
                       </p>
@@ -507,12 +514,13 @@ const HomePage = () => {
                             src={item.image}
                             alt={item.title}
                             className='rounded-lg '
-                            width={140} // Specify the desired width
-                            height={140} // Specify the desired height
+                            width={200} // Specify the desired width
+                            height={300} // Specify the desired height
                             quality={90}
                             style={{
                               width: '200px', // Ensures the image is displayed at this width
                               height: '300px', // Ensures the image is displayed at this height
+                              boxShadow: '0 0 10px 0 #000',
                               filter:
                                 'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
                             }}
@@ -521,7 +529,11 @@ const HomePage = () => {
                         <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-black text-lg font-semibold mt-2'>
                           {item.text}
                         </div>
-                        <div className='badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'>
+                        <div className='badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'style={{
+                         boxShadow: '0 0 10px 0 #000',
+                         filter:
+                           'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
+                       }}>
                           {item.badge}
                         </div>
                       </div>
@@ -544,8 +556,8 @@ const HomePage = () => {
                   <div key={item.id} className='card'>
                     <a href={`${item.id}`}>
                       <p
-                        className='text-black text-xl bg-gradient-to-r from-amber-500 to-pink-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
-                        style={{ marginBottom: '20px' }}
+                        className='text-black text-xl bg-gradient-to-r from-amber-500 to-pink-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-pink-600 hover:to-amber-600 transition duration-300'
+                        style={{ marginBottom: '20px',  boxShadow: '0 0 10px 0 #000', }}
                       >
                         {item.name}
                       </p>
@@ -556,12 +568,13 @@ const HomePage = () => {
                             src={item.image}
                             alt={item.title}
                             className='rounded-lg '
-                            width={140} // Specify the desired width
-                            height={140} // Specify the desired height
+                            width={200} // Specify the desired width
+                            height={300} // Specify the desired height
                             quality={90}
                             style={{
                               width: '200px', // Ensures the image is displayed at this width
                               height: '300px', // Ensures the image is displayed at this height
+                              boxShadow: '0 0 10px 0 #000',
                               filter:
                                 'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
                             }}
@@ -570,7 +583,11 @@ const HomePage = () => {
                         <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-black text-lg font-semibold mt-2'>
                           {item.text}
                         </div>
-                        <div className='badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'>
+                        <div className='badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'style={{
+                         boxShadow: '0 0 10px 0 #000',
+                         filter:
+                           'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
+                       }}>
                           {item.badge}
                         </div>
                       </div>
@@ -593,8 +610,8 @@ const HomePage = () => {
                   <div key={item.id} className='card'>
                     <a href={`${item.id}`}>
                       <p
-                        className='text-black text-xl bg-gradient-to-r from-amber-500 to-pink-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
-                        style={{ marginBottom: '20px' }}
+                      className='text-black text-xl bg-gradient-to-r from-amber-500 to-pink-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-pink-600 hover:to-amber-600 transition duration-300'
+                        style={{ marginBottom: '20px',  boxShadow: '0 0 10px 0 #000', }}
                       >
                         {item.name}
                       </p>
@@ -605,12 +622,13 @@ const HomePage = () => {
                             src={item.image}
                             alt={item.title}
                             className='rounded-lg '
-                            width={140} // Specify the desired width
-                            height={140} // Specify the desired height
+                            width={200} // Specify the desired width
+                            height={300} // Specify the desired height
                             quality={90}
                             style={{
                               width: '200px', // Ensures the image is displayed at this width
                               height: '300px', // Ensures the image is displayed at this height
+                              boxShadow: '0 0 10px 0 #000',
                               filter:
                                 'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
                             }}
@@ -619,7 +637,11 @@ const HomePage = () => {
                         <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-black text-lg font-semibold mt-2'>
                           {item.text}
                         </div>
-                        <div className='badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'>
+                        <div className='badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'style={{
+                         boxShadow: '0 0 10px 0 #000',
+                         filter:
+                           'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
+                       }}>
                           {item.badge}
                         </div>
                       </div>
@@ -642,8 +664,8 @@ const HomePage = () => {
                   <div key={item.id} className='card'>
                     <a href={`${item.id}`}>
                       <p
-                        className='text-black text-xl bg-gradient-to-r from-amber-500 to-pink-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
-                        style={{ marginBottom: '20px' }}
+                        className='text-black text-xl bg-gradient-to-r from-amber-500 to-pink-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-pink-600 hover:to-amber-600 transition duration-300'
+                       style={{ marginBottom: '20px',  boxShadow: '0 0 10px 0 #000', }}
                       >
                         {item.name}
                       </p>
@@ -654,12 +676,13 @@ const HomePage = () => {
                             src={item.image}
                             alt={item.title}
                             className='rounded-lg '
-                            width={140} // Specify the desired width
-                            height={140} // Specify the desired height
+                            width={200} // Specify the desired width
+                            height={300} // Specify the desired height
                             quality={90}
                             style={{
                               width: '200px', // Ensures the image is displayed at this width
                               height: '300px', // Ensures the image is displayed at this height
+                              boxShadow: '0 0 10px 0 #000',
                               filter:
                                 'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
                             }}
@@ -668,7 +691,11 @@ const HomePage = () => {
                         <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-black text-lg font-semibold mt-2'>
                           {item.text}
                         </div>
-                        <div className='badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'>
+                        <div className='badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'style={{
+                         boxShadow: '0 0 10px 0 #000',
+                         filter:
+                           'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
+                       }}>
                           {item.badge}
                         </div>
                       </div>
@@ -710,12 +737,13 @@ const HomePage = () => {
                             src={latestItem.image}
                             alt={latestItem.title}
                             className='rounded-lg mx-auto'
-                            width={140} // Specify the desired width
-                            height={140} // Specify the desired height
+                            width={400} // Specify the desired width
+                            height={300} // Specify the desired height
                             quality={90}
                             style={{
-                              width: '300px', // Ensures the image is displayed at this width
+                              width: '400px', // Ensures the image is displayed at this width
                               height: '300px', // Ensures the image is displayed at this height
+                              boxShadow: '0 0 10px 0 #000',
                               filter:
                                 'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
                             }}
