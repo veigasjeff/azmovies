@@ -495,14 +495,14 @@ const latestDetail = ({ latest }) => {
                 
                 loading='lazy'
                 style={{
-                  width: '800px', // Ensures the image is displayed at this width
-                  height: '400px', // Ensures the image is displayed at this height
+                  // width: '800px', // Ensures the image is displayed at this width
+                  // height: '400px', // Ensures the image is displayed at this height
                   margin: 'auto',
                   marginBottom: '20px',
                   borderRadius: '50px',
                   boxShadow: '0 0 10px 0 #fff',
                   filter:
-                    'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
+                'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
                 }}
               />
             )}
@@ -535,8 +535,8 @@ const latestDetail = ({ latest }) => {
                 
                 loading='lazy'
                 style={{
-                  width: '800px', // Ensures the image is displayed at this width
-                  height: '400px', // Ensures the image is displayed at this height
+                  // width: '800px', // Ensures the image is displayed at this width
+                  // height: '400px', // Ensures the image is displayed at this height
                   margin: 'auto',
                   marginBottom: '20px',
                   borderRadius: '50px',
@@ -575,8 +575,8 @@ const latestDetail = ({ latest }) => {
                 
                 loading='lazy'
                 style={{
-                  width: '800px', // Ensures the image is displayed at this width
-                  height: '400px', // Ensures the image is displayed at this height
+                  // width: '800px', // Ensures the image is displayed at this width
+                  // height: '400px', // Ensures the image is displayed at this height
                   margin: 'auto',
                   marginBottom: '20px',
                   borderRadius: '50px',
@@ -605,7 +605,7 @@ const latestDetail = ({ latest }) => {
                 <strong>{latest.head4}</strong>
               </p>
             )}
-            {latest.image4 && (
+            {/* {latest.image4 && (
               <Image
                 src={latest.image4}
                 alt={latest.name}
@@ -625,7 +625,7 @@ const latestDetail = ({ latest }) => {
                     'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
                 }}
               />
-            )}
+            )} */}
             {latest.news4 &&
               latest.news4.split('\n\n').map((paragraph, idx) => (
                 <p
