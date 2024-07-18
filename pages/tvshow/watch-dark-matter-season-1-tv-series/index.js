@@ -446,7 +446,7 @@ const tvshowDetail = ({ tvshow }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title>Watch House of the Dragon Season 2 (2024) | A to Z Tvshow™</title>
+        <title>Watch Dark Matter Season 1 (2024) | A to Z Tvshow™</title>
         <link rel='canonical' href={tvshow && tvshow.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />
@@ -1471,7 +1471,7 @@ const tvshowDetail = ({ tvshow }) => {
 export async function getServerSideProps() {
   const res = await fetch("https://azmovies.vercel.app/tvshow.json");
   const data = await res.json();
-  const selectedTvshow = data.find((tvshow) => tvshow.id === "INDEX01");
+  const selectedTvshow = data.find((tvshow) => tvshow.id === "INDEX13");
   return {
     props: {
       tvshow: selectedTvshow,
