@@ -76,7 +76,7 @@ function Application({ Component, pageProps }) {
         async
       ></Script>
       <GoogleAnalytics measurementId='G-WW7QEH0KS9' />
-      <Script async data-id="101459345" src="/1e79f2d12d364be.js"></Script>
+      <Script async data-id="101459345" src="//static.getclicky.com/js"></Script>
       <PageTransition>
         <Hamburger />
         <Component {...pageProps} />
