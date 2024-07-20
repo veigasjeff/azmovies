@@ -285,8 +285,7 @@ const HomePage = () => {
             content='A to Z Movies™ - Explore. Discover. Download.'
           />
           <link rel='canonical' href='https://azmovies.vercel.app/' />
-          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="en-us" />
-          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="x-default" />
+        
           <meta property='og:locale' content='en_US' />
           <meta property='og:type' content='video.movie' />
           {/* <meta property='og:type' content='website' /> */}
