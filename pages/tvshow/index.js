@@ -125,7 +125,7 @@ const tvshowPage = ({ items }) => {
 
     const interval = setInterval(() => {
       fetchData()
-    }, 5000) // 30000 seconds interval , 10000
+    }, 10000); // 30000 seconds interval , 10000
 
     return () => clearInterval(interval) // Cleanup interval on unmount
   }, [])

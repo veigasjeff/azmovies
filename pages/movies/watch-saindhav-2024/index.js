@@ -84,7 +84,7 @@ const moviesDetail = ({ movie }) => {
     // Set interval to update trailers every 5 seconds
     const interval = setInterval(() => {
       fetchData()
-    }, 5000)
+    }, 10000);
 
     // Clean up interval on component unmount
     return () => clearInterval(interval)

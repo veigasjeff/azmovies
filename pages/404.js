@@ -7,7 +7,7 @@ export default function ErrorPage() {
         // Redirect to the homepage after a few seconds
         const redirectTimer = setTimeout(() => {
             window.location.href = "/";
-        }, 5000); // Redirect after 5 seconds (5000 milliseconds)
+        }, 10000); // Redirect after 5 seconds (5000 milliseconds)
 
         // Clear the timer when the component unmounts or changes
         return () => clearTimeout(redirectTimer);
