@@ -286,26 +286,6 @@ const HomePage = () => {
           />
           <link rel='canonical' href='https://azmovies.vercel.app/' />
           <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="en-us" />
-          <link rel="alternate" href="https://azmovies.vercel.app/es/" hreflang="es-ES" />
-          <link rel="alternate" href="https://azmovies.vercel.app/fr/" hreflang="fr-FR" />
-          <link rel="alternate" href="https://azmovies.vercel.app/de/" hreflang="de-DE" />
-          <link rel="alternate" href="https://azmovies.vercel.app/zh/" hreflang="zh-CN" />
-          <link rel="alternate" href="https://azmovies.vercel.app/ja/" hreflang="ja-JP" />
-          <link rel="alternate" href="https://azmovies.vercel.app/ko/" hreflang="ko-KR" />
-          <link rel="alternate" href="https://azmovies.vercel.app/pt/" hreflang="pt-PT" />
-          <link rel="alternate" href="https://azmovies.vercel.app/ru/" hreflang="ru-RU" />
-          <link rel="alternate" href="https://azmovies.vercel.app/ar/" hreflang="ar-SA" />
-          <link rel="alternate" href="https://azmovies.vercel.app/it/" hreflang="it-IT" />
-          <link rel="alternate" href="https://azmovies.vercel.app/nl/" hreflang="nl-NL" />
-          <link rel="alternate" href="https://azmovies.vercel.app/tr/" hreflang="tr-TR" />
-          <link rel="alternate" href="https://azmovies.vercel.app/sv/" hreflang="sv-SE" />
-          <link rel="alternate" href="https://azmovies.vercel.app/da/" hreflang="da-DK" />
-          <link rel="alternate" href="https://azmovies.vercel.app/fi/" hreflang="fi-FI" />
-          <link rel="alternate" href="https://azmovies.vercel.app/hu/" hreflang="hu-HU" />
-          <link rel="alternate" href="https://azmovies.vercel.app/pl/" hreflang="pl-PL" />
-          <link rel="alternate" href="https://azmovies.vercel.app/cs/" hreflang="cs-CZ" />
-          <link rel="alternate" href="https://azmovies.vercel.app/th/" hreflang="th-TH" />
-          <link rel="alternate" href="https://azmovies.vercel.app/vi/" hreflang="vi-VN" />
           <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="x-default" />
           <meta property='og:locale' content='en_US' />
           <meta property='og:type' content='video.movie' />
