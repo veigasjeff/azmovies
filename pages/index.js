@@ -285,6 +285,28 @@ const HomePage = () => {
             content='A to Z Movies™ - Explore. Discover. Download.'
           />
           <link rel='canonical' href='https://azmovies.vercel.app/' />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="en-us" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="es-ES" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="fr-FR" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="de-DE" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="zh-CN" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="ja-JP" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="ko-KR" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="pt-PT" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="ru-RU" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="ar-SA" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="it-IT" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="nl-NL" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="tr-TR" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="sv-SE" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="da-DK" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="fi-FI" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="hu-HU" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="pl-PL" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="cs-CZ" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="th-TH" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="vi-VN" />
+          <link rel="alternate" href="https://azmovies.vercel.app/" hreflang="x-default" />
           <meta property='og:locale' content='en_US' />
           <meta property='og:type' content='video.movie' />
           {/* <meta property='og:type' content='website' /> */}
@@ -359,22 +381,8 @@ const HomePage = () => {
             crossorigin='anonymous'
             referrerpolicy='no-referrer'
           />
-          {/* <script
-            dangerouslySetInnerHTML={{
-              __html: `
-            (function (w, d, s, id) {
-              if (typeof (w.webpushr) !== 'undefined') return;
-              w.webpushr = w.webpushr |function () { (w.webpushr.q = w.webpushr.q |[]).push(arguments) };
-              var js, fjs = d.getElementsByTagName(s)[0];
-              js = d.createElement(s); js.id = id; js.async = 1;
-              js.src = "https://cdn.webpushr.com/app.min.js";
-              fjs.parentNode.appendChild(js);
-            }(window, document, 'script', 'webpushr-jssdk'));
-
-            webpushr('setup', { 'key': 'BF62CgftpZNZBnjQU2fKfnSn0BN4EXiaFhhNG2zzUpl6MudrZ7iOy_J-JxZrV1qLgwbP1Woa6w4HJLaYzzFVneQ' });
-          `
-            }}
-          /> */}
+       
+       
         </Head>
 
         <GoogleTranslate />
