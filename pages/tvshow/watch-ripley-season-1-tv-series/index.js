@@ -505,7 +505,7 @@ const tvshowDetail = ({ tvshow }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title>Watch Ripley Season 1 (2012) | AZ Tvshow™</title>
+        <title>Watch Ripley Season 1 (2024) | AZ Tvshow™</title>
         <link rel='canonical' href={tvshow && tvshow.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />
