@@ -133,7 +133,7 @@ const moviesPage = ({ items }) => {
   return (
     <div className='w-full' style={{ backgroundColor: '#D3D3D3' }}>
       <Head>
-        <title> Watch AZ Movies | AZ Movies™</title>
+        <title> Watch Online Movies | AZ Movies™</title>
         <link rel='canonical' href='https://azmovies.vercel.app/movies/' />
         <meta
           name='robots'
