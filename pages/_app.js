@@ -51,30 +51,31 @@ import GoogleAnalytics from '@bradgarropy/next-google-analytics';
 import Script from 'next/script';
 import { useEffect } from 'react';
 
-function Application({ Component, pageProps }) {
-  useEffect(() => {
-    const setupWebpushr = () => {
-      if (typeof window.webpushr !== 'undefined') {
-        window.webpushr('setup', {
-          key: 'BF62CgftpZNZBnjQU2fKfnSn0BN4EXiaFhhNG2zzUpl6MudrZ7iOy_J-JxZrV1qLgwbP1Woa6w4HJLaYzzFVneQ',
-        });
-      }
-    };
-
-    const script = document.createElement('script');
-    script.src = 'https://cdn.webpushr.com/app.min.js';
-    script.async = true;
-    script.onload = setupWebpushr;
-    document.body.appendChild(script);
-  }, []);
 
   return (
     <div className='center'>
-      {/* <Script
-        type='text/javascript'
-        src='https://platform-api.sharethis.com/js/sharethis.js#property=664f7ed93a56e900196c14e4&product=sticky-share-buttons&source=platform'
-        async
-      ></Script> */}
+<Script
+id="webpushr"
+strategy="afterInteractive"
+dangerouslySetInnerHTML={{
+  __html: `
+    (function(w,d,s,id) {
+      if(typeof(w.webpushr) !== 'undefined') return;
+      w.webpushr = w.webpushr || function() {
+        (w.webpushr.q = w.webpushr.q || []).push(arguments)
+      };
+      var js, fjs = d.getElementsByTagName(s)[0];
+      js = d.createElement(s);
+      js.id = id;
+      js.async = 1;
+      js.src = "https://cdn.webpushr.com/app.min.js";
+      fjs.parentNode.appendChild(js);
+    }(window, document, 'script', 'webpushr-jssdk'));
+
+    webpushr('setup', {'key': 'BF62CgftpZNZBnjQU2fKfnSn0BN4EXiaFhhNG2zzUpl6MudrZ7iOy_J-JxZrV1qLgwbP1Woa6w4HJLaYzzFVneQ'});
+  `
+}}
+/>
       <GoogleAnalytics measurementId='G-WW7QEH0KS9' />
    
       
