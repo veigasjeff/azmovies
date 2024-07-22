@@ -357,7 +357,7 @@ const HomePage = () => {
             crossorigin='anonymous'
             referrerpolicy='no-referrer'
           />
-         {/* <script
+         <script
             dangerouslySetInnerHTML={{
               __html: `
             (function (w, d, s, id) {
@@ -372,7 +372,7 @@ const HomePage = () => {
             webpushr('setup', { 'key': 'BF62CgftpZNZBnjQU2fKfnSn0BN4EXiaFhhNG2zzUpl6MudrZ7iOy_J-JxZrV1qLgwbP1Woa6w4HJLaYzzFVneQ' });
           `
             }}
-          /> */}
+          />
        
         </Head>
 
