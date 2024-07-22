@@ -6,6 +6,7 @@ import adultData from '../../../public/adult.json'
 import trailersData from '../../../public/trailers.json'
 import latestData from '../../../public/latest.json'
 import GoogleTranslate from '../../../components/GoogleTranslate'
+import SocialSharing from '../../../components/SocialSharing';
 import { useEffect, useState, useRef } from 'react'
 import Pagination from '../../../components/Pagination'
 import Head from 'next/head'
@@ -319,9 +320,9 @@ const moviesDetail = ({ movie }) => {
       },
       {
         '@type': 'Person',
-        '@id': 'https://azmovies.vercel.app/author/azmovies/',
+        '@id': 'https://azmovies.vercel.app/author/AZ Movies/',
         name: 'Dr Trailer',
-        url: 'https://azmovies.vercel.app/author/azmovies/',
+        url: 'https://azmovies.vercel.app/author/AZ Movies/',
         image: {
           '@type': 'ImageObject',
           '@id': 'https://gravatar.com/drtrailer2022',
@@ -339,7 +340,7 @@ const moviesDetail = ({ movie }) => {
         dateModified: movie.dateModified,
         articleSection: 'Movies',
         author: {
-          '@id': 'https://azmovies.vercel.app/author/azmovies/'
+          '@id': 'https://azmovies.vercel.app/author/AZ Movies/'
         },
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
@@ -363,7 +364,7 @@ const moviesDetail = ({ movie }) => {
         dateModified: movie.dateModified,
         articleSection: 'Movies',
         author: {
-          '@id': 'https://azmovies.vercel.app/author/azmovies/'
+          '@id': 'https://azmovies.vercel.app/author/AZ Movies/'
         },
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
@@ -521,7 +522,7 @@ const moviesDetail = ({ movie }) => {
         />
         <meta
           property='og:description'
-          content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch and enjoy HD streaming, and catch the latest movies. Dive into cinema with AZ Movies™!'
+          content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
         />
 
         <meta property='og:url' content={`${movie && movie.siteurl}`} />
@@ -537,8 +538,8 @@ const moviesDetail = ({ movie }) => {
           content='2024-01-01T13:13:13+00:00'
         />
         <meta property='og:image' content={`${movie && movie.image1}`} />
-        <meta property='og:image:width' content='303px' />
-        <meta property='og:image:height' content='430px' />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property='og:image:type' content='image/webp' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:label1' content='Est. reading time' />
@@ -591,7 +592,9 @@ const moviesDetail = ({ movie }) => {
         />
       </Head>
       <GoogleTranslate />
-      {/* <Script src='../../propler/ads.js' defer /> */}
+ <SocialSharing />
+      <SocialSharing />
+      <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
 
       <div

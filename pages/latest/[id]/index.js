@@ -3,7 +3,8 @@ import latestsData from '../../../public/latest.json'
 import moviesData from '../../../public/movies.json'
 import tvshowData from '../../../public/tvshow.json'
 import trailersData from '../../../public/trailers.json'
-import GoogleTranslate from '../../../components/GoogleTranslate';
+import GoogleTranslate from '../../../components/GoogleTranslate'
+import SocialSharing from '../../../components/SocialSharing';;
 import adultData from '../../../public/adult.json'
 import { useEffect, useState, useRef } from 'react'
 import Head from 'next/head'
@@ -76,7 +77,7 @@ const latestDetail = ({ latest }) => {
     {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'AZ Movies™ - Explore. Discover. Download.',
+      name: 'AZ Movies™ - Explore. Discover. Download',
       url: 'https://azmovies.vercel.app/',
       image: [
         'https://azmovies.vercel.app/favicon.ico'
@@ -116,7 +117,7 @@ const latestDetail = ({ latest }) => {
         '@type': 'WebSite',
         '@id': 'https://azmovies.vercel.app#website',
         url: 'https://azmovies.vercel.app',
-        name: 'AZ Movies',
+        name: 'AZ Movies™',
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
@@ -126,7 +127,7 @@ const latestDetail = ({ latest }) => {
         '@type': 'WebPage',
         '@id': `/${latest['latest.watch']}#webpage`,
         url: `/${latest['latest.watch']}`,
-        name: `${latest.name} | AZ Movies`,
+        name: `${latest.name} | AZ Movies™`,
         datePublished: '2024-01-13T13:00:00+00:00',
         dateModified: '2024-01-13T13:13:00+00:00',
         isPartOf: {
@@ -136,9 +137,9 @@ const latestDetail = ({ latest }) => {
       },
       {
         '@type': 'Person',
-        '@id': 'https://azmovies.vercel.app/author/azmovies/',
+        '@id': 'https://azmovies.vercel.app/author/AZ Movies/',
         name: 'Dr Trailer',
-        url: 'https://azmovies.vercel.appauthor/azmovies/',
+        url: 'https://azmovies.vercel.appauthor/AZ Movies/',
         image: {
           '@type': 'ImageObject',
           '@id': 'https://gravatar.com/drtrailer2022',
@@ -151,19 +152,19 @@ const latestDetail = ({ latest }) => {
       {
         '@type': 'Article',
         '@id': `/${latest['latest.watch']}#article`,
-        headline: ` ${latest.name} | AZ Movies`,
+        headline: ` ${latest.name} | AZ Movies™`,
         datePublished: '2024-01-13T13:00:00+00:00',
         dateModified: '2024-01-13T13:13:00+00:00',
         articleSection: 'latest',
         author: {
-          '@id': 'https://azmovies.vercel.appauthor/azmovies/'
+          '@id': 'https://azmovies.vercel.appauthor/AZ Movies/'
         },
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
-        description: `Explore. Discover. Download - Free Your Desired Software.`,
+        description: `AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.`,
         image: latest.image,
-        name: ` ${latest.name} | AZ Movies`,
+        name: ` ${latest.name} | AZ Movies™`,
         isPartOf: {
           '@id': `/${latest['latest.watch']}#webpage`
         },
@@ -175,19 +176,19 @@ const latestDetail = ({ latest }) => {
       {
         '@type': 'BlogPosting',
         '@id': `/${latest['latest.watch']}#blogPost`,
-        headline: ` ${latest.name} | AZ Movies`,
+        headline: ` ${latest.name} | AZ Movies™`,
         datePublished: '2024-01-13T13:00:00+00:00',
         dateModified: '2024-01-13T13:13:00+00:00',
         articleSection: 'latest',
         author: {
-          '@id': 'https://azmovies.vercel.appauthor/azmovies/'
+          '@id': 'https://azmovies.vercel.appauthor/AZ Movies/'
         },
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
-        description: `Explore. Discover. Download - Free Your Desired Software.`,
+        description: `AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.`,
         image: latest.image,
-        name: ` ${latest.name} | AZ Movies`,
+        name: ` ${latest.name} | AZ Movies™`,
         '@id': `/${latest['latest.watch']}#richSnippet`,
         isPartOf: {
           '@id': `/${latest['latest.watch']}#webpage`
@@ -228,7 +229,7 @@ const latestDetail = ({ latest }) => {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'AZ Movies',
+      name: 'AZ Movies™',
       logo: {
         '@type': 'ImageObject',
         url: 'https://azmovies.vercel.app/og_image.jpg'
@@ -251,7 +252,7 @@ const latestDetail = ({ latest }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title> {latest && latest.name} | AZ Entertainment News</title>
+        <title> {latest && latest.name} | AZ Movies™</title>
         <link rel='canonical' href={latest && latest.url} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />
@@ -261,12 +262,12 @@ const latestDetail = ({ latest }) => {
         {/* <meta property='og:type' content='website' /> */}
         <meta
           property='og:title'
-          content={`${latest && latest.name} - AZ Movies`}
+          content={`${latest && latest.name} - AZ Movies™`}
         />
 
         <meta
           property='og:description'
-          content='AZ Movies is the top platform for exploring and downloading software,the premier platform for the latest releases and secure downloads.'
+          content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
         />
         <meta property='og:url' content={`${latest && latest.siteurl}`} />
         <meta name='keywords' content={`${latest && latest.keywords}`} />
@@ -280,10 +281,10 @@ const latestDetail = ({ latest }) => {
           property='article:modified_time'
           content='2024-01-01T13:13:13+00:00'
         />
-        <meta property='og:image' content={`${latest && latest.backimage}`} />
+        <meta property='og:image' content={`${latest && latest.channelposter}`} />
 
-        <meta property='og:image:width' content='1280px' />
-        <meta property='og:image:height' content='720px' />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property='og:image:type' content='image/webp' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:label1' content='Est. reading time' />
@@ -325,7 +326,8 @@ const latestDetail = ({ latest }) => {
         
       </Head>
       <GoogleTranslate />
-      {/* <Script src='../../propler/ads.js' defer /> */} 
+ <SocialSharing />
+      <Script src='../../propler/ads.js' defer /> 
       <Script src='../../propler/ads2.js' defer /> 
  
 

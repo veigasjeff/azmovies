@@ -1,6 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
 import Script from 'next/script';
+import GoogleTranslate from '../../components/GoogleTranslate';
+import SocialSharing from '../../components/SocialSharing';
 
 
 
@@ -26,14 +28,14 @@ const Privacy = () => {
       {
         '@type': 'Organization',
         '@id': 'https://azmovies.vercel.app/#organization',
-        name: 'AZMovies - Explore. Discover. Connect..',
+        name: 'AZ Movies™ - Explore. Discover. Download',
         url: 'https://azmovies.vercel.app'
       },
       {
         '@type': 'WebSite',
         '@id': 'https://azmovies.vercel.app/#website',
         url: 'https://azmovies.vercel.app',
-        name: 'AZMovies - Explore. Discover. Connect..',
+        name: 'AZ Movies™ - Explore. Discover. Download',
         publisher: {
           '@type': 'Organization',
           '@id': 'https://azmovies.vercel.app/#organization'
@@ -92,7 +94,7 @@ const Privacy = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://azmovies.vercel.app/#organization',
-              name: 'AZMovies - Explore. Discover. Connect..',
+              name: 'AZ Movies™ - Explore. Discover. Download',
               url: 'https://azmovies.vercel.app'
             }
           },
@@ -119,7 +121,7 @@ const Privacy = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://azmovies.vercel.app/#organization',
-              name: 'AZMovies - Explore. Discover. Connect..',
+              name: 'AZ Movies™ - Explore. Discover. Download',
               url: 'https://azmovies.vercel.app'
             }
           },
@@ -146,7 +148,7 @@ const Privacy = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://azmovies.vercel.app/#organization',
-              name: 'AZMovies - Explore. Discover. Connect..',
+              name: 'AZ Movies™ - Explore. Discover. Download',
               url: 'https://azmovies.vercel.app'
             }
           }
@@ -160,7 +162,7 @@ const Privacy = () => {
   return (
     <div>
        <Head>
-        <title>AZMovies | Privacy Policy</title>
+        <title>AZ Movies™ | Privacy Policy</title>
       
         <link
             rel='sitemap'
@@ -203,7 +205,7 @@ const Privacy = () => {
           />
           <meta
             name='keywords'
-            content='azmovies, AZ movies, a-z movies, az movies, watch free movies, watch movies online, download movies, watch full movies, watch hd movies'
+          content='AZ Movies, watch free movies, watch movies free online, free download movies, watch free full movies, watch free hd movies, free movies, watch movies free'
           />
          
           <link rel='canonical' href='https://azmovies.vercel.app/intro/privacy' />
@@ -211,27 +213,27 @@ const Privacy = () => {
           <meta property='og:type' content='website' />
           <meta
             property='og:title'
-            content='AZMovies '
+            content='AZ Movies™ '
           />
           <meta
             property='og:description'
-            content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch films from AZ, enjoy HD streaming, and catch the latest trailers. Dive into cinema with AZ Movies™!'
+            content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
           />
           <meta property='og:url' content='https://azmovies.vercel.app/intro/privacy/' />
           <meta
             property='og:site_name'
-            content='AZMovies '
+            content='AZ Movies™ '
           />
           <meta
             property='og:image'
             content='https://azmovies.vercel.app/og_image.webp'
           />
-          <meta property='og:image:width' content='1280' />
-          <meta property='og:image:height' content='720' />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
           <meta property='og:image:type' content='image/jpg' />
           <meta
             name='application-name'
-            content='AZMovies '
+            content='AZ Movies™ '
           />
           <meta
             property='article:modified_time'
@@ -239,7 +241,7 @@ const Privacy = () => {
           />
              <meta
           property='description'
-          content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch films from AZ, enjoy HD streaming, and catch the latest trailers. Dive into cinema with AZ Movies™!'
+          content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
         />
           <link
             rel='sitemap'
@@ -260,7 +262,7 @@ const Privacy = () => {
             name='dailymotion-domain-verification'
             content='dm0zffs8dj8pcb3gd'
           />
-          <meta name='monetag' content='35a75bbdeae678c82776e64fb78cdac5' />
+          
          
           <script
           dangerouslySetInnerHTML={{
@@ -280,8 +282,10 @@ const Privacy = () => {
         />
           
         </Head>
-        <Script src="../../propler/ads.js" defer />
-         <Script src="../../propler/ads2.js" defer />
+        <GoogleTranslate />
+ <SocialSharing />
+      <Script src='../../propler/ads.js' defer />
+      <Script src='../../propler/ads2.js' defer />
          <script
             type='application/ld+json'
             dangerouslySetInnerHTML={{ __html: rankMathSchema }}
@@ -293,15 +297,15 @@ const Privacy = () => {
   <div className="flex flex-wrap">
     <div className="grow-0 shrink-0 basis-auto mb-12 md:mb-0 w-full  px-3 lg:px-6">
       <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
-      <p className="font-bold mb-2">AZMovies </p>
+      <p className="font-bold mb-2">AZ Movies™ </p>
       <p className="text-gray-500 mb-6">
-      AZMovies International(AZMovies) is committed to protecting your privacy. This Privacy Policy applies only to the Web Sites and applications published by AZMovies International.
+      AZ Movies™ International(AZ Movies™) is committed to protecting your privacy. This Privacy Policy applies only to the Web Sites and applications published by AZ Movies™ International.
       </p>
       <p className="font-bold mb-2">Note: Use of Information</p>
       <p className="text-gray-500 mb-6">
       Information that we collect  </p>
       <p className="text-gray-500 mb-6">
-      AZMovies may collect information from its users in three different ways: directly from the user, from traffic references of hostingservers and from cookies.
+      AZ Movies™ may collect information from its users in three different ways: directly from the user, from traffic references of hostingservers and from cookies.
       </p>
       <p className="font-bold mb-2">We use the information we collect to:</p>
       <p className="text-gray-500 mb-6">
@@ -318,7 +322,7 @@ const Privacy = () => {
 
      
       <p className="text-gray-500">
-      We do not make warranties that this site will operate error free. If you see an error, please contact the <a className="font-bold text-blue-500 mb-6" href="mailto:ytmagpublisher@outlook.com ">webmaster</a>. By entering this site you agree to hold the owners, employees, advertisers of AZMovies  free from any and all liability.This site (AZMovies ) do not offer any membership.If you have any questions please feel free to <a className="font-bold text-blue-500 mb-6" href="mailto:ytmagpublisher@outlook.com">contact us</a>.
+      We do not make warranties that this site will operate error free. If you see an error, please contact the <a className="font-bold text-blue-500 mb-6" href="mailto:ytmagpublisher@outlook.com ">webmaster</a>. By entering this site you agree to hold the owners, employees, advertisers of AZ Movies™  free from any and all liability.This site (AZ Movies™ ) do not offer any membership.If you have any questions please feel free to <a className="font-bold text-blue-500 mb-6" href="mailto:ytmagpublisher@outlook.com">contact us</a>.
       </p>
     </div>
 

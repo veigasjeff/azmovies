@@ -1,6 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
 import Script from 'next/script'
+import GoogleTranslate from '../../components/GoogleTranslate';
+import SocialSharing from '../../components/SocialSharing';
 
 
 const contact = () => {
@@ -23,14 +25,14 @@ const contact = () => {
       {
         '@type': 'Organization',
         '@id': 'https://azmovies.vercel.app/#organization',
-        name: 'AZMovies - Explore. Discover. Connect..',
+        name: 'AZ Movies™ - Explore. Discover. Download',
         url: 'https://azmovies.vercel.app'
       },
       {
         '@type': 'WebSite',
         '@id': 'https://azmovies.vercel.app/#website',
         url: 'https://azmovies.vercel.app',
-        name: 'AZMovies - Explore. Discover. Connect..',
+        name: 'AZ Movies™ - Explore. Discover. Download',
         publisher: {
           '@type': 'Organization',
           '@id': 'https://azmovies.vercel.app/#organization'
@@ -89,7 +91,7 @@ const contact = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://azmovies.vercel.app/#organization',
-              name: 'AZMovies - Explore. Discover. Connect..',
+              name: 'AZ Movies™ - Explore. Discover. Download',
               url: 'https://azmovies.vercel.app'
             }
           },
@@ -116,7 +118,7 @@ const contact = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://azmovies.vercel.app/#organization',
-              name: 'AZMovies - Explore. Discover. Connect..',
+              name: 'AZ Movies™ - Explore. Discover. Download',
               url: 'https://azmovies.vercel.app'
             }
           },
@@ -143,7 +145,7 @@ const contact = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://azmovies.vercel.app/#organization',
-              name: 'AZMovies - Explore. Discover. Connect..',
+              name: 'AZ Movies™ - Explore. Discover. Download',
               url: 'https://azmovies.vercel.app'
             }
           }
@@ -157,7 +159,7 @@ const contact = () => {
   return (
     <div>
       <Head>
-        <title>AZMovies | Contact Us</title>
+        <title>AZ Movies™ | Contact Us</title>
 
         <link
           rel='sitemap'
@@ -197,7 +199,7 @@ const contact = () => {
         />
         <meta
           name='keywords'
-          content='azmovies, AZ movies, a-z movies, az movies, watch free movies, watch movies online, download movies, watch full movies, watch hd movies'
+         content='AZ Movies, watch free movies, watch movies free online, free download movies, watch free full movies, watch free hd movies, free movies, watch movies free'
         />
         
         <link
@@ -206,31 +208,31 @@ const contact = () => {
         />
         <meta property='og:locale' content='en_US' />
         <meta property='og:type' content='website' />
-        <meta property='og:title' content='AZMovies ' />
+        <meta property='og:title' content='AZ Movies™ ' />
         <meta
           property='og:description'
-          content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch films from AZ, enjoy HD streaming, and catch the latest trailers. Dive into cinema with AZ Movies™!'
+          content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
         />
         <meta
           property='og:url'
           content='https://azmovies.vercel.app/intro/contact/'
         />
-        <meta property='og:site_name' content='AZMovies ' />
+        <meta property='og:site_name' content='AZ Movies™ ' />
         <meta
           property='og:image'
           content='https://azmovies.vercel.app/og_image.webp'
         />
-        <meta property='og:image:width' content='1280' />
-        <meta property='og:image:height' content='720' />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property='og:image:type' content='image/jpg' />
-        <meta name='application-name' content='AZMovies ' />
+        <meta name='application-name' content='AZ Movies™ ' />
         <meta
           property='article:modified_time'
           content='2024-01-01T13:13:13+00:00'
         />
         <meta
           property='description'
-          content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch films from AZ, enjoy HD streaming, and catch the latest trailers. Dive into cinema with AZ Movies™!'
+          content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
         />
         <link
           rel='sitemap'
@@ -251,7 +253,7 @@ const contact = () => {
           name='dailymotion-domain-verification'
           content='dm0zffs8dj8pcb3gd'
         />
-        <meta name='monetag' content='35a75bbdeae678c82776e64fb78cdac5' />
+        
      
         <script
           dangerouslySetInnerHTML={{
@@ -271,8 +273,10 @@ const contact = () => {
         />
            
       </Head>
-      {/* <Script src='../../propler/ads.js' defer /> */} 
-      <Script src='../../propler/ads2.js' defer /> 
+      <GoogleTranslate />
+ <SocialSharing />
+      <Script src='../../propler/ads.js' defer />
+      <Script src='../../propler/ads2.js' defer />
       <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: rankMathSchema }}
@@ -285,7 +289,7 @@ const contact = () => {
               <p className='text-gray-500 mb-6'>
                 Feel free to use the form below to provide us with your
                 feedback, suggestions, or collaboration or request inquiries
-                related to AZMovies. We welcome your input to help us
+                related to AZ Movies™. We welcome your input to help us
                 echance our services and offerings.
               </p>
             

@@ -6,6 +6,9 @@ import tvshowData from '../public/tvshow.json'
 import trailersData from '../public/trailers.json'
 import styles from '../styles/Home.module.css'
 import GoogleTranslate from '../components/GoogleTranslate';
+import InPagePushAd from '../components/InPagePushAd';
+import NativeBannerAd from '../components/NativeBannerAd';
+import SocialSharing from '../components/SocialSharing';
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -63,13 +66,13 @@ const HomePage = () => {
     return () => clearInterval(interval); // Cleanup interval on unmount
   }, []);
 
-  const pageTitle = 'AZ Movies™ - Explore. Discover. Download.'
+  const pageTitle = 'AZ Movies™ - Explore. Discover. Download'
 
   const uwatchfreeSchema = JSON.stringify([
     {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'AZ Movies™ - Explore. Discover. Download.',
+      name: 'AZ Movies™ - Explore. Discover. Download',
       url: 'https://azmovies.vercel.app/',
       image: ['https://azmovies.vercel.app/favicon.ico'],
       logo: {
@@ -99,9 +102,9 @@ const HomePage = () => {
     '@graph': [
       {
         '@type': 'Person',
-        '@id': 'https://azmovies.vercel.app/author/azmovies/',
+        '@id': 'https://azmovies.vercel.app/author/AZ Movies/',
         name: 'Dr Trailer',
-        url: 'https://azmovies.vercel.app/author/azmovies/',
+        url: 'https://azmovies.vercel.app/author/AZ Movies/',
         image: {
           '@type': 'ImageObject',
           '@id': 'https://gravatar.com/drtrailer2022',
@@ -113,14 +116,14 @@ const HomePage = () => {
       {
         '@type': 'Organization',
         '@id': 'https://azmovies.vercel.app/#organization',
-        name: 'AZ Movies™ - Explore. Discover. Download.',
+        name: 'AZ Movies™ - Explore. Discover. Download',
         url: 'https://azmovies.vercel.app'
       },
       {
         '@type': 'WebSite',
         '@id': 'https://azmovies.vercel.app/#website',
         url: 'https://azmovies.vercel.app',
-        name: 'AZ Movies™ - Explore. Discover. Download.',
+        name: 'AZ Movies™ - Explore. Discover. Download',
         publisher: {
           '@type': 'Organization',
           '@id': 'https://azmovies.vercel.app/#organization'
@@ -140,9 +143,9 @@ const HomePage = () => {
         dateModified: '2024-01-13T13:13:00+00:00',
         about: {
           '@type': 'Person',
-          '@id': 'https://azmovies.vercel.app/author/azmovies/',
+          '@id': 'https://azmovies.vercel.app/author/AZ Movies/',
           name: 'Dr Trailer',
-          url: 'https://azmovies.vercel.app/author/azmovies/',
+          url: 'https://azmovies.vercel.app/author/AZ Movies/',
           image: {
             '@type': 'ImageObject',
             '@id': 'https://gravatar.com/drtrailer2022',
@@ -160,14 +163,14 @@ const HomePage = () => {
             '@type': 'Article',
             '@id': 'https://azmovies.vercel.app/',
             url: 'https://azmovies.vercel.app/',
-            headline: 'AZ Movies™ - Explore. Discover. Download.',
+            headline: 'AZ Movies™ - Explore. Discover. Download',
             datePublished: '2024-01-13T13:00:00+00:00',
             dateModified: '2024-01-13T13:13:00+00:00',
             author: {
               '@type': 'Person',
-              '@id': 'https://azmovies.vercel.app/author/azmovies/',
+              '@id': 'https://azmovies.vercel.app/author/AZ Movies/',
               name: 'Dr Trailer',
-              url: 'https://azmovies.vercel.app/author/azmovies/',
+              url: 'https://azmovies.vercel.app/author/AZ Movies/',
               image: {
                 '@type': 'ImageObject',
                 '@id': 'https://gravatar.com/drtrailer2022',
@@ -179,7 +182,7 @@ const HomePage = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://azmovies.vercel.app/#organization',
-              name: 'AZ Movies™ - Explore. Discover. Download.',
+              name: 'AZ Movies™ - Explore. Discover. Download',
               url: 'https://azmovies.vercel.app'
             }
           },
@@ -187,14 +190,14 @@ const HomePage = () => {
             '@type': 'Article',
             '@id': 'https://azmovies.vercel.app/',
             url: 'https://azmovies.vercel.app/',
-            headline: 'AZ Movies™ - Explore. Discover. Download.',
+            headline: 'AZ Movies™ - Explore. Discover. Download',
             datePublished: '2024-01-13T13:00:00+00:00',
             dateModified: '2024-01-13T13:13:00+00:00',
             author: {
               '@type': 'Person',
-              '@id': 'https://azmovies.vercel.app/author/azmovies/',
+              '@id': 'https://azmovies.vercel.app/author/AZ Movies/',
               name: 'Dr Trailer',
-              url: 'https://azmovies.vercel.app/author/azmovies/',
+              url: 'https://azmovies.vercel.app/author/AZ Movies/',
               image: {
                 '@type': 'ImageObject',
                 '@id': 'https://gravatar.com/drtrailer2022',
@@ -206,7 +209,7 @@ const HomePage = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://azmovies.vercel.app/#organization',
-              name: 'AZ Movies™ - Explore. Discover. Download.',
+              name: 'AZ Movies™ - Explore. Discover. Download',
               url: 'https://azmovies.vercel.app'
             }
           },
@@ -214,14 +217,14 @@ const HomePage = () => {
             '@type': 'Article',
             '@id': 'https://azmovies.vercel.app/',
             url: 'https://azmovies.vercel.app/',
-            headline: 'AZ Movies™ - Explore. Discover. Download.',
+            headline: 'AZ Movies™ - Explore. Discover. Download',
             datePublished: '2024-01-13T13:00:00+00:00',
             dateModified: '2024-01-13T13:13:00+00:00',
             author: {
               '@type': 'Person',
-              '@id': 'https://azmovies.vercel.app/author/azmovies/',
+              '@id': 'https://azmovies.vercel.app/author/AZ Movies/',
               name: 'Dr Trailer',
-              url: 'https://azmovies.vercel.app/author/azmovies/',
+              url: 'https://azmovies.vercel.app/author/AZ Movies/',
               image: {
                 '@type': 'ImageObject',
                 '@id': 'https://gravatar.com/drtrailer2022',
@@ -278,11 +281,11 @@ const HomePage = () => {
           />
           <meta
             name='keywords'
-            content='azmovies, AZ movies, a-z movies, az movies, watch free movies, watch movies online, download movies, watch full movies, watch hd movies'
+            content='AZ Movies, watch free movies, watch movies free online, free download movies, watch free full movies, watch free hd movies, free movies, watch movies free'
           />
           <meta
             name='description'
-            content='AZ Movies™ - Explore. Discover. Download.'
+            content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
           />
           <link rel='canonical' href='https://azmovies.vercel.app/' />
   
@@ -291,27 +294,27 @@ const HomePage = () => {
           {/* <meta property='og:type' content='website' /> */}
           <meta
             property='og:title'
-            content='AZ Movies™ - Explore. Discover. Download.'
+            content='AZ Movies™ - Explore. Discover. Download'
           />
           <meta
             property='og:description'
-            content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch and enjoy HD streaming, and catch the latest tvshows. Dive into cinema with AZ Movies™!'
+            content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
           />
           <meta property='og:url' content='https://azmovies.vercel.app/' />
           <meta
             property='og:site_name'
-            content='AZ Movies™ - Explore. Discover. Download.'
+            content='AZ Movies™ - Explore. Discover. Download'
           />
           <meta
             property='og:image'
             content='https://azmovies.vercel.app/og_image.jpg'
           />
-          <meta property='og:image:width' content='1280' />
-          <meta property='og:image:height' content='720' />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
           <meta property='og:image:type' content='image/webp' />
           <meta
             name='application-name'
-            content='AZ Movies™ - Explore. Discover. Download.'
+            content='AZ Movies™ - Explore. Discover. Download'
           />
           <meta
             property='article:modified_time'
@@ -325,14 +328,6 @@ const HomePage = () => {
           />
           <meta name='twitter:card' content='summary_large_image' />
           <meta
-            name='trustpilot-one-time-domain-verification-id'
-            content='48b41bc7-60cf-4de8-9c3b-6a55be476696'
-          />
-          <meta
-            name='google-adsense-account'
-            content='ca-pub-5527677677744511'
-          />
-          <meta
             name='google-site-verification'
             content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
           />
@@ -344,7 +339,9 @@ const HomePage = () => {
             name='dailymotion-domain-verification'
             content='dmdzuqt3p027t2adn'
           />
-          <meta name='monetag' content='35a75bbdeae678c82776e64fb78cdac5' />
+          <meta 
+            name="monetag" content="98a412cb5612b9188cd76b9744304b6c"/>          
+          
           <script
             type='application/ld+json'
             dangerouslySetInnerHTML={{ __html: rankMathSchema }}
@@ -365,6 +362,7 @@ const HomePage = () => {
         </Head>
 
         <GoogleTranslate />
+ <SocialSharing />
 
         <div
           className={`w-full`}
@@ -394,8 +392,8 @@ const HomePage = () => {
             Welcome to AZ Movies™
           </h1>
           <p className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl hover:text-blue-800 font-bold mt-2'>
-            {' '}
-            Explore. Discover. Download{' '}
+          
+            Explore. Discover. Download
           </p>
           <div
             className='shadow-lg flex items-center justify-center'
@@ -539,7 +537,9 @@ const HomePage = () => {
                     <span className='p'></span>
                   </p>
                 </a>
-                                                                 {/* Movies section */}
+                {/* <InPagePushAd />
+                <NativeBannerAd /> */}
+                                                                              {/* Movies section */}
                 {movies.map(item => (
                   <div key={item.id} className='card'>
                     <a href={`${item.id}`}>

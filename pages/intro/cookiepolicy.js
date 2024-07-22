@@ -1,7 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
 import Script from 'next/script'
-
+import GoogleTranslate from '../../components/GoogleTranslate';
+import SocialSharing from '../../components/SocialSharing';
 
 const cookiepolicy = () => {
   const containerStyle = {
@@ -50,14 +51,14 @@ const cookiepolicy = () => {
       {
         '@type': 'Organization',
         '@id': 'https://azmovies.vercel.app/#organization',
-        name: 'AZMovies - Explore. Discover. Connect..',
+        name: 'AZ Movies™ - Explore. Discover. Download',
         url: 'https://azmovies.vercel.app'
       },
       {
         '@type': 'WebSite',
         '@id': 'https://azmovies.vercel.app/#website',
         url: 'https://azmovies.vercel.app',
-        name: 'AZMovies - Explore. Discover. Connect..',
+        name: 'AZ Movies™ - Explore. Discover. Download',
         publisher: {
           '@type': 'Organization',
           '@id': 'https://azmovies.vercel.app/#organization'
@@ -116,7 +117,7 @@ const cookiepolicy = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://azmovies.vercel.app/#organization',
-              name: 'AZMovies - Explore. Discover. Connect..',
+              name: 'AZ Movies™ - Explore. Discover. Download',
               url: 'https://azmovies.vercel.app'
             }
           },
@@ -143,7 +144,7 @@ const cookiepolicy = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://azmovies.vercel.app/#organization',
-              name: 'AZMovies - Explore. Discover. Connect..',
+              name: 'AZ Movies™ - Explore. Discover. Download',
               url: 'https://azmovies.vercel.app'
             }
           },
@@ -170,7 +171,7 @@ const cookiepolicy = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://azmovies.vercel.app/#organization',
-              name: 'AZMovies - Explore. Discover. Connect..',
+              name: 'AZ Movies™ - Explore. Discover. Download',
               url: 'https://azmovies.vercel.app'
             }
           }
@@ -183,7 +184,7 @@ const cookiepolicy = () => {
   return (
     <div>
       <Head>
-        <title>AZMovies | Cookie Policy</title>
+        <title>AZ Movies™ | Cookie Policy</title>
         <link
           rel='sitemap'
           type='application/xml'
@@ -222,7 +223,7 @@ const cookiepolicy = () => {
         />
         <meta
           name='keywords'
-          content='azmovies, AZ movies, a-z movies, az movies, watch free movies, watch movies online, download movies, watch full movies, watch hd movies'
+        content='AZ Movies, watch free movies, watch movies free online, free download movies, watch free full movies, watch free hd movies, free movies, watch movies free'
         />
        
         <link
@@ -231,31 +232,31 @@ const cookiepolicy = () => {
         />
         <meta property='og:locale' content='en_US' />
         <meta property='og:type' content='website' />
-        <meta property='og:title' content='AZMovies ' />
+        <meta property='og:title' content='AZ Movies™ ' />
         <meta
           property='og:description'
-          content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch films from AZ, enjoy HD streaming, and catch the latest trailers. Dive into cinema with AZ Movies™!'
+          content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
         />
         <meta
           property='og:url'
           content='https://azmovies.vercel.app/intro/tearms/'
         />
-        <meta property='og:site_name' content='AZMovies ' />
+        <meta property='og:site_name' content='AZ Movies™ ' />
         <meta
           property='og:image'
           content='https://azmovies.vercel.app/og_image.webp'
         />
-        <meta property='og:image:width' content='1280' />
-        <meta property='og:image:height' content='720' />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property='og:image:type' content='image/jpg' />
-        <meta name='application-name' content='AZMovies ' />
+        <meta name='application-name' content='AZ Movies™ ' />
         <meta
           property='article:modified_time'
           content='2024-01-01T13:13:13+00:00'
         />
            <meta
           property='description'
-          content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch films from AZ, enjoy HD streaming, and catch the latest trailers. Dive into cinema with AZ Movies™!'
+          content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
         />
         <link
           rel='sitemap'
@@ -276,7 +277,7 @@ const cookiepolicy = () => {
           name='dailymotion-domain-verification'
           content='dm0zffs8dj8pcb3gd'
         />
-        <meta name='monetag' content='35a75bbdeae678c82776e64fb78cdac5' />
+        
        
         <script
           dangerouslySetInnerHTML={{
@@ -296,8 +297,10 @@ const cookiepolicy = () => {
         />
           
       </Head>
-      {/* <Script src='../../propler/ads.js' defer /> */} 
-      <Script src='../../propler/ads2.js' defer /> 
+      <GoogleTranslate />
+ <SocialSharing />
+      <Script src='../../propler/ads.js' defer />
+      <Script src='../../propler/ads2.js' defer />
       <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: rankMathSchema }}
@@ -317,7 +320,7 @@ const cookiepolicy = () => {
             >
               <h1 style={headingStyle}>Cookie Policy</h1>
               <p style={{ color: '#666', marginBottom: '24px' }}>
-                This is the Cookie Policy for AZMovies, accessible from
+                This is the Cookie Policy for AZ Movies™, accessible from
                 https://azmovies.vercel.app and its subdomains.
               </p>
 

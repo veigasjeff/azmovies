@@ -6,6 +6,7 @@ import adultData from '../../../public/adult.json'
 import trailersData from '../../../public/trailers.json'
 import latestData from '../../../public/latest.json'
 import GoogleTranslate from '../../../components/GoogleTranslate'
+import SocialSharing from '../../../components/SocialSharing';
 import { useEffect, useState, useRef } from 'react'
 import Pagination from '../../../components/Pagination'
 import Head from 'next/head'
@@ -271,7 +272,7 @@ const tvshowDetail = ({ tvshow }) => {
       {
         '@type': 'ListItem',
         position: 1,
-        name: 'AZ TvShow™',
+        name: 'AZ Movies™',
         item: 'https://azmovies.vercel.app/'
       },
       {
@@ -311,7 +312,7 @@ const tvshowDetail = ({ tvshow }) => {
         '@type': 'WebPage',
         '@id': `${tvshow.siteurl}#webpage`,
         url: tvshow.siteurl,
-        name: `${tvshow.name} | AZ TvShow™`,
+        name: `${tvshow.name} | AZ Movies™`,
         datePublished: tvshow.datePublished,
         dateModified: tvshow.dateModified,
         isPartOf: {
@@ -321,9 +322,9 @@ const tvshowDetail = ({ tvshow }) => {
       },
       {
         '@type': 'Person',
-        '@id': 'https://azmovies.vercel.app/author/azmovies/',
+        '@id': 'https://azmovies.vercel.app/author/AZ Movies/',
         name: 'Dr Trailer',
-        url: 'https://azmovies.vercel.app/author/azmovies/',
+        url: 'https://azmovies.vercel.app/author/AZ Movies/',
         image: {
           '@type': 'ImageObject',
           '@id': 'https://gravatar.com/drtrailer2022',
@@ -336,19 +337,19 @@ const tvshowDetail = ({ tvshow }) => {
       {
         '@type': 'Article',
         '@id': `${tvshow.siteurl}#article`,
-        headline: ` ${tvshow.name} | AZ TvShow™`,
+        headline: ` ${tvshow.name} | AZ Movies™`,
         datePublished: tvshow.datePublished,
         dateModified: tvshow.dateModified,
         articleSection: 'TvShow',
         author: {
-          '@id': 'https://azmovies.vercel.app/author/azmovies/'
+          '@id': 'https://azmovies.vercel.app/author/AZ Movies/'
         },
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
         description: tvshow.synopsis,
         image: tvshow.image,
-        name: ` ${tvshow.name} | AZ TvShow™`,
+        name: ` ${tvshow.name} | AZ Movies™`,
         isPartOf: {
           '@id': `${tvshow.siteurl}#webpage`
         },
@@ -360,19 +361,19 @@ const tvshowDetail = ({ tvshow }) => {
       {
         '@type': 'BlogPosting',
         '@id': `${tvshow.siteurl}#blogPost`,
-        headline: ` ${tvshow.name} | AZ TvShow™`,
+        headline: ` ${tvshow.name} | AZ Movies™`,
         datePublished: tvshow.datePublished,
         dateModified: tvshow.dateModified,
         articleSection: 'TvShow',
         author: {
-          '@id': 'https://azmovies.vercel.app/author/azmovies/'
+          '@id': 'https://azmovies.vercel.app/author/AZ Movies/'
         },
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
         description: tvshow.synopsis,
         image: tvshow.image,
-        name: ` ${tvshow.name} | AZ TvShow™`,
+        name: ` ${tvshow.name} | AZ Movies™`,
         '@id': `${tvshow.siteurl}#richSnippet`,
         isPartOf: {
           '@id': `${tvshow.siteurl}#webpage`
@@ -413,7 +414,7 @@ const tvshowDetail = ({ tvshow }) => {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'AZ movies™',
+      name: 'AZ Movies™',
       logo: {
         '@type': 'ImageObject',
         url: 'https://azmovies.vercel.app/og_image.jpg'
@@ -474,7 +475,7 @@ const tvshowDetail = ({ tvshow }) => {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'AZ movies™',
+      name: 'AZ Movies™',
       logo: {
         '@type': 'ImageObject',
         url: 'https://azmovies.vercel.app/og_image.jpg'
@@ -505,7 +506,7 @@ const tvshowDetail = ({ tvshow }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title>Watch The Ark Season 1 (2023) | AZ Tvshow™</title>
+        <title>Watch The Ark Season 1 (2023) | AZ Movies™</title>
         <link rel='canonical' href={tvshow && tvshow.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />
@@ -522,12 +523,12 @@ const tvshowDetail = ({ tvshow }) => {
         />
         <meta
           property='og:description'
-          content='Welcome to AZ Tvshow™ – your go-to spot for free online tvshow! Watch and enjoy HD streaming, and catch the latest tvshows. Dive into cinema with AZ Tvshow™!'
+          content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
         />
 
         <meta property='og:url' content={`${tvshow && tvshow.siteurl}`} />
         <meta name='keywords' content={`${tvshow && tvshow.keywords}`} />
-        <meta property='og:site_name' content='AZ Tvshow' />
+        <meta property='og:site_name' content='AZ Movies' />
         {/* <meta property='og:type' content='article' /> */}
         <meta property=' og:image:alt' content={`${tvshow && tvshow.group}`} />
         <meta name='mobile-web-app-capable' content='yes' />
@@ -539,8 +540,8 @@ const tvshowDetail = ({ tvshow }) => {
         />
         <meta property='og:image' content={`${tvshow && tvshow.image1}`} />
 
-        <meta property='og:image:width' content='1280px' />
-        <meta property='og:image:height' content='720px' />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property='og:image:type' content='image/webp' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:label1' content='Est. reading time' />
@@ -593,7 +594,8 @@ const tvshowDetail = ({ tvshow }) => {
         />
       </Head>
       <GoogleTranslate />
-      {/* <Script src='../../propler/ads.js' defer /> */}
+ <SocialSharing />
+      <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
 
       <div

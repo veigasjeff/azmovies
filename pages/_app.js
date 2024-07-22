@@ -70,13 +70,13 @@ function Application({ Component, pageProps }) {
 
   return (
     <div className='center'>
-      <Script
+      {/* <Script
         type='text/javascript'
         src='https://platform-api.sharethis.com/js/sharethis.js#property=664f7ed93a56e900196c14e4&product=sticky-share-buttons&source=platform'
         async
-      ></Script>
+      ></Script> */}
       <GoogleAnalytics measurementId='G-WW7QEH0KS9' />
-      <Script async data-id="101459345" src="//static.getclicky.com/js"></Script>
+   
       
 
       <PageTransition>

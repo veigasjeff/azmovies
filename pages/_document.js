@@ -43,11 +43,11 @@ class MyDocument extends Document {
           />
           <meta
             name='keywords'
-            content='azmovies, AZ movies, a-z movies, az movies, watch free movies, watch movies online, download movies, watch full movies, watch hd movies'
+          content='AZ Movies, watch free movies, watch movies free online, free download movies, watch free full movies, watch free hd movies, free movies, watch movies free'
           />
             {/* <meta
               name='description'
-              content='AZ Movies™ - Explore. Discover. Download.'
+              content='AZ Movies™ - Explore. Discover. Download'
             /> */}
           {/* <link
             rel='canonical'
@@ -57,11 +57,11 @@ class MyDocument extends Document {
           <meta property='og:type' content='website' />
           <meta
             property='og:title'
-            content='AZ Movies™ - Explore. Discover. Download.'
+            content='AZ Movies™ - Explore. Discover. Download'
           />
           <meta
             property='og:description'
-            content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch and enjoy HD streaming, and catch the latest tvshows. Dive into cinema with AZ Movies™!'
+            content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
           />
           <meta
             property='og:url'
@@ -69,18 +69,18 @@ class MyDocument extends Document {
           />  
           <meta
             property='og:site_name'
-            content='AZ Movies - Explore. Discover. Download.'
+            content='AZ Movies™ - Explore. Discover. Download'
           />
           <meta
             property='og:image'
             content='https://azmovies.vercel.app/og_image.jpg'
           />
-          <meta property='og:image:width' content='1280' />
-          <meta property='og:image:height' content='720' />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
           <meta property='og:image:type' content='image/webp' />
           <meta
             name='application-name'
-            content='AZ Movies - Explore. Discover. Download.'
+            content='AZ Movies™ - Explore. Discover. Download'
           />
           <meta
             property='article:modified_time'
@@ -110,7 +110,7 @@ class MyDocument extends Document {
             name='dailymotion-domain-verification'
             content='dmdzuqt3p027t2adn'
           />
-          <meta name='monetag' content='35a75bbdeae678c82776e64fb78cdac5' />
+          
         
         </Head>
 

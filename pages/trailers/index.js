@@ -5,6 +5,7 @@ import latestData from '../../public/latest.json'
 import trailersData from '../../public/trailers.json'
 import GoogleTranslate from '../../components/GoogleTranslate';
 import Pagination from '../../components/Pagination'
+import SocialSharing from '../../components/SocialSharing';
 import Head from 'next/head'
 import Script from 'next/script'
 
@@ -12,7 +13,7 @@ const uwatchfreeSchema = JSON.stringify([
   {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'AZ Trailers™ - Explore. Discover. Download.',
+    name: 'AZ Movies™ - Explore. Discover. Download',
     url: 'https://azmovies.vercel.app/',
     image: ['https://azmovies.vercel.app/favicon.ico'],
     logo: {
@@ -41,10 +42,10 @@ const softwareSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Article',
   '@id': 'https://azmovies.vercel.app/trailers/',
-  headline: 'Watch Online Trailers | AZ Trailers™',
+  headline: 'Watch Online Trailers | AZ Movies™',
   url: 'https://azmovies.vercel.app/trailers/',
   description:
-    'Welcome to AZ Trailers™ – your go-to spot for free online trailers! Watch and enjoy HD streaming, and catch the latest trailerss. Dive into cinema with AZ Trailers™!',
+    'AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.',
   image: 'https://azmovies.vercel.app/og_image.jpg',
   author: {
     '@type': 'Person',
@@ -53,7 +54,7 @@ const softwareSchema = JSON.stringify({
   },
   publisher: {
     '@type': 'Organization',
-    name: 'AZ Trailers™ - Explore. Discover. Download.',
+    name: 'AZ Movies™ - Explore. Discover. Download',
     logo: {
       '@type': 'ImageObject',
       url: 'https://azmovies.vercel.app/og_image.jpg'
@@ -79,7 +80,7 @@ const breadcrumbSchema = JSON.stringify({
     {
       '@type': 'ListItem',
       position: 1,
-      name: 'AZ Trailers™ - Explore. Discover. Download.',
+      name: 'AZ Movies™ - Explore. Discover. Download',
       item: 'https://azmovies.vercel.app/'
     },
     {
@@ -167,7 +168,7 @@ const trailersPage = ({ items }) => {
   return (
     <div className='w-full' style={{ backgroundColor: '#D3D3D3' }}>
       <Head>
-        <title> Watch Latest Trailers | AZ Trailers™</title>
+        <title> Watch Latest Trailers | AZ Movies™</title>
         <link rel='canonical' href='https://azmovies.vercel.app/trailers/' />
         <meta
           name='robots'
@@ -178,15 +179,15 @@ const trailersPage = ({ items }) => {
         <meta name='revisit-after' content='1 days' />
         <meta property='og:locale' content='en_US' />
         {/* <meta property="og:type" content="video.movie" /> */}
-        <meta property='og:title' content=' Watch Latest Trailers |  AZ Trailers™' />
+        <meta property='og:title' content=' Watch Latest Trailers | AZ Movies™' />
         <meta
           property='og:description'
-          content='Welcome to AZ Trailers™ – your go-to spot for free online trailers! Watch and enjoy HD streaming, and catch the latest trailerss. Dive into cinema with AZ Trailers™!'
+          content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
         />
 
         <meta property='og:url' content='https://azmovies.vercel.app/trailers' />
 
-        <meta property='og:site_name' content='AZ Trailers' />
+        <meta property='og:site_name' content='AZ Movies' />
         <meta property='og:type' content='website' />
         <meta
           property=' og:image:alt'
@@ -201,14 +202,14 @@ const trailersPage = ({ items }) => {
         />
         <meta
           name='keywords'
-          content='az trailers, AZ trailers, a-z trailers, az trailers, watch free trailers, watch trailers online, download trailers, watch full trailers, watch hd trailers'
+         content='AZ Movies, watch free movies, watch movies free online, free download movies, watch free full movies, watch free hd movies, free movies, watch movies free'
         />
         <meta
           property='og:image'
           content='https://azmovies.vercel.app/og_image.jpg'
         />
-        <meta property='og:image:width' content='1280px' />
-        <meta property='og:image:height' content='720px' />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property='og:image:type' content='image/webp' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:label1' content='Est. reading time' />
@@ -251,7 +252,8 @@ const trailersPage = ({ items }) => {
       </Head>
 
       <GoogleTranslate />
-      {/* <Script src='../../propler/ads.js' defer /> */} 
+ <SocialSharing />
+      <Script src='../../propler/ads.js' defer /> 
       <Script src='../propler/ads2.js' defer /> 
         <h1
           className='badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6  shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
@@ -266,7 +268,7 @@ const trailersPage = ({ items }) => {
             marginBottom: '15px'
           }}
         >
-          AZ Trailers Section.
+          AZ Movies Trailers Section.
         </h1>
 
     

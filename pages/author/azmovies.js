@@ -23,7 +23,7 @@ export default function ytmag({ movie }) {
             <Head>
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>AZ Movies - Explore. Discover. Download.</title>
+                <title>AZ Movies - Explore. Discover. Download</title>
                 {/* Add your other meta tags here */}
                 <script
                     type="application/ld+json"
@@ -44,7 +44,7 @@ export default function ytmag({ movie }) {
             </Head>
 
             <div id="main">
-                <h1 className="flex flex-col text-center py-5 font-bold text-3xl items-center justify-center" style={{ color: "#40D7BC", textShadow: "5px 5px 2px #000" }}>AZ Movies - Explore. Discover. Download. </h1>
+                <h1 className="flex flex-col text-center py-5 font-bold text-3xl items-center justify-center" style={{ color: "#40D7BC", textShadow: "5px 5px 2px #000" }}>AZ Movies - Explore. Discover. Download </h1>
                 <div className="container" style={{ justifyContent: 'center', alignItems: 'center', height: '10vh', marginTop: '100px', }}>
                     <div className="home-main">
                         <div className="hm-logo"><a title="" href="https://azmovies.vercel.app" id="logo-home"></a></div>

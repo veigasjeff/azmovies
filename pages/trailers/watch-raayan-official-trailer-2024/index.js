@@ -4,7 +4,8 @@ import moviesData from '../../../public/movies.json'
 import tvshowData from '../../../public/tvshow.json'
 import adultData from '../../../public/adult.json'
 import latestData from '../../../public/latest.json'
-import GoogleTranslate from '../../../components/GoogleTranslate';
+import GoogleTranslate from '../../../components/GoogleTranslate'
+import SocialSharing from '../../../components/SocialSharing';;
 import { useEffect, useState, useRef } from 'react'
 import Pagination from '../../../components/Pagination'
 import Head from 'next/head'
@@ -292,7 +293,7 @@ const trailersDetail = ({ trailers }) => {
     {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'AZ Trailers™',
+      name: 'AZ Movies™',
       url: 'https://azmovies.vercel.app/',
       image: ['https://azmovies.vercel.app/favicon.ico'],
       logo: {
@@ -324,7 +325,7 @@ const trailersDetail = ({ trailers }) => {
       {
         '@type': 'ListItem',
         position: 1,
-        name: 'AZ Trailers™',
+        name: 'AZ Movies™',
         item: 'https://azmovies.vercel.app/'
       },
       {
@@ -354,7 +355,7 @@ const trailersDetail = ({ trailers }) => {
         '@type': 'WebSite',
         '@id': 'https://azmovies.vercel.app#website',
         url: 'https://azmovies.vercel.app',
-        name: 'AZ Trailers™',
+        name: 'AZ Movies™',
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
@@ -364,7 +365,7 @@ const trailersDetail = ({ trailers }) => {
         '@type': 'WebPage',
         '@id': `${trailers.siteurl}#webpage`,
         url: trailers.siteurl,
-        name: `${trailers.name} | AZ Trailers™`,
+        name: `${trailers.name} | AZ Movies™`,
         datePublished: trailers.datePublished,
         dateModified: trailers.dateModified,
         isPartOf: {
@@ -374,9 +375,9 @@ const trailersDetail = ({ trailers }) => {
       },
       {
         '@type': 'Person',
-        '@id': 'https://azmovies.vercel.app/author/azmovies/',
+        '@id': 'https://azmovies.vercel.app/author/AZ Movies/',
         name: 'Dr Trailer',
-        url: 'https://azmovies.vercel.app/author/azmovies/',
+        url: 'https://azmovies.vercel.app/author/AZ Movies/',
         image: {
           '@type': 'ImageObject',
           '@id': 'https://gravatar.com/drtrailer2022',
@@ -389,19 +390,19 @@ const trailersDetail = ({ trailers }) => {
       {
         '@type': 'Article',
         '@id': `${trailers.siteurl}#article`,
-        headline: ` ${trailers.name} | AZ Trailers™`,
+        headline: ` ${trailers.name} | AZ Movies™`,
         datePublished: trailers.datePublished,
         dateModified: trailers.dateModified,
         articleSection: 'Movies & Tv Show',
         author: {
-          '@id': 'https://azmovies.vercel.app/author/azmovies/'
+          '@id': 'https://azmovies.vercel.app/author/AZ Movies/'
         },
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
         description: trailers.synopsis,
         image: trailers.image,
-        name: ` ${trailers.name} | AZ Trailers™`,
+        name: ` ${trailers.name} | AZ Movies™`,
         isPartOf: {
           '@id': `${trailers.siteurl}#webpage`
         },
@@ -413,19 +414,19 @@ const trailersDetail = ({ trailers }) => {
       {
         '@type': 'BlogPosting',
         '@id': `${trailers.siteurl}#blogPost`,
-        headline: ` ${trailers.name} | AZ Trailers™`,
+        headline: ` ${trailers.name} | AZ Movies™`,
         datePublished: trailers.datePublished,
         dateModified: trailers.dateModified,
         articleSection: 'Movies & Tv Show',
         author: {
-          '@id': 'https://azmovies.vercel.app/author/azmovies/'
+          '@id': 'https://azmovies.vercel.app/author/AZ Movies/'
         },
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
         description: trailers.synopsis,
         image: trailers.image,
-        name: ` ${trailers.name} | AZ Trailers™`,
+        name: ` ${trailers.name} | AZ Movies™`,
         '@id': `${trailers.siteurl}#richSnippet`,
         isPartOf: {
           '@id': `${trailers.siteurl}#webpage`
@@ -467,7 +468,7 @@ const trailersDetail = ({ trailers }) => {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'AZ Trailers™',
+      name: 'AZ Movies™',
       logo: {
         '@type': 'ImageObject',
         url: 'https://azmovies.vercel.app/og_image.jpg'
@@ -501,7 +502,7 @@ const trailersDetail = ({ trailers }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title>Watch Raayan Official Trailer | AZ Trailers™</title>
+        <title>Watch Raayan Official Trailer | AZ Movies™</title>
         <link rel='canonical' href={trailers && trailers.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />
@@ -517,23 +518,23 @@ const trailersDetail = ({ trailers }) => {
         <meta property='og:video:type' content='video/mp4' />
         <meta
           property='og:title'
-          content={`${trailers && trailers.name} - AZ Trailers`}
+          content={`${trailers && trailers.name} - AZ Movies™`}
         />
         <meta
           property='og:description'
-          content='Welcome to AZ Trailers™ – your go-to spot for free online trailers! Watch and enjoy HD streaming, and catch the latest tvshows. Dive into cinema with AZ Trailers™!'
+          content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
         />
 
         <meta property='og:url' content={`${trailers && trailers.siteurl}`} />
         <meta name='keywords' content={`${trailers && trailers.keywords}`} />
-        <meta property='og:site_name' content='AZ Trailers' />
+        <meta property='og:site_name' content='AZ Movies' />
         <meta property='og:type' content='article' />
         <meta
           property=' og:image:alt'
           content={`${trailers && trailers.group}`}
         />
         <meta name='mobile-web-app-capable' content='yes' />
-        <meta property='article:section' content='Trailers' />
+         <meta property='article:section' content='Trailers' />
         <meta name='author' content='admin' />
         <meta
           property='article:modified_time'
@@ -541,8 +542,8 @@ const trailersDetail = ({ trailers }) => {
         />
         <meta property='og:image' content={`${trailers && trailers.image1}`} />
 
-        <meta property='og:image:width' content='1280px' />
-        <meta property='og:image:height' content='720px' />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property='og:image:type' content='image/webp' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:label1' content='Est. reading time' />
@@ -590,7 +591,8 @@ const trailersDetail = ({ trailers }) => {
         />
       </Head>
 <GoogleTranslate />
-      {/* <Script src='../../propler/ads.js' defer /> */}
+ <SocialSharing />
+      <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
 
       <div

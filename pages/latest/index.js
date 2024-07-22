@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import latestData from '../../public/latest.json'
 import GoogleTranslate from '../../components/GoogleTranslate';
+import SocialSharing from '../../components/SocialSharing';
 import Head from 'next/head'
 import Script from 'next/script'
 
@@ -10,7 +11,7 @@ const uwatchfreeSchema = JSON.stringify([
   {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'AZ Movies - Explore. Discover. Download.',
+    name: 'AZ Movies - Explore. Discover. Download',
     url: 'https://azmovies.vercel.app/',
     image: ['https://azmovies.vercel.app/favicon.ico'],
     logo: {
@@ -40,10 +41,10 @@ const softwareSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Article',
   '@id': 'https://azmovies.vercel.app/latest/',
-  headline: 'Download Latest | AZ Movies™',
+  headline: 'Entertainment News | AZ Movies™',
   url: 'https://azmovies.vercel.app/latest/',
   description:
-    'AZ Movies is the top platform for exploring and downloading software,the premier platform for the latest releases and secure downloads.',
+    'AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.',
   image: 'https://azmovies.vercel.app/wp-content/uploads/browser.webp',
   author: {
     '@type': 'Person',
@@ -52,7 +53,7 @@ const softwareSchema = JSON.stringify({
   },
   publisher: {
     '@type': 'Organization',
-    name: 'AZ Movies - Explore. Discover. Download.',
+    name: 'AZ Movies™ - Explore. Discover. Download',
     logo: {
       '@type': 'ImageObject',
       url: 'https://azmovies.vercel.app/og_image.jpg'
@@ -78,13 +79,13 @@ const breadcrumbSchema = JSON.stringify({
     {
       '@type': 'ListItem',
       position: 1,
-      name: 'Windows',
+      name: 'AZ Movies™',
       item: 'https://azmovies.vercel.app/'
     },
     {
       '@type': 'ListItem',
       position: 2,
-      name: 'Latest Blog',
+      name: 'Entertainment News',
       item: 'https://azmovies.vercel.app/latest/'
     }
   ]
@@ -115,10 +116,10 @@ const latestPage = ({ items }) => {
         <meta property='og:locale' content='en_US' />
         <meta property='og:type' content='video.movie' />
         {/* <meta property='og:type' content='website' /> */}
-        <meta property='og:title' content=' Latest Blog | AZ Movies' />
+        <meta property='og:title' content=' Entertainment News | AZ Movies™' />
         <meta
           property='og:description'
-          content='AZ Movies is the top platform for exploring and downloading software,the premier platform for the Latest Blog releases and secure downloads.'
+          content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
         />
 
         <meta
@@ -128,7 +129,7 @@ const latestPage = ({ items }) => {
 
         <meta
           name='keywords'
-          content='download, software, freeware, shareware, trial versions, program, utilities, security, network, multimedia, movies, mobile, games, graphic design, file sharing, education, development, desktop, browser'
+        content='AZ Movies, watch free movies, watch movies free online, free download movies, watch free full movies, watch free hd movies, free movies, watch movies free'
         />
         <meta property='og:site_name' content='AZ Movies' />
         {/* <meta property='og:type' content='article' /> */}
@@ -137,22 +138,19 @@ const latestPage = ({ items }) => {
           content='https://azmovies.vercel.app/og_image.jpg'
         />
         <meta name='mobile-web-app-capable' content='yes' />
-        <meta property='article:section' content='Latest Blog' />
+        <meta property='article:section' content='Entertainment News' />
         <meta name='author' content='admin' />
         <meta
           property='article:modified_time'
           content='2024-01-01T13:13:13+00:00'
         />
-        <meta
-          name='keywords'
-          content='download, software, freeware, shareware, trial versions, program, utilities'
-        />
+       
         <meta
           property='og:image'
         content='https://azmovies.vercel.app/og_image.jpg'
         />
-        <meta property='og:image:width' content='1280px' />
-        <meta property='og:image:height' content='720px' />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="720" />
         <meta property='og:image:type' content='image/webp' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:label1' content='Est. reading time' />
@@ -194,8 +192,9 @@ const latestPage = ({ items }) => {
    
       </Head>
       <GoogleTranslate />
+ <SocialSharing />
         
-      {/* <Script src='../../propler/ads.js' defer /> */} 
+      <Script src='../../propler/ads.js' defer /> 
       <Script src='../../propler/ads2.js' defer /> 
 
       {/* <div className='container'> */}

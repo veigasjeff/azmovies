@@ -5,6 +5,7 @@ import latestData from '../../public/latest.json'
 import adultData from '../../public/adult.json'
 import GoogleTranslate from '../../components/GoogleTranslate';
 import Pagination from '../../components/Pagination'
+import SocialSharing from '../../components/SocialSharing';
 import Head from 'next/head'
 import Script from 'next/script'
 
@@ -12,7 +13,7 @@ const uwatchfreeSchema = JSON.stringify([
   {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'AZ Movies™ - Explore. Discover. Download.',
+    name: 'AZ Movies™ - Explore. Discover. Download',
     url: 'https://azmovies.vercel.app/',
     image: ['https://azmovies.vercel.app/favicon.ico'],
     logo: {
@@ -41,10 +42,10 @@ const softwareSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Article',
   '@id': 'https://azmovies.vercel.app/adult/',
-  headline: 'Watch Online Adult | AZ Movies™',
+  headline: 'Watch Online Adult Content | AZ Movies™',
   url: 'https://azmovies.vercel.app/adult/',
   description:
-    'Welcome to AZ Movies™ – your go-to spot for free online adult! Watch and enjoy HD streaming, and catch the latest adults. Dive into cinema with AZ Movies™!',
+    'AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.',
   image: 'https://azmovies.vercel.app/og_image.jpg',
   author: {
     '@type': 'Person',
@@ -53,7 +54,7 @@ const softwareSchema = JSON.stringify({
   },
   publisher: {
     '@type': 'Organization',
-    name: 'AZ Movies™ - Explore. Discover. Download.',
+    name: 'AZ Movies™ - Explore. Discover. Download',
     logo: {
       '@type': 'ImageObject',
       url: 'https://azmovies.vercel.app/og_image.jpg'
@@ -79,13 +80,13 @@ const breadcrumbSchema = JSON.stringify({
     {
       '@type': 'ListItem',
       position: 1,
-      name: 'AZ Movies™ - Explore. Discover. Download.',
+      name: 'AZ Movies™ - Explore. Discover. Download',
       item: 'https://azmovies.vercel.app/'
     },
     {
       '@type': 'ListItem',
       position: 2,
-      name: 'adult',
+      name: 'Adult',
       item: 'https://azmovies.vercel.app/adult/'
     }
   ]
@@ -143,7 +144,7 @@ const adultPage = ({ items }) => {
   return (
     <div className='w-full' style={{ backgroundColor: '#D3D3D3' }}>
       <Head>
-        <title> Watch Online Adult Content | AZ Movies™</title>
+        <title> Watch Online Adult Content |  AZ Movies™</title>
         <link rel='canonical' href='https://azmovies.vercel.app/adult/' />
         <meta
           name='robots'
@@ -155,15 +156,15 @@ const adultPage = ({ items }) => {
         <meta property='og:locale' content='en_US' />
         {/* <meta property='og:type' content='video.movie' /> */}
         <meta property='og:type' content='website' />
-        <meta property='og:title' content=' Watch Online Adult |  AZ Movies™' />
+        <meta property='og:title' content=' Watch Online Adult |   AZ Movies™' />
         <meta
           property='og:description'
-          content='Welcome to AZ Movies™ – your go-to spot for free online adult! Watch and enjoy HD streaming, and catch the latest adults. Dive into cinema with AZ Movies™!'
+          content='Welcome to  AZ Movies™ – your go-to spot for free online adult! Watch and enjoy HD streaming, and catch the latest adults. Dive into cinema with  AZ Movies™!'
         />
 
         <meta property='og:url' content='https://azmovies.vercel.app/adult' />
 
-        <meta property='og:site_name' content='AZ Movies' />
+        <meta property='og:site_name' content=' AZ Movies' />
         {/* <meta property='og:type' content='article' /> */}
         <meta
           property=' og:image:alt'
@@ -178,7 +179,7 @@ const adultPage = ({ items }) => {
         />
         <meta
           name='keywords'
-          content='azadult, AZ Movies, a-z adult, AZ Movies, watch free adult, watch adult online, download adult, watch full adult, watch hd adult'
+          content='azadult,  AZ Movies, a-z adult,  AZ Movies, watch free adult, watch adult online, download adult, watch full adult, watch hd adult'
         />
         <meta
           property='og:image'
@@ -228,8 +229,8 @@ const adultPage = ({ items }) => {
       </Head>
 
       <GoogleTranslate />
-
-      {/* <Script src='../../propler/ads.js' defer /> */} 
+      <SocialSharing />
+      <Script src='../../propler/ads.js' defer /> 
       <Script src='../propler/ads2.js' defer /> 
         <h1
           className='badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6  shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
@@ -244,7 +245,7 @@ const adultPage = ({ items }) => {
             marginBottom: '15px'
           }}
         >
-          AZ Movies Section.
+           AZ Movies Adult Section.
         </h1>
 
         {/* <Marquee  /> */}

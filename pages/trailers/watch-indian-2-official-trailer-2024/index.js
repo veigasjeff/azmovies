@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
-import { FaTelegram } from 'react-icons/fa'
+import trailersData from '../../../public/trailers.json'
 import moviesData from '../../../public/movies.json'
 import tvshowData from '../../../public/tvshow.json'
 import adultData from '../../../public/adult.json'
-import trailersData from '../../../public/trailers.json'
 import latestData from '../../../public/latest.json'
 import GoogleTranslate from '../../../components/GoogleTranslate'
+import SocialSharing from '../../../components/SocialSharing';;
 import { useEffect, useState, useRef } from 'react'
 import Pagination from '../../../components/Pagination'
 import Head from 'next/head'
@@ -15,7 +15,7 @@ import HomeStyles from '@styles/styles.module.css'
 import Script from 'next/script'
 
 // Function to get random links from each dataset
-const getRandomLinks = (tvshows, adults, trailers, latest, count = 3) => {
+const getRandomLinks = (movies, tvshows, adults, trailers, count = 3) => {
   const shuffleArray = array => array.sort(() => 0.5 - Math.random())
 
   const getRandomItems = (data, count) => {
@@ -24,42 +24,30 @@ const getRandomLinks = (tvshows, adults, trailers, latest, count = 3) => {
   }
 
   return [
-    ...getRandomItems(latest, count),
+    ...getRandomItems(movies, count),
     ...getRandomItems(tvshows, count),
-    ...getRandomItems(adults, count),
-    ...getRandomItems(trailers, count)
+    ...getRandomItems(adults, count)
+    // ...getRandomItems(trailers, count)
   ]
 }
 
-const moviesDetail = ({ movie }) => {
+const trailersDetail = ({ trailers }) => {
   const router = useRouter()
   const { id } = router.query
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = 0 // Assume there are 3 pages
 
-  // const [latest, setLatest] = useState(latestData)
-  const [playerReady, setPlayerReady] = useState(false)
-  const [showTimer, setShowTimer] = useState(false)
-  const [seconds, setSeconds] = useState(30) // Example timer duration
-  const [isMobileDevice, setIsMobileDevice] = useState(false)
-  const playerRef = useRef(null)
-  const currentIndexRef = useRef(0)
-
-  const [randomMovies, setRandomMovies] = useState([])
+  const [randomTrailers, setRandomTrailers] = useState([])
 
   const [linkTargets, setLinkTargets] = useState([])
 
   useEffect(() => {
     // Fetch the initial random links
-    setLinkTargets(
-      getRandomLinks(tvshowData, adultData, trailersData, latestData)
-    )
+    setLinkTargets(getRandomLinks(moviesData, tvshowData, adultData))
 
     // Update the links every 30 seconds
     const interval = setInterval(() => {
-      setLinkTargets(
-        getRandomLinks(tvshowData, adultData, trailersData, latestData)
-      )
+      setLinkTargets(getRandomLinks(moviesData, tvshowData, adultData))
     }, 30000) // 30 seconds in milliseconds
 
     return () => clearInterval(interval)
@@ -68,12 +56,12 @@ const moviesDetail = ({ movie }) => {
   // Function to fetch data and set state
   const fetchData = async () => {
     try {
-      const response = await fetch('https://azmovies.vercel.app/movies.json')
+      const response = await fetch('https://azmovies.vercel.app/trailers.json')
       const data = await response.json()
 
       // Get 5 random trailers
-      const randomMoviesData = getRandomItems(data, 7)
-      setRandomMovies(randomMoviesData)
+      const randomTrailersData = getRandomItems(data, 6)
+      setRandomTrailers(randomTrailersData)
     } catch (error) {
       console.error('Error fetching data:', error)
     }
@@ -86,7 +74,7 @@ const moviesDetail = ({ movie }) => {
     // Set interval to update trailers every 5 seconds
     const interval = setInterval(() => {
       fetchData()
-    }, 10000)
+    }, 10000);
 
     // Clean up interval on component unmount
     return () => clearInterval(interval)
@@ -121,7 +109,10 @@ const moviesDetail = ({ movie }) => {
 
   const enhancedParagraph = text => {
     const linkTargets = [
-      { text: 'Indian 2 - 2024', url: 'https://www.imdb.com/title/tt8066940/' }
+      {
+        text: 'Indian 2 Official Trailer - 2024',
+        url: 'https://www.imdb.com/title/tt15181064/'
+      }
     ]
 
     linkTargets.forEach(linkTarget => {
@@ -135,21 +126,31 @@ const moviesDetail = ({ movie }) => {
     return text
   }
 
+  const [showTimer, setShowTimer] = useState(false)
+  const [seconds, setSeconds] = useState(30) // Example timer duration
+  const [isMobileDevice, setIsMobileDevice] = useState(false)
+  const playerRef = useRef(null)
+  const currentIndexRef = useRef(0)
+
+  const { badgegroup } = trailers // Extract badgegroup from trailers
+
+  const isAdult = badgegroup === ' Adult' // Check if badgegroup is " Adult"
+
   const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0)
+
   const videoPlayerRef = useRef(null)
 
-  const ismovie = movie && movie.videotvitem && movie.videotvitem.length > 0
-
+  const isTvShow = trailers.videotvitem && trailers.videotvitem.length > 0
   const handleNext = () => {
-    if (ismovie && currentEpisodeIndex < movie.videotvitem.length - 1) {
+    if (isTvShow && currentEpisodeIndex < trailers.videotvitem.length - 1) {
       setCurrentEpisodeIndex(currentEpisodeIndex + 1)
-    } else if (ismovie) {
-      setCurrentEpisodeIndex(0)
+    } else if (isTvShow) {
+      setCurrentEpisodeIndex(0) // Loop back to the first episode
     }
   }
 
   const handlePrevious = () => {
-    if (ismovie && currentEpisodeIndex > 0) {
+    if (isTvShow && currentEpisodeIndex > 0) {
       setCurrentEpisodeIndex(currentEpisodeIndex - 1)
     }
   }
@@ -162,20 +163,18 @@ const moviesDetail = ({ movie }) => {
   }
 
   const currentVideoItem =
-    ismovie && movie.videotvitem[currentEpisodeIndex]
-      ? parseVideoItem(movie.videotvitem[currentEpisodeIndex])
+    isTvShow && trailers.videotvitem[currentEpisodeIndex]
+      ? parseVideoItem(trailers.videotvitem[currentEpisodeIndex])
       : { id: '', thumbnail: '' }
 
   const movieVideoItem =
-    movie && movie.videomoviesitem && movie.videomoviesitem.length > 0
-      ? parseVideoItem(movie.videomoviesitem[0])
+    trailers.videotrailers && trailers.videotrailers.length > 0
+      ? parseVideoItem(trailers.videotrailers[0])
       : { id: '', thumbnail: '' }
 
-  const src = ismovie
-    ? `https://short.ink/${currentVideoItem.id}`
-    : `https://short.ink/${movieVideoItem.id}?thumbnail=${
-        movieVideoItem.thumbnail || movieVideoMoviesItem.thumbnail
-      }`
+  const src = isTvShow
+    ? `https://short.ink/${currentVideoItem.id}/?thumbnail=${currentVideoItem.thumbnail}`
+    : `https://short.ink/${movieVideoItem.id}/?thumbnail=${movieVideoItem.thumbnail}`
 
   useEffect(() => {
     const detectMobileDevice = () => {
@@ -222,6 +221,74 @@ const moviesDetail = ({ movie }) => {
     return () => clearTimeout(timer)
   }, [showTimer, seconds])
 
+  const [playerReady, setPlayerReady] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      const player = document.getElementById('player')
+      if (player) {
+        const vw = Math.max(
+          document.documentElement.clientWidth || 0,
+          window.innerWidth || 0
+        )
+        const vh = Math.max(
+          document.documentElement.clientHeight || 0,
+          window.innerHeight || 0
+        )
+        player.style.width = vw + 'px'
+        player.style.height = vh + 'px'
+      }
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && typeof YT === 'undefined') {
+      const tag = document.createElement('script')
+      tag.src = 'https://www.youtube.com/iframe_api'
+      const firstScriptTag = document.getElementsByTagName('script')[0]
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+      window.onYouTubeIframeAPIReady = () => setPlayerReady(true)
+    } else {
+      setPlayerReady(true)
+    }
+    return () => delete window.onYouTubeIframeAPIReady
+  }, [])
+
+  useEffect(() => {
+    if (!playerReady || !trailers) return
+
+    const initializePlayer = () => {
+      const videoId = trailers.videoId[0]
+
+      new YT.Player('player', {
+        width: '100%',
+        height: '100%',
+
+        videoId: videoId,
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          disablekb: 1,
+          playsinline: 1,
+          enablejsapi: 1,
+          modestbranding: 1,
+          origin: window.location.origin,
+          rel: 0,
+          quality: 'hd1080'
+        },
+        events: {
+          onReady: () => setPlayerReady(true)
+        }
+      })
+    }
+
+    initializePlayer()
+  }, [playerReady, trailers])
+
   const uwatchfreeSchema = JSON.stringify([
     {
       '@context': 'https://schema.org',
@@ -264,14 +331,14 @@ const moviesDetail = ({ movie }) => {
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Movies',
-        item: movie.baseurl
+        name: 'Trailer',
+        item: trailers.baseurl
       },
       {
         '@type': 'ListItem',
         position: 3,
-        name: movie.name,
-        item: movie.siteurl
+        name: trailers.name,
+        item: trailers.siteurl
       }
     ]
   })
@@ -296,11 +363,11 @@ const moviesDetail = ({ movie }) => {
       },
       {
         '@type': 'WebPage',
-        '@id': `${movie.siteurl}#webpage`,
-        url: movie.siteurl,
-        name: `${movie.name} | AZ Movies™`,
-        datePublished: movie.datePublished,
-        dateModified: movie.dateModified,
+        '@id': `${trailers.siteurl}#webpage`,
+        url: trailers.siteurl,
+        name: `${trailers.name} | AZ Movies™`,
+        datePublished: trailers.datePublished,
+        dateModified: trailers.dateModified,
         isPartOf: {
           '@id': 'https://azmovies.vercel.app#website'
         },
@@ -308,9 +375,9 @@ const moviesDetail = ({ movie }) => {
       },
       {
         '@type': 'Person',
-        '@id': 'https://azmovies.vercel.app/author/azmovies/',
+        '@id': 'https://azmovies.vercel.app/author/AZ Movies/',
         name: 'Dr Trailer',
-        url: 'https://azmovies.vercel.app/author/azmovies/',
+        url: 'https://azmovies.vercel.app/author/AZ Movies/',
         image: {
           '@type': 'ImageObject',
           '@id': 'https://gravatar.com/drtrailer2022',
@@ -322,51 +389,51 @@ const moviesDetail = ({ movie }) => {
       },
       {
         '@type': 'Article',
-        '@id': `${movie.siteurl}#article`,
-        headline: ` ${movie.name} | AZ Movies™`,
-        datePublished: movie.datePublished,
-        dateModified: movie.dateModified,
-        articleSection: 'Movies',
+        '@id': `${trailers.siteurl}#article`,
+        headline: ` ${trailers.name} | AZ Movies™`,
+        datePublished: trailers.datePublished,
+        dateModified: trailers.dateModified,
+        articleSection: 'Movies & Tv Show',
         author: {
-          '@id': 'https://azmovies.vercel.app/author/azmovies/'
+          '@id': 'https://azmovies.vercel.app/author/AZ Movies/'
         },
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
-        description: movie.synopsis,
-        image: movie.image,
-        name: ` ${movie.name} | AZ Movies™`,
+        description: trailers.synopsis,
+        image: trailers.image,
+        name: ` ${trailers.name} | AZ Movies™`,
         isPartOf: {
-          '@id': `${movie.siteurl}#webpage`
+          '@id': `${trailers.siteurl}#webpage`
         },
         inLanguage: 'en-US',
         mainEntityOfPage: {
-          '@id': `${movie.siteurl}#webpage`
+          '@id': `${trailers.siteurl}#webpage`
         }
       },
       {
         '@type': 'BlogPosting',
-        '@id': `${movie.siteurl}#blogPost`,
-        headline: ` ${movie.name} | AZ Movies™`,
-        datePublished: movie.datePublished,
-        dateModified: movie.dateModified,
-        articleSection: 'Movies',
+        '@id': `${trailers.siteurl}#blogPost`,
+        headline: ` ${trailers.name} | AZ Movies™`,
+        datePublished: trailers.datePublished,
+        dateModified: trailers.dateModified,
+        articleSection: 'Movies & Tv Show',
         author: {
-          '@id': 'https://azmovies.vercel.app/author/azmovies/'
+          '@id': 'https://azmovies.vercel.app/author/AZ Movies/'
         },
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
-        description: movie.synopsis,
-        image: movie.image,
-        name: ` ${movie.name} | AZ Movies™`,
-        '@id': `${movie.siteurl}#richSnippet`,
+        description: trailers.synopsis,
+        image: trailers.image,
+        name: ` ${trailers.name} | AZ Movies™`,
+        '@id': `${trailers.siteurl}#richSnippet`,
         isPartOf: {
-          '@id': `${movie.siteurl}#webpage`
+          '@id': `${trailers.siteurl}#webpage`
         },
         inLanguage: 'en-US',
         mainEntityOfPage: {
-          '@id': `${movie.siteurl}#webpage`
+          '@id': `${trailers.siteurl}#webpage`
         }
       }
     ]
@@ -375,24 +442,25 @@ const moviesDetail = ({ movie }) => {
   const newsArticleSchema = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
-    '@id': `${movie.siteurl}#webpage`, // Add a comma here
-    name: movie.title,
-    url: movie.siteurl,
-    description: movie.synopsis,
-    image: movie.image,
-    datePublished: movie.startDate,
+    '@id': `${trailers.siteurl}#webpage`, // Add a comma here
+    name: trailers.title,
+    url: trailers.siteurl,
+    description: trailers.synopsis,
+    image: trailers.image,
+    datePublished: trailers.startDate,
     potentialAction: {
       '@type': 'WatchAction',
       target: {
         '@type': 'EntryPoint',
-        name: movie.title,
-        urlTemplate: movie.siteurl
+        name: trailers.title,
+        urlTemplate: trailers.siteurl
       }
     },
     locationCreated: {
       '@type': 'Place',
-      name: movie.country
+      name: trailers.country
     },
+
     author: {
       '@type': 'Person',
       name: 'DrTrailer',
@@ -416,73 +484,15 @@ const moviesDetail = ({ movie }) => {
   // Convert newsArticleSchema and videoObjects to JSON strings
   const newsArticleJson = JSON.stringify(newsArticleSchema)
 
-  const ldJsonData = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'Movie',
-    '@id': `${movie.siteurl}`,
-    name: movie.title,
-    url: movie.siteurl,
-    description: movie.synopsis,
-    image: movie.image,
-    genre: movie.genre,
-    datePublished: movie.datePublished,
-    director: {
-      '@type': 'Person',
-      name: movie.directorname
-    },
-    actor: movie.starring.map(actor => ({
-      '@type': 'Person',
-      name: actor
-    })),
-    potentialAction: {
-      '@type': 'WatchAction',
-      target: {
-        '@type': 'EntryPoint',
-        name: movie.title,
-        urlTemplate: movie.siteurl
-      }
-    },
-    locationCreated: {
-      '@type': 'Place',
-      name: movie.country
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      '@id': movie.siteurl,
-      ratingValue: 8,
-      ratingCount: 5,
-      bestRating: '10',
-      worstRating: '1'
-    },
-    author: {
-      '@type': 'Person',
-      name: 'DrTrailer',
-      url: 'https://gravatar.com/drtrailer2022'
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'AZ Movies™',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://azmovies.vercel.app/og_image.jpg'
-      }
-    },
-    additionalProperty: {
-      '@type': 'PropertyValue',
-      name: 'Action Platform',
-      value: ['Desktop Web Platform', 'iOS Platform', 'Android Platform']
-    }
-  })
-
-  const moviesSchema = JSON.stringify({
+  const trailersSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
-    name: movie.title,
-    description: movie.text,
-    uploadDate: movie.datePublished,
-    thumbnailUrl: movie.image,
+    name: trailers.title,
+    description: trailers.text,
+    uploadDate: trailers.datePublished,
+    thumbnailUrl: trailers.image,
     duration: 'P34S', // Replace with the actual duration if it's different
-    embedUrl: movie.videourl
+    embedUrl: trailers.videourl
   })
 
   return (
@@ -492,42 +502,48 @@ const moviesDetail = ({ movie }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-
-        <title>Watch Movie Indian 2 (2024) | AZ Movies™</title>
-        <link rel='canonical' href={movie && movie.siteurl} />
+        <title>Watch Indian 2 Official Trailer | AZ Movies™</title>
+        <link rel='canonical' href={trailers && trailers.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />
         <meta name='revisit-after' content='1 days' />
         <meta property='og:locale' content='en_US' />
         <meta property='og:type' content='video.movie' />
-        <meta property='og:video' content={`${movie && movie.videourl}`} />
+        <meta
+          property='og:video'
+          content={`${trailers && trailers.videourl}`}
+        />
         <meta property='og:video:width' content='1280px' />
         <meta property='og:video:height' content='720px' />
         <meta property='og:video:type' content='video/mp4' />
         <meta
           property='og:title'
-          content={`${movie && movie.name} - AZ Movies™`}
+          content={`${trailers && trailers.name} - AZ Movies`}
         />
         <meta
           property='og:description'
-          content='Welcome to AZ Movies™ – your go-to spot for free online movies! Watch and enjoy HD streaming, and catch the latest movies. Dive into cinema with AZ Movies™!'
+          content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
         />
 
-        <meta property='og:url' content={`${movie && movie.siteurl}`} />
-        <meta name='keywords' content={`${movie && movie.keywords}`} />
+        <meta property='og:url' content={`${trailers && trailers.siteurl}`} />
+        <meta name='keywords' content={`${trailers && trailers.keywords}`} />
         <meta property='og:site_name' content='AZ Movies' />
-        {/* <meta property='og:type' content='article' /> */}
-        <meta property=' og:image:alt' content={`${movie && movie.group}`} />
+        <meta property='og:type' content='article' />
+        <meta
+          property=' og:image:alt'
+          content={`${trailers && trailers.group}`}
+        />
         <meta name='mobile-web-app-capable' content='yes' />
-        <meta property='article:section' content='Movies' />
+         <meta property='article:section' content='Trailers' />
         <meta name='author' content='admin' />
         <meta
           property='article:modified_time'
           content='2024-01-01T13:13:13+00:00'
         />
-        <meta property='og:image' content={`${movie && movie.image}`} />
-        <meta property='og:image:width' content='303px' />
-        <meta property='og:image:height' content='430px' />
+        <meta property='og:image' content={`${trailers && trailers.image1}`} />
+
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property='og:image:type' content='image/webp' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:label1' content='Est. reading time' />
@@ -547,11 +563,6 @@ const moviesDetail = ({ movie }) => {
 
         <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: ldJsonData }}
-        />
-
-        <script
-          type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: uwatchfreeSchema }}
         />
 
@@ -565,7 +576,7 @@ const moviesDetail = ({ movie }) => {
         />
         <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: moviesSchema }}
+          dangerouslySetInnerHTML={{ __html: trailersSchema }}
         />
         <script
           type='application/ld+json'
@@ -579,7 +590,8 @@ const moviesDetail = ({ movie }) => {
           referrerpolicy='no-referrer'
         />
       </Head>
-      <GoogleTranslate />
+<GoogleTranslate />
+ <SocialSharing />
       <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
 
@@ -605,7 +617,7 @@ const moviesDetail = ({ movie }) => {
             // marginBottom: '12px'
           }}
         >
-          {movie.title}
+          {trailers.title}
         </h1>
       </div>
       <div
@@ -694,7 +706,7 @@ const moviesDetail = ({ movie }) => {
           </ul>
         </div>
         <a
-          href='https://t.me/watchmoviemovies/'
+          href='https://t.me/watchmovietvshow/'
           target='_blank'
           rel='noopener noreferrer'
           className='bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent font-bold text-3xl mt-2 flex items-center justify-center'
@@ -708,7 +720,7 @@ const moviesDetail = ({ movie }) => {
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
-          route='movies'
+          route='trailers'
           style={{
             marginTop: '50px',
             marginBottom: '50px',
@@ -721,8 +733,8 @@ const moviesDetail = ({ movie }) => {
         <div className='flex-container'>
           <div className='category-container'>
             <Image
-              src={movie.image}
-              alt={movie.title}
+              src={trailers.image}
+              alt={trailers.title}
               width={400}
               height={500}
               quality={90}
@@ -734,7 +746,7 @@ const moviesDetail = ({ movie }) => {
                 marginTop: '50px',
                 marginBottom: '20px',
                 borderRadius: '50px',
-                boxShadow: '0 0 10px 0 #fff',
+                boxShadow: '0 0 10px 0 #000',
                 filter:
                   'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
               }}
@@ -743,24 +755,24 @@ const moviesDetail = ({ movie }) => {
               style={{ maxWidth: '800px', width: '100%', marginBottom: '20px' }}
             >
               <p className='text-black text-bg font-semibold mt-2'>
-                Genre: {movie.genre}
+                Genre: {trailers.genre}
               </p>
               <p className='text-black text-bg font-semibold mt-2'>
-                Director: {movie.directorname}
+                Director: {trailers.directorname}
               </p>
               <p className='text-black text-bg font-semibold mt-2'>
-                Starring: {movie.starring}
+                Starring: {trailers.starring}
               </p>
               <p className='text-black text-bg font-semibold mt-2'>
-                Origin Country: {movie.country}
+                Origin Country: {trailers.country}
               </p>
               <p className='text-black text-bg font-semibold mt-2'>
-                Language: {movie.language}
+                Language: {trailers.language}
               </p>
               <div className=' text-black text-bg font-semibold mt-2'>
                 Synopsis :-
-                {movie.news1 &&
-                  movie.news1.split('\n\n').map((paragraph, idx) => (
+                {trailers.news1 &&
+                  trailers.news1.split('\n\n').map((paragraph, idx) => (
                     <p
                       key={idx}
                       className='description text-black text-bg font-semibold mt-2'
@@ -774,13 +786,29 @@ const moviesDetail = ({ movie }) => {
                     />
                   ))}
               </div>
-
               <div className={`${HomeStyles.imageGrid} mt-5`}>
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload `}
-                  src={movie.directorimg}
-                  alt={movie.directorname}
-                  title={movie.directorname}
+                  src={trailers.directorimg}
+                  alt={trailers.directorname}
+                  title={trailers.directorname}
+                  quality={90}
+                  style={{
+                    width: '200px',
+                    height: '200px',
+                    objectFit: 'cover',
+                    filter:
+                      'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)',
+                    boxShadow: '0 0 10px 0 #000' // Shadow effect with black color
+                  }}
+                  loading='lazy'
+                  layout='responsive'
+                />
+                <img
+                  className={`${HomeStyles.image} img-fluid lazyload`}
+                  src={trailers.actor1img}
+                  alt={trailers.actor1}
+                  title={trailers.actor1}
                   quality={90}
                   style={{
                     width: '200px',
@@ -795,9 +823,9 @@ const moviesDetail = ({ movie }) => {
                 />
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload`}
-                  src={movie.actor1img}
-                  alt={movie.actor1}
-                  title={movie.actor1}
+                  src={trailers.actor2img}
+                  alt={trailers.actor2}
+                  title={trailers.actor2}
                   quality={90}
                   style={{
                     width: '200px',
@@ -812,9 +840,9 @@ const moviesDetail = ({ movie }) => {
                 />
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload`}
-                  src={movie.actor2img}
-                  alt={movie.actor2}
-                  title={movie.actor2}
+                  src={trailers.actor3img}
+                  alt={trailers.actor3}
+                  title={trailers.actor3}
                   quality={90}
                   style={{
                     width: '200px',
@@ -829,9 +857,9 @@ const moviesDetail = ({ movie }) => {
                 />
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload`}
-                  src={movie.actor3img}
-                  alt={movie.actor3}
-                  title={movie.actor3}
+                  src={trailers.actor4img}
+                  alt={trailers.actor4}
+                  title={trailers.actor4}
                   quality={90}
                   style={{
                     width: '200px',
@@ -846,26 +874,9 @@ const moviesDetail = ({ movie }) => {
                 />
                 <img
                   className={`${HomeStyles.image} img-fluid lazyload`}
-                  src={movie.actor4img}
-                  alt={movie.actor4}
-                  title={movie.actor4}
-                  quality={90}
-                  style={{
-                    width: '200px',
-                    height: '200px',
-                    objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
-                    filter:
-                      'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)'
-                  }}
-                  loading='lazy'
-                  layout='responsive'
-                />
-                <img
-                  className={`${HomeStyles.image} img-fluid lazyload`}
-                  src={movie.actor5img}
-                  alt={movie.actor5}
-                  title={movie.actor5}
+                  src={trailers.actor5img}
+                  alt={trailers.actor5}
+                  title={trailers.actor5}
                   quality={90}
                   style={{
                     width: '200px',
@@ -879,12 +890,17 @@ const moviesDetail = ({ movie }) => {
                   layout='responsive'
                 />
               </div>
-
+          
               <p
+                // className='text-4xl font-bold mb-4'
                 className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-4xl hover:text-blue-800 font-bold mt-2'
-                style={{ fontFamily: 'Poppins, sans-serif' }}
+                style={{
+                  fontFamily: 'Poppins, sans-serif'
+                  // color: '#000',
+                  // textShadow: '2px 1px 1px #000000'
+                }}
               >
-                Watch Online {movie.name}
+                {trailers.title}
               </p>
               <div
                 style={{
@@ -895,11 +911,11 @@ const moviesDetail = ({ movie }) => {
                 }}
                 className='rounded-xl mr-8 flex flex-col border-1 border-blue-600 bg-black p-2'
               >
-                {ismovie && (
+                {isTvShow && (
                   <button
                     onClick={handleNext}
                     disabled={
-                      currentEpisodeIndex === movie.videotvitem.length - 1
+                      currentEpisodeIndex === trailers.videotvitem.length - 1
                     }
                     style={{
                       marginBottom: '10px',
@@ -914,41 +930,76 @@ const moviesDetail = ({ movie }) => {
                     }}
                   >
                     Next - Episode{' '}
-                    {currentEpisodeIndex === movie.videotvitem.length - 1
+                    {currentEpisodeIndex === trailers.videotvitem.length - 1
                       ? 1
                       : currentEpisodeIndex + 2}
                   </button>
                 )}
-
-                <iframe
-                  frameBorder='0'
-                  src={src}
-                  width='100%'
-                  height='450px'
-                  allowFullScreen
-                  scrolling='0'
-                  title='Video Player'
+                {/* <div
+                  id='player'
                   style={{
+                    filter:
+                      'contrast(1.2) saturate(1.5) brightness(1.3) hue-rotate(0deg)',
+                    // Additional styles for responsiveness
+                    boxShadow: '0 0 10px 0 #000',
+                    maxWidth: '100%',
+                    maxHeight: '100vh',
+                    borderRadius: '20px' // Add border-radius for rounded shape
+                  }}
+                ></div> */}
+                <div
+                        itemscope
+                        itemtype='https://schema.org/VideoObject'
+                        style={{ display: 'none' }}
+                      >
+                        <meta itemprop='name' content={trailers.title} />
+                        <meta
+                          itemprop='description'
+                          content={trailers.text}
+                        />
+                        <meta
+                          itemprop='uploadDate'
+                          content={trailers.datePublished}
+                        />
+                        <meta
+                          itemprop='thumbnailUrl'
+                          content={trailers.backimage}
+                        />
+                        <meta itemprop='duration' content='P34S' />
+                        <meta
+                          itemprop='embedUrl'
+                          content={trailers.videourl}
+                        />
+                      </div>
+                      <iframe
+                        frameborder='0'
+                        src={`https://geo.dailymotion.com/player/xkdl0.html?video=${trailers.traileritem}&mute=true&Autoquality=1080p`}
+                        width='100%'
+                        height='100%'
+                        allowfullscreen
+                        title='Dailymotion Video Player'
+                        allow='autoplay; encrypted-media'
+                        style={{
+                          boxShadow: '0 0 10px 0 #000',
+                          filter:
+                            'contrast(1.2) saturate(1.3) brightness(1.2) hue-rotate(15deg)'
+                        }}
+                      ></iframe>
+
+                <p
+                  className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-sm hover:text-blue-800 font-bold mt-2'
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
                     boxShadow: '0 0 10px 0 #000',
                     filter:
                       'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
-                  }}
-                ></iframe>
-
-                <p
-                  className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-sm'
-                  style={{
-                    fontFamily: 'Poppins, sans-serif',
-                    textShadow: '1px 1px 1px 0 #fff',
-                    filter:
-                      'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
+                    // textShadow: '2px 1px 1px #000'
                   }}
                 >
                   *Note: Use Setting in Player to improve the Quality of video
                   to HD Quality 1080p.
                 </p>
-
-                {ismovie && (
+                {isTvShow && (
                   <button
                     onClick={handlePrevious}
                     disabled={currentEpisodeIndex === 0}
@@ -966,14 +1017,14 @@ const moviesDetail = ({ movie }) => {
                   >
                     Prev - Episode{' '}
                     {currentEpisodeIndex === 0
-                      ? movie.videotvitem.length
+                      ? trailers.videotvitem.length
                       : currentEpisodeIndex}
                   </button>
                 )}
 
-                <img
+                {/* <img
                   src={
-                    ismovie
+                    isTvShow
                       ? currentVideoItem.thumbnail
                       : movieVideoItem.thumbnail
                   }
@@ -984,153 +1035,40 @@ const moviesDetail = ({ movie }) => {
                     left: '10px',
                     width: '100px',
                     height: '56px',
-                    boxShadow: '0 0 10px 0 #fff', // Shadow effect with black color
                     borderRadius: '10px'
                   }}
-                />
+                /> */}
               </div>
-              <p
-                className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-3xl hover:text-blue-800 font-bold mt-2'
-                style={{ fontFamily: 'Poppins, sans-serif' }}
-              >
-                Click to Download {movie.name}
-              </p>
-              <div className='flex flex-col items-center justify-center'></div>
-              {movie.mp3player && <MP3Player mp3Url={movie.mp3player} />}
-              <div
-                className='flex flex-col items-center justify-center'
-                style={{
-                  marginTop: '50px',
-                  marginBottom: '50px',
-                  filter:
-                    'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
-                }}
-              >
-                {!showTimer ? (
-                  <button
-                    onClick={() => setShowTimer(true)}
-                    className='animate-pulse bg-gradient-to-r from-amber-500 to-pink-500 text-black font-bold py-3 px-6 rounded-lg shadow-lg hover:from-pink-600 hover:to-amber-600 transition duration-300 text-2xl'
-                  >
-                    Download Now
-                  </button>
-                ) : (
-                  <>
-                    <p className='text-3xl font-bold mb-4'>
-                      Your download link will be ready in {seconds} seconds...
-                    </p>
 
-                    <Script src='https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js'></Script>
-                    <lottie-player
-                      src='https://lottie.host/58d9c7ed-a39e-4cb6-b78a-e7cb1f9bf9cd/RHWR24wQSd.json'
-                      background='#D3D3D3'
-                      speed='1'
-                      style={{ width: '250px' }}
-                      loop
-                      autoplay
-                      direction='1'
-                      mode='normal'
-                    ></lottie-player>
-                    <p
-                      className='text-3xl font-bold mb-4 bg-gradient-to-r from-amber-500 to-pink-500 text-black py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
-                      style={{
-                        marginTop: '20px'
-                      }}
-                    >
-                      Official Trailer.
-                    </p>
-
+              <div className='flex flex-col items-center justify-center'>
+                {/* {trailers.mp3player && (
+                  <MP3Player mp3Url={trailers.mp3player} />
+                )} */}
+                {trailers.linkurl && (
+                  <Link href={trailers.linkurl}>
                     <div
+                      className='text-black text-2xl mt-2 bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300 rounded-md btn btn-primary'
                       style={{
-                        width: '100%',
-                        height: '450px',
-                        overflow: 'hidden',
-                        marginBottom: '20px'
+                        fontFamily: 'Poppins, sans-serif',
+                        boxShadow: '0 0 10px 0 #000',
+                        marginTop: '20px',
+                        filter:
+                          'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
+                        // textShadow: '2px 1px 1px #000'
                       }}
-                      className='rounded-xl flex border-1 border-blue-600 bg-black p-2  items-center justify-center'
                     >
-                      <div
-                        itemscope
-                        itemtype='https://schema.org/VideoObject'
-                        style={{ display: 'none' }}
-                      >
-                        <meta itemprop='name' content={movie.title} />
-                        <meta itemprop='description' content={movie.text} />
-                        <meta
-                          itemprop='uploadDate'
-                          content={movie.datePublished}
-                        />
-                        <meta
-                          itemprop='thumbnailUrl'
-                          content={movie.backimage}
-                        />
-                        <meta itemprop='duration' content='P34S' />
-                        <meta itemprop='embedUrl' content={movie.videourl} />
-                      </div>
-                      <iframe
-                        frameborder='0'
-                        src={`https://geo.dailymotion.com/player/xkdl0.html?video=${movie.traileritem}&mute=true&Autoquality=1080p`}
-                        width='100%'
-                        height='100%'
-                        allowfullscreen
-                        title='Dailymotion Video Player'
-                        allow='autoplay; encrypted-media'
-                        style={{
-                          boxShadow: '0 0 10px 0 #000',
-                          filter:
-                            'contrast(1.2) saturate(1.3) brightness(1.2) hue-rotate(15deg)'
-                        }}
-                      ></iframe>
+                      {' '}
+                      Click to Watch Full Movie
                     </div>
-
-                    {showTimer && seconds <= 0 && (
-                      <div>
-                        {Object.keys(movie)
-                          .filter(key => key.startsWith('downloadlink'))
-                          .map((key, index) => (
-                            <Link key={index} href={movie[key]} target='_blank'>
-                              <div
-                                className='bg-gradient-to-r from-amber-500 to-pink-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
-                                style={{
-                                  margin: 'auto',
-                                  marginBottom: '50px',
-                                  borderRadius: '50px',
-                                  boxShadow: '0 0 10px 0 #fff',
-                                  filter:
-                                    'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
-                                }}
-                              >
-                                <span
-                                  style={{
-                                    color:
-                                      key === 'downloadlink1'
-                                        ? '#FF0000'
-                                        : '#0efa06',
-                                    fontSize: '24px',
-                                    textShadow: '3px 5px 5px #000'
-                                  }}
-                                >
-                                  <i
-                                    className={
-                                      key === 'downloadlink1'
-                                        ? 'fa fa-magnet'
-                                        : 'fa fa-download'
-                                    }
-                                    aria-hidden='true'
-                                  ></i>{' '}
-                                </span>
-                                Click Here to Download {index + 1}
-                              </div>
-                            </Link>
-                          ))}
-                      </div>
-                    )}
-                  </>
+                  </Link>
                 )}
               </div>
+
+
               <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}
-                route='movies'
+                route='trailers'
                 style={{
                   marginTop: '50px',
                   marginBottom: '50px',
@@ -1140,7 +1078,7 @@ const moviesDetail = ({ movie }) => {
                     'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
                 }}
               />
-                            <div className=' text-2xl font-semibold mt-2 px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent  hover:text-blue-800 '>
+                  <div className=' text-2xl font-semibold mt-2 px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent  hover:text-blue-800 '>
                 See Below for Other Links to Watch Full Content.
                 <div className={`${HomeStyles.imageGrid} mt-5`}>
                   {linkTargets.map((link, idx) => (
@@ -1175,7 +1113,6 @@ const moviesDetail = ({ movie }) => {
                   ))}
                 </div>
               </div>
-
               <div className='flex flex-col items-center justify-center'>
                 <p
                   className='bg-gradient-to-r from-amber-500 to-pink-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300  text-bg text-black text-bg  mt-2 text-3xl mb-2 items-center justify-center '
@@ -1185,13 +1122,12 @@ const moviesDetail = ({ movie }) => {
                       'contrast(1.0) saturate(1.0) brightness(1.0) hue-rotate(0deg)'
                   }}
                 >
-                  <strong> {movie.head2} </strong>
+                  <strong> {trailers.head2} </strong>
                 </p>
               </div>
-
               <Image
-                src={movie.image1}
-                alt={movie.name}
+                src={trailers.image1}
+                alt={trailers.name}
                 width={1280}
                 height={720}
                 quality={90}
@@ -1201,23 +1137,34 @@ const moviesDetail = ({ movie }) => {
                   marginTop: '50px',
                   marginBottom: '20px',
                   borderRadius: '20px',
-                  boxShadow: '0 0 10px 0 #fff',
+                  boxShadow: '0 0 10px 0 #000',
                   filter:
                     'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
                 }}
               />
-
-              {/* <div className='flex flex-col items-center justify-center'>
-                {movie.head2 && (
+              {/* {trailers.news1.split('\n\n').map((paragraph, idx) => (
+                <p
+                  key={idx}
+                  className='description text-black font-bold mt-2 text-xl'
+                  style={{
+                    marginBottom: '10px',
+                    fontFamily: 'Poppins, sans-serif'
+                  }}
+                >
+                  {paragraph}
+                </p>
+              ))}
+              <div className='flex flex-col items-center justify-center'>
+                {trailers.head2 && (
                   <p className='bg-gradient-to-r from-amber-500 to-pink-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300 text-bg text-black text-bg mt-2 text-3xl mb-2 items-center justify-center'>
-                    <strong>{movie.head2}</strong>
+                    <strong>{trailers.head2}</strong>
                   </p>
                 )}
 
-                {movie.image2 && (
+                {trailers.image2 && (
                   <Image
-                    src={movie.image2}
-                    alt={movie.name}
+                    src={trailers.image2}
+                    alt={trailers.name}
                     width={1280}
                     height={720}
                     quality={90}
@@ -1236,10 +1183,10 @@ const moviesDetail = ({ movie }) => {
                   />
                 )}
 
-                {movie.image3 && (
+                {trailers.image3 && (
                   <Image
-                    src={movie.image3}
-                    alt={movie.name}
+                    src={trailers.image3}
+                    alt={trailers.name}
                     width={1280}
                     height={720}
                     quality={90}
@@ -1258,10 +1205,10 @@ const moviesDetail = ({ movie }) => {
                   />
                 )}
 
-                {movie.image4 && (
+                {trailers.image4 && (
                   <Image
-                    src={movie.image4}
-                    alt={movie.name}
+                    src={trailers.image4}
+                    alt={trailers.name}
                     width={1280}
                     height={720}
                     quality={90}
@@ -1280,10 +1227,10 @@ const moviesDetail = ({ movie }) => {
                   />
                 )}
 
-                {movie.image5 && (
+                {trailers.image5 && (
                   <Image
-                    src={movie.image5}
-                    alt={movie.name}
+                    src={trailers.image5}
+                    alt={trailers.name}
                     width={1280}
                     height={720}
                     quality={90}
@@ -1302,10 +1249,10 @@ const moviesDetail = ({ movie }) => {
                   />
                 )}
 
-                {movie.image6 && (
+                {trailers.image6 && (
                   <Image
-                    src={movie.image6}
-                    alt={movie.name}
+                    src={trailers.image6}
+                    alt={trailers.name}
                     width={1280}
                     height={720}
                     quality={90}
@@ -1324,10 +1271,10 @@ const moviesDetail = ({ movie }) => {
                   />
                 )}
 
-                {movie.image7 && (
+                {trailers.image7 && (
                   <Image
-                    src={movie.image7}
-                    alt={movie.name}
+                    src={trailers.image7}
+                    alt={trailers.name}
                     width={1280}
                     height={720}
                     quality={90}
@@ -1346,10 +1293,10 @@ const moviesDetail = ({ movie }) => {
                   />
                 )}
 
-                {movie.image8 && (
+                {trailers.image8 && (
                   <Image
-                    src={movie.image8}
-                    alt={movie.name}
+                    src={trailers.image8}
+                    alt={trailers.name}
                     width={1280}
                     height={720}
                     quality={90}
@@ -1382,17 +1329,17 @@ const moviesDetail = ({ movie }) => {
                 textShadow: '1px 2px 2px #000'
               }}
             >
-              MOST POPULAR MOVIES
+              MOST POPULAR TRAILER
             </p>
             <div className='categorylatest-container'>
               <div className='cardlatest-container'>
-                {randomMovies.map(movies => (
-                  <div key={movies.id} className='cardlatest'>
-                    <a href={movies['movies.watch']} id={movies.id}>
+                {randomTrailers.map(trailer => (
+                  <div key={trailer.id} className='cardlatest'>
+                    <a href={trailer['trailers.watch']} id={trailer.id}>
                       <div className='relative'>
                         <img
-                          src={movies.image}
-                          alt={movies.title}
+                          src={trailer.image}
+                          alt={trailer.title}
                           className='rounded-lg mx-auto'
                           width={1280}
                           height={720}
@@ -1408,10 +1355,10 @@ const moviesDetail = ({ movie }) => {
                           }}
                         />
                         <p className='text-black text-lg font-semibold mt-2'>
-                          {movies.name}
+                          {trailer.name}
                         </p>
                         <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-sm font-semibold mt-2'>
-                          {movies.text}
+                          {trailer.text}
                         </div>
                       </div>
                     </a>
@@ -1534,13 +1481,13 @@ const moviesDetail = ({ movie }) => {
 }
 
 export async function getServerSideProps () {
-  const res = await fetch('https://azmovies.vercel.app/movies.json')
+  const res = await fetch('https://azmovies.vercel.app/trailers.json')
   const data = await res.json()
-  const selectedMovie = data.find(movie => movie.id === 'INDEX29')
+  const selectedTrailers = data.find(trailers => trailers.id === 'INDEX05')
   return {
     props: {
-      movie: selectedMovie
+      trailers: selectedTrailers
     }
   }
 }
-export default moviesDetail
+export default trailersDetail

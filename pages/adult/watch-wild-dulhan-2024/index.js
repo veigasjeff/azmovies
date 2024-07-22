@@ -8,6 +8,7 @@ import latestData from '../../../public/latest.json'
 import GoogleTranslate from '../../../components/GoogleTranslate'
 import { useEffect, useState, useRef } from 'react'
 import Pagination from '../../../components/Pagination'
+import SocialSharing from '../../../components/SocialSharing';
 import AdultSkipAds from '../../../components/AdultSkipAds'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -201,7 +202,7 @@ const adultDetail = ({ adult }) => {
     {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'AZ Movies™',
+      name: ' AZ Movies™',
       url: 'https://azmovies.vercel.app/',
       image: ['https://azmovies.vercel.app/favicon.ico'],
       logo: {
@@ -233,7 +234,7 @@ const adultDetail = ({ adult }) => {
       {
         '@type': 'ListItem',
         position: 1,
-        name: 'AZ Movies™',
+        name: ' AZ Movies™',
         item: 'https://azmovies.vercel.app/'
       },
       {
@@ -263,7 +264,7 @@ const adultDetail = ({ adult }) => {
         '@type': 'WebSite',
         '@id': 'https://azmovies.vercel.app#website',
         url: 'https://azmovies.vercel.app',
-        name: 'AZ Movies™',
+        name: ' AZ Movies™',
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
         },
@@ -273,7 +274,7 @@ const adultDetail = ({ adult }) => {
         '@type': 'WebPage',
         '@id': `${adult.siteurl}#webpage`,
         url: adult.siteurl,
-        name: `${adult.name} | AZ Movies™`,
+        name: `${adult.name} |  AZ Movies™`,
         datePublished: adult.datePublished,
         dateModified: adult.dateModified,
         isPartOf: {
@@ -298,7 +299,7 @@ const adultDetail = ({ adult }) => {
       {
         '@type': 'Article',
         '@id': `${adult.siteurl}#article`,
-        headline: ` ${adult.name} | AZ Movies™`,
+        headline: ` ${adult.name} |  AZ Movies™`,
         datePublished: adult.datePublished,
         dateModified: adult.dateModified,
         articleSection: 'Adult',
@@ -310,7 +311,7 @@ const adultDetail = ({ adult }) => {
         },
         description: adult.synopsis,
         image: adult.image,
-        name: ` ${adult.name} | AZ Movies™`,
+        name: ` ${adult.name} |  AZ Movies™`,
         isPartOf: {
           '@id': `${adult.siteurl}#webpage`
         },
@@ -330,7 +331,7 @@ const adultDetail = ({ adult }) => {
       {
         '@type': 'BlogPosting',
         '@id': `${adult.siteurl}#blogPost`,
-        headline: ` ${adult.name} | AZ Movies™`,
+        headline: ` ${adult.name} |  AZ Movies™`,
         datePublished: adult.datePublished,
         dateModified: adult.dateModified,
         articleSection: 'Adult',
@@ -342,7 +343,7 @@ const adultDetail = ({ adult }) => {
         },
         description: adult.synopsis,
         image: adult.image,
-        name: ` ${adult.name} | AZ Movies™`,
+        name: ` ${adult.name} |  AZ Movies™`,
         '@id': `${adult.siteurl}#richSnippet`,
         isPartOf: {
           '@id': `${adult.siteurl}#webpage`
@@ -399,7 +400,7 @@ const adultDetail = ({ adult }) => {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'AZ Movies™',
+      name: ' AZ Movies™',
       logo: {
         '@type': 'ImageObject',
         url: 'https://azmovies.vercel.app/og_image.jpg'
@@ -460,7 +461,7 @@ const adultDetail = ({ adult }) => {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'AZ Movies™',
+      name: ' AZ Movies™',
       logo: {
         '@type': 'ImageObject',
         url: 'https://azmovies.vercel.app/og_image.jpg'
@@ -491,7 +492,7 @@ const adultDetail = ({ adult }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title> Watch Wild Dulhan (2024) | AZ™</title>
+        <title> Watch Wild Dulhan (2024) | AZ Movies™</title>
         <link rel='canonical' href={adult && adult.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />
@@ -504,16 +505,16 @@ const adultDetail = ({ adult }) => {
         <meta property='og:video:type' content='video/mp4' />
         <meta
           property='og:title'
-          content={`${adult && adult.name} - AZ Movies`}
+          content={`${adult && adult.name} -  AZ Movies`}
         />
         <meta
           property='og:description'
-          content='Welcome to AZ Movies™ – your go-to spot for free online adult! Watch and enjoy HD streaming, and catch the latest adults. Dive into cinema with AZ Movies™!'
+          content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
         />
 
         <meta property='og:url' content={`${adult && adult.siteurl}`} />
         <meta name='keywords' content={`${adult && adult.keywords}`} />
-        <meta property='og:site_name' content='AZ Movies' />
+        <meta property='og:site_name' content=' AZ Movies' />
         {/* <meta property='og:type' content='article' /> */}
         <meta property=' og:image:alt' content={`${adult && adult.group}`} />
         <meta name='mobile-web-app-capable' content='yes' />
@@ -579,8 +580,9 @@ const adultDetail = ({ adult }) => {
         />
       </Head>
       <GoogleTranslate />
+<SocialSharing />
       <Script src='../../propler/ads2.js' defer />
-      {/* <Script src='../../propler/ads.js' defer /> */}
+      <Script src='../../propler/ads.js' defer />
       {isAdult && <AdultSkipAds movie={adult} />}
 
       <div

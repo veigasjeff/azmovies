@@ -5,6 +5,7 @@ import latestData from '../../public/latest.json'
 import tvshowData from '../../public/tvshow.json'
 import GoogleTranslate from '../../components/GoogleTranslate'
 import Pagination from '../../components/Pagination'
+import SocialSharing from '../../components/SocialSharing';
 import Head from 'next/head'
 import Script from 'next/script'
 
@@ -12,7 +13,7 @@ const uwatchfreeSchema = JSON.stringify([
   {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'AZ Movies™ - Explore. Discover. Download.',
+    name: 'AZ Movies™ - Explore. Discover. Download',
     url: 'https://azmovies.vercel.app/',
     image: ['https://azmovies.vercel.app/favicon.ico'],
     logo: {
@@ -44,7 +45,7 @@ const softwareSchema = JSON.stringify({
   headline: 'Watch Online Tvshow | AZ Movies™',
   url: 'https://azmovies.vercel.app/tvshow/',
   description:
-    'Welcome to AZ Movies™ – your go-to spot for free online tvshow! Watch and enjoy HD streaming, and catch the latest tvshows. Dive into cinema with AZ Movies™!',
+    'AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.',
   image: 'https://azmovies.vercel.app/og_image.jpg',
   author: {
     '@type': 'Person',
@@ -53,7 +54,7 @@ const softwareSchema = JSON.stringify({
   },
   publisher: {
     '@type': 'Organization',
-    name: 'AZ Movies™ - Explore. Discover. Download.',
+    name: 'AZ Movies™ - Explore. Discover. Download',
     logo: {
       '@type': 'ImageObject',
       url: 'https://azmovies.vercel.app/og_image.jpg'
@@ -79,7 +80,7 @@ const breadcrumbSchema = JSON.stringify({
     {
       '@type': 'ListItem',
       position: 1,
-      name: 'AZ Movies™ - Explore. Discover. Download.',
+      name: 'AZ Movies™ - Explore. Discover. Download',
       item: 'https://azmovies.vercel.app/'
     },
     {
@@ -144,15 +145,15 @@ const tvshowPage = ({ items }) => {
         <meta name='revisit-after' content='1 days' />
         <meta property='og:locale' content='en_US' />
         <meta property='og:type' content='website' />
-        <meta property='og:title' content=' Watch Tvshow |  AZ Movies™' />
+        <meta property='og:title' content=' Watch Online Tvshow | AZ Movies™' />
         <meta
           property='og:description'
-          content='Welcome to AZ Movies™ – your go-to spot for free online tvshow! Watch and enjoy HD streaming, and catch the latest tvshows. Dive into cinema with AZ Movies™!'
+          content='AZ Movies™ - Explore. Discover. Download Stream online HD movies with Google Translate for access in any language, worldwide.'
         />
 
         <meta property='og:url' content='https://azmovies.vercel.app/tvshow' />
 
-        <meta property='og:site_name' content='AZ Movies™' />
+        <meta property='og:site_name' content='AZ Movies' />
 
         <meta
           property=' og:image:alt'
@@ -167,14 +168,14 @@ const tvshowPage = ({ items }) => {
         />
         <meta
           name='keywords'
-          content='AZ Movies™, AZ Movies™, a-z tvshow, AZ Movies™, watch free tvshow, watch tvshow online, download tvshow, watch full tvshow, watch hd tvshow'
+        content='AZ Movies, watch free movies, watch movies free online, free download movies, watch free full movies, watch free hd movies, free movies, watch movies free'
         />
         <meta
           property='og:image'
           content='https://azmovies.vercel.app/og_image.jpg'
         />
-        <meta property='og:image:width' content='1280px' />
-        <meta property='og:image:height' content='720px' />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property='og:image:type' content='image/webp' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:label1' content='Est. reading time' />
@@ -215,10 +216,10 @@ const tvshowPage = ({ items }) => {
         />
       </Head>
       <GoogleTranslate />
-{/* <Script src='../../propler/ads.js' defer /> */}
+ <SocialSharing />
+<Script src='../../propler/ads.js' defer />
 <Script src='../../propler/ads2.js' defer />
-      {/* <Script src='../../propler/ads.js' defer /> */}
-      <Script src='../propler/ads2.js' defer />
+  
       <h1
         className='badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6  shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
         style={{
@@ -232,7 +233,7 @@ const tvshowPage = ({ items }) => {
           marginBottom: '15px'
         }}
       >
-        AZ Movies™ Section.
+        AZ Movies Tv Show Section.
       </h1>
 
       <div
