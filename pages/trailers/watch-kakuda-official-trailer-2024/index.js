@@ -513,8 +513,8 @@ const trailersDetail = ({ trailers }) => {
           property='og:video'
           content={`${trailers && trailers.videourl}`}
         />
-        <meta property='og:video:width' content='1280px' />
-        <meta property='og:video:height' content='720px' />
+        <meta property="og:image:width" content="1200" />
+         <meta property="og:image:height" content="630" />
         <meta property='og:video:type' content='video/mp4' />
         <meta
           property='og:title'
