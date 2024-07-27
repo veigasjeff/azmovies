@@ -312,8 +312,8 @@ const latestDetail = ({ latest }) => {
       </Head>
       <GoogleTranslate />
       <SocialSharing />
-      {/* <Script src='../../propler/ads.js' defer />  */}
-      {/* <Script src='../../propler/ads2.js' defer />  */}
+      <Script src='../../propler/ads.js' defer /> 
+      <Script src='../../propler/ads2.js' defer />
 
       <Script
         type='application/ld+json'
