@@ -1,0 +1,168 @@
+/* styles/123movies.module.css */
+.container {
+    padding: 2rem;
+    text-align: center;
+    /* background-color: #D3D3D3; */
+    background: rgba(131, 128, 128, 0.212); /* Semi-transparent background */
+    min-height: 100vh;
+  
+  }
+  
+  .header {
+    
+    margin-bottom: 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    color: #444;
+    margin: 2rem 0 1rem;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    text-shadow: 1px 2px 1px #555;
+    background: linear-gradient(to right, #f43f5e, #fbbf24);
+
+    -webkit-text-fill-color: transparent;
+    padding: 10px;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sectionTitle:hover {
+    background: linear-gradient(to right, #fbbf24, #f43f5e);
+    cursor: pointer;
+  }
+  
+  
+  .movieList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .movieCard {
+    background-color: #D3D3D3;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    max-width: 300px;
+    text-align: left;
+    transition: transform 0.2s;
+    overflow: hidden;
+    text-align: center; /* Center align text inside movie card */
+    display: block; /* Ensure a tags behave as block elements */
+  }
+  
+  .movieCard:hover {
+    transform: translateY(-10px);
+  }
+  
+  .movieImage {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .movieCard:hover .movieImage {
+    transform: scale(1.1);
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+        
+    /* Gradient Background */
+    background: linear-gradient(to right, #f59e0b, #ec4899); /* Amber to Pink gradient */
+    -webkit-background-clip: text; /* For WebKit-based browsers */
+    -webkit-text-fill-color: transparent; /* For WebKit-based browsers */
+    
+    /* For Firefox */
+    background-clip: text;
+    color: transparent;
+  }
+  
+  
+  .movieTitle {
+    font-size: 1.2rem;
+    color: #000;
+    margin-top: 0.5rem;
+    font-family: Poppins, sans-serif;
+    text-shadow: 1px 2px 1px #555 ; 
+    font-weight: bold;
+  }
+  
+  .movieDescription {
+    font-size: 1rem;
+    color: #000;
+    margin-top: 0.5rem;
+    font-family: Poppins, sans-serif;
+    text-shadow: 3px 2px px #000 ; 
+    font-weight: bold;   
+    /* Gradient Background */
+    background: linear-gradient(to right, #f59e0b, #ec4899); /* Amber to Pink gradient */
+    -webkit-background-clip: text; /* For WebKit-based browsers */
+    -webkit-text-fill-color: transparent; /* For WebKit-based browsers */
+    
+    /* For Firefox */
+    background-clip: text;
+    color: transparent;
+
+  }
+  /* Responsive styles */
+@media (max-width: 768px) {
+    .sectionTitle {
+        font-size: 2rem; /* Smaller font size for tablets and smaller screens */
+    }
+
+    .movieCard {
+        max-width: 100%; /* Full width on smaller screens */
+        padding: 0.5rem; /* Reduced padding */
+    }
+
+    .title {
+        font-size: 2rem; /* Smaller font size for tablets and smaller screens */
+    }
+
+    .movieTitle {
+        font-size: 1.25rem; /* Smaller font size for tablets and smaller screens */
+    }
+
+    .movieDescription {
+        font-size: 0.875rem; /* Smaller font size for tablets and smaller screens */
+    }
+    .movieDetails strong {
+        font-size: 20px; /* Adjusted font size for mobile */
+      }
+}
+
+@media (max-width: 480px) {
+    .sectionTitle {
+        font-size: 1.5rem; /* Smaller font size for mobile screens */
+    }
+
+    .title {
+        font-size: 1.5rem; /* Smaller font size for mobile screens */
+    }
+
+    .movieTitle {
+        font-size: 1.5rem; /* Smaller font size for mobile screens */
+    }
+
+    .movieDescription {
+        font-size: 18px; /* Smaller font size for mobile screens */
+    }
+    .movieDetails > strong {
+        font-weight: bold;
+        color: #000; /* Black color for <strong> elements */
+        font-size: 20px; /* Adjusted font size for mobile */
+        margin-right: 0.5rem; /* Adjust spacing between label and description */
+      }
+}
+
+
+  
+  
