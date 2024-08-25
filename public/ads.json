@@ -1,0 +1,20 @@
+[
+  {
+    "id": "ADS01",
+    "videourl": "x93u4vi",
+    "text": "Discover Amazing Movies & Latest TV Shows!",
+     "link": "http://localhost:3000"
+  },
+  {
+    "id": "ADS02",
+    "videourl": "x91cy8c",
+    "text": "Discover Amazing Movies & Latest TV Shows!",
+     "link": "http://localhost:3000"
+  },
+  {
+    "id": "ADS03",
+    "videourl": "x93u56c",
+    "text": "Discover Best Amazing Movies & Latest TV Shows!",
+     "link": "http://localhost:3000"
+  }
+]
