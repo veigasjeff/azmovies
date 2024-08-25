@@ -8,7 +8,7 @@ const SearchComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const homeRes = await fetch('http://localhost:3000/moviesfull.json'); // Fetch home.json
+        const homeRes = await fetch('https://atozmovies.vercel.app/moviesfull.json'); // Fetch home.json
 
         if (!homeRes.ok) {
           throw new Error('Network response was not ok.');
