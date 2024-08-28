@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Script from 'next/script'
-import GoogleTranslate from '../../components/GoogleTranslate';
-import SocialSharing from '../../components/SocialSharing';
-import SearchComponent from '../../components/SearchComponent';
+import GoogleTranslate from '../../components/GoogleTranslate'
+import SocialSharing from '../../components/SocialSharing'
+import SearchComponent from '../../components/SearchComponent'
 
 const page7 = ({ items }) => {
-  const [latest, setLatest] = useState(items || []); // Ensure items is defined, fallback to an empty array if undefined
-  const router = useRouter(); // Initialize the router
+  const [latest, setLatest] = useState(items || []) // Ensure items is defined, fallback to an empty array if undefined
+  const router = useRouter() // Initialize the router
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1)
 
-  const handlePageSelect = (page) => {
-    setCurrentPage(page);
-  };
+  const handlePageSelect = page => {
+    setCurrentPage(page)
+  }
 
   const uwatchfreeSchema = JSON.stringify([
     {
@@ -40,13 +40,14 @@ const page7 = ({ items }) => {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://atozmovies.vercel.app/search?q={search_term_string}'
+          urlTemplate:
+            'https://atozmovies.vercel.app/search?q={search_term_string}'
         },
         'query-input': 'required name=search_term_string'
       }
     }
   ])
-  
+
   const softwareSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -81,7 +82,7 @@ const page7 = ({ items }) => {
       value: ['movies Web Platform', 'iOS Platform', 'Android Platform']
     }
   })
-  
+
   const breadcrumbSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -136,9 +137,9 @@ const page7 = ({ items }) => {
           property='article:modified_time'
           content='2024-01-01T13:13:13+00:00'
         />
-      <meta
+        <meta
           name='keywords'
-          content='AtoZ Movies,AtoZ MoviesHUB,AtoZ MoviesFREE,AtoZ Movies-hd,AtoZ Moviesx,AtoZ Movies-org,AtoZ Movies-com,AtoZ Movies official,AtoZ Movies,AtoZ Movies free,free movies,movies online,watch movies online,watch movies free,AtoZ Movies, gomovies,putlocker,putlockers,soap2day'
+          content='atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies,123movies,gomovies,yes movies,putlocker,putlockers,soap2day'
         />
         <meta
           property='og:image'
@@ -181,7 +182,7 @@ const page7 = ({ items }) => {
       <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
       <h1
-        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300"
+        className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
         style={{
           justifyContent: 'center',
           alignItems: 'center',
@@ -190,17 +191,17 @@ const page7 = ({ items }) => {
           fontFamily: 'Poppins, sans-serif',
           fontWeight: 'bold',
           textAlign: 'center',
-          marginBottom: '15px',
+          marginBottom: '15px'
         }}
       >
         AtoZ Movies Main Section.
       </h1>
       <GoogleTranslate />
-      <span className="px-0 bg-clip-text text-sm text-black font-bold mt-2 "  >
+      <span className='px-0 bg-clip-text text-sm text-black font-bold mt-2 '>
         <SearchComponent />
       </span>
-      <div className="flex flex-wrap justify-center my-4 gap-2">
-        <Link href="/home" passHref>
+      <div className='flex flex-wrap justify-center my-4 gap-2'>
+        <Link href='/home' passHref>
           <button
             className={`px-4 py-2 border rounded ${
               router.pathname === '/home'
@@ -212,7 +213,7 @@ const page7 = ({ items }) => {
           </button>
         </Link>
 
-        {[2, 3, 4, 5, 6, 7, 8, 9,].map((page) => (
+        {[2, 3, 4, 5, 6, 7, 8, 9].map(page => (
           <Link key={page} href={`/home/page${page}`} passHref>
             <button
               className={`px-4 py-2 border rounded ${
@@ -227,84 +228,87 @@ const page7 = ({ items }) => {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {latest.map((item) => {
+      <div className='container mx-auto px-4 py-6'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+          {latest.map(item => {
             // Ensure item.siteurl is defined
             if (!item.siteurl) {
-              console.warn(`Missing siteurl for item with id ${item.id}`); // Debugging: log missing siteurl
-              return null; // Skip rendering this item
+              console.warn(`Missing siteurl for item with id ${item.id}`) // Debugging: log missing siteurl
+              return null // Skip rendering this item
             }
 
             return (
               <div
                 key={item.id}
-                className="card bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 duration-300"
+                className='card bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 duration-300'
               >
                 <Link href={item.siteurl} passHref>
                   <div>
-                    <div className="relative">
-                      <div className="absolute top-2 left-2 z-10 badge bg-gradient-to-r from-pink-500 to-amber-500 text-white py-2 px-4 rounded-lg text-center font-bold">
+                    <div className='relative'>
+                      <div className='absolute top-2 left-2 z-10 badge bg-gradient-to-r from-pink-500 to-amber-500 text-white py-2 px-4 rounded-lg text-center font-bold'>
                         {item.badge}
                       </div>
-                      <div className="aspect-w-16 aspect-h-9 w-full">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        width={1280}
-                        height={720}
-                        className='w-full h-full rounded-t-lg'
-                        quality={90}
-                        loading='lazy'
-                        style={{
-                          borderRadius: '0.5rem',
-                          objectFit: 'cover' ,
-                           filter:
-                            'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
-                        }}
-                      />
-                    </div>
-                   
+                      <div className='aspect-w-16 aspect-h-9 w-full'>
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          width={1280}
+                          height={720}
+                          className='w-full h-full rounded-t-lg'
+                          quality={90}
+                          loading='lazy'
+                          style={{
+                            borderRadius: '0.5rem',
+                            objectFit: 'cover',
+                            filter:
+                              'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
+                          }}
+                        />
+                      </div>
+
                       <div className='p-4 '>
-                      <h2 className='font-bold text-xl text-blue-500 flex flex-col items-center justify-center'>
-                        {item.title}
-                       </h2>
-                      <h3 className='text-gray-700 mb-2'>{item.news1}</h3>
-                        <p className='font-bold text-black mb-2 flex flex-col items-center justify-center'> Genre: </p>
-                      <p className="font-bold text-black mb-2 flex flex-col items-center justify-center">
-                      {item.genre}
-                      </p>
+                        <h2 className='font-bold text-xl text-blue-500 flex flex-col items-center justify-center'>
+                          {item.title}
+                        </h2>
+                        <h3 className='text-gray-700 mb-2'>{item.news1}</h3>
+                        <p className='font-bold text-black mb-2 flex flex-col items-center justify-center'>
+                          {' '}
+                          Genre:{' '}
+                        </p>
+                        <p className='font-bold text-black mb-2 flex flex-col items-center justify-center'>
+                          {item.genre}
+                        </p>
                       </div>
                     </div>
                   </div>
                 </Link>
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export async function getStaticProps() {
+export async function getStaticProps () {
   try {
-    const res = await fetch('https://atozmovies.vercel.app/moviesp7.json');
-    const data = await res.json();
+    const res = await fetch('https://atozmovies.vercel.app/moviesp7.json')
+    const data = await res.json()
 
     return {
       props: {
-        items: data || [], // Ensure data is an array
-      },
-    };
+        items: data || [] // Ensure data is an array
+      }
+    }
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error('Error fetching data:', error)
     return {
       props: {
-        items: [], // Return an empty array to avoid issues
-      },
-    };
+        items: [] // Return an empty array to avoid issues
+      }
+    }
   }
 }
 
-export default page7;
+export default page7

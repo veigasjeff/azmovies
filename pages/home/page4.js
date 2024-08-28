@@ -32,7 +32,8 @@ const uwatchfreeSchema = JSON.stringify([
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://atozmovies.vercel.app/search?q={search_term_string}'
+        urlTemplate:
+          'https://atozmovies.vercel.app/search?q={search_term_string}'
       },
       'query-input': 'required name=search_term_string'
     }
@@ -132,13 +133,14 @@ const page4 = ({ items }) => {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://atozmovies.vercel.app/search?q={search_term_string}'
+          urlTemplate:
+            'https://atozmovies.vercel.app/search?q={search_term_string}'
         },
         'query-input': 'required name=search_term_string'
       }
     }
   ])
-  
+
   const softwareSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -173,7 +175,7 @@ const page4 = ({ items }) => {
       value: ['movies Web Platform', 'iOS Platform', 'Android Platform']
     }
   })
-  
+
   const breadcrumbSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -192,7 +194,7 @@ const page4 = ({ items }) => {
       }
     ]
   })
-  
+
   return (
     // <div className='w-full' style={{ backgroundColor: '#D3D3D3' }}>
     <div className='w-full' style={{ backgroundColor: '#000' }}>
@@ -229,9 +231,9 @@ const page4 = ({ items }) => {
           property='article:modified_time'
           content='2024-01-01T13:13:13+00:00'
         />
-       <meta
+        <meta
           name='keywords'
-          content='AtoZ Movies,AtoZ MoviesHUB,AtoZ MoviesFREE,AtoZ Movies-hd,AtoZ Moviesx,AtoZ Movies-org,AtoZ Movies-com,AtoZ Movies official,AtoZ Movies,AtoZ Movies free,free movies,movies online,watch movies online,watch movies free,AtoZ Movies, gomovies,putlocker,putlockers,soap2day'
+          content='atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies,123movies,gomovies,yes movies,putlocker,putlockers,soap2day'
         />
         <meta
           property='og:image'
@@ -273,7 +275,7 @@ const page4 = ({ items }) => {
       <SocialSharing />
       <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
-   
+
       <h1
         className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6  shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
         style={{
@@ -293,35 +295,35 @@ const page4 = ({ items }) => {
       <span className='px-0 bg-clip-text text-sm text-black font-bold mt-2'>
         <SearchComponent />
       </span>
-      <div className="flex flex-wrap justify-center my-4 gap-2">
-      {/* TV Show movies button */}
-      <Link href="/home" passHref>
-        <button
-          className={`px-4 py-2 border rounded ${
-            router.pathname === '/home'
-              ? 'bg-red-500 text-white font-bold'
-              : 'bg-gray-200 hover:bg-green-500 text-black font-bold'
-          }`}
-        >
-          Page 1
-        </button>
-      </Link>
-
-      {/* Page 2, Page 3, Page 4 buttons */}
-      {[2, 3, 4, 5, 6, 7, 8, 9, ].map((page) => (
-        <Link key={page} href={`/home/page${page}`} passHref>
+      <div className='flex flex-wrap justify-center my-4 gap-2'>
+        {/* TV Show movies button */}
+        <Link href='/home' passHref>
           <button
             className={`px-4 py-2 border rounded ${
-              router.pathname === `/home/page${page}`
+              router.pathname === '/home'
                 ? 'bg-red-500 text-white font-bold'
                 : 'bg-gray-200 hover:bg-green-500 text-black font-bold'
             }`}
           >
-            PAGE {page}
+            Page 1
           </button>
         </Link>
-      ))}
-    </div>
+
+        {/* Page 2, Page 3, Page 4 buttons */}
+        {[2, 3, 4, 5, 6, 7, 8, 9].map(page => (
+          <Link key={page} href={`/home/page${page}`} passHref>
+            <button
+              className={`px-4 py-2 border rounded ${
+                router.pathname === `/home/page${page}`
+                  ? 'bg-red-500 text-white font-bold'
+                  : 'bg-gray-200 hover:bg-green-500 text-black font-bold'
+              }`}
+            >
+              PAGE {page}
+            </button>
+          </Link>
+        ))}
+      </div>
 
       <div className='container mx-auto px-4 py-6'>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
@@ -330,14 +332,14 @@ const page4 = ({ items }) => {
               key={item.id}
               className='card bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 duration-300'
             >
-               <Link href={item.siteurl}>
+              <Link href={item.siteurl}>
                 <div>
                   <div className='relative'>
                     {/* Badge in front of the image */}
                     <div className='absolute top-2 left-2 z-10 badge bg-gradient-to-r from-pink-500 to-amber-500 text-white py-2 px-4 rounded-lg text-center font-bold'>
                       {item.badge}
                     </div>
-                    <div className="aspect-w-16 aspect-h-9 w-full">
+                    <div className='aspect-w-16 aspect-h-9 w-full'>
                       <Image
                         src={item.image}
                         alt={item.title}
@@ -348,21 +350,24 @@ const page4 = ({ items }) => {
                         loading='lazy'
                         style={{
                           borderRadius: '0.5rem',
-                          objectFit: 'cover' ,
-                           filter:
+                          objectFit: 'cover',
+                          filter:
                             'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
                         }}
                       />
                     </div>
-                   
-                      <div className='p-4 '>
+
+                    <div className='p-4 '>
                       <h2 className='font-bold text-xl text-blue-500 flex flex-col items-center justify-center'>
                         {item.title}
-                       </h2>
+                      </h2>
                       <h3 className='text-gray-700 mb-2'>{item.news1}</h3>
-                      <p className='font-bold text-black mb-2 flex flex-col items-center justify-center'> Genre: </p>
-                      <p className="font-bold text-black mb-2 flex flex-col items-center justify-center">
-                      {item.genre}
+                      <p className='font-bold text-black mb-2 flex flex-col items-center justify-center'>
+                        {' '}
+                        Genre:{' '}
+                      </p>
+                      <p className='font-bold text-black mb-2 flex flex-col items-center justify-center'>
+                        {item.genre}
                       </p>
                     </div>
                   </div>

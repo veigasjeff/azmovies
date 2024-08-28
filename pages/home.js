@@ -143,10 +143,10 @@ const moviesPage = ({ items }) => {
           property='article:modified_time'
           content='2024-01-01T13:13:13+00:00'
         />
-        <meta
-          name='keywords'
-          content='AtoZ Movies, AtoZ MoviesHUB, AtoZ MoviesFREE, AtoZ Movies-hd, AtoZ Moviesx, AtoZ Movies-org, AtoZ Movies-com, AtoZ Movies official, AtoZ Movies, AtoZ Movies free, free movies, movies online, watch movies online, watch movies free, AtoZ Movies, gomovies, putlocker, putlockers, soap2day'
-        />
+       <meta
+            name='keywords'
+            content='atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies,123movies,gomovies,yes movies,putlocker,putlockers,soap2day'
+          />
         <meta
           property='og:image'
           content='https://atozmovies.vercel.app/og_image.jpg'

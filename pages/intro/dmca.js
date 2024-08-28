@@ -2,7 +2,6 @@ import React from 'react'
 import Head from 'next/head'
 import Script from 'next/script'
 
-
 const dmca = () => {
   const containerStyle = {
     margin: '24px auto',
@@ -179,8 +178,6 @@ const dmca = () => {
     ]
   })
 
-
-
   return (
     <div>
       <Head>
@@ -192,11 +189,7 @@ const dmca = () => {
           href='https://atozmovies.vercel.app/sitemap.xml'
         />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <link
-          rel='icon'
-          type='image/x-icon'
-          href='/favicon.ico'
-        />
+        <link rel='icon' type='image/x-icon' href='/favicon.ico' />
         <link
           rel='apple-touch-icon'
           sizes='180x180'
@@ -221,9 +214,9 @@ const dmca = () => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-       <meta
+        <meta
           name='keywords'
-          content='123movies,123moviesHUB,123moviesFREE,123movies-hd,123moviesx,123movies-org,123movies-com,123movies official,123movies,123movies free,free movies,movies online,watch movies online,watch movies free,123movies, gomovies,putlocker,putlockers,soap2day'
+          content='atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies,123movies,gomovies,yes movies,putlocker,putlockers,soap2day'
         />
         <meta
           property='description'
@@ -282,13 +275,11 @@ const dmca = () => {
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: rankMathSchema }}
         />
-   
       </Head>
-     
 
       <div style={containerStyle}>
         <section style={sectionStyle}>
-        <a
+          <a
             href='https://t.me/watchmovietvshow/'
             target='_blank'
             rel='noopener noreferrer'
@@ -403,7 +394,6 @@ const dmca = () => {
             </div>
           </div>
         </section>
-
       </div>
     </div>
   )
