@@ -53,4 +53,4 @@ function loadAdCode() {
 // Set a timeout to load the ad code after 10 seconds
 setTimeout(loadAdCode, 5000); // 10000 milliseconds = 10 seconds
 
-      <script async="async" data-cfasync="false" src="//thubanoa.com/1?z=7996098"></script>
+      // <script async="async" data-cfasync="false" src="//thubanoa.com/1?z=7996098"></script>
