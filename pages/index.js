@@ -258,7 +258,7 @@ export default function HomePage() {
           property='og:title'
           content='AtoZ Movies™ - Explore. Stream. Online. '
         />
-        <meta property='og:url' content='https://atozmovies.vercel.app/' />
+        <meta property='og:url' content='https://atozmovies.vercel.app' />
         <meta
           property='og:site_name'
           content='AtoZ Movies™ - Explore. Stream. Online. '
@@ -299,7 +299,7 @@ export default function HomePage() {
         />
         <meta
           name='google-site-verification'
-          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
+          content='o8uNsADswyHnNPA69n9gI7u6L4_cdjN4iT5lRhHHtMU'
         />
 
         <meta

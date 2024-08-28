@@ -12,6 +12,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
 import moviesStyles from '@styles/styles.module.css'
+import styles from '@styles/iframeStyles.module.css'
 
 // Fetch data from moviesp4.json
 const fetchmoviesData = async () => {
@@ -105,7 +106,7 @@ const moviesDetail4 = ({ moviesItem }) => {
 
     return text
   }
-  
+
   const [imageSize, setImageSize] = useState({
     width: '200px',
     height: '200px'
@@ -364,7 +365,7 @@ const moviesDetail4 = ({ moviesItem }) => {
         '@type': 'ListItem',
         position: 2,
         name: 'Movies',
-      item: moviesItem.siteurl
+        item: moviesItem.siteurl
       }
     ]
   })
@@ -559,38 +560,38 @@ const moviesDetail4 = ({ moviesItem }) => {
     embedUrl: moviesItem.videourl
   })
 
- // JSON-LD schemas
- const languagesSchema = JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  url: moviesItem.siteurl, // Ensure this URL is correctly set
-  name: ` ${moviesItem.title} | AtoZ Movies™`,
-  alternateName: [
-    `Ver película ${moviesItem.title} | AtoZ Movies™`,
-    `Regarder le film ${moviesItem.title} | AtoZ Movies™`,
-    `Film ${moviesItem.title} ansehen | AtoZ Movies™`,
-    `观看电影 ${moviesItem.title} | AtoZ Movies™`,
-    `映画 ${moviesItem.title} を見る | AtoZ Movies™`,
-    `영화 ${moviesItem.title} 보기 | AtoZ Movies™`,
-    `Assistir Filme ${moviesItem.title} | AtoZ Movies™`,
-    `Guarda il film ${moviesItem.title} | AtoZ Movies™`,
-    `Посмотреть фильм ${moviesItem.title} | AtoZ Movies™`,
-    `مشاهدة فيلم ${moviesItem.title} | AtoZ Movies™`
-  ],
-  inLanguage: [
-    'es',
-    'fr',
-    'de',
-    'zh-Hans',
-    'ja',
-    'ko',
-    'pt',
-    'it',
-    'ru',
-    'ar'
-  ]
-})
-  
+  // JSON-LD schemas
+  const languagesSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    url: moviesItem.siteurl, // Ensure this URL is correctly set
+    name: ` ${moviesItem.title} | AtoZ Movies™`,
+    alternateName: [
+      `Ver película ${moviesItem.title} | AtoZ Movies™`,
+      `Regarder le film ${moviesItem.title} | AtoZ Movies™`,
+      `Film ${moviesItem.title} ansehen | AtoZ Movies™`,
+      `观看电影 ${moviesItem.title} | AtoZ Movies™`,
+      `映画 ${moviesItem.title} を見る | AtoZ Movies™`,
+      `영화 ${moviesItem.title} 보기 | AtoZ Movies™`,
+      `Assistir Filme ${moviesItem.title} | AtoZ Movies™`,
+      `Guarda il film ${moviesItem.title} | AtoZ Movies™`,
+      `Посмотреть фильм ${moviesItem.title} | AtoZ Movies™`,
+      `مشاهدة فيلم ${moviesItem.title} | AtoZ Movies™`
+    ],
+    inLanguage: [
+      'es',
+      'fr',
+      'de',
+      'zh-Hans',
+      'ja',
+      'ko',
+      'pt',
+      'it',
+      'ru',
+      'ar'
+    ]
+  })
+
   return (
     <div>
       <Head>
@@ -674,7 +675,7 @@ const moviesDetail4 = ({ moviesItem }) => {
         <meta name='twitter:data1' content='1 minute' />
         <meta
           name='google-site-verification'
-          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
+          content='o8uNsADswyHnNPA69n9gI7u6L4_cdjN4iT5lRhHHtMU'
         />
         <meta
           name='facebook-domain-verification'
@@ -718,6 +719,8 @@ const moviesDetail4 = ({ moviesItem }) => {
       </Head>
       <SocialSharing />
       {isAdult && <AdultSkipAds movie={moviesItem} />}
+      <Script src='../../propler/ads.js' defer />
+      <Script src='../../propler/ads2.js' defer />
       <div
         className={`w-full`}
         style={{
@@ -781,22 +784,22 @@ const moviesDetail4 = ({ moviesItem }) => {
             </p>
             <p className='text-lg text-yellow-500 mt-4'>
               Streaming <strong>{moviesItem.title}</strong> on{' '}
-              <strong>AtoZ Movies™</strong> ensures that you won't miss a
-              single moment of the action, drama, or comedy that makes this TV
-              series a must-watch. With high-quality streaming and user-friendly
-              navigation, <strong>AtoZ Movies™</strong> provides everything
-              you need to enjoy <strong>{moviesItem.title}</strong>
+              <strong>AtoZ Movies™</strong> ensures that you won't miss a single
+              moment of the action, drama, or comedy that makes this TV series a
+              must-watch. With high-quality streaming and user-friendly
+              navigation, <strong>AtoZ Movies™</strong> provides everything you
+              need to enjoy <strong>{moviesItem.title}</strong>
               and other top TV series. Our library is frequently updated, so you
               can always find the latest episodes as soon as they air.
             </p>
             <p className='text-lg text-yellow-500 mt-4'>
               Whether you're binge-watching or following along weekly,{' '}
-              <strong>{moviesItem.title}</strong> on{' '}
-              <strong>AtoZ Movies™</strong> is your go-to destination for
-              streaming TV series online. Join our community of viewers and
-              start watching <strong>{moviesItem.title}</strong> today. With{' '}
-              <strong>AtoZ Movies™</strong>, your favorite TV series is
-              just a click away.
+              <strong>{moviesItem.title}</strong> on <strong>AtoZ Movies™</strong>{' '}
+              is your go-to destination for streaming TV series online. Join our
+              community of viewers and start watching{' '}
+              <strong>{moviesItem.title}</strong> today. With{' '}
+              <strong>AtoZ Movies™</strong>, your favorite TV series is just a
+              click away.
             </p>
           </>
         )}
@@ -810,30 +813,29 @@ const moviesDetail4 = ({ moviesItem }) => {
             <p className='text-lg text-yellow-500 mt-4'>
               Indulge in the finest selection of adult entertainment with{' '}
               <strong>{moviesItem.title}</strong>. At{' '}
-              <strong>AtoZ Movies™</strong>, we offer a vast library of
-              premium adult content, including the latest and most popular
-              titles like <strong>{moviesItem.title}</strong>. Our platform is
-              designed for those who seek high-quality, discreet streaming of
-              adult films, ensuring a seamless and private viewing experience.
+              <strong>AtoZ Movies™</strong>, we offer a vast library of premium
+              adult content, including the latest and most popular titles like{' '}
+              <strong>{moviesItem.title}</strong>. Our platform is designed for
+              those who seek high-quality, discreet streaming of adult films,
+              ensuring a seamless and private viewing experience.
             </p>
             <p className='text-lg text-yellow-500 mt-4'>
               Streaming <strong>{moviesItem.title}</strong> on{' '}
-              <strong>AtoZ Movies™</strong> provides you with a
-              user-friendly interface and crystal-clear video quality. Our adult
-              content is regularly updated, giving you access to new releases as
-              soon as they become available. Whether you're exploring new genres
-              or returning to your favorites,{' '}
-              <strong>{moviesItem.title}</strong>
+              <strong>AtoZ Movies™</strong> provides you with a user-friendly
+              interface and crystal-clear video quality. Our adult content is
+              regularly updated, giving you access to new releases as soon as
+              they become available. Whether you're exploring new genres or
+              returning to your favorites, <strong>{moviesItem.title}</strong>
               and other top titles are available at your fingertips.
             </p>
             <p className='text-lg text-yellow-500 mt-4'>
               For a premium experience in adult entertainment, look no further
               than <strong>{moviesItem.title}</strong> on{' '}
-              <strong>AtoZ Movies™</strong>. Our platform ensures your
-              privacy and security while you enjoy the content you love. Start
-              streaming <strong>{moviesItem.title}</strong> today and discover
-              why <strong>AtoZ Movies™</strong> is the trusted choice for
-              adult content.
+              <strong>AtoZ Movies™</strong>. Our platform ensures your privacy and
+              security while you enjoy the content you love. Start streaming{' '}
+              <strong>{moviesItem.title}</strong> today and discover why{' '}
+              <strong>AtoZ Movies™</strong> is the trusted choice for adult
+              content.
             </p>
           </>
         )}
@@ -847,8 +849,8 @@ const moviesDetail4 = ({ moviesItem }) => {
             <p className='text-lg text-yellow-500 mt-4'>
               Dive into the world of cinema with{' '}
               <strong>{moviesItem.title}</strong>, available to stream right
-              here. At <strong>AtoZ Movies™</strong>, we bring you the best
-              in entertainment, offering an extensive library of movies and TV
+              here. At <strong>AtoZ Movies™</strong>, we bring you the best in
+              entertainment, offering an extensive library of movies and TV
               shows, including the latest blockbusters like{' '}
               <strong>{moviesItem.title}</strong>. Whether you're a fan of
               action, drama, comedy, or any other genre, you'll find exactly
@@ -866,13 +868,12 @@ const moviesDetail4 = ({ moviesItem }) => {
             </p>
             <p className='text-lg text-yellow-500 mt-4'>
               Whether you're revisiting a classic or catching a new release,{' '}
-              <strong>{moviesItem.title}</strong> on{' '}
-              <strong>AtoZ Movies™</strong> is the perfect way to enjoy
-              your movie night. Join the countless users who trust us for their
-              streaming needs and start watching{' '}
+              <strong>{moviesItem.title}</strong> on <strong>AtoZ Movies™</strong>{' '}
+              is the perfect way to enjoy your movie night. Join the countless
+              users who trust us for their streaming needs and start watching{' '}
               <strong>{moviesItem.title}</strong> online today. At{' '}
-              <strong>AtoZ Movies™</strong>, your entertainment is just a
-              click away.
+              <strong>AtoZ Movies™</strong>, your entertainment is just a click
+              away.
             </p>
           </>
         )}
@@ -1092,42 +1093,29 @@ const moviesDetail4 = ({ moviesItem }) => {
                   </div>
                 )}
 
-                <div
-                  style={{
-                    width: '100%',
-                    height: '500px',
-                    overflow: 'hidden',
-                    position: 'relative'
-                  }}
-                  className='rounded-xl mr-8 flex flex-col border-1 border-blue-600 bg-black p-2'
-                >
-                  <iframe
-                    frameBorder='0'
-                    src={src}
-                    width='100%'
-                    height='450px'
-                    allowFullScreen
-                    scrolling='0'
-                    title='Video Player'
-                    className='mb-4'
-                    style={{
-                      filter:
-                        'contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)'
-                    }}
-                  ></iframe>
-                  <p
-                    className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-sm'
-                    style={{
-                      fontFamily: 'Poppins, sans-serif',
-                      textShadow: '1px 1px 1px 0 #fff',
-                      filter:
-                        'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
-                    }}
-                  >
-                    *Note: Use Settings in Player to improve the Quality of
-                    video to HD Quality 1080p.
-                  </p>
+                <div className={styles.container}>
+                  <div className={styles.iframeContainer}>
+                    <iframe
+                      className={styles.iframe}
+                      src={src}
+                      allowFullScreen
+                      scrolling='no'
+                      title='Video Player'
+                    ></iframe>
+                  </div>
                 </div>
+                <p
+                  className='text-black hover:px-0 text-bg font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-sm'
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    textShadow: '1px 1px 1px 0 #fff',
+                    filter:
+                      'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
+                  }}
+                >
+                  *Note: Use Settings in Player to improve the Quality of video
+                  to HD Quality 1080p.
+                </p>
 
                 {/* Conditional rendering of Previous Episode button */}
                 {ismovies && !isAdult && (

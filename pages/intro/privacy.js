@@ -26,14 +26,14 @@ const Privacy = () => {
       {
         '@type': 'Organization',
         '@id': 'https://atozmovies.vercel.app/#organization',
-        name: 'AtoZ Moviesonline™ - Explore. Discover. Download.',
+        name: 'AtoZ Movies™ - Explore. Discover. Download.',
         url: 'https://atozmovies.vercel.app'
       },
       {
         '@type': 'WebSite',
         '@id': 'https://atozmovies.vercel.app/#website',
         url: 'https://atozmovies.vercel.app',
-        name: 'AtoZ Moviesonline™ - Explore. Discover. Download.',
+        name: 'AtoZ Movies™ - Explore. Discover. Download.',
         publisher: {
           '@type': 'Organization',
           '@id': 'https://atozmovies.vercel.app/#organization'
@@ -92,7 +92,7 @@ const Privacy = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://atozmovies.vercel.app/#organization',
-              name: 'AtoZ Moviesonline™ - Explore. Discover. Download.',
+              name: 'AtoZ Movies™ - Explore. Discover. Download.',
               url: 'https://atozmovies.vercel.app'
             }
           },
@@ -119,7 +119,7 @@ const Privacy = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://atozmovies.vercel.app/#organization',
-              name: 'AtoZ Moviesonline™ - Explore. Discover. Download.',
+              name: 'AtoZ Movies™ - Explore. Discover. Download.',
               url: 'https://atozmovies.vercel.app'
             }
           },
@@ -146,7 +146,7 @@ const Privacy = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://atozmovies.vercel.app/#organization',
-              name: 'AtoZ Moviesonline™ - Explore. Discover. Download.',
+              name: 'AtoZ Movies™ - Explore. Discover. Download.',
               url: 'https://atozmovies.vercel.app'
             }
           }
@@ -160,7 +160,7 @@ const Privacy = () => {
   return (
     <div>
        <Head>
-        <title>AtoZ Moviesonline™ | Privacy Policy</title>
+        <title>AtoZ Movies™ | Privacy Policy</title>
       
         <link
             rel='sitemap'
@@ -203,11 +203,11 @@ const Privacy = () => {
           />
          <meta
           name='keywords'
-          content='AtoZ Movies,AtoZ MoviesHUB,AtoZ MoviesFREE,AtoZ Movies-hd,AtoZ Moviesx,AtoZ Movies-org,AtoZ Movies-com,AtoZ Movies official,AtoZ Movies,AtoZ Movies free,free movies,movies online,watch movies online,watch movies free,AtoZ Movies, gomovies,putlocker,putlockers,soap2day'
+          content='123movies,123moviesHUB,123moviesFREE,123movies-hd,123moviesx,123movies-org,123movies-com,123movies official,123movies,123movies free,free movies,movies online,watch movies online,watch movies free,123movies, gomovies,putlocker,putlockers,soap2day'
         />
           <meta
           property='description'
-          content='AtoZ Moviesonline™ - Stream HD movies and TV series for free on AtoZ Movies Online. Explore, stream, and download full-length movies and shows in HD quality without registration.'
+          content='AtoZ Movies™ - Stream HD movies and TV series for free on 123Movies Online. Explore, stream, and download full-length movies and shows in HD quality without registration.'
         />
 
           <link rel='canonical' href='https://atozmovies.vercel.app/intro/privacy' />
@@ -215,16 +215,16 @@ const Privacy = () => {
           <meta property='og:type' content='website' />
           <meta
             property='og:title'
-            content='AtoZ Moviesonline™ '
+            content='AtoZ Movies™ '
           />
           <meta
             property='og:description'
-            content='AtoZ Moviesonline™ - Stream HD movies and TV series for free on AtoZ Movies Online. Explore, stream, and download full-length movies and shows in HD quality without registration.'
+            content='AtoZ Movies™ - Stream HD movies and TV series for free on 123Movies Online. Explore, stream, and download full-length movies and shows in HD quality without registration.'
           />
           <meta property='og:url' content='https://atozmovies.vercel.app/intro/privacy/' />
           <meta
             property='og:site_name'
-            content='AtoZ Moviesonline™ '
+            content='AtoZ Movies™ '
           />
           <meta
             property='og:image'
@@ -235,7 +235,7 @@ const Privacy = () => {
           <meta property='og:image:type' content='image/jpg' />
           <meta
             name='application-name'
-            content='AtoZ Moviesonline™ '
+            content='AtoZ Movies™ '
           />
           <meta
             property='article:modified_time'
@@ -250,7 +250,7 @@ const Privacy = () => {
           <meta name='twitter:card' content='summary_large_image' />
           <meta
             name='google-site-verification'
-            content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
+            content='o8uNsADswyHnNPA69n9gI7u6L4_cdjN4iT5lRhHHtMU'
           />
           <meta
             name='facebook-domain-verification'
@@ -287,15 +287,15 @@ const Privacy = () => {
   <div className="flex flex-wrap">
     <div className="grow-0 shrink-0 basis-auto mb-12 md:mb-0 w-full  px-3 lg:px-6">
       <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
-      <p className="font-bold mb-2">AtoZ Moviesonline™ </p>
+      <p className="font-bold mb-2">AtoZ Movies™ </p>
       <p className="text-gray-500 mb-6">
-      AtoZ Moviesonline™ International(AtoZ Moviesonline™) is committed to protecting your privacy. This Privacy Policy applies only to the Web Sites and applications published by AtoZ Moviesonline™ International.
+      AtoZ Movies™ International(AtoZ Movies™) is committed to protecting your privacy. This Privacy Policy applies only to the Web Sites and applications published by AtoZ Movies™ International.
       </p>
       <p className="font-bold mb-2">Note: Use of Information</p>
       <p className="text-gray-500 mb-6">
       Information that we collect  </p>
       <p className="text-gray-500 mb-6">
-      AtoZ Moviesonline™ may collect information from its users in three different ways: directly from the user, from traffic references of hostingservers and from cookies.
+      AtoZ Movies™ may collect information from its users in three different ways: directly from the user, from traffic references of hostingservers and from cookies.
       </p>
       <p className="font-bold mb-2">We use the information we collect to:</p>
       <p className="text-gray-500 mb-6">
@@ -312,7 +312,7 @@ const Privacy = () => {
 
      
       <p className="text-gray-500">
-      We do not make warranties that this site will operate error free. If you see an error, please contact the <a className="font-bold text-blue-500 mb-6" href="mailto:drtrailer2022@gmail.com ">webmaster</a>. By entering this site you agree to hold the owners, employees, advertisers of AtoZ Moviesonline™  free from any and all liability.This site (AtoZ Moviesonline™ ) do not offer any membership.If you have any questions please feel free to <a className="font-bold text-blue-500 mb-6" href="mailto:drtrailer2022@gmail.com.com">contact us</a>.
+      We do not make warranties that this site will operate error free. If you see an error, please contact the <a className="font-bold text-blue-500 mb-6" href="mailto:drtrailer2022@gmail.com ">webmaster</a>. By entering this site you agree to hold the owners, employees, advertisers of AtoZ Movies™  free from any and all liability.This site (AtoZ Movies™ ) do not offer any membership.If you have any questions please feel free to <a className="font-bold text-blue-500 mb-6" href="mailto:drtrailer2022@gmail.com.com">contact us</a>.
       </p>
     </div>
 

@@ -245,7 +245,7 @@ const page5 = ({ items }) => {
         <meta name='twitter:data1' content='1 minute' />
         <meta
           name='google-site-verification'
-          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
+          content='o8uNsADswyHnNPA69n9gI7u6L4_cdjN4iT5lRhHHtMU'
         />
         <meta
           name='facebook-domain-verification'
@@ -271,8 +271,8 @@ const page5 = ({ items }) => {
         />
       </Head>
       <SocialSharing />
-      {/* <Script src='../../propler/ads.js' defer />
-      <Script src='../../propler/ads2.js' defer /> */}
+      <Script src='../../propler/ads.js' defer />
+      <Script src='../../propler/ads2.js' defer />
    
       <h1
         className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6  shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
@@ -308,7 +308,7 @@ const page5 = ({ items }) => {
       </Link>
 
       {/* Page 2, Page 3, Page 4 buttons */}
-      {[2, 3, 4, 5, 6, 7, 8,  ].map((page) => (
+      {[2, 3, 4, 5, 6, 7, 8, 9, ].map((page) => (
         <Link key={page} href={`/home/page${page}`} passHref>
           <button
             className={`px-4 py-2 border rounded ${
@@ -337,7 +337,7 @@ const page5 = ({ items }) => {
                     <div className='absolute top-2 left-2 z-10 badge bg-gradient-to-r from-pink-500 to-amber-500 text-white py-2 px-4 rounded-lg text-center font-bold'>
                       {item.badge}
                     </div>
-                    <div className='w-full h-60 md:h-80 lg:h-96'>
+                    <div className="aspect-w-16 aspect-h-9 w-full">
                       <Image
                         src={item.image}
                         alt={item.title}
@@ -347,20 +347,19 @@ const page5 = ({ items }) => {
                         quality={90}
                         loading='lazy'
                         style={{
-                          objectFit: 'cover', 
                           borderRadius: '0.5rem',
-                          filter:
+                          objectFit: 'cover' ,
+                           filter:
                             'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
                         }}
                       />
                     </div>
-                    <div className='p-4'>
-                      <h2 className='text-gray-500 mb-4'>
-                        <span className='font-bold text-blue-500'>
-                          {item.title}
-                        </span>
-                      </h2>
-                      <p className='text-gray-700 mb-2'>{item.news1}</p>
+                   
+                      <div className='p-4 '>
+                      <h2 className='font-bold text-xl text-blue-500 flex flex-col items-center justify-center'>
+                        {item.title}
+                       </h2>
+                      <h3 className='text-gray-700 mb-2'>{item.news1}</h3>
                       <p className='font-bold text-black mb-2 flex flex-col items-center justify-center'> Genre: </p>
                       <p className="font-bold text-black mb-2 flex flex-col items-center justify-center">
                       {item.genre}
@@ -379,7 +378,7 @@ const page5 = ({ items }) => {
 
 export async function getStaticProps () {
   try {
-    const res = await fetch('https://atozmovies.vercel.app/moviesp4.json')
+    const res = await fetch('https://atozmovies.vercel.app/moviesp3.json')
     const data = await res.json()
 
     return {

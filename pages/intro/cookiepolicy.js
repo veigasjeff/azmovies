@@ -50,14 +50,14 @@ const cookiepolicy = () => {
       {
         '@type': 'Organization',
         '@id': 'https://atozmovies.vercel.app/#organization',
-        name: 'AtoZ Moviesonline™ - Explore. Discover. Download.',
+        name: 'AtoZ Movies™ - Explore. Discover. Download.',
         url: 'https://atozmovies.vercel.app'
       },
       {
         '@type': 'WebSite',
         '@id': 'https://atozmovies.vercel.app/#website',
         url: 'https://atozmovies.vercel.app',
-        name: 'AtoZ Moviesonline™ - Explore. Discover. Download.',
+        name: 'AtoZ Movies™ - Explore. Discover. Download.',
         publisher: {
           '@type': 'Organization',
           '@id': 'https://atozmovies.vercel.app/#organization'
@@ -116,7 +116,7 @@ const cookiepolicy = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://atozmovies.vercel.app/#organization',
-              name: 'AtoZ Moviesonline™ - Explore. Discover. Download.',
+              name: 'AtoZ Movies™ - Explore. Discover. Download.',
               url: 'https://atozmovies.vercel.app'
             }
           },
@@ -143,7 +143,7 @@ const cookiepolicy = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://atozmovies.vercel.app/#organization',
-              name: 'AtoZ Moviesonline™ - Explore. Discover. Download.',
+              name: 'AtoZ Movies™ - Explore. Discover. Download.',
               url: 'https://atozmovies.vercel.app'
             }
           },
@@ -170,7 +170,7 @@ const cookiepolicy = () => {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://atozmovies.vercel.app/#organization',
-              name: 'AtoZ Moviesonline™ - Explore. Discover. Download.',
+              name: 'AtoZ Movies™ - Explore. Discover. Download.',
               url: 'https://atozmovies.vercel.app'
             }
           }
@@ -183,7 +183,7 @@ const cookiepolicy = () => {
   return (
     <div>
       <Head>
-        <title>AtoZ Moviesonline™ | Cookie Policy</title>
+        <title>AtoZ Movies™ | Cookie Policy</title>
         <link
           rel='sitemap'
           type='application/xml'
@@ -222,11 +222,11 @@ const cookiepolicy = () => {
         />
        <meta
           name='keywords'
-          content='AtoZ Movies,AtoZ MoviesHUB,AtoZ MoviesFREE,AtoZ Movies-hd,AtoZ Moviesx,AtoZ Movies-org,AtoZ Movies-com,AtoZ Movies official,AtoZ Movies,AtoZ Movies free,free movies,movies online,watch movies online,watch movies free,AtoZ Movies, gomovies,putlocker,putlockers,soap2day'
+          content='123movies,123moviesHUB,123moviesFREE,123movies-hd,123moviesx,123movies-org,123movies-com,123movies official,123movies,123movies free,free movies,movies online,watch movies online,watch movies free,123movies, gomovies,putlocker,putlockers,soap2day'
         />
        <meta
           property='description'
-          content='AtoZ Moviesonline™ - Stream HD movies and TV series for free on AtoZ Movies Online. Explore, stream, and download full-length movies and shows in HD quality without registration.'
+          content='AtoZ Movies™ - Stream HD movies and TV series for free on 123Movies Online. Explore, stream, and download full-length movies and shows in HD quality without registration.'
         />
 
         <link
@@ -235,16 +235,16 @@ const cookiepolicy = () => {
         />
         <meta property='og:locale' content='en_US' />
         <meta property='og:type' content='website' />
-        <meta property='og:title' content='AtoZ Moviesonline™ ' />
+        <meta property='og:title' content='AtoZ Movies™ ' />
         <meta
           property='og:description'
-          content='AtoZ Moviesonline™ - Stream HD movies and TV series for free on AtoZ Movies Online. Explore, stream, and download full-length movies and shows in HD quality without registration.'
+          content='AtoZ Movies™ - Stream HD movies and TV series for free on 123Movies Online. Explore, stream, and download full-length movies and shows in HD quality without registration.'
         />
         <meta
           property='og:url'
           content='https://atozmovies.vercel.app/intro/tearms/'
         />
-        <meta property='og:site_name' content='AtoZ Moviesonline™ ' />
+        <meta property='og:site_name' content='AtoZ Movies™ ' />
         <meta
           property='og:image'
           content='https://atozmovies.vercel.app/og_image.jpg'
@@ -252,7 +252,7 @@ const cookiepolicy = () => {
         <meta property='og:image:width' content='1280' />
         <meta property='og:image:height' content='720' />
         <meta property='og:image:type' content='image/jpg' />
-        <meta name='application-name' content='AtoZ Moviesonline™ ' />
+        <meta name='application-name' content='AtoZ Movies™ ' />
         <meta
           property='article:modified_time'
           content='2024-01-01T13:13:13+00:00'
@@ -266,7 +266,7 @@ const cookiepolicy = () => {
         <meta name='twitter:card' content='summary_large_image' />
         <meta
           name='google-site-verification'
-          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
+          content='o8uNsADswyHnNPA69n9gI7u6L4_cdjN4iT5lRhHHtMU'
         />
         <meta
           name='facebook-domain-verification'
@@ -311,7 +311,7 @@ const cookiepolicy = () => {
             >
               <h1 style={headingStyle}>Cookie Policy</h1>
               <p style={{ color: '#666', marginBottom: '24px' }}>
-                This is the Cookie Policy for AtoZ Moviesonline™, accessible from
+                This is the Cookie Policy for AtoZ Movies™, accessible from
                 and its subdomains.
               </p>
 
