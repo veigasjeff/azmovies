@@ -36,7 +36,7 @@ class MyDocument extends Document {
           />
             <meta
           name='description'
-          content='Stream HD movies and TV series for free on 123Movies. Explore, stream, and download full-length movies and shows in HD quality without registration.'
+          content='Stream HD movies and TV series for free on AtoZ Movies. Explore, stream, and download full-length movies and shows in HD quality without registration.'
         />
           <link rel='manifest' href='/site.webmanifest' />
           <meta name='googlebot' content='index,follow' />

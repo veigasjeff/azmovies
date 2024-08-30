@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import moviesData from '../../../public/moviesp10.json'
+import moviesData from '../../../public/moviesp7.json'
 import latestData from '../../../public/latest.json'
 import { useEffect, useState, useRef } from 'react'
 import Pagination from '../../../components/Pagination'
@@ -13,9 +13,8 @@ import Link from 'next/link'
 import Script from 'next/script'
 import moviesStyles from '@styles/styles.module.css'
 import styles from '@styles/iframeStyles.module.css'
-// import mstyles from '@styles/iframe.module.css'
 
-// Fetch data from movies.json
+// Fetch data from moviesp7.json
 const fetchmoviesData = async () => {
   const response = await fetch('https://atozmovies.vercel.app/moviesp10.json')
   return await response.json()
@@ -37,7 +36,7 @@ const getRandomLinks = (movies, count = 3) => {
   ]
 }
 
-const moviesDetail = ({ moviesItem }) => {
+const moviesDetail10 = ({ moviesItem }) => {
   const router = useRouter()
   const { id } = router.query
   const [currentPage, setCurrentPage] = useState(1)
@@ -367,12 +366,6 @@ const moviesDetail = ({ moviesItem }) => {
         position: 2,
         name: 'Movies',
         item: moviesItem.siteurl
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: moviesItem.name,
-        item: moviesItem.siteurl
       }
     ]
   })
@@ -407,20 +400,7 @@ const moviesDetail = ({ moviesItem }) => {
         },
         inLanguage: 'en-US'
       },
-      {
-        '@type': 'Person',
-        '@id': 'https://gravatar.com/drtrailer2022',
-        name: 'Dr Trailer',
-        url: 'https://gravatar.com/drtrailer2022',
-        image: {
-          '@type': 'ImageObject',
-          '@id': 'https://gravatar.com/drtrailer2022',
-          url: 'https://gravatar.com/drtrailer2022',
-          caption: 'Dr Trailer',
-          inLanguage: 'en-US'
-        },
-        sameAs: ['https://atozmovies.vercel.app']
-      },
+
       {
         '@type': 'Article',
         '@id': `${moviesItem.siteurl}#article`,
@@ -455,7 +435,9 @@ const moviesDetail = ({ moviesItem }) => {
         dateModified: moviesItem.dateModified,
         articleSection: 'Movies',
         author: {
-          '@id': 'https://gravatar.com/drtrailer2022'
+          '@type': 'Person',
+          name: 'DrTrailer',
+          url: 'https://gravatar.com/drtrailer2022'
         },
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
@@ -662,7 +644,10 @@ const moviesDetail = ({ moviesItem }) => {
           property='og:url'
           content={`${moviesItem && moviesItem.siteurl}`}
         />
-        <meta name='keytext' content={`${moviesItem && moviesItem.keytext}`} />
+        <meta
+          name='keywords'
+          content={`${moviesItem && moviesItem.keywords}`}
+        />
         <meta property='og:site_name' content='AtoZ Movies™' />
         {/* <meta property='og:type' content='article' /> */}
         <meta
@@ -742,7 +727,6 @@ const moviesDetail = ({ moviesItem }) => {
           dangerouslySetInnerHTML={{ __html: languagesSchema }}
         />
       </Head>
-
       <SocialSharing />
       {isAdult && <AdultSkipAds movie={moviesItem} />}
       <Script src='../../propler/ads.js' defer />
@@ -791,102 +775,6 @@ const moviesDetail = ({ moviesItem }) => {
           backgroundColor: '#000'
         }}
       >
-        {/* {isTVShow && (
-        <>
-          <h2 className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl hover:text-blue-800 font-bold mt-2'>
-            {moviesItem.title} Online - Stream Your Favorite TV Series
-          </h2>
-          <p
-            className='text-lg text-yellow-500 mt-4'
-            dangerouslySetInnerHTML={{
-              __html: enhancedParagraph(`
-                Explore the captivating world of <strong>${moviesItem.title}</strong>, the TV series that has everyone talking. At <strong>AtoZ Movies™</strong>, you can stream <strong>${moviesItem.title}</strong> and immerse yourself in its exciting episodes, whether you're catching up on past seasons or tuning in to the latest releases. Our platform offers a seamless streaming experience, making it easy to watch your favorite TV series online.
-              `)
-            }}
-          />
-          <p
-            className='text-lg text-yellow-500 mt-4'
-            dangerouslySetInnerHTML={{
-              __html: enhancedParagraph(`
-                Streaming <strong>${moviesItem.title}</strong> on <strong>AtoZ Movies™</strong> ensures that you won't miss a single moment of the action, drama, or comedy that makes this TV series a must-watch. With high-quality streaming and user-friendly navigation, <strong>AtoZ Movies™</strong> provides everything you need to enjoy <strong>${moviesItem.title}</strong> and other top TV series. Our library is frequently updated, so you can always find the latest episodes as soon as they air.
-              `)
-            }}
-          />
-          <p
-            className='text-lg text-yellow-500 mt-4'
-            dangerouslySetInnerHTML={{
-              __html: enhancedParagraph(`
-                Whether you're binge-watching or following along weekly, <strong>${moviesItem.title}</strong> on <strong>AtoZ Movies™</strong> is your go-to destination for streaming TV series online. Join our community of viewers and start watching <strong>${moviesItem.title}</strong> today. With <strong>AtoZ Movies™</strong>, your favorite TV series is just a click away.
-              `)
-            }}
-          />
-        </>
-      )}
-
-      {isAdult && (
-        <>
-          <h2 className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl hover:text-blue-800 font-bold mt-2'>
-            {moviesItem.title} Online - Stream Premium Adult Content
-          </h2>
-          <p
-            className='text-lg text-yellow-500 mt-4'
-            dangerouslySetInnerHTML={{
-              __html: enhancedParagraph(`
-                Indulge in the finest selection of adult entertainment with <strong>${moviesItem.title}</strong>. At <strong>AtoZ Movies™</strong>, we offer a vast library of premium adult content, including the latest and most popular titles like <strong>${moviesItem.title}</strong>. Our platform is designed for those who seek high-quality, discreet streaming of adult films, ensuring a seamless and private viewing experience.
-              `)
-            }}
-          />
-          <p
-            className='text-lg text-yellow-500 mt-4'
-            dangerouslySetInnerHTML={{
-              __html: enhancedParagraph(`
-                Streaming <strong>${moviesItem.title}</strong> on <strong>AtoZ Movies™</strong> provides you with a user-friendly interface and crystal-clear video quality. Our adult content is regularly updated, giving you access to new releases as soon as they become available. Whether you're exploring new genres or returning to your favorites, <strong>${moviesItem.title}</strong> and other top titles are available at your fingertips.
-              `)
-            }}
-          />
-          <p
-            className='text-lg text-yellow-500 mt-4'
-            dangerouslySetInnerHTML={{
-              __html: enhancedParagraph(`
-                For a premium experience in adult entertainment, look no further than <strong>${moviesItem.title}</strong> on <strong>AtoZ Movies™</strong>. Our platform ensures your privacy and security while you enjoy the content you love. Start streaming <strong>${moviesItem.title}</strong> today and discover why <strong>AtoZ Movies™</strong> is the trusted choice for adult content.
-              `)
-            }}
-          />
-        </>
-      )}
-
-      {!isTVShow && !isAdult && (
-        <>
-          <h2 className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold mt-2'>
-            {moviesItem.title} Online and Experience Top-Tier Streaming
-          </h2>
-          <p
-            className='text-lg text-yellow-500 mt-4'
-            dangerouslySetInnerHTML={{
-              __html: enhancedParagraph(`
-                Dive into the world of cinema with <strong>${moviesItem.title}</strong>, available to stream right here. At <strong>AtoZ Movies™</strong>, we bring you the best in entertainment, offering an extensive library of movies and TV shows, including the latest blockbusters like <strong>${moviesItem.title}</strong>. Whether you're a fan of action, drama, comedy, or any other genre, you'll find exactly what you're looking for.
-              `)
-            }}
-          />
-          <p
-            className='text-lg text-yellow-500 mt-4'
-            dangerouslySetInnerHTML={{
-              __html: enhancedParagraph(`
-                Streaming <strong>${moviesItem.title}</strong> on <strong>AtoZ Movies™</strong> guarantees a seamless viewing experience with high-definition quality and uninterrupted playback. Our platform is designed to make it easy for you to discover and enjoy your favorite films. With regularly updated content, you???ll always have access to the newest releases, ensuring you can watch <strong>${moviesItem.title}</strong> and other top titles as soon as they're available.
-              `)
-            }}
-          />
-          <p
-            className='text-lg text-yellow-500 mt-4'
-            dangerouslySetInnerHTML={{
-              __html: enhancedParagraph(`
-                Whether you're revisiting a classic or catching a new release, <strong>${moviesItem.title}</strong> on <strong>AtoZ Movies™</strong> is the perfect way to enjoy your movie night. Join the countless users who trust us for their streaming needs and start watching <strong>${moviesItem.title}</strong> online today. At <strong>AtoZ Movies™</strong>, your entertainment is just a click away.
-              `)
-            }}
-          />
-        </>
-      )} */}
-
         {/* TV Show Description */}
         {isTVShow && (
           <>
@@ -1109,7 +997,6 @@ const moviesDetail = ({ moviesItem }) => {
                       />
                     ))}
                 </div>
-
                 <div className={`${moviesStyles.imageGrid} mt-5`}>
                   <img
                     className={`${moviesStyles.image} img-fluid lazyload `}
@@ -1496,6 +1383,7 @@ const moviesDetail = ({ moviesItem }) => {
                 {randommovies.map(movies => (
                   <div key={movies.id} className='cardlatest'>
                     <a href={movies.siteurl} id={movies.id}>
+                      {/* <Link key={item.id} href={item.siteurl || '/'}> */}
                       <div className='relative'>
                         <img
                           src={movies.image}
@@ -1720,38 +1608,6 @@ const moviesDetail = ({ moviesItem }) => {
   )
 }
 
-// export async function getStaticPaths () {
-//   try {
-//     const moviesData = await fetchmoviesData()
-//     const paths = moviesData.map(item => ({
-//       params: { id: item.id }
-//     }))
-
-//     return { paths, fallback: false }
-//   } catch (error) {
-//     console.error('Error fetching paths:', error)
-//     return { paths: [], fallback: false }
-//   }
-// }
-
-// export async function getStaticProps ({ params }) {
-//   try {
-//     const moviesData = await fetchmoviesData()
-//     const moviesItem = moviesData.find(item => item.id === params.id)
-
-//     if (!moviesItem) {
-//       return { notFound: true }
-//     }
-
-//     return { props: { moviesItem } }
-//   } catch (error) {
-//     console.error('Error fetching props:', error)
-//     return { notFound: true }
-//   }
-// }
-
-// export default moviesDetail
-
 export async function getStaticPaths () {
   try {
     const moviesData = await fetchmoviesData()
@@ -1782,4 +1638,4 @@ export async function getStaticProps ({ params }) {
   }
 }
 
-export default moviesDetail
+export default moviesDetail10

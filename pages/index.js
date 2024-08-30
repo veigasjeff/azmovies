@@ -1,8 +1,8 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import Head from 'next/head'
+import Link from 'next/link'
+import { useEffect } from 'react'
 
-export default function HomePage() {
-
+export default function HomePage () {
   const uwatchfreeSchema = JSON.stringify([
     {
       '@context': 'https://schema.org',
@@ -206,7 +206,7 @@ export default function HomePage() {
   })
   return (
     <>
-        <Head>
+      <Head>
         <title>AtoZ Movies™ - Explore. Stream. Online.</title>
 
         <link
@@ -250,7 +250,7 @@ export default function HomePage() {
           name='description'
           content='Stream HD movies and TV series for free on AtoZ Movies. Explore, stream, and download full-length movies and shows in HD quality without registration.'
         />
-        <link rel='canonical' href='https://atozmovies.vercel.app/' />
+        <link rel='canonical' href='https://atozmovies.vercel.app' />
         <meta property='og:locale' content='en_US' />
         <meta property='og:type' content='video.movie' />
         <meta property='og:type' content='website' />
@@ -299,7 +299,7 @@ export default function HomePage() {
         />
         <meta
           name='google-site-verification'
-          content='o8uNsADswyHnNPA69n9gI7u6L4_cdjN4iT5lRhHHtMU'
+          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
         />
 
         <meta
@@ -328,18 +328,34 @@ export default function HomePage() {
 
       <div className='container'>
         <div className='content'>
-          <h1 className='title'>Welcome to AtoZ Movies™</h1>
+          <h1 className='title'>AtoZ Movies™ - Explore. Stream. Online.</h1>
           <h2 className='highlight'>
             Discover the Best Movies and TV Shows to Stream on AtoZ Movies™
           </h2>
           <p className='description'>
-            Welcome to <strong>AtoZ Movies™</strong>, your premier destination for streaming the latest and most popular movies and TV shows. Our platform offers an extensive collection of entertainment options, allowing you to explore a wide variety of genres and discover new favorites. Whether you're looking for action-packed thrillers, heartwarming dramas, or laugh-out-loud comedies, <strong>AtoZ Movies™</strong> has something for everyone.
+            Welcome to <strong>AtoZ Movies™</strong>, your premier destination for
+            streaming the latest and most popular movies and TV shows. Our
+            platform offers an extensive collection of entertainment options,
+            allowing you to explore a wide variety of genres and discover new
+            favorites. Whether you're looking for action-packed thrillers,
+            heartwarming dramas, or laugh-out-loud comedies,{' '}
+            <strong>AtoZ Movies™</strong> has something for everyone.
           </p>
           <p className='description'>
-            With a user-friendly interface and high-quality streaming, <strong>AtoZ Movies™</strong> makes it easy to find and enjoy your favorite content. Our library is regularly updated with the latest releases, ensuring that you have access to the newest movies and TV shows as soon as they are available. Stream online seamlessly and enjoy an immersive viewing experience from the comfort of your home.
+            With a user-friendly interface and high-quality streaming,{' '}
+            <strong>AtoZ Movies™</strong> makes it easy to find and enjoy your
+            favorite content. Our library is regularly updated with the latest
+            releases, ensuring that you have access to the newest movies and TV
+            shows as soon as they are available. Stream online seamlessly and
+            enjoy an immersive viewing experience from the comfort of your home.
           </p>
           <p className='description'>
-            At <strong>AtoZ Movies™</strong>, we are committed to providing a top-notch streaming service that meets all your entertainment needs. Join us today and explore the vast world of movies and TV shows available at your fingertips. Whether you're a casual viewer or a dedicated binge-watcher, <strong>AtoZ Movies™</strong> is the perfect place to stream online and stay entertained.
+            At <strong>AtoZ Movies™</strong>, we are committed to providing a
+            top-notch streaming service that meets all your entertainment needs.
+            Join us today and explore the vast world of movies and TV shows
+            available at your fingertips. Whether you're a casual viewer or a
+            dedicated binge-watcher, <strong>AtoZ Movies™</strong> is the perfect
+            place to stream online and stay entertained.
           </p>
 
           <a
@@ -347,17 +363,27 @@ export default function HomePage() {
             target='_blank'
             rel='noopener noreferrer'
             className='telegram-link'
+            style={{
+              display: 'block',
+              textAlign: 'center',
+              margin: '0 auto',
+              marginTop: '20px'
+            }}
           >
-            <h3>
-              For Request or Demand Movies & TV Series Join Telegram
-              <i className='fab fa-telegram telegram-icon'></i>
-            </h3>
+            <p style={{ display: 'inline-block' }}>
+              For Request or Demand <br />
+              Movies & TV Series Join Telegram
+              <i
+                className='fab fa-telegram telegram-icon'
+                style={{ marginLeft: '8px' }}
+              ></i>
+            </p>
           </a>
 
           <p className='subtitle'>
             The premier platform for the latest releases and secure downloads.
           </p>
-          <Link href='/home'>
+          <Link href='/home/page1'>
             <div className='cta-button'>Enter AtoZ Movies™</div>
           </Link>
         </div>
@@ -504,5 +530,5 @@ export default function HomePage() {
         }
       `}</style>
     </>
-  );
+  )
 }

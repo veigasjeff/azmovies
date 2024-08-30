@@ -6,7 +6,7 @@ const Pagination = ({ currentPage, totalPages, route }) => {
   return (
     <div className="pagination-container">
       <div className="pagination">
-        <Link href={`/${route}`} passHref>
+        <Link href={`/${route}/page1`} passHref>
           <div className={`text-black text-xl mt-2 badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300 rounded-md ${currentPage === 1 ? 'active' : ''}`}>
         Main Section
           </div>

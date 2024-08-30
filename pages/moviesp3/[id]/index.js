@@ -675,7 +675,7 @@ const moviesDetail3 = ({ moviesItem }) => {
         <meta name='twitter:data1' content='1 minute' />
         <meta
           name='google-site-verification'
-          content='o8uNsADswyHnNPA69n9gI7u6L4_cdjN4iT5lRhHHtMU'
+          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
         />
         <meta
           name='facebook-domain-verification'
@@ -864,7 +864,7 @@ const moviesDetail3 = ({ moviesItem }) => {
               discover and enjoy your favorite films. With regularly updated
               content, you???ll always have access to the newest releases,
               ensuring you can watch <strong>{moviesItem.title}</strong> and
-              other top titles as soon as they???re available.
+              other top titles as soon as they're available.
             </p>
             <p className='text-lg text-yellow-500 mt-4'>
               Whether you're revisiting a classic or catching a new release,{' '}
@@ -878,6 +878,19 @@ const moviesDetail3 = ({ moviesItem }) => {
           </>
         )}
         {/* </div> */}
+        <a
+          href='https://t.me/watchmovietvshow/'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='telegram-link'
+          style={{ display: 'block', textAlign: 'center', margin: '0 auto' }}
+        >
+          <p style={{ display: 'inline-block' }}>
+            For Request or Demand <br />
+            Movies & TV Series Join Telegram
+            <i className='fab fa-telegram telegram-icon'></i>
+          </p>
+        </a>
         <span className='px-0 bg-clip-text text-sm text-black font-bold mt-2'>
           <SearchComponent />
         </span>
@@ -1208,187 +1221,132 @@ const moviesDetail3 = ({ moviesItem }) => {
                     </Link>
                   )}
                 </div>
-                <h2
-                  className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-3xl hover:text-blue-800 font-bold mt-2'
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
-                >
-                  Click to Download Episode {moviesItem.name}
-                </h2>
-                <div className='flex flex-col items-center justify-center'></div>
-                {moviesItem.mp3player && (
-                  <MP3Player mp3Url={moviesItem.mp3player} />
-                )}
-                <div
-                  className='flex flex-col items-center justify-center'
-                  style={{
-                    marginTop: '50px',
-                    marginBottom: '50px',
-                    filter:
-                      'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
-                  }}
-                >
-                  {!showTimer ? (
-                    <button
-                      onClick={handleStartTimer}
-                      className='animate-pulse bg-gradient-to-r from-amber-500 to-pink-500 text-black font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300 text-2xl'
-                    >
-                      Download Now
-                    </button>
-                  ) : (
-                    <>
+                <div className={styles.container}>
+                  <h2
+                    className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-3xl hover:text-blue-800 font-bold mt-2'
+                    style={{ fontFamily: 'Poppins, sans-serif' }}
+                  >
+                    Click to Download {moviesItem.name}
+                  </h2>
+
+                  <div className='flex flex-col items-center justify-center'></div>
+
+                  {moviesItem.mp3player && (
+                    <MP3Player mp3Url={moviesItem.mp3player} />
+                  )}
+
+                  <div
+                    className='flex flex-col items-center justify-center'
+                    style={{
+                      marginTop: '50px',
+                      marginBottom: '50px'
+                    }}
+                  >
+                    {!showTimer ? (
                       <button
-                        onClick={toggleAccordion}
-                        className='animate-pulse bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300 text-2xl'
-                        style={{
-                          // marginTop: '20px',
-                          marginBottom: '20px'
-                        }}
+                        onClick={handleStartTimer}
+                        className='animate-pulse bg-gradient-to-r from-amber-500 to-pink-500 text-black font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300 text-2xl'
                       >
-                        {accordionExpanded
-                          ? 'Click to Stop Download'
-                          : 'Download Now'}
+                        Download Now
                       </button>
+                    ) : (
+                      <>
+                        <button
+                          onClick={toggleAccordion}
+                          className='animate-pulse bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300 text-2xl'
+                          style={{
+                            marginBottom: '20px'
+                          }}
+                        >
+                          {accordionExpanded
+                            ? 'Click to Stop Download'
+                            : 'Download Now'}
+                        </button>
 
-                      {accordionExpanded && (
-                        <>
-                          {/* <Script src='https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js'></Script>
-                            <lottie-player
-                              src='https://lottie.host/58d9c7ed-a39e-4cb6-b78a-e7cb1f9bf9cd/RHWR24wQSd.json'
-                              background='#D3D3D3'
-                              speed='1'
-                              style={{ width: '250px' }}
-                              loop
-                              autoplay
-                              direction='1'
-                              mode='normal'
-                            ></lottie-player> */}
-                          <Script src='https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js'></Script>
-                          <lottie-player
-                            src='https://lottie.host/291e7548-c65f-43a1-87ce-f573feab96b4/o7Ax3jP795.json'
-                            background='##FFFFFF'
-                            speed='1'
-                            style={{ width: '150px', height: '150px' }}
-                            loop
-                            autoplay
-                            direction='1'
-                            mode='normal'
-                          ></lottie-player>
-                          {seconds > 0 ? (
-                            <p
-                              className='bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-3xl font-bold mb-4'
-                              style={{ marginTop: '50px' }}
-                            >
-                              Your download link will be ready in {seconds}{' '}
-                              seconds...
-                            </p>
-                          ) : (
-                            <p
-                              className='bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-3xl font-bold mb-4'
-                              style={{ marginTop: '50px' }}
-                            >
-                              Your download links is ready.
-                            </p>
-                          )}
+                        {accordionExpanded && (
+                          <>
+                            {seconds > 0 ? (
+                              <p
+                                className='bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold mb-4'
+                                style={{ marginTop: '50px' }}
+                              >
+                                Your download link will be ready in {seconds}{' '}
+                                seconds...
+                              </p>
+                            ) : (
+                              <p
+                                className='bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold mb-4'
+                                style={{ marginTop: '50px' }}
+                              >
+                                Your download links are ready.
+                              </p>
+                            )}
 
-                          <div
-                            style={{
-                              width: '100%',
-                              height: '450px',
-                              overflow: 'hidden',
-                              marginTop: '20px',
-                              marginBottom: '20px'
-                            }}
-                            className='rounded-xl flex border-1 border-blue-600 bg-black p-2 items-center justify-center'
-                          >
-                            <div
-                              itemscope
-                              itemtype='https://schema.org/VideoObject'
-                              style={{ display: 'none' }}
-                            >
-                              <meta
-                                itemprop='name'
-                                content={moviesItem.title}
-                              />
-                              <meta
-                                itemprop='description'
-                                content={moviesItem.text}
-                              />
-                              <meta
-                                itemprop='uploadDate'
-                                content={moviesItem.datePublished}
-                              />
-                              <meta
-                                itemprop='thumbnailUrl'
-                                content={moviesItem.backimage}
-                              />
-                              <meta itemprop='duration' content='P34S' />
-                              <meta
-                                itemprop='embedUrl'
-                                content={moviesItem.videourl}
-                              />
+                            {/* Container for the iframe */}
+                            <div className={styles.iframeContainer}>
+                              <iframe
+                                className={styles.iframe}
+                                frameBorder='0'
+                                src={`https://geo.dailymotion.com/player/xkdl0.html?video=${moviesItem.traileritem}&mute=true&Autoquality=1080p`}
+                                allowFullScreen
+                                title='Dailymotion Video Player'
+                                allow='autoplay; encrypted-media'
+                              ></iframe>
                             </div>
-                            <iframe
-                              frameBorder='0'
-                              src={`https://geo.dailymotion.com/player/xkdl0.html?video=${moviesItem.traileritem}&mute=true&Autoquality=1080p`}
-                              width='100%'
-                              height='100%'
-                              allowFullScreen
-                              title='Dailymotion Video Player'
-                              allow='autoplay; encrypted-media'
-                            ></iframe>
-                          </div>
 
-                          {seconds === 0 && (
-                            <div>
-                              {Object.keys(moviesItem)
-                                .filter(key => key.startsWith('downloadlink'))
-                                .map((key, index) => (
-                                  <Link
-                                    key={index}
-                                    href={moviesItem[key]}
-                                    target='_blank'
-                                  >
-                                    <div
-                                      className='bg-gradient-to-r from-amber-500 to-pink-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
-                                      style={{
-                                        margin: 'auto',
-                                        marginBottom: '50px',
-                                        borderRadius: '50px',
-                                        boxShadow: '0 0 10px 0 #fff',
-                                        filter:
-                                          'contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)'
-                                      }}
+                            {seconds === 0 && (
+                              <div>
+                                {Object.keys(moviesItem)
+                                  .filter(key => key.startsWith('downloadlink'))
+                                  .map((key, index) => (
+                                    <Link
+                                      key={index}
+                                      href={moviesItem[key]}
+                                      target='_blank'
                                     >
-                                      <span
-                                        className='animate-pulse'
+                                      <div
+                                        className='bg-gradient-to-r from-amber-500 to-pink-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'
                                         style={{
-                                          color:
-                                            key === 'downloadlink1'
-                                              ? '#FF0000'
-                                              : '#0efa06',
-                                          fontSize: '24px',
-                                          textShadow: '3px 5px 5px #000'
+                                          margin: 'auto',
+                                          marginBottom: '50px',
+                                          marginTop: '50px',
+                                          borderRadius: '50px',
+                                          boxShadow: '0 0 10px 0 #fff',
+                                          filter:
+                                            'contrast(1.1) saturate(1.2) brightness(1.3) hue-rotate(0deg)'
                                         }}
                                       >
-                                        <i
-                                          className={
-                                            key === 'downloadlink1'
-                                              ? 'fa fa-magnet'
-                                              : 'fa fa-download'
-                                          }
-                                          aria-hidden='true'
-                                        ></i>{' '}
-                                      </span>
-                                      Download Episode {index + 1}
-                                    </div>
-                                  </Link>
-                                ))}
-                            </div>
-                          )}
-                        </>
-                      )}
-                    </>
-                  )}
+                                        <span
+                                          className='animate-pulse'
+                                          style={{
+                                            color:
+                                              key === 'downloadlink1'
+                                                ? '#FF0000'
+                                                : '#0efa06',
+                                            fontSize: '24px',
+                                            textShadow: '3px 5px 5px #000'
+                                          }}
+                                        >
+                                          <i
+                                            className={
+                                              key === 'downloadlink1'
+                                                ? 'fa fa-magnet'
+                                                : 'fa fa-download'
+                                            }
+                                            aria-hidden='true'
+                                          ></i>{' '}
+                                        </span>
+                                        Download {index + 1}
+                                      </div>
+                                    </Link>
+                                  ))}
+                              </div>
+                            )}
+                          </>
+                        )}
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -1573,6 +1531,64 @@ const moviesDetail3 = ({ moviesItem }) => {
 
           .sidebar {
             margin-top: 20px;
+          }
+        }
+        .telegram-link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          font-weight: bold;
+          background: linear-gradient(to right, #ff7e5f, #feb47b);
+          background-clip: text;
+          color: transparent;
+          margin-top: 25px;
+        }
+
+        .telegram-icon {
+          color: #0088cc;
+          margin-left: 10px;
+          font-size: 2rem;
+          animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.1);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        @media (min-width: 768px) {
+          .title {
+            font-size: 2rem;
+          }
+
+          .highlight {
+            font-size: 2rem;
+          }
+
+          .telegram-link {
+            font-size: 2rem;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .title {
+            font-size: 2.5rem;
+          }
+
+          .highlight {
+            font-size: 2.5rem;
+          }
+
+          .telegram-link {
+            font-size: 2.5rem;
           }
         }
       `}</style>
