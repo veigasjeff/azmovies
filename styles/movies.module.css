@@ -1,0 +1,171 @@
+/* Container */
+.container {
+  padding: 2rem;
+  background-color: #000; /* Dark background for cinematic feel */
+  min-height: 100vh;
+  color: #fff; /* White text for better contrast */
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Header */
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  color: #e50914; /* Netflix red for title */
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Section Title */
+.sectionTitle {
+  font-size: 2rem;
+  color: #f5c518; /* Golden color for section titles */
+  margin: 2rem 0 1rem;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  text-align: left;
+  border-bottom: 2px solid #f5c518;
+  padding-bottom: 0.5rem;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.tab {
+  background-color: #282828; /* Darker tab background */
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
+  transition: background-color 0.3s ease;
+}
+
+.tab:hover,
+.tab.activeTab {
+  background-color: #e50914; /* Highlight active tab */
+}
+
+/* Movie List */
+.movieList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Movie Card */
+.movieCard {
+  background-color: #1c1c1c; /* Darker card background */
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.movieCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+}
+
+.movieImage {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  border-radius: 5px 5px 0 0;
+}
+
+/* Movie Title */
+.movieTitle {
+  font-size: 1.25rem;
+  color: #fff;
+  margin-top: 0.75rem;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 0.5rem 0;
+  background-color: #e50914; /* Netflix red for title background */
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .movieCard {
+    /* Maintain consistent height for smaller screens */
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Allow height to adjust based on content */
+  }
+
+  .movieTitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .movieCard {
+    /* Maintain consistent height for mobile screens */
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Allow height to adjust based on content */
+  }
+
+  .movieTitle {
+    font-size: 1rem;
+  }
+}
+
+/* Active Tab */
+.activeTab {
+  background-color: #e50914; /* Netflix red for active tab */
+  color: #fff;
+}
+/* In your CSS file (e.g., moviesStyles.css) */
+
+.image-grid img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  box-shadow: 0 0 10px 0 #000;
+  filter: contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg);
+  border-radius: 50%; /* Makes the image circular */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .image-grid img {
+    width: 100px;
+    height: 100px;
+  }
+}
