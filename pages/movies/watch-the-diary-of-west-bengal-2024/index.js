@@ -127,7 +127,9 @@ const moviesDetail = ({ movie }) => {
   // Function to fetch data and set state
   const fetchData = async () => {
     try {
-      const response = await fetch('https://atozmovies.vercel.app/moviesfull.json')
+      const response = await fetch(
+        'https://atozmovies.vercel.app/moviesfull.json'
+      )
       const data = await response.json()
 
       // Get 6 random TV Series s
@@ -329,7 +331,8 @@ const moviesDetail = ({ movie }) => {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://atozmovies.vercel.app/search?q={search_term_string}'
+          urlTemplate:
+            'https://atozmovies.vercel.app/search?q={search_term_string}'
         },
         'query-input': 'required name=search_term_string'
       }
@@ -609,7 +612,9 @@ const moviesDetail = ({ movie }) => {
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
 
-        <title>Watch Movie The Diary of West Bengal (2024) | AtoZ Movies™</title>
+        <title>
+          Watch Movie The Diary of West Bengal (2024) | AtoZ Movies™
+        </title>
         <link rel='canonical' href={movie && movie.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />
@@ -660,7 +665,10 @@ const moviesDetail = ({ movie }) => {
         <meta name='twitter:image' content={`${movie && movie.image1}`} />
         <meta name='twitter:label1' content='Est. reading time' />
         <meta name='twitter:data1' content='1 minute' />
-        <meta name='google-site-verification' content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s' />
+        <meta
+          name='google-site-verification'
+          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
+        />
         <meta
           name='facebook-domain-verification'
           content='du918bycikmo1jw78wcl9ih6ziphd7'
@@ -703,8 +711,8 @@ const moviesDetail = ({ movie }) => {
       </Head>
       <SocialSharing />
       {isAdult && <AdultSkipAds movie={moviesItem} />}
-       {/* <Script src='../../propler/ads.js' defer />   */} 
-       <Script src='../../propler/ads2.js' defer /> 
+      {/* <Script src='../../propler/ads.js' defer />   */}
+      <Script src='../../propler/ads2.js' defer />
 
       <div
         className={`w-full`}
@@ -1281,7 +1289,7 @@ const moviesDetail = ({ movie }) => {
                             )}
 
                             {/* Container for the iframe */}
-                            <div className={styles.iframeContainer}>
+                            {/* <div className={styles.iframeContainer}>
                               <iframe
                                 className={styles.iframe}
                                 frameBorder='0'
@@ -1290,8 +1298,17 @@ const moviesDetail = ({ movie }) => {
                                 title='Dailymotion Video Player'
                                 allow='autoplay; encrypted-media'
                               ></iframe>
-                            </div>
-
+                            </div> */}
+                            <iframe
+                              className={styles.iframe} // Apply existing CSS module styles
+                              frameBorder='0' // Keep border-less appearance
+                              src={`https://www.youtube-nocookie.com/embed/${movie.traileritem}?autoplay=1&mute=1&loop=1&playlist=${movie.traileritem}`} // Dynamic YouTube URL with loop
+                              width='560' // Set width to match desired size
+                              height='315' // Set height to match desired size
+                              allowFullScreen // Enable full-screen mode
+                              title={movie.name} // Provide descriptive title
+                              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' // Enable additional features
+                            ></iframe>
                             {seconds === 0 && (
                               <div>
                                 {Object.keys(movie)
