@@ -1299,6 +1299,7 @@ const moviesDetail = ({ movie }) => {
                                 allow='autoplay; encrypted-media'
                               ></iframe>
                             </div> */}
+                            <div className={styles.iframeContainer}>
                             <iframe
                               className={styles.iframe} // Apply existing CSS module styles
                               frameBorder='0' // Keep border-less appearance
@@ -1309,6 +1310,7 @@ const moviesDetail = ({ movie }) => {
                               title={movie.name} // Provide descriptive title
                               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' // Enable additional features
                             ></iframe>
+                             </div>
                             {seconds === 0 && (
                               <div>
                                 {Object.keys(movie)
