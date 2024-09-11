@@ -564,7 +564,7 @@ const moviesDetail = ({ movie }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title>Watch Movie Passenger Season 1 (2024) | AtoZ Movies™</title>
+        <title>Watch Tvshow Passenger Season 1 (2024) | AtoZ Movies™</title>
         <link rel='canonical' href={movie && movie.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />
