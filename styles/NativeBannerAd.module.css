@@ -1,0 +1,116 @@
+/* components/NativeBannerAd.module.css */
+.adOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+.adContent {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+      transform: translateY(-100%);
+  }
+  to {
+      transform: translateY(0);
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.closeButton:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.adInnerContent h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.adInnerContent p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.ctaButton {
+  background: #ff7e5f;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.ctaButton:hover {
+  background: #feb47b;
+}
+
+/* Bookmark prompt styles */
+.bookmarkPrompt {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.yesButton,
+.noButton {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.yesButton:hover,
+.noButton:hover {
+  background-color: #0056b3;
+}
+
+.bookmarkMessage {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+  text-align: center;
+}
