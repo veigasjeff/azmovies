@@ -677,7 +677,7 @@ const moviesDetail = ({ movie }) => {
 
       <SocialSharing />
       {isAdult && <AdultSkipAds movie={movie} />}
-      <Script src='../../propler/ads.js' defer />
+      {/* <Script src='../../propler/ads.js' defer />   */}
       <Script src='../../propler/ads2.js' defer />
 
       <div

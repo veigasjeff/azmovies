@@ -195,7 +195,7 @@ const page1 = ({ items }) => {
         />
       </Head>
       <SocialSharing />
-      <Script src='../../propler/ads.js' defer />
+      {/* <Script src='../../propler/ads.js' defer />   */}
       <Script src='../../propler/ads2.js' defer />
       <h1
         className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent hover:text-blue-800 font-bold mt-2'
