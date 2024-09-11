@@ -16,7 +16,7 @@ import styles from '@styles/iframeStyles.module.css'
 
 // Fetch data from movies.json
 const fetchmoviesData = async () => {
-  const response = await fetch('http://localhost:3000/moviesfull.json')
+  const response = await fetch('https://atozmovies.vercel.app/moviesfull.json')
   return await response.json()
 }
 
@@ -109,7 +109,7 @@ const moviesDetail = ({ movie }) => {
   // Function to fetch data and set state
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:3000/moviesfull.json')
+      const response = await fetch('https://atozmovies.vercel.app/moviesfull.json')
       const data = await response.json()
 
       // Get 6 random TV Series s
@@ -298,11 +298,11 @@ const moviesDetail = ({ movie }) => {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'AtoZ Movies™',
-      url: 'http://localhost:3000/',
-      image: ['http://localhost:3000/favicon.ico'],
+      url: 'https://atozmovies.vercel.app/',
+      image: ['https://atozmovies.vercel.app/favicon.ico'],
       logo: {
         '@type': 'ImageObject',
-        url: 'http://localhost:3000/logo.png',
+        url: 'https://atozmovies.vercel.app/logo.png',
         width: 280,
         height: 100
       }
@@ -310,12 +310,12 @@ const moviesDetail = ({ movie }) => {
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      url: 'http://localhost:3000/',
+      url: 'https://atozmovies.vercel.app/',
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'http://localhost:3000/search?q={search_term_string}'
+          urlTemplate: 'https://atozmovies.vercel.app/search?q={search_term_string}'
         },
         'query-input': 'required name=search_term_string'
       }
@@ -330,7 +330,7 @@ const moviesDetail = ({ movie }) => {
         '@type': 'ListItem',
         position: 1,
         name: 'AtoZ Movies™',
-        item: 'http://localhost:3000/'
+        item: 'https://atozmovies.vercel.app/'
       },
       {
         '@type': 'ListItem',
@@ -357,8 +357,8 @@ const moviesDetail = ({ movie }) => {
       },
       {
         '@type': 'WebSite',
-        '@id': 'http://localhost:3000#website',
-        url: 'http://localhost:3000',
+        '@id': 'https://atozmovies.vercel.app#website',
+        url: 'https://atozmovies.vercel.app',
         name: 'AtoZ Movies™',
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
@@ -373,7 +373,7 @@ const moviesDetail = ({ movie }) => {
         datePublished: movie.datePublished,
         dateModified: movie.dateModified,
         isPartOf: {
-          '@id': 'http://localhost:3000#website'
+          '@id': 'https://atozmovies.vercel.app#website'
         },
         inLanguage: 'en-US'
       },
@@ -389,7 +389,7 @@ const moviesDetail = ({ movie }) => {
           caption: 'Dr Trailer',
           inLanguage: 'en-US'
         },
-        sameAs: ['http://localhost:3000']
+        sameAs: ['https://atozmovies.vercel.app']
       },
       {
         '@type': 'Article',
@@ -474,7 +474,7 @@ const moviesDetail = ({ movie }) => {
       name: 'AtoZ Movies™',
       logo: {
         '@type': 'ImageObject',
-        url: 'http://localhost:3000/og_image.jpg'
+        url: 'https://atozmovies.vercel.app/og_image.jpg'
       }
     },
     additionalProperty: {
@@ -535,7 +535,7 @@ const moviesDetail = ({ movie }) => {
       name: 'AtoZ Movies™',
       logo: {
         '@type': 'ImageObject',
-        url: 'http://localhost:3000/og_image.jpg'
+        url: 'https://atozmovies.vercel.app/og_image.jpg'
       }
     },
     additionalProperty: {
@@ -1566,7 +1566,7 @@ const moviesDetail = ({ movie }) => {
 }
 
 export async function getServerSideProps () {
-  const res = await fetch('http://localhost:3000/moviesp6.json')
+  const res = await fetch('https://atozmovies.vercel.app/moviesp6.json')
   const data = await res.json()
   const selectedMovie = data.find(
     movie => movie.id === 'watch-lady-guard-2024'
