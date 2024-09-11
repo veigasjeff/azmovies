@@ -250,7 +250,7 @@ const Privacy = () => {
           <meta name='twitter:card' content='summary_large_image' />
           <meta
             name='google-site-verification'
-            content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
+            content='RNN2teFhD-lV1TQ9qcLQiSO5BLBB4DmztyYJS6QLqDg'
           />
           <meta
             name='facebook-domain-verification'
