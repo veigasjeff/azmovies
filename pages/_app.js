@@ -7,7 +7,6 @@ import Script from 'next/script';
 import { useEffect } from 'react';
 
 function Application({ Component, pageProps }) {
-  
   useEffect(() => {
     // Add the Ko-fi widget script to the page
     const script = document.createElement('script');
@@ -36,8 +35,7 @@ function Application({ Component, pageProps }) {
   return (
     <div className="center">
       <GoogleAnalytics measurementId="G-E1Z24E5B50" />
-  
-      
+       
       <PageTransition>
         <Hamburger />
         <Component {...pageProps} />
