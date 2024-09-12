@@ -7,7 +7,7 @@ export default function HomePage () {
     {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'AtoZ Movies™ - Explore. Stream. Online. ',
+      name: 'AtoZ Movies™ - Online. Stream. Download. ',
       url: 'https://atozmovies.vercel.app/',
       image: ['https://atozmovies.vercel.app/favicon.ico'],
       logo: {
@@ -51,14 +51,14 @@ export default function HomePage () {
       {
         '@type': 'Organization',
         '@id': 'https://atozmovies.vercel.app/#organization',
-        name: 'AtoZ Movies™ - Explore. Stream. Online. ',
+        name: 'AtoZ Movies™ - Online. Stream. Download. ',
         url: 'https://atozmovies.vercel.app'
       },
       {
         '@type': 'WebSite',
         '@id': 'https://atozmovies.vercel.app/#website',
         url: 'https://atozmovies.vercel.app',
-        name: 'AtoZ Movies™ - Explore. Stream. Online. ',
+        name: 'AtoZ Movies™ - Online. Stream. Download. ',
         publisher: {
           '@type': 'Organization',
           '@id': 'https://atozmovies.vercel.app/#organization'
@@ -98,7 +98,7 @@ export default function HomePage () {
             '@type': 'Article',
             '@id': 'https://atozmovies.vercel.app/',
             url: 'https://atozmovies.vercel.app/',
-            headline: 'AtoZ Movies™ - Explore. Stream. Online. ',
+            headline: 'AtoZ Movies™ - Online. Stream. Download. ',
             datePublished: '2024-01-13T13:00:00+00:00',
             dateModified: '2024-01-13T13:13:00+00:00',
             author: {
@@ -117,7 +117,7 @@ export default function HomePage () {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://atozmovies.vercel.app/#organization',
-              name: 'AtoZ Movies™ - Explore. Stream. Online. ',
+              name: 'AtoZ Movies™ - Online. Stream. Download. ',
               url: 'https://atozmovies.vercel.app'
             }
           },
@@ -125,7 +125,7 @@ export default function HomePage () {
             '@type': 'Article',
             '@id': 'https://atozmovies.vercel.app/',
             url: 'https://atozmovies.vercel.app/',
-            headline: 'AtoZ Movies™ - Explore. Stream. Online. ',
+            headline: 'AtoZ Movies™ - Online. Stream. Download. ',
             datePublished: '2024-01-13T13:00:00+00:00',
             dateModified: '2024-01-13T13:13:00+00:00',
             author: {
@@ -144,7 +144,7 @@ export default function HomePage () {
             publisher: {
               '@type': 'Organization',
               '@id': 'https://atozmovies.vercel.app/#organization',
-              name: 'AtoZ Movies™ - Explore. Stream. Online. ',
+              name: 'AtoZ Movies™ - Online. Stream. Download. ',
               url: 'https://atozmovies.vercel.app'
             }
           },
@@ -152,7 +152,7 @@ export default function HomePage () {
             '@type': 'Article',
             '@id': 'https://atozmovies.vercel.app/',
             url: 'https://atozmovies.vercel.app/',
-            headline: 'AtoZ Movies™ - Explore. Stream. Online. ',
+            headline: 'AtoZ Movies™ - Online. Stream. Download. ',
             datePublished: '2024-01-13T13:00:00+00:00',
             dateModified: '2024-01-13T13:13:00+00:00',
             author: {
@@ -178,7 +178,7 @@ export default function HomePage () {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     url: 'https://atozmovies.vercel.app/',
-    name: 'AtoZ Movies™ - Explore. Stream. Online.',
+    name: 'AtoZ Movies™ - Online. Stream. Download.',
     alternateName: [
       'AtoZ Movies™ - Explorar. Transmitir. En línea.',
       'AtoZ Movies™ - Explorer. Diffuser. En ligne.',
@@ -207,7 +207,7 @@ export default function HomePage () {
   return (
     <>
       <Head>
-        <title>AtoZ Movies™ - Explore. Stream. Online.</title>
+        <title>AtoZ Movies™ - Online. Stream. Download.</title>
 
         <link
           rel='sitemap'
@@ -244,7 +244,7 @@ export default function HomePage () {
         />
         <meta
             name='keywords'
-            content='atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies'
+            content='atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies,123movies,gomovies,yes movies,putlocker,putlockers,soap2day'
           />
         <meta
           name='description'
@@ -256,12 +256,12 @@ export default function HomePage () {
         <meta property='og:type' content='website' />
         <meta
           property='og:title'
-          content='AtoZ Movies™ - Explore. Stream. Online. '
+          content='AtoZ Movies™ - Online. Stream. Download. '
         />
         <meta property='og:url' content='https://atozmovies.vercel.app' />
         <meta
           property='og:site_name'
-          content='AtoZ Movies™ - Explore. Stream. Online. '
+          content='AtoZ Movies™ - Online. Stream. Download. '
         />
         <meta
           property='og:image'
@@ -272,7 +272,7 @@ export default function HomePage () {
         <meta property='og:image:type' content='image/jpg' />
         <meta
           name='application-name'
-          content='AtoZ Movies™ - Explore. Stream. Online. '
+          content='AtoZ Movies™ - Online. Stream. Download. '
         />
         <meta
           property='article:modified_time'
@@ -287,7 +287,7 @@ export default function HomePage () {
         <meta name='twitter:card' content='summary_large_image' />
         <meta
           name='twitter:title'
-          content='AtoZ Movies™ - Explore. Stream. Online.  HD Movies and TV Series Free'
+          content='AtoZ Movies™ - Online. Stream. Download.  HD Movies and TV Series Free'
         />
         <meta
           name='twitter:description'
@@ -328,7 +328,7 @@ export default function HomePage () {
 
       <div className='container'>
         <div className='content'>
-          <h1 className='title'>AtoZ Movies™ - Explore. Stream. Online.</h1>
+          <h1 className='title'>AtoZ Movies™ - Online. Stream. Download.</h1>
           <h2 className='highlight'>
             Discover the Best Movies and TV Shows to Stream on AtoZ Movies™
           </h2>
