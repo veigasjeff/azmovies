@@ -1015,7 +1015,7 @@ const moviesDetail = ({ movie }) => {
                         <iframe
                           className={styles.iframe}
                           frameBorder='0'
-                          src={`https://geo.dailymotion.com/player/xkdl0.html?video=${movie.traileritem}&mute=true&Autoquality=1080p`}
+                          src={`https://geo.dailymotion.com/player/xjrxe.html?video=${movie.traileritem}&mute=true&Autoquality=1080p`}
                           allowFullScreen
                           title='Dailymotion Video Player'
                           allow='autoplay; encrypted-media'
