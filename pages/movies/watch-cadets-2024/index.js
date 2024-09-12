@@ -621,7 +621,7 @@ const moviesDetail = ({ movie }) => {
         <meta name='twitter:data1' content='1 minute' />
         <meta
           name='google-site-verification'
-          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s-BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
+          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
         />
         <meta
           name='facebook-domain-verification'
@@ -677,7 +677,7 @@ const moviesDetail = ({ movie }) => {
       </Head>
       <SocialSharing />
       {isAdult && <AdultSkipAds movie={movie} />}
-      {/* <Script src='../../propler/ads.js' defer />   */}
+      <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
 
       <div
@@ -1575,7 +1575,7 @@ const moviesDetail = ({ movie }) => {
 export async function getServerSideProps () {
   const res = await fetch('https://atozmovies.vercel.app/moviesp11.json')
   const data = await res.json()
-  const selectedMovie = data.find(movie => movie.id === 'watch-cadets-2024')
+  const selectedMovie = data.find(movie => movie.id === 'INDEXP1113')
   return {
     props: {
       movie: selectedMovie

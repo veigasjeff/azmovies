@@ -93,7 +93,6 @@ const moviesDetail = ({ movie }) => {
     return text
   }
 
-  
   useEffect(() => {
     // Fetch the initial random links
     setLinkTargets(getRandomLinks(moviesData))
@@ -564,7 +563,7 @@ const moviesDetail = ({ movie }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title>Watch Tvshow Bad Cop Season 1 (2024) | AtoZ Movies™</title>
+        <title>Watch Movie Rob Peace (2024) | AtoZ Movies™</title>
         <link rel='canonical' href={movie && movie.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />
@@ -619,10 +618,7 @@ const moviesDetail = ({ movie }) => {
         <meta name='twitter:image' content={`${movie && movie.image1}`} />
         <meta name='twitter:label1' content='Est. reading time' />
         <meta name='twitter:data1' content='1 minute' />
-        <meta
-          name='google-site-verification'
-          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s-BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
-        />
+        <meta name='google-site-verification' content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s' />
         <meta
           name='facebook-domain-verification'
           content='du918bycikmo1jw78wcl9ih6ziphd7'
@@ -673,12 +669,11 @@ const moviesDetail = ({ movie }) => {
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: breadcrumbSchema }}
         />
-        
       </Head>
 
       <SocialSharing />
       {isAdult && <AdultSkipAds movie={movie} />}
-      {/* <Script src='../../propler/ads.js' defer />   */}
+      <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
 
       <div
@@ -760,8 +755,8 @@ const moviesDetail = ({ movie }) => {
             </h2>
             <p className='text-lg text-yellow-500 mt-4'>
               Indulge in the finest selection of adult entertainment with{' '}
-              <strong>{movie.title}</strong>. At <strong>AtoZ Movies™</strong>,
-              we offer a vast library of premium adult content, including the
+              <strong>{movie.title}</strong>. At <strong>AtoZ Movies™</strong>, we
+              offer a vast library of premium adult content, including the
               latest and most popular titles like <strong>{movie.title}</strong>
               . Our platform is designed for those who seek high-quality,
               discreet streaming of adult films, ensuring a seamless and private
@@ -778,9 +773,9 @@ const moviesDetail = ({ movie }) => {
             </p>
             <p className='text-lg text-yellow-500 mt-4'>
               For a premium experience in adult entertainment, look no further
-              than <strong>{movie.title}</strong> on{' '}
-              <strong>AtoZ Movies™</strong>. Our platform ensures your privacy
-              and security while you enjoy the content you love. Start streaming{' '}
+              than <strong>{movie.title}</strong> on <strong>AtoZ Movies™</strong>
+              . Our platform ensures your privacy and security while you enjoy
+              the content you love. Start streaming{' '}
               <strong>{movie.title}</strong> today and discover why{' '}
               <strong>AtoZ Movies™</strong> is the trusted choice for adult
               content.
@@ -796,12 +791,12 @@ const moviesDetail = ({ movie }) => {
             </h2>
             <p className='text-lg text-yellow-500 mt-4'>
               Dive into the world of cinema with <strong>{movie.title}</strong>,
-              available to stream right here. At <strong>AtoZ Movies™</strong>,
-              we bring you the best in entertainment, offering an extensive
-              library of movies and TV shows, including the latest blockbusters
-              like <strong>{movie.title}</strong>. Whether you're a fan of
-              action, drama, comedy, or any other genre, you'll find exactly
-              what you're looking for.
+              available to stream right here. At <strong>AtoZ Movies™</strong>, we
+              bring you the best in entertainment, offering an extensive library
+              of movies and TV shows, including the latest blockbusters like{' '}
+              <strong>{movie.title}</strong>. Whether you're a fan of action,
+              drama, comedy, or any other genre, you'll find exactly what you're
+              looking for.
             </p>
             <p className='text-lg text-yellow-500 mt-4'>
               Streaming <strong>{movie.title}</strong> on{' '}
@@ -1066,23 +1061,6 @@ const moviesDetail = ({ movie }) => {
                 {/* Container for the iframe */}
                 {iframeAccordionExpanded && (
                   <>
-                   {/* Conditional rendering of Next Episode button */}
-                {ismovies && !isAdult && (
-                  <div
-                    className='flex flex-col items-center mb-4'
-                    style={{ marginBottom: '20px' }}
-                  >
-                    <button
-                      onClick={handleNextEpisode}
-                      disabled={videoSources.length === 0}
-                      className='px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 ml-4 text-xl hover:text-green-600 font-bold mt-2'
-                    >
-                      Next Episode
-                      {/* Next Episode {episode + 1 > videoSources.length ? 1 : episode + 1} */}
-                    </button>
-                  </div>
-                )}
-
                     <div className={styles.container}>
                       <div className={styles.iframeContainer}>
                         <iframe
@@ -1156,51 +1134,76 @@ const moviesDetail = ({ movie }) => {
                       </div>
 
                       <div className='flex flex-col items-center justify-center'>
-                  {/* Render the button for Season 2 if linkurl exists */}
-                  {movie.linkurl && (
-                    <Link href={movie.linkurl}>
-                      <div
-                        className={`px-4 py-2 border rounded mx-2 my-1 ${
-                          movie.linkurl
-                            ? 'bg-red-500 text-white'
-                            : 'bg-gray-200'
-                        } hover:bg-green-700 hover:text-white`}
-                        style={{
-                          fontFamily: 'Poppins, sans-serif',
-                          marginTop: '20px',
-                          filter:
-                            'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
-                        }}
-                      >
-                        Click to Watch Next Season
+                        {/* Render the button for Season 2 if linkurl exists */}
+                        {movie.linkurl && (
+                          <Link href={movie.linkurl}>
+                            <div
+                              className={`px-4 py-2 border rounded mx-2 my-1 ${
+                                movie.linkurl
+                                  ? 'bg-red-500 text-white'
+                                  : 'bg-gray-200'
+                              } hover:bg-green-700 hover:text-white`}
+                              style={{
+                                fontFamily: 'Poppins, sans-serif',
+                                marginTop: '20px',
+                                filter:
+                                  'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
+                              }}
+                            >
+                              Click to Watch Next Season
+                            </div>
+                          </Link>
+                        )}
+
+                        {/* Render the button for Season 1 if linkurl2 exists */}
+                        {movie.linkurl2 && (
+                          <Link href={movie.linkurl2}>
+                            <div
+                              className={`px-4 py-2 border rounded mx-2 my-1 ${
+                                movie.linkurl2
+                                  ? 'bg-red-500 text-white'
+                                  : 'bg-gray-200'
+                              } hover:bg-green-700 hover:text-white`}
+                              style={{
+                                fontFamily: 'Poppins, sans-serif',
+                                marginTop: '20px',
+                                filter:
+                                  'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
+                              }}
+                            >
+                              Click to Watch Previous Season
+                            </div>
+                          </Link>
+                        )}
                       </div>
-                    </Link>
-                  )}
-                  {/* Render the button for Season 1 if linkurl2 exists */}
-                  {movie.linkurl2 && (
-                    <Link href={movie.linkurl2}>
-                      <div
-                        className={`px-4 py-2 border rounded mx-2 my-1 ${
-                          movie.linkurl2
-                            ? 'bg-red-500 text-white'
-                            : 'bg-gray-200'
-                        } hover:bg-green-700 hover:text-white`}
-                        style={{
-                          fontFamily: 'Poppins, sans-serif',
-                          marginTop: '20px',
-                          filter:
-                            'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(15deg)'
-                        }}
-                      >
-                        Click to Watch Previous Season
-                      </div>
-                    </Link>
-                  )}
-                </div>
                     </div>
                   </>
                 )}
-       
+
+                {/* Conditional rendering of Next Episode button */}
+                {ismovies && !isAdult && iframeAccordionExpanded && (
+                  <div className='flex flex-col items-center mb-4'>
+                    <button
+                      onClick={handleNextEpisode}
+                      disabled={videoSources.length === 0}
+                      className='px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 ml-4 text-xl hover:text-green-600 font-bold mt-2'
+                    >
+                      Next Episode
+                    </button>
+                  </div>
+                )}
+                {/* Conditional rendering of Next Episode button */}
+                {ismovies && !isAdult && iframeAccordionExpanded && (
+                  <div className='flex flex-col items-center mb-4'>
+                    <button
+                      onClick={handleNextEpisode}
+                      disabled={videoSources.length === 0}
+                      className='px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 ml-4 text-xl hover:text-green-600 font-bold mt-2'
+                    >
+                      Next Episode
+                    </button>
+                  </div>
+                )}
 
                 <div className={styles.container}>
                   <h2
@@ -1566,11 +1569,9 @@ const moviesDetail = ({ movie }) => {
 }
 
 export async function getServerSideProps () {
-  const res = await fetch('https://atozmovies.vercel.app/moviesp8.json')
+  const res = await fetch('https://atozmovies.vercel.app/moviesp12.json')
   const data = await res.json()
-  const selectedMovie = data.find(
-    movie => movie.id === 'watch-bad-cop-season-1-tv-series'
-  )
+  const selectedMovie = data.find(movie => movie.id === 'INDEXP1201')
   return {
     props: {
       movie: selectedMovie

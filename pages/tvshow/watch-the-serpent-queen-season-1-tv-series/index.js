@@ -564,7 +564,7 @@ const moviesDetail = ({ movie }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title>Watch The Serpent Queen Season 1 (2024) | AtoZ Movies™</title>
+        <title>Watch Tvshow The Serpent Queen Season 1 (2024) | AtoZ Movies™</title>
         <link rel='canonical' href={movie && movie.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />
@@ -621,7 +621,7 @@ const moviesDetail = ({ movie }) => {
         <meta name='twitter:data1' content='1 minute' />
         <meta
           name='google-site-verification'
-          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s-BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
+          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
         />
         <meta
           name='facebook-domain-verification'
@@ -678,7 +678,7 @@ const moviesDetail = ({ movie }) => {
 
       <SocialSharing />
       {isAdult && <AdultSkipAds movie={movie} />}
-      {/* <Script src='../../propler/ads.js' defer />   */}
+      <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
 
       <div
@@ -1569,7 +1569,7 @@ export async function getServerSideProps () {
   const res = await fetch('https://atozmovies.vercel.app/moviesp12.json')
   const data = await res.json()
   const selectedMovie = data.find(
-    movie => movie.id === 'watch-the-serpent-queen-season-1-tv-series'
+    movie => movie.id === 'INDEXP1213'
   )
   return {
     props: {

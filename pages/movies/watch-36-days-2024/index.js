@@ -618,7 +618,7 @@ const moviesDetail = ({ movie }) => {
         <meta name='twitter:image' content={`${movie && movie.image1}`} />
         <meta name='twitter:label1' content='Est. reading time' />
         <meta name='twitter:data1' content='1 minute' />
-        <meta name='google-site-verification' content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s-BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s' />
+        <meta name='google-site-verification' content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s' />
         <meta
           name='facebook-domain-verification'
           content='du918bycikmo1jw78wcl9ih6ziphd7'
@@ -673,7 +673,7 @@ const moviesDetail = ({ movie }) => {
 
       <SocialSharing />
       {isAdult && <AdultSkipAds movie={movie} />}
-      {/* <Script src='../../propler/ads.js' defer />   */}
+      <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
 
       <div
@@ -1571,7 +1571,7 @@ const moviesDetail = ({ movie }) => {
 export async function getServerSideProps () {
   const res = await fetch('https://atozmovies.vercel.app/moviesp5.json')
   const data = await res.json()
-  const selectedMovie = data.find(movie => movie.id === 'watch-36-days-2024')
+  const selectedMovie = data.find(movie => movie.id === 'INDEXP504')
   return {
     props: {
       movie: selectedMovie

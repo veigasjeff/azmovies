@@ -622,7 +622,7 @@ const moviesDetail = ({ movie }) => {
         <meta name='twitter:data1' content='1 minute' />
         <meta
           name='google-site-verification'
-          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s-BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
+          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
         />
         <meta
           name='facebook-domain-verification'
@@ -679,7 +679,7 @@ const moviesDetail = ({ movie }) => {
 
       <SocialSharing />
       {isAdult && <AdultSkipAds movie={movie} />}
-      {/* <Script src='../../propler/ads.js' defer />   */}
+      <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
 
       <div
@@ -1570,7 +1570,7 @@ export async function getServerSideProps () {
   const res = await fetch('https://atozmovies.vercel.app/moviesp10.json')
   const data = await res.json()
   const selectedMovie = data.find(
-    movie => movie.id === 'watch-the-umbrella-academy-season-1-tv-series'
+    movie => movie.id === 'INDEXP1011'
   )
   return {
     props: {
