@@ -203,7 +203,7 @@ const Privacy = () => {
           />
          <meta
             name='keywords'
-            content='atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies'
+            content='atozmovies,a to z movies,a-z movies,index of atozmovies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies'
           />
           <meta
           property='description'
