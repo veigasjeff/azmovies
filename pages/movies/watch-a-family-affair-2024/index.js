@@ -597,7 +597,7 @@ const moviesDetail = ({ movie }) => {
   <meta name="twitter:image" content={`${movie && movie.image1}`} />
   <meta name="twitter:label1" content="Est. reading time" />
   <meta name="twitter:data1" content="1 minute" />
-  <meta name="google-site-verification" content="RNN2teFhD-lV1TQ9qcLQiSO5BLBB4DmztyYJS6QLqDg-RNN2teFhD-lV1TQ9qcLQiSO5BLBB4DmztyYJS6QLqDg" />
+  <meta name="google-site-verification" content="BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s-BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s" />
   <meta name="facebook-domain-verification" content="du918bycikmo1jw78wcl9ih6ziphd7" />
   <meta name="dailymotion-domain-verification" content="dmv6sg06w9r5eji88" />
 

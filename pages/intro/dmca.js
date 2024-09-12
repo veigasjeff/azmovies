@@ -254,7 +254,7 @@ const dmca = () => {
         <meta name='twitter:card' content='summary_large_image' />
         <meta
           name='google-site-verification'
-          content='RNN2teFhD-lV1TQ9qcLQiSO5BLBB4DmztyYJS6QLqDg'
+          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
         />
         <meta
           name='facebook-domain-verification'

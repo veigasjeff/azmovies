@@ -173,7 +173,7 @@ const page9 = ({ items }) => {
         <meta name='twitter:data1' content='1 minute' />
         <meta
           name='google-site-verification'
-          content='RNN2teFhD-lV1TQ9qcLQiSO5BLBB4DmztyYJS6QLqDg-RNN2teFhD-lV1TQ9qcLQiSO5BLBB4DmztyYJS6QLqDg'
+          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s-BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
         />
         <meta
           name='facebook-domain-verification'
