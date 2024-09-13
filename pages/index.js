@@ -332,12 +332,7 @@ export default function HomePage () {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          minHeight: '100vh',
-          padding: '20px',
-          fontFamily: 'Poppins, sans-serif',
-          fontWeight: 500,
           textAlign: 'center',
-          // backgroundColor: '#D3D3D3'
           backgroundColor: '#000'
         }}
       >
