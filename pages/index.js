@@ -326,7 +326,7 @@ export default function HomePage () {
         />
       </Head>
       <div
-        className={`w-full`}
+        // className={`w-full`}
         style={{
           // display: 'flex',
           // flexDirection: 'column',
