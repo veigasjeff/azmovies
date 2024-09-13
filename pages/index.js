@@ -328,8 +328,8 @@ export default function HomePage () {
       <div
         className={`w-full`}
         style={{
-          display: 'flex',
-          flexDirection: 'column',
+          // display: 'flex',
+          // flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
           textAlign: 'center',
