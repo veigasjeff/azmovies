@@ -61,7 +61,8 @@ const page9 = ({ items }) => {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://atozmovies.vercel.app/search?q={search_term_string}'
+          urlTemplate:
+            'https://atozmovies.vercel.app/search?q={search_term_string}'
         },
         'query-input': 'required name=search_term_string'
       }
@@ -159,7 +160,7 @@ const page9 = ({ items }) => {
         />
         <meta
           name='keywords'
-        content='atozmovies,a to z movies,a-z movies,index of atozmovies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies'
+          content='atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies,123movies,gomovies,yes movies,putlocker,putlockers,soap2day'
         />
         <meta
           property='og:image'
@@ -173,7 +174,7 @@ const page9 = ({ items }) => {
         <meta name='twitter:data1' content='1 minute' />
         <meta
           name='google-site-verification'
-          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s-BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
+          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
         />
         <meta
           name='facebook-domain-verification'

@@ -216,14 +216,17 @@ const dmca = () => {
         />
         <meta
           name='keywords'
-      content='atozmovies,a to z movies,a-z movies,index of atozmovies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies'
+          content='atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies,123movies,gomovies,yes movies,putlocker,putlockers,soap2day'
         />
         <meta
           property='description'
           content='AtoZ Movies™ - Stream HD movies and TV series for free on AtoZ Movies Online. Online. Stream. Download. full-length movies and shows in HD quality without registration.'
         />
 
-        <link rel='canonical' href='https://atozmovies.vercel.app/intro/tearms' />
+        <link
+          rel='canonical'
+          href='https://atozmovies.vercel.app/intro/tearms'
+        />
         <meta property='og:locale' content='en_US' />
         <meta property='og:type' content='website' />
         <meta property='og:title' content='AtoZ Movies™ ' />
@@ -231,7 +234,10 @@ const dmca = () => {
           property='og:description'
           content='AtoZ Movies™ - Stream HD movies and TV series for free on AtoZ Movies Online. Online. Stream. Download. full-length movies and shows in HD quality without registration.'
         />
-        <meta property='og:url' content='https://atozmovies.vercel.app/intro/tearms/' />
+        <meta
+          property='og:url'
+          content='https://atozmovies.vercel.app/intro/tearms/'
+        />
         <meta property='og:site_name' content='AtoZ Movies™ ' />
         <meta
           property='og:image'

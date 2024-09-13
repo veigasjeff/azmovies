@@ -2,7 +2,6 @@ import React from 'react'
 import Head from 'next/head'
 import Script from 'next/script'
 
-
 const cookiepolicy = () => {
   const containerStyle = {
     margin: '24px auto',
@@ -179,7 +178,6 @@ const cookiepolicy = () => {
     ]
   })
 
-
   return (
     <div>
       <Head>
@@ -191,11 +189,7 @@ const cookiepolicy = () => {
           href='https://atozmovies.vercel.app/sitemap.xml'
         />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <link
-          rel='icon'
-          type='image/x-icon'
-          href='/favicon.ico'
-        />
+        <link rel='icon' type='image/x-icon' href='/favicon.ico' />
         <link
           rel='apple-touch-icon'
           sizes='180x180'
@@ -220,11 +214,11 @@ const cookiepolicy = () => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-       <meta
-            name='keywords'
-            content='atozmovies,a to z movies,a-z movies,index of atozmovies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies'
-          />
-       <meta
+        <meta
+          name='keywords'
+          content='atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies,123movies,gomovies,yes movies,putlocker,putlockers,soap2day'
+        />
+        <meta
           property='description'
           content='AtoZ Movies™ - Stream HD movies and TV series for free on AtoZ Movies Online. Online. Stream. Download. full-length movies and shows in HD quality without registration.'
         />
@@ -281,12 +275,11 @@ const cookiepolicy = () => {
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: rankMathSchema }}
         />
-      
       </Head>
-      
+
       <div style={containerStyle}>
         <section style={sectionStyle}>
-        <a
+          <a
             href='https://t.me/watchmovietvshow/'
             target='_blank'
             rel='noopener noreferrer'
@@ -311,8 +304,8 @@ const cookiepolicy = () => {
             >
               <h1 style={headingStyle}>Cookie Policy</h1>
               <p style={{ color: '#666', marginBottom: '24px' }}>
-                This is the Cookie Policy for AtoZ Movies™, accessible from
-                and its subdomains.
+                This is the Cookie Policy for AtoZ Movies™, accessible from and
+                its subdomains.
               </p>
 
               <h2 style={headingStyle}>What Are Cookies</h2>
@@ -415,8 +408,6 @@ const cookiepolicy = () => {
             </div>
           </div>
         </section>
-
-   
       </div>
     </div>
   )
