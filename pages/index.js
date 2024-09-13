@@ -325,17 +325,7 @@ export default function HomePage () {
           dangerouslySetInnerHTML={{ __html: languagesSchema }}
         />
       </Head>
-      <div
-        // className={`w-full`}
-        style={{
-          // display: 'flex',
-          // flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
-          backgroundColor: '#000'
-        }}
-      >
+      < >
       <div className='container'>
         <div className='content'>
           <h1 className='title'>AtoZ Movies™ - Online. Stream. Download.</h1>
@@ -540,6 +530,6 @@ export default function HomePage () {
         }
       `}</style>
     </div>
-    </div>
+    </>
   )
 }
