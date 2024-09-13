@@ -205,7 +205,7 @@ export default function HomePage () {
     ]
   })
   return (
-    <>
+    <div>
       <Head>
         <title>AtoZ Movies™ - Online. Stream. Download.</title>
 
@@ -244,11 +244,11 @@ export default function HomePage () {
         />
         <meta
             name='keywords'
-            content='atozmovies,a to z movies,a-z movies,index of atozmovies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies'
+            content='atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies,123movies,gomovies,yes movies,putlocker,putlockers,soap2day'
           />
         <meta
           name='description'
-          content='Stream HD movies and TV series for free on AtoZ Movies. Explore, stream, and download full-length movies and shows in HD quality without registration.'
+          content='Stream HD movies and TV series for free on AtoZ Movies. Online, stream, and download full-length movies and shows in HD quality without registration.'
         />
         <link rel='canonical' href='https://atozmovies.vercel.app/' />
         <meta property='og:locale' content='en_US' />
@@ -291,7 +291,7 @@ export default function HomePage () {
         />
         <meta
           name='twitter:description'
-          content='Stream HD movies and TV series for free on AtoZ Movies™. Explore, stream, and download full-length movies and shows in HD quality without registration.'
+          content='Stream HD movies and TV series for free on AtoZ Movies™. Online, stream, and download full-length movies and shows in HD quality without registration.'
         />
         <meta
           name='twitter:image'
@@ -325,7 +325,22 @@ export default function HomePage () {
           dangerouslySetInnerHTML={{ __html: languagesSchema }}
         />
       </Head>
-
+      <div
+        className={`w-full`}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '100vh',
+          padding: '20px',
+          fontFamily: 'Poppins, sans-serif',
+          fontWeight: 500,
+          textAlign: 'center',
+          // backgroundColor: '#D3D3D3'
+          backgroundColor: '#000'
+        }}
+      >
       <div className='container'>
         <div className='content'>
           <h1 className='title'>AtoZ Movies™ - Online. Stream. Download.</h1>
@@ -529,6 +544,7 @@ export default function HomePage () {
           }
         }
       `}</style>
-    </>
+    </div>
+    </div>
   )
 }
