@@ -529,7 +529,8 @@ export default function HomePage () {
           }
         }
       `}</style>
+        </>
     </div>
-    </>
+  
   )
 }
