@@ -44,11 +44,11 @@ const page3 = ({ items }) => {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'AtoZ Movies™ - Online. Stream. Download.',
-      url: 'http://localhost:3000/',
-      image: ['http://localhost:3000/favicon.ico'],
+      url: 'https://atozmovies.vercel.app/',
+      image: ['https://atozmovies.vercel.app/favicon.ico'],
       logo: {
         '@type': 'ImageObject',
-        url: 'http://localhost:3000/logo.png',
+        url: 'https://atozmovies.vercel.app/logo.png',
         width: 280,
         height: 80
       }
@@ -56,12 +56,12 @@ const page3 = ({ items }) => {
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      url: 'http://localhost:3000/',
+      url: 'https://atozmovies.vercel.app/',
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'http://localhost:3000/search?q={search_term_string}'
+          urlTemplate: 'https://atozmovies.vercel.app/search?q={search_term_string}'
         },
         'query-input': 'required name=search_term_string'
       }
@@ -71,12 +71,12 @@ const page3 = ({ items }) => {
   const softwareSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Article',
-    '@id': 'http://localhost:3000/page3',
+    '@id': 'https://atozmovies.vercel.app/page3',
     headline: 'Page 3 | AtoZ Movies™',
-    url: 'http://localhost:3000/page3',
+    url: 'https://atozmovies.vercel.app/page3',
     description:
       'AtoZ Movies™ - Stream HD movies and TV series for free on AtoZ Movies™ Online. Online. Stream. Download. full-length movies and shows in HD quality without registration.',
-    image: 'http://localhost:3000/og_image.jpg',
+    image: 'https://atozmovies.vercel.app/og_image.jpg',
     author: {
       '@type': 'Person',
       name: 'DrTrailer',
@@ -87,14 +87,14 @@ const page3 = ({ items }) => {
       name: 'AtoZ Movies™ - Online. Stream. Download.',
       logo: {
         '@type': 'ImageObject',
-        url: 'http://localhost:3000/og_image.jpg'
+        url: 'https://atozmovies.vercel.app/og_image.jpg'
       }
     },
     datePublished: '2024-06-02',
     dateModified: '2024-06-02',
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'http://localhost:3000/page3'
+      '@id': 'https://atozmovies.vercel.app/page3'
     },
     additionalProperty: {
       '@type': 'PropertyValue',
@@ -111,13 +111,13 @@ const page3 = ({ items }) => {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'http://localhost:3000/'
+        item: 'https://atozmovies.vercel.app/'
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'movies',
-        item: 'http://localhost:3000/page3'
+        item: 'https://atozmovies.vercel.app/page3'
       }
     ]
   })
@@ -126,7 +126,7 @@ const page3 = ({ items }) => {
     <div className='w-full' style={{ backgroundColor: '#000' }}>
       <Head>
         <title> Page 3 | AtoZ Movies™</title>
-        <link rel='canonical' href='http://localhost:3000/page3' />
+        <link rel='canonical' href='https://atozmovies.vercel.app/page3' />
         <meta
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
@@ -142,13 +142,13 @@ const page3 = ({ items }) => {
           content='AtoZ Movies™ - Stream HD movies and TV series for free on AtoZ Movies™ Online. Online. Stream. Download. full-length movies and shows in HD quality without registration.'
         />
 
-        <meta property='og:url' content='http://localhost:3000/page3' />
+        <meta property='og:url' content='https://atozmovies.vercel.app/page3' />
 
         <meta property='og:site_name' content='AtoZ Movies™' />
         <meta property='og:type' content='article' />
         <meta
           property=' og:image:alt'
-          content='http://localhost:3000/og_image.jpg'
+          content='https://atozmovies.vercel.app/og_image.jpg'
         />
         <meta name='mobile-web-app-capable' content='yes' />
         <meta property='article:section' content='AtoZ Movies™' />
@@ -163,7 +163,7 @@ const page3 = ({ items }) => {
         />
         <meta
           property='og:image'
-          content='http://localhost:3000/og_image.jpg'
+          content='https://atozmovies.vercel.app/og_image.jpg'
         />
         <meta property='og:image:width' content='1280px' />
         <meta property='og:image:height' content='720px' />
@@ -443,7 +443,7 @@ const page3 = ({ items }) => {
 
 export async function getStaticProps() {
   try {
-    const res = await fetch('http://localhost:3000/moviesp10.json');
+    const res = await fetch('https://atozmovies.vercel.app/moviesp10.json');
     const data = await res.json();
 
     return {
