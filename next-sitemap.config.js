@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://azmovies.vercel.app/',
+  siteUrl: 'https://atozmovies.vercel.app/',
   changefreq: 'daily',
   sitemapSize: 7000, // Limit of URLs in each sitemap file
   // generateRobotsTxt: true, // Optionally generate robots.txt
@@ -26,7 +26,7 @@ module.exports = {
 
 // /** @type {import('next-sitemap').IConfig} */
 // module.exports = {
-//   siteUrl: 'https://azmovies.vercel.app/',
+//   siteUrl: 'https://atozmovies.vercel.app/',
 //   changefreq: 'daily',
 //   priority: 0.9, // Set priority to just below the highest value
 //   // generateRobotsTxt: true,

@@ -17,7 +17,7 @@ import styles from '@styles/iframeStyles.module.css'
 
 // Fetch data from tvshowzipItems.json
 const fetchtvshowzipData = async () => {
-  const response = await fetch('https://azmovies.vercel.app/moviesfull.json')
+  const response = await fetch('https://atozmovies.vercel.app/moviesfull.json')
   return await response.json()
 }
 
@@ -109,7 +109,7 @@ const tvshowzipDetail = ({ tvshowzipItem }) => {
   // Function to fetch data and set state
   const fetchData = async () => {
     try {
-      const response = await fetch('https://azmovies.vercel.app/moviesfull.json')
+      const response = await fetch('https://atozmovies.vercel.app/moviesfull.json')
       const data = await response.json()
 
       // Get 6 random TV Series s
@@ -298,11 +298,11 @@ const tvshowzipDetail = ({ tvshowzipItem }) => {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'AtoZ™',
-      url: 'https://azmovies.vercel.app/',
-      image: ['https://azmovies.vercel.app/favicon.ico'],
+      url: 'https://atozmovies.vercel.app/',
+      image: ['https://atozmovies.vercel.app/favicon.ico'],
       logo: {
         '@type': 'ImageObject',
-        url: 'https://azmovies.vercel.app/logo.png',
+        url: 'https://atozmovies.vercel.app/logo.png',
         width: 280,
         height: 100
       }
@@ -310,12 +310,12 @@ const tvshowzipDetail = ({ tvshowzipItem }) => {
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      url: 'https://azmovies.vercel.app/',
+      url: 'https://atozmovies.vercel.app/',
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://azmovies.vercel.app/search?q={search_term_string}'
+          urlTemplate: 'https://atozmovies.vercel.app/search?q={search_term_string}'
         },
         'query-input': 'required name=search_term_string'
       }
@@ -330,7 +330,7 @@ const tvshowzipDetail = ({ tvshowzipItem }) => {
         '@type': 'ListItem',
         position: 1,
         name: 'AtoZ™',
-        item: 'https://azmovies.vercel.app/'
+        item: 'https://atozmovies.vercel.app/'
       },
       {
         '@type': 'ListItem',
@@ -357,8 +357,8 @@ const tvshowzipDetail = ({ tvshowzipItem }) => {
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://azmovies.vercel.app#website',
-        url: 'https://azmovies.vercel.app',
+        '@id': 'https://atozmovies.vercel.app#website',
+        url: 'https://atozmovies.vercel.app',
         name: 'AtoZ™',
         publisher: {
           '@id': 'https://gravatar.com/drtrailer2022/#person'
@@ -373,7 +373,7 @@ const tvshowzipDetail = ({ tvshowzipItem }) => {
         datePublished: tvshowzipItem.datePublished,
         dateModified: tvshowzipItem.dateModified,
         isPartOf: {
-          '@id': 'https://azmovies.vercel.app#website'
+          '@id': 'https://atozmovies.vercel.app#website'
         },
         inLanguage: 'en-US'
       },
@@ -389,7 +389,7 @@ const tvshowzipDetail = ({ tvshowzipItem }) => {
           caption: 'Dr Trailer',
           inLanguage: 'en-US'
         },
-        sameAs: ['https://azmovies.vercel.app']
+        sameAs: ['https://atozmovies.vercel.app']
       },
       {
         '@type': 'Article',
@@ -474,7 +474,7 @@ const tvshowzipDetail = ({ tvshowzipItem }) => {
       name: 'AtoZ™',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://azmovies.vercel.app/og_image.jpg'
+        url: 'https://atozmovies.vercel.app/og_image.jpg'
       }
     },
     additionalProperty: {
@@ -535,7 +535,7 @@ const tvshowzipDetail = ({ tvshowzipItem }) => {
       name: 'AtoZ™',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://azmovies.vercel.app/og_image.jpg'
+        url: 'https://atozmovies.vercel.app/og_image.jpg'
       }
     },
     additionalProperty: {

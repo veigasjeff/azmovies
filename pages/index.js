@@ -8,11 +8,11 @@ export default function HomePage () {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'AtoZ Movies™ - Online. Stream. Download. ',
-      url: 'https://azmovies.vercel.app/',
-      image: ['https://azmovies.vercel.app/favicon.ico'],
+      url: 'https://atozmovies.vercel.app/',
+      image: ['https://atozmovies.vercel.app/favicon.ico'],
       logo: {
         '@type': 'ImageObject',
-        url: 'https://azmovies.vercel.app/logo.png',
+        url: 'https://atozmovies.vercel.app/logo.png',
         width: 280,
         height: 80
       }
@@ -20,12 +20,12 @@ export default function HomePage () {
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      url: 'https://azmovies.vercel.app/',
+      url: 'https://atozmovies.vercel.app/',
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://azmovies.vercel.app/search?q={search_term_string}'
+          urlTemplate: 'https://atozmovies.vercel.app/search?q={search_term_string}'
         },
         'query-input': 'required name=search_term_string'
       }
@@ -50,29 +50,29 @@ export default function HomePage () {
       },
       {
         '@type': 'Organization',
-        '@id': 'https://azmovies.vercel.app/#organization',
+        '@id': 'https://atozmovies.vercel.app/#organization',
         name: 'AtoZ Movies™ - Online. Stream. Download. ',
-        url: 'https://azmovies.vercel.app'
+        url: 'https://atozmovies.vercel.app'
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://azmovies.vercel.app/#website',
-        url: 'https://azmovies.vercel.app',
+        '@id': 'https://atozmovies.vercel.app/#website',
+        url: 'https://atozmovies.vercel.app',
         name: 'AtoZ Movies™ - Online. Stream. Download. ',
         publisher: {
           '@type': 'Organization',
-          '@id': 'https://azmovies.vercel.app/#organization'
+          '@id': 'https://atozmovies.vercel.app/#organization'
         },
         potentialAction: {
           '@type': 'SearchAction',
-          target: 'https://azmovies.vercel.app/?s={search_term_string}',
+          target: 'https://atozmovies.vercel.app/?s={search_term_string}',
           'query-input': 'required name=search_term_string'
         }
       },
       {
         '@type': 'WebPage',
-        '@id': 'https://azmovies.vercel.app/#webpage',
-        url: 'https://azmovies.vercel.app/',
+        '@id': 'https://atozmovies.vercel.app/#webpage',
+        url: 'https://atozmovies.vercel.app/',
         name: 'Movie',
         datePublished: '2024-01-13T13:00:00+00:00',
         dateModified: '2024-01-13T13:13:00+00:00',
@@ -90,14 +90,14 @@ export default function HomePage () {
           }
         },
         isPartOf: {
-          '@id': 'https://azmovies.vercel.app/#website'
+          '@id': 'https://atozmovies.vercel.app/#website'
         },
         inLanguage: 'en-US',
         mainEntity: [
           {
             '@type': 'Article',
-            '@id': 'https://azmovies.vercel.app/',
-            url: 'https://azmovies.vercel.app/',
+            '@id': 'https://atozmovies.vercel.app/',
+            url: 'https://atozmovies.vercel.app/',
             headline: 'AtoZ Movies™ - Online. Stream. Download. ',
             datePublished: '2024-01-13T13:00:00+00:00',
             dateModified: '2024-01-13T13:13:00+00:00',
@@ -116,15 +116,15 @@ export default function HomePage () {
             },
             publisher: {
               '@type': 'Organization',
-              '@id': 'https://azmovies.vercel.app/#organization',
+              '@id': 'https://atozmovies.vercel.app/#organization',
               name: 'AtoZ Movies™ - Online. Stream. Download. ',
-              url: 'https://azmovies.vercel.app'
+              url: 'https://atozmovies.vercel.app'
             }
           },
           {
             '@type': 'Article',
-            '@id': 'https://azmovies.vercel.app/',
-            url: 'https://azmovies.vercel.app/',
+            '@id': 'https://atozmovies.vercel.app/',
+            url: 'https://atozmovies.vercel.app/',
             headline: 'AtoZ Movies™ - Online. Stream. Download. ',
             datePublished: '2024-01-13T13:00:00+00:00',
             dateModified: '2024-01-13T13:13:00+00:00',
@@ -143,15 +143,15 @@ export default function HomePage () {
             },
             publisher: {
               '@type': 'Organization',
-              '@id': 'https://azmovies.vercel.app/#organization',
+              '@id': 'https://atozmovies.vercel.app/#organization',
               name: 'AtoZ Movies™ - Online. Stream. Download. ',
-              url: 'https://azmovies.vercel.app'
+              url: 'https://atozmovies.vercel.app'
             }
           },
           {
             '@type': 'Article',
-            '@id': 'https://azmovies.vercel.app/',
-            url: 'https://azmovies.vercel.app/',
+            '@id': 'https://atozmovies.vercel.app/',
+            url: 'https://atozmovies.vercel.app/',
             headline: 'AtoZ Movies™ - Online. Stream. Download. ',
             datePublished: '2024-01-13T13:00:00+00:00',
             dateModified: '2024-01-13T13:13:00+00:00',
@@ -177,7 +177,7 @@ export default function HomePage () {
   const languagesSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    url: 'https://azmovies.vercel.app/',
+    url: 'https://atozmovies.vercel.app/',
     name: 'AtoZ Movies™ - Online. Stream. Download.',
     alternateName: [
       'AtoZ Movies™ - Explorar. Transmitir. En línea.',
@@ -213,7 +213,7 @@ export default function HomePage () {
           rel='sitemap'
           type='application/xml'
           title='Sitemap'
-          href='https://azmovies.vercel.app/sitemap.xml'
+          href='https://atozmovies.vercel.app/sitemap.xml'
         />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <link rel='icon' type='image/x-icon' href='/favicon.ico' />
@@ -250,7 +250,7 @@ export default function HomePage () {
           name='description'
           content='Stream HD movies and TV series for free on AtoZ Movies. Explore, stream, and download full-length movies and shows in HD quality without registration.'
         />
-        <link rel='canonical' href='https://azmovies.vercel.app/' />
+        <link rel='canonical' href='https://atozmovies.vercel.app/' />
         <meta property='og:locale' content='en_US' />
         <meta property='og:type' content='video.movie' />
         <meta property='og:type' content='website' />
@@ -258,14 +258,14 @@ export default function HomePage () {
           property='og:title'
           content='AtoZ Movies™ - Online. Stream. Download. '
         />
-        <meta property='og:url' content='https://azmovies.vercel.app' />
+        <meta property='og:url' content='https://atozmovies.vercel.app' />
         <meta
           property='og:site_name'
           content='AtoZ Movies™ - Online. Stream. Download. '
         />
         <meta
           property='og:image'
-          content='https://azmovies.vercel.app/og_image.jpg'
+          content='https://atozmovies.vercel.app/og_image.jpg'
         />
         <meta property='og:image:width' content='1200' />
         <meta property='og:image:height' content='630' />
@@ -282,7 +282,7 @@ export default function HomePage () {
           rel='sitemap'
           type='application/xml'
           title='Sitemap'
-          href='https://azmovies.vercel.app/sitemap.xml'
+          href='https://atozmovies.vercel.app/sitemap.xml'
         />
         <meta name='twitter:card' content='summary_large_image' />
         <meta
@@ -295,7 +295,7 @@ export default function HomePage () {
         />
         <meta
           name='twitter:image'
-          content='https://azmovies.vercel.app/og_image.jpg'
+          content='https://atozmovies.vercel.app/og_image.jpg'
         />
         <meta
           name='google-site-verification'
