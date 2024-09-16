@@ -433,7 +433,7 @@ const Page5 = ({ items }) => {
               <div className='cardlatest-container'>
                 {latest.map(latestItem => (
                   <div key={latestItem.id} className='cardlatest'>
-                    <a href={`/latest/${latestItem.id}`}>
+                    <a href={`/movies/${latestItem.id}`}>
                       <div className='relative'>
                         <Image
                           src={latestItem.image}

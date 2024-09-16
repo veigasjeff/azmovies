@@ -440,7 +440,7 @@ const Page1 = ({ items }) => {
               <div className='cardlatest-container'>
                 {latest.map(latestItem => (
                   <div key={latestItem.id} className='cardlatest'>
-                    <a href={`/latest/${latestItem.id}`}>
+                    <a href={`/adult/${latestItem.id}`}>
                       <div className='relative'>
                         <Image
                           src={latestItem.image}
