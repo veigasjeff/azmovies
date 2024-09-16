@@ -546,7 +546,7 @@ const moviesDetail = ({ moviesp1Item }) => {
             <h2 className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl hover:text-blue-800 font-bold mt-2'>
               {moviesp1Item.title} Online - Stream Your Favorite TV Series
             </h2>
-            <p className='text-lg text-black mt-4'>
+            <p className='text-lg bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent mt-4'>
               Explore the captivating world of{' '}
               <strong>{moviesp1Item.title}</strong>, the TV series that has
               everyone talking. At
@@ -557,7 +557,7 @@ const moviesDetail = ({ moviesp1Item }) => {
               streaming experience, making it easy to watch your favorite TV
               series online.
             </p>
-            <p className='text-lg text-black mt-4'>
+            <p className='text-lg bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent mt-4'>
               Streaming <strong>{moviesp1Item.title}</strong> on{' '}
               <strong>AtoZ </strong> ensures that you won't miss a single moment
               of the action, drama, or comedy that makes this TV series a
@@ -567,7 +567,7 @@ const moviesDetail = ({ moviesp1Item }) => {
               and other top TV series. Our library is frequently updated, so you
               can always find the latest episodes as soon as they air.
             </p>
-            <p className='text-lg text-black mt-4'>
+            <p className='text-lg bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent mt-4'>
               Whether you're binge-watching or following along weekly,{' '}
               <strong>{moviesp1Item.title}</strong> on <strong>AtoZ </strong> is
               your go-to destination for streaming TV series online. Join our
@@ -585,7 +585,7 @@ const moviesDetail = ({ moviesp1Item }) => {
             <h2 className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl hover:text-blue-800 font-bold mt-2'>
               {moviesp1Item.title} Online - Stream Premium Adult Content
             </h2>
-            <p className='text-lg text-black mt-4'>
+            <p className='text-lg bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent mt-4'>
               Indulge in the finest selection of adult entertainment with{' '}
               <strong>{moviesp1Item.title}</strong>. At <strong>AtoZ </strong>,
               we offer a vast library of premium adult content, including the
@@ -594,7 +594,7 @@ const moviesDetail = ({ moviesp1Item }) => {
               for those who seek high-quality, discreet streaming of adult
               films, ensuring a seamless and private viewing experience.
             </p>
-            <p className='text-lg text-black mt-4'>
+            <p className='text-lg bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent mt-4'>
               Streaming <strong>{moviesp1Item.title}</strong> on{' '}
               <strong>AtoZ </strong> provides you with a user-friendly interface
               and crystal-clear video quality. Our adult content is regularly
@@ -603,7 +603,7 @@ const moviesDetail = ({ moviesp1Item }) => {
               your favorites, <strong>{moviesp1Item.title}</strong>
               and other top titles are available at your fingertips.
             </p>
-            <p className='text-lg text-black mt-4'>
+            <p className='text-lg bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent mt-4'>
               For a premium experience in adult entertainment, look no further
               than <strong>{moviesp1Item.title}</strong> on{' '}
               <strong>AtoZ </strong>. Our platform ensures your privacy and
@@ -620,7 +620,7 @@ const moviesDetail = ({ moviesp1Item }) => {
             <h2 className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-2xl  font-bold mt-2'>
               {moviesp1Item.title} Online and Experience Top-Tier Streaming
             </h2>
-            <p className='text-lg text-black mt-4'>
+            <p className='text-lg bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent mt-4'>
               Dive into the world of cinema with{' '}
               <strong>{moviesp1Item.title}</strong>, available to stream right
               here. At <strong>AtoZ </strong>, we bring you the best in
@@ -630,7 +630,7 @@ const moviesDetail = ({ moviesp1Item }) => {
               action, drama, comedy, or any other genre, you'll find exactly
               what you're looking for.
             </p>
-            <p className='text-lg text-black mt-4'>
+            <p className='text-lg bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent mt-4'>
               Streaming <strong>{moviesp1Item.title}</strong> on{' '}
               <strong>AtoZ </strong> guarantees a seamless viewing experience
               with high-definition quality and uninterrupted playback. Our
@@ -640,7 +640,7 @@ const moviesDetail = ({ moviesp1Item }) => {
               <strong>{moviesp1Item.title}</strong> and other top titles as soon
               as they're available.
             </p>
-            <p className='text-lg text-black mt-4'>
+            <p className='text-lg bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent mt-4'>
               Whether you're revisiting a classic or catching a new release,{' '}
               <strong>{moviesp1Item.title}</strong> on <strong>AtoZ </strong> is
               the perfect way to enjoy your moviesp1Item night. Join the
@@ -709,19 +709,19 @@ const moviesDetail = ({ moviesp1Item }) => {
                 </h2>
               </div>
 
-              <p className='text-black text-bg font-semibold mt-2'>
+              <p className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-bg font-semibold mt-2'>
                 Genre: {moviesp1Item.genre}
               </p>
-              <p className='text-black text-bg font-semibold mt-2'>
+              <p className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-bg font-semibold mt-2'>
                 Director: {moviesp1Item.directorname}
               </p>
-              <p className='text-black text-bg font-semibold mt-2'>
+              <p className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-bg font-semibold mt-2'>
                 Starring: {moviesp1Item.starring}
               </p>
-              <p className='text-black text-bg font-semibold mt-2'>
+              <p className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-bg font-semibold mt-2'>
                 Origin Country: {moviesp1Item.country}
               </p>
-              <p className='text-black text-bg font-semibold mt-2'>
+              <p className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-bg font-semibold mt-2'>
                 Language: {moviesp1Item.language}
               </p>
 
@@ -1142,25 +1142,24 @@ const moviesDetail = ({ moviesp1Item }) => {
 
           <div className='sidebar'>
             <p
-              className='text-black text-2xl font-bold mt-2'
+              className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent font-bold mt-2 flex flex-col items-center justify-center text-3xl'
               style={{
                 marginTop: '15px',
-                color: '#000',
-                font: 'bold',
-                textShadow: '1px 2px 2px #000'
+                marginBottom:'15px'
+                             
               }}
             >
               LATEST UPDATED TVSHOW
             </p>
             <div className='categorylatest-container'>
               <div className='cardlatest-container'>
-                {latestData.map(item => (
-                  <div key={item.id} className='cardlatest'>
-                    <a href={`/tvshow/${item.id}`}>
+                {latest.map(latestItem => (
+                  <div key={latestItem.id} className='cardlatest'>
+                    <a href={`/latest/${latestItem.id}`}>
                       <div className='relative'>
                         <Image
-                          src={item.image}
-                          alt={item.title}
+                          src={latestItem.image}
+                          alt={latestItem.title}
                           className='rounded-lg mx-auto'
                           width={140} // Specify the desired width
                           height={140} // Specify the desired height
@@ -1173,11 +1172,11 @@ const moviesDetail = ({ moviesp1Item }) => {
                               'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)' // Image filter
                           }}
                         />
-                        <p className='text-black text-lg font-semibold mt-2'>
-                          {item.name}
+                        <p className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent font-bold mt-2 flex flex-col items-center justify-center text-2xl'> 
+                          {latestItem.name}
                         </p>
-                        <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-sm font-semibold mt-2'>
-                          {item.text}
+                        <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-sm font-semibold mt-2 flex flex-col items-center justify-center'>
+                          {latestItem.text}
                         </div>
                       </div>
                     </a>
@@ -1187,6 +1186,7 @@ const moviesDetail = ({ moviesp1Item }) => {
             </div>
           </div>
         </div>
+
 
         <style jsx>{`
           /* Global styles */

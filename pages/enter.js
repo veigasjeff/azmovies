@@ -567,54 +567,52 @@ const HomePage = () => {
               </div>
             </div>
             <div className='sidebar'>
-              <p
-                className='text-black text-2xl font-bold mt-2'
-                style={{
-                  marginTop: '15px',
-                  color: '#000',
-                  font: 'bold',
-                  textShadow: '1px 2px 2px #000 '
-                }}
-              >
-                LATEST MOVIES TVSHOW { ' '}
-              </p>
-              <div className='categorylatest-container'>
-                <div className='cardlatest-container'>
-                  {latestData.map(latestItem => (
-                    <div key={latestItem.id} className='cardlatest'>
-                      <a href={`/movies/${latestItem.id}`}>
-                        <div className='relative'>
-                          <Image
-                            src={latestItem.image}
-                            alt={latestItem.title}
-                            className='rounded-lg mx-auto'
-                            width={140} // Specify the desired width
-                            height={140} // Specify the desired height
-                            quality={90}
-                            style={{
-                              width: '300px', // Ensures the image is displayed at this width
-                              height: '300px',  // Ensures the image is displayed at this height
-                              filter:
-                                 'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
-                            }}
-                          />
-                          <p className='text-black text-lg font-semibold mt-2'>
-                            {latestItem.name}
-                          </p>
-                          <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-sm font-semibold mt-2'>
-                            {latestItem.text}
-                          </div>
-                          {/* <div className='badge'>{latestItem.badge}</div> */}
+            <p
+              className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent font-bold mt-2 flex flex-col items-center justify-center text-3xl'
+              style={{
+                marginTop: '15px',
+                marginBottom:'15px'
+                             
+              }}
+            >
+              LATEST UPDATED MOVIES
+            </p>
+            <div className='categorylatest-container'>
+              <div className='cardlatest-container'>
+                {latest.map(latestItem => (
+                  <div key={latestItem.id} className='cardlatest'>
+                    <a href={`/latest/${latestItem.id}`}>
+                      <div className='relative'>
+                        <Image
+                          src={latestItem.image}
+                          alt={latestItem.title}
+                          className='rounded-lg mx-auto'
+                          width={140} // Specify the desired width
+                          height={140} // Specify the desired height
+                          quality={90}
+                          style={{
+                            width: '300px', // Ensures the image is displayed at this width
+                            height: '300px', // Ensures the image is displayed at this height
+                            boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                            filter:
+                              'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)' // Image filter
+                          }}
+                        />
+                        <p className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent font-bold mt-2 flex flex-col items-center justify-center text-2xl'> 
+                          {latestItem.name}
+                        </p>
+                        <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-sm font-semibold mt-2 flex flex-col items-center justify-center'>
+                          {latestItem.text}
                         </div>
-                      </a>
-                    </div>
-                  ))}
-                </div>
+                      </div>
+                    </a>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
-
+        </div>
         <style jsx>{`
           /* Global styles */
           body {
@@ -672,7 +670,7 @@ const HomePage = () => {
           .card {
             width: 100%; /* Card width will automatically adapt */
             max-width: 100%; /* Limit max width for larger screens */
-            border: 1px solid #ccc;
+            // border: 1px solid #ccc;
             border-radius: 8px;
             overflow: hidden;
           }

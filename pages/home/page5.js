@@ -389,16 +389,19 @@ const Page5 = ({ items }) => {
                             'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)' // Image filter
                         }}
                       />
-                      <p className='text-black text-2xl font-semibold mt-2 flex flex-col items-center justify-center'>
+                       <p className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-black text-2xl font-bold mt-2 flex flex-col items-center justify-center'>
                         {item.name}
                       </p>
-                      <p className='text-black text-bg font-semibold mt-2 flex flex-col items-center justify-center'>
-                        Language: {item.language}, Genre: {item.genre}
+                      <p className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-black text-lg font-semibold mt-2 flex flex-col items-center justify-center'>
+                        Language: {item.language}
                       </p>
-                      <p className='text-black text-bg font-semibold mt-2 flex flex-col items-center justify-center'>
+                      <p className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-black text-lg font-semibold mt-2 flex flex-col items-center justify-center'>
+                      Genre: {item.genre}
+                      </p>
+                      <p className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-black text-lg font-semibold mt-2 flex flex-col items-center justify-center'>
                         Starring: {item.starring}
                       </p>
-                      <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-black text-lg font-semibold mt-2 '>
+                      <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-black text-lg font-semibold mt-2'>
                         {item.text}
                       </div>
                       <div className='animate-pulse badge bg-gradient-to-r from-pink-500 to-amber-500 font-bold py-3 px-6 rounded-lg shadow-lg hover:from-amber-600 hover:to-pink-600 transition duration-300'>
@@ -425,12 +428,11 @@ const Page5 = ({ items }) => {
 
           <div className='sidebar'>
             <p
-              className='text-black text-2xl font-bold mt-2'
+              className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent font-bold mt-2 flex flex-col items-center justify-center text-3xl'
               style={{
                 marginTop: '15px',
-                color: '#000',
-                font: 'bold',
-                textShadow: '1px 2px 2px #000'
+                marginBottom:'15px'
+                             
               }}
             >
               LATEST UPDATED MOVIES
@@ -456,7 +458,7 @@ const Page5 = ({ items }) => {
                               'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)' // Image filter
                           }}
                         />
-                        <p className='text-black text-lg font-semibold mt-2 flex flex-col items-center justify-center'>
+                        <p className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent font-bold mt-2 flex flex-col items-center justify-center text-2xl'> 
                           {latestItem.name}
                         </p>
                         <div className='bg-gradient-to-r from-pink-700 to-blue-700 bg-clip-text text-transparent text-sm font-semibold mt-2 flex flex-col items-center justify-center'>
@@ -470,6 +472,7 @@ const Page5 = ({ items }) => {
             </div>
           </div>
         </div>
+
 
         <style jsx>{`
           /* Global styles */
@@ -523,7 +526,7 @@ const Page5 = ({ items }) => {
           .cardlatest {
             width: 100%;
             max-width: 100%;
-            border: 1px solid #ccc;
+            // border: 1px solid #ccc;
             border-radius: 8px;
             overflow: hidden;
           }
