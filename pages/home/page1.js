@@ -238,15 +238,7 @@ const Page1 = ({ items }) => {
       <div className='shadow-lg flex items-center justify-center' role='navigation'
        style={{ marginTop: '15px' }} >
       <ul id='menu-header-menu' className='menu flex flex-wrap justify-center'>
-        <button className={styles.customButton}>
-          <li id='menu-item-35'>
-            <a href='/' className={styles.textContent}>
-              Home
-            </a>
-          </li>
-        </button>
-
-        <button className={styles.customButton}>
+          <button className={styles.customButton}>
           <li id='menu-item-284913'>
             <a href='../home/page1' className={styles.textContent}>
               Movies

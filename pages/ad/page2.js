@@ -105,7 +105,7 @@ const Page2 = ({ items }) => {
   //   // Logic to fetch browsers for the current page
   // }, [currentPage])
   const router = useRouter()
-  const currentPage = parseInt(router.pathname.replace('/home/page', '')) || 1
+  const currentPage = parseInt(router.pathname.replace('/ad/page', '')) || 1
   const totalPages = 20 // Adjust this based on the total number of pages
 
   const previousPage = currentPage > 1 ? currentPage - 1 : 1
@@ -237,15 +237,7 @@ const Page2 = ({ items }) => {
       <div className='shadow-lg flex items-center justify-center' role='navigation'
        style={{ marginTop: '15px' }} >
       <ul id='menu-header-menu' className='menu flex flex-wrap justify-center'>
-        <button className={styles.customButton}>
-          <li id='menu-item-35'>
-            <a href='/' className={styles.textContent}>
-              Home
-            </a>
-          </li>
-        </button>
-
-        <button className={styles.customButton}>
+         <button className={styles.customButton}>
           <li id='menu-item-284913'>
             <a href='../home/page1' className={styles.textContent}>
               Movies
@@ -270,12 +262,12 @@ const Page2 = ({ items }) => {
         </button>
       </ul>
     </div>
-      <div className='flex justify-center items-center my-4 gap-4'>
+    <div className='flex justify-center items-center my-4 gap-4'>
         {isDesktop && (
           <div className='flex flex-col justify-center items-center gap-2'>
             {/* First row of pages for desktop and laptop devices */}
             <div className='flex flex-wrap justify-center gap-2'>
-              <Link href='/ad/Page2' passHref>
+              <Link href='/ad/page1' passHref>
                 <button
                   className={`px-4 py-2 border rounded ${
                     currentPage === 1
@@ -287,7 +279,7 @@ const Page2 = ({ items }) => {
                 </button>
               </Link>
 
-              {[2].map(page => (
+              {[2, ].map(page => (
                 <Link key={page} href={`/ad/page${page}`} passHref>
                   <button
                     className={`px-4 py-2 border rounded ${

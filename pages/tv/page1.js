@@ -104,7 +104,7 @@ const Page1 = ({ items }) => {
   //   // Logic to fetch browsers for the current page
   // }, [currentPage])
   const router = useRouter()
-  const currentPage = parseInt(router.pathname.replace('/home/page', '')) || 1
+  const currentPage = parseInt(router.pathname.replace('/tv/page', '')) || 1
   const totalPages = 20 // Adjust this based on the total number of pages
 
   const previousPage = currentPage > 1 ? currentPage - 1 : 1
@@ -244,14 +244,6 @@ const Page1 = ({ items }) => {
           className='menu flex flex-wrap justify-center'
         >
           <button className={styles.customButton}>
-            <li id='menu-item-35'>
-              <a href='/' className={styles.textContent}>
-                Home
-              </a>
-            </li>
-          </button>
-
-          <button className={styles.customButton}>
             <li id='menu-item-284913'>
               <a href='../home/page1' className={styles.textContent}>
                 Movies
@@ -349,7 +341,7 @@ const Page1 = ({ items }) => {
             </span>
 
             {/* Next button for mobile */}
-            <Link href={`/home/page${nextPage}`} passHref>
+            <Link href={`/tv/page${nextPage}`} passHref>
               <button
                 className={`px-4 py-2 border rounded ${
                   currentPage === totalPages

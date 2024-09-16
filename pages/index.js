@@ -386,7 +386,7 @@ export default function HomePage () {
             The premier platform for the latest releases and secure downloads.
           </p>
           {/* <Link href='/home/page1'> */}
-          <Link href='/enter'>
+          <Link href='/home/page1'>
             <div className='cta-button'>Enter AtoZ Movies™</div>
           </Link>
         </div>
