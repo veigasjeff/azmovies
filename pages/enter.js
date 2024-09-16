@@ -451,8 +451,9 @@ const HomePage = () => {
                           style={{
                             width: '200px', // Ensures the image is displayed at this width
                             height: '300px',  // Ensures the image is displayed at this height
+                            boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
                             filter:
-                               'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
+                              'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)' // Image filter
                           }}
                         />
                      
@@ -495,8 +496,9 @@ const HomePage = () => {
                           style={{
                             width: '200px', // Ensures the image is displayed at this width
                             height: '300px',  // Ensures the image is displayed at this height
+                            boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
                             filter:
-                               'contrast(1.1) saturate(1.1) brightness(1.0) hue-rotate(0deg)'
+                              'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)' // Image filter
                           }}
                         />
                      
