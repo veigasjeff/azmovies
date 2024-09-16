@@ -223,7 +223,7 @@ const Page2 = ({ items }) => {
           marginBottom: '15px'
         }}
       >
-        AtoZ  Movies Section.
+       AtoZ Tv Show Section.
       </h1>
       <div className='flex justify-center items-center my-4 gap-4'>
         <GoogleTranslate />
