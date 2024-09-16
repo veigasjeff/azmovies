@@ -211,35 +211,36 @@ const moviesDetail = ({ moviesp1Item }) => {
     ]
   })
 
+
   const rankMathSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': ['Person', 'Organization'],
         '@id': 'https://gravatar.com/drtrailer2022/#person',
-        name: 'Dr Trailer'
+        name: 'Dr Trailer',
       },
       {
         '@type': 'WebSite',
         '@id': 'https://atozmovies.vercel.app#website',
         url: 'https://atozmovies.vercel.app',
-        name: 'AtoZ ',
+        name: 'AtoZ Movies™',
         publisher: {
-          '@id': 'https://gravatar.com/drtrailer2022/#person'
+          '@id': 'https://gravatar.com/drtrailer2022/#person',
         },
-        inLanguage: 'en-US'
+        inLanguage: 'en-US',
       },
       {
         '@type': 'WebPage',
         '@id': `${moviesp1Item.siteurl}#webpage`,
         url: moviesp1Item.siteurl,
-        name: `${moviesp1Item.name} | AtoZ `,
+        name: `${moviesp1Item.name} | AtoZ Movies™`,
         datePublished: moviesp1Item.datePublished,
         dateModified: moviesp1Item.dateModified,
         isPartOf: {
-          '@id': 'https://atozmovies.vercel.app#website'
+          '@id': 'https://atozmovies.vercel.app#website',
         },
-        inLanguage: 'en-US'
+        inLanguage: 'en-US',
       },
       {
         '@type': 'Person',
@@ -248,65 +249,64 @@ const moviesDetail = ({ moviesp1Item }) => {
         url: 'https://gravatar.com/drtrailer2022/',
         image: {
           '@type': 'ImageObject',
-          '@id': 'https://gravatar.com/drtrailer2022',
+          '@id': 'https://gravatar.com/drtrailer2022#image',
           url: 'https://gravatar.com/drtrailer2022',
           caption: 'Dr Trailer',
-          inLanguage: 'en-US'
+          inLanguage: 'en-US',
         },
-        sameAs: ['https://atozmovies.vercel.app']
+        sameAs: ['https://atozmovies.vercel.app'],
       },
       {
         '@type': 'Article',
         '@id': `${moviesp1Item.siteurl}#article`,
-        headline: ` ${moviesp1Item.name} | AtoZ `,
+        headline: `${moviesp1Item.name} | AtoZ Movies™`,
         datePublished: moviesp1Item.datePublished,
         dateModified: moviesp1Item.dateModified,
         articleSection: 'moviesp1Items',
         author: {
-          '@id': 'https://gravatar.com/drtrailer2022/'
+          '@id': 'https://gravatar.com/drtrailer2022/',
         },
         publisher: {
-          '@id': 'https://gravatar.com/drtrailer2022/#person'
+          '@id': 'https://gravatar.com/drtrailer2022/#person',
         },
         description: moviesp1Item.synopsis,
         image: moviesp1Item.image,
-        name: ` ${moviesp1Item.name} | AtoZ `,
+        name: `${moviesp1Item.name} | AtoZ Movies™`,
         isPartOf: {
-          '@id': `${moviesp1Item.siteurl}#webpage`
+          '@id': `${moviesp1Item.siteurl}#webpage`,
         },
         inLanguage: 'en-US',
         mainEntityOfPage: {
-          '@id': `${moviesp1Item.siteurl}#webpage`
-        }
+          '@id': `${moviesp1Item.siteurl}#webpage`,
+        },
       },
       {
         '@type': 'BlogPosting',
         '@id': `${moviesp1Item.siteurl}#blogPost`,
-        headline: ` ${moviesp1Item.name} | AtoZ `,
+        headline: `${moviesp1Item.name} | AtoZ Movies™`,
         datePublished: moviesp1Item.datePublished,
         dateModified: moviesp1Item.dateModified,
         articleSection: 'moviesp1Items',
         author: {
-          '@id': 'https://gravatar.com/drtrailer2022/'
+          '@id': 'https://gravatar.com/drtrailer2022/',
         },
         publisher: {
-          '@id': 'https://gravatar.com/drtrailer2022/#person'
+          '@id': 'https://gravatar.com/drtrailer2022/#person',
         },
         description: moviesp1Item.synopsis,
         image: moviesp1Item.image,
-        name: ` ${moviesp1Item.name} | AtoZ `,
-        '@id': `${moviesp1Item.siteurl}#richSnippet`,
+        name: `${moviesp1Item.name} | AtoZ Movies™`,
         isPartOf: {
-          '@id': `${moviesp1Item.siteurl}#webpage`
+          '@id': `${moviesp1Item.siteurl}#webpage`,
         },
         inLanguage: 'en-US',
         mainEntityOfPage: {
-          '@id': `${moviesp1Item.siteurl}#webpage`
-        }
-      }
-    ]
-  })
-
+          '@id': `${moviesp1Item.siteurl}#webpage`,
+        },
+      },
+    ],
+  });
+  
   const newsArticleSchema = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
