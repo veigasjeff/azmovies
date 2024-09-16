@@ -45,10 +45,10 @@ const softwareSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Article',
   '@id': 'https://atozmovies.vercel.app/home/page3',
-  headline: 'Watch Movies Page 3 | AtoZ ™',
+  headline: 'Watch Movies Page 3 | AtoZ™',
   url: 'https://atozmovies.vercel.app/home/page3',
   description:
-    'Stream HD movies and TV series for free on AtoZ ™. Online. Stream. Download. full-length movies and shows in HD quality without registration.',
+    'Stream HD movies and TV series for free on AtoZ™. Online. Stream. Download. full-length movies and shows in HD quality without registration.',
   image: 'https://atozmovies.vercel.app/og_image.jpg',
   author: {
     '@type': 'Person',
@@ -129,7 +129,7 @@ const Page3 = ({ items }) => {
   return (
     <div className='w-full' style={{ backgroundColor: '#D3D3D3' }}>
       <Head>
-        <title> Watch Movies Page 3 | AtoZ ™</title>
+        <title> Watch Movies Page 3 | AtoZ™</title>
         <link rel='canonical' href='https://atozmovies.vercel.app/home/page3' />
         <meta
           name='robots'
@@ -140,10 +140,10 @@ const Page3 = ({ items }) => {
         <meta name='revisit-after' content='1 days' />
         <meta property='og:locale' content='en_US' />
         <meta property='og:type' content='website' />
-        <meta property='og:title' content=' Watch Movies Page 3 | AtoZ ™' />
+        <meta property='og:title' content=' Watch Movies Page 3 | AtoZ™' />
         <meta
           property='og:description'
-          content='Stream HD movies and TV series for free on AtoZ ™. Online. Stream. Download. full-length movies and shows in HD quality without registration.'
+          content='Stream HD movies and TV series for free on AtoZ™. Online. Stream. Download. full-length movies and shows in HD quality without registration.'
         />
 
         <meta property='og:url' content='https://atozmovies.vercel.app/home/page3' />

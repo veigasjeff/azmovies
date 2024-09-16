@@ -427,7 +427,7 @@ const moviesDetail = ({ moviesp1Item }) => {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <title> {moviesp1Item && moviesp1Item.name} | AtoZ ???</title>
+        <title> {moviesp1Item && moviesp1Item.name} | AtoZ™</title>
         <link rel='canonical' href={moviesp1Item && moviesp1Item.siteurl} />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index,follow' />
@@ -436,11 +436,11 @@ const moviesDetail = ({ moviesp1Item }) => {
         <meta property='og:type' content='website' />
         <meta
           property='og:title'
-          content={`${moviesp1Item && moviesp1Item.name} - AtoZ ???`}
+          content={`${moviesp1Item && moviesp1Item.name} - AtoZ™`}
         />
         <meta
           property='og:description'
-          content='Stream HD movies and TV series for free on AtoZ ???. Online. Stream. Download. full-length movies and shows in HD quality without registration.'
+          content='Stream HD movies and TV series for free on AtoZ™. Online. Stream. Download. full-length movies and shows in HD quality without registration.'
         />
 
         <meta
