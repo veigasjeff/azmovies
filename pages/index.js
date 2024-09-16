@@ -242,27 +242,29 @@ export default function HomePage () {
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
         />
-        <meta
-          name='keywords'
-          content="atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies" />
+       <meta
+            name='keywords'
+            content='atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies,123movies,gomovies,yes movies,putlocker,putlockers,soap2day'
+          />
         <meta
           name='description'
-          content='Stream HD movies and TV series for free on AtoZ Movies. Online. Stream. Download. full-length movies and shows in HD quality without registration.'
+          content='Stream HD movies and TV series for free on AtoZ Movies. Explore, stream, and download full-length movies and shows in HD quality without registration.'
         />
-        <link rel='canonical' href='https://atozmovies.vercel.app/' />
+        <link rel='canonical' href='https://atozmovies.vercel.app' />
         <meta property='og:locale' content='en_US' />
+        <meta property='og:type' content='video.movie' />
         <meta property='og:type' content='website' />
         <meta
           property='og:title'
-          content='AtoZ Movies™ - Online. Stream. Download. '
+          content='AtoZ Movies™ - Explore. Stream. Online. '
         />
         <meta property='og:url' content='https://atozmovies.vercel.app' />
         <meta
           property='og:site_name'
-          content='AtoZ Movies™ - Online. Stream. Download. '
+          content='AtoZ Movies™ - Explore. Stream. Online. '
         />
         <meta
-          property='og:image' fetchpriority="high" as="image"
+          property='og:image'
           content='https://atozmovies.vercel.app/og_image.jpg'
         />
         <meta property='og:image:width' content='1200' />
@@ -270,7 +272,7 @@ export default function HomePage () {
         <meta property='og:image:type' content='image/jpg' />
         <meta
           name='application-name'
-          content='AtoZ Movies™ - Online. Stream. Download. '
+          content='AtoZ Movies™ - Explore. Stream. Online. '
         />
         <meta
           property='article:modified_time'
@@ -285,11 +287,11 @@ export default function HomePage () {
         <meta name='twitter:card' content='summary_large_image' />
         <meta
           name='twitter:title'
-          content='AtoZ Movies™ - Online. Stream. Download.  HD Movies and TV Series Free'
+          content='AtoZ Movies™ - Explore. Stream. Online.  HD Movies and TV Series Free'
         />
         <meta
           name='twitter:description'
-          content='Stream HD movies and TV series for free on AtoZ Movies™. Online. Stream. Download. full-length movies and shows in HD quality without registration.'
+          content='Stream HD movies and TV series for free on AtoZ Movies™. Explore, stream, and download full-length movies and shows in HD quality without registration.'
         />
         <meta
           name='twitter:image'
@@ -297,7 +299,7 @@ export default function HomePage () {
         />
         <meta
           name='google-site-verification'
-          content='BZNZAUYOS1NXYRFA99F4VJ3ABKZUZHKKB0PZ3DU3L8S'
+          content='BZNZaUyoS1nXyRfa99f4VJ3ABKZUZhkKB0pZ3DU3L8s'
         />
 
         <meta
