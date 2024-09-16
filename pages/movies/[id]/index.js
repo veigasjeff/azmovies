@@ -796,11 +796,10 @@ const moviesDetail = ({ moviesp1Item }) => {
                   title={moviesp1Item.actor4}
                   quality={90}
                   style={{
-                    width: '200px',
-                    height: '200px',
-                    objectFit: 'cover',
-                    boxShadow: '0 0 10px 0 #C0C0C0', // Shadow effect with black color
-                    filter: 'contrast(1.2) saturate(1.2)'
+                    objectFit: 'cover', // Ensures the image covers the container
+                    boxShadow: '0 0 10px 0 #000', // Shadow effect with black color
+                    filter:
+                      'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)' // Image filter
                   }}
                   loading='lazy'
                   layout='responsive'
