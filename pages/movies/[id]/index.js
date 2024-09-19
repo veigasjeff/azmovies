@@ -611,14 +611,8 @@ const MovieDetail = ({ movie }) => {
       </Head>
       <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
-
-    
-        <div className='flex justify-center items-center my-4 gap-4'>
-          <GoogleTranslate />
-        </div>
-        <span className='px-0 bg-clip-text text-sm text-black font-bold mt-2 '>
-          <SearchComponent />
-        </span>
+ 
+       
         <SocialSharing />
         <div
         className={`w-full`}
