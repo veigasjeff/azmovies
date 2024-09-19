@@ -1,0 +1,29 @@
+.customButton {
+    border: 2px solid #333;
+    padding: 10px 20px;
+    margin: 5px;
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .customButton:hover {
+    background: linear-gradient(to bottom, #f0a55c, #d9763d); /* More realistic, warmer gradient */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .textContent {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Ensure text is visible */
+    transition: color 0.3s ease, background-clip 0.3s ease;
+  }
+  
+  /* Make sure text color is visible on hover */
+  .customButton:hover .textContent {
+    color: #fff; /* White text on hover for contrast */
+  }
+  
