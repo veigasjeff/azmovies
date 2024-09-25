@@ -1007,23 +1007,23 @@ nav ul li {
 body.day-mode {
   background-color: #fff;
   color: #000;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  /* border-radius: 10px;
     margin: 0;
-    height: 100vh; 
+    height: 100vh; Adjust as needed */
 }
 
 body.night-mode {
   background-color: #000;
   color: #fff;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  /* border-radius: 10px;
     margin: 0;
-    height: 50vh; 
+    height: 100vh; Adjust as needed */
 }
 
 .container {
