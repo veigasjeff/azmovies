@@ -1417,7 +1417,11 @@ padding: 8px;
 .item {
 width: calc(50% - 10px); /* 2 items per row on mobile */
 }
-
+img {
+  aspect-ratio: 16 / 9; /* Example for 16:9 ratio */
+  width: 100%; /* Make it responsive */
+  height: auto; /* Maintain aspect ratio */
+}
 }
 
 
