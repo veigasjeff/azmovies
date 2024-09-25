@@ -201,64 +201,81 @@
 
       </div>
     </div>
-    <!-- Center-aligned container -->
-    <h3 class="text-3xl mb-2 font-bold text-center"
-      style="color: #40D7BC; display: flex; justify-content: center; align-items: center; height: 10vh;">Please Share
-      The
-      Link</h3>
-    <div id="share-buttons"
-      style="display: flex; justify-content: center; align-items: center; height: 10vh; margin-bottom: 20px;">
-      <!-- Facebook Share Button -->
-      <a id="share-facebook" href="#" target="_blank">
-        <img src="https://w7.pngwing.com/pngs/561/460/png-transparent-fb-facebook-facebook-logo-social-media-icon.png"
-          alt="Facebook" width="48" height="48" style="border-radius: 50%; cursor: pointer;"
-          onclick="shareSocialMedia('facebook')">
-      </a>
-
-      <!-- Twitter Share Button -->
-      <a id="share-twitter" href="#" target="_blank">
-        <img
-          src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-twitter-social-media-round-icon-png-image_6315985.png"
-          alt="Twitter" width="48" height="48" style="border-radius: 50%; cursor: pointer;"
-          onclick="shareSocialMedia('twitter')">
-      </a>
-
-      <!-- LinkedIn Share Button -->
-      <a id="share-linkedin" href="#" target="_blank">
-        <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png" alt="LinkedIn" width="48"
-          height="48" style="border-radius: 50%; cursor: pointer;" onclick="shareSocialMedia('linkedin')">
-      </a>
-
-      <!-- WhatsApp Share Button -->
-      <a id="share-whatsapp" href="#" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/640px-WhatsApp_icon.png"
-          alt="WhatsApp" width="48" height="48" style="border-radius: 50%; cursor: pointer;"
-          onclick="shareSocialMedia('whatsapp')">
-      </a>
-
-      <!-- Email Share Button -->
-      <a id="share-email" href="#">
-        <img src="https://e7.pngegg.com/pngimages/745/644/png-clipart-email-logo-icon-email-black-envelope-logo-miscellaneous-text-thumbnail.png" alt="Email" width="48"
-          height="48" style="border-radius: 50%; cursor: pointer;" onclick="shareSocialMedia('email')">
-      </a>
-      <!-- Telegram Channel Link -->
-      <a id="share-telegram" href="https://t.me/watchmovietvshow" target="_blank">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png"
-          alt="Telegram" width="48" height="48" style="border-radius: 50%; cursor: pointer;">
+    <div class="flex items-center justify-center" style="margin-top: 35px;">
+      <a href="https://t.me/watchmovietvshow/" target="_blank" rel="noopener noreferrer"
+        className="telegram-link flex items-center">
+        <h3 id="language_heading" class="text-center mr-2">
+          For Request or Demand <br >
+          Movies & TV Series Join Telegram
+        </h3>
+        <div class="items-center justify-center">
+          <img src="https://img.icons8.com/ios-filled/48/1DA1F2/telegram-app.png" alt="Telegram" width="32"
+            height="32" >
       </a>
     </div>
- <!-- Google Translate Section -->
- <div id="google_translate_element_container" style=" margin-bottom: 30px;">
-  <!-- Heading -->
-  <h3 id="language_heading">Select Your Language</h3>
+    </div>
+
+    <div id="google_translate_element_container" style=" margin-bottom: 30px;">
+      <!-- Heading -->
+      <h3 id="language_heading">Select Your Language</h3>
 
 
-  <div id="google_translate_element">
+      <div id="google_translate_element">
 
+      </div>
   </div>
 </div>
-</div>
+   <!-- Social Sharing Buttons -->
+   <div class="socialContainer">
+    <a class="shareButton" id="facebook-share" href="#" target="_blank">
+      <img src="https://img.icons8.com/ios-filled/40/0000FF/facebook.png" alt="Facebook Share">
+    </a>
+    <a class="shareButton" id="whatsapp-share" href="#" target="_blank">
+      <img src="https://img.icons8.com/ios-filled/40/0000FF/whatsapp.png" alt="WhatsApp Share">
+    </a>
+    <a class="shareButton" id="twitter-share" href="#" target="_blank">
+      <img src="https://img.icons8.com/ios-filled/40/0000FF/twitter.png" alt="Twitter Share">
+    </a>
+    <a class="shareButton" id="linkedin-share" href="#" target="_blank">
+      <img src="https://img.icons8.com/ios-filled/40/0000FF/linkedin.png" alt="LinkedIn Share">
+    </a>
+    <a class="shareButton" id="telegram-share" href="#" target="_blank">
+      <img src="https://img.icons8.com/ios-filled/40/0000FF/telegram-app.png" alt="Telegram Share">
+    </a>
+    <a class="shareButton" id="email-share" href="#" target="_blank">
+      <img src="https://img.icons8.com/ios-filled/40/0000FF/email-open.png" alt="Email Share">
+    </a>
+  </div>
+
+
+    <h1
+      style="color: #40D7BC; display: flex; justify-content: center; align-items: center; text-shadow: 3px 5px 5px #000; font-size: 35px; font-weight:bold; ">
+      Watch Online Zorro - 2024
+    </h1>
+
+
+
+  <div class="container mt-3 text-center margin-bottom: 35px;">
+      <div class="col text-center">
+        <div class="flex justify-center">
+          <ul class="nav nav-tabs flex justify-between w-full" id="myTab" role="tablist">
+            <li class="nav-item flex-1">
+              <a class="nav-link badge-primary active w-full text-center" href="/movie/index.html"
+                style="font-size: 16px; font-weight:bold;">MOVIES</a>
+            </li>
+            <li class="nav-item flex-1">
+              <a class="nav-link badge-success w-full text-center" href="/tvshow/index.html"
+                style="font-size: 16px; font-weight:bold;">TV SHOW</a>
+            </li>
+            <li class="nav-item flex-1">
+              <a class="nav-link badge-danger w-full text-center" href="/adult/index.html"
+                style="font-size: 16px; font-weight:bold;">ADULT</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
       <div class="row">
         <div class="col-xl-4 col-lg-4">
@@ -391,12 +408,7 @@
     </div>
     </div>
     <div class="dome-container">
-      <a href="https://www.imdb.com/title/tt20252368/" target="_blank" title="IMDB link">
-        <h1
-          style="color: #40D7BC; display: flex; justify-content: center; align-items: center; text-shadow: 3px 5px 5px #000; font-size: 35px; font-weight:bold; ">
-          Watch Online Zorro - 2024
-        </h1>
-      </a>
+
 
       <div class="content-area">
 
@@ -1064,42 +1076,7 @@
       </div>
     </div>
 
-    <!-- Center-aligned container -->
-    <h3 class="text-3xl mb-2 font-bold text-center"
-      style="color: #40D7BC; display: flex; justify-content: center; align-items: center; height: 10vh;">Please Share
-      The
-      Link</h3>
-    <div id="share-buttons" style="display: flex; justify-content: center; align-items: center; height: 10vh;">
-      <!-- Facebook Share Button -->
-      <a id="share-facebook" href="#" target="_blank">
-        <img src="https://w7.pngwing.com/pngs/561/460/png-transparent-fb-facebook-facebook-logo-social-media-icon.png"
-          alt="Facebook" width="48" height="48" style="border-radius: 50%; cursor: pointer;"
-          onclick="shareSocialMedia('facebook')">
-      </a>
-      <!-- Twitter Share Button -->
-      <a id="share-twitter" href="#" target="_blank">
-        <img
-          src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-twitter-social-media-round-icon-png-image_6315985.png"
-          alt="Twitter" width="48" height="48" style="border-radius: 50%; cursor: pointer;"
-          onclick="shareSocialMedia('twitter')">
-      </a>
-      <!-- LinkedIn Share Button -->
-      <a id="share-linkedin" href="#" target="_blank">
-        <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png" alt="LinkedIn" width="48"
-          height="48" style="border-radius: 50%; cursor: pointer;" onclick="shareSocialMedia('linkedin')">
-      </a>
-      <!-- WhatsApp Share Button -->
-      <a id="share-whatsapp" href="#" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/640px-WhatsApp_icon.png"
-          alt="WhatsApp" width="48" height="48" style="border-radius: 50%; cursor: pointer;"
-          onclick="shareSocialMedia('whatsapp')">
-      </a>
-      <!-- Email Share Button -->
-      <a id="share-email" href="#">
-        <img src="https://e7.pngegg.com/pngimages/745/644/png-clipart-email-logo-icon-email-black-envelope-logo-miscellaneous-text-thumbnail.png" alt="Email" width="48"
-          height="48" style="border-radius: 50%; cursor: pointer;" onclick="shareSocialMedia('email')">
-      </a>
-    </div>
+  
   </main>
   <!-- Footer -->
   <footer class="footer bg-gray-900 text-white py-5" style="background-color: #000000;">
