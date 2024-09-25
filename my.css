@@ -1004,24 +1004,26 @@ nav ul li {
 .buttons {
   gap: 4px; /* Adjust the gap as needed */
 }
-body.day-mode, body.night-mode {
+body.day-mode {
+  background-color: #fff;
+  color: #000;
   padding: 10px 20px;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  margin: 0;
-}
-
-body.day-mode {
-  background-color: #fff;
-  color: #000;
-  height: 100vh; 
+    margin: 0;
+    height: 100vh; 
 }
 
 body.night-mode {
   background-color: #000;
   color: #fff;
-  height: 50vh; 
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+    margin: 0;
+    height: 50vh; 
 }
 
 .container {
@@ -1029,7 +1031,8 @@ body.night-mode {
   padding: 10px;
 }
 
-.mode-toggle-btn {
+.mode-toggle-btn,
+.back-btn {
   background-color: #3c3d3d;
   color: #fff;
   border: none;
@@ -1037,30 +1040,19 @@ body.night-mode {
   cursor: pointer;
   border-radius: 10px;
   display: flex;
-  align-items: center; /* Align items vertically in the center */
-  margin: 5px;
-  white-space: nowrap; /* Prevent text from wrapping */
+  align-items: center;
+  margin: 5px; /* Add margin for spacing between buttons */
 }
 
-.mode-icon {
-  height: 5vh; /* Adjust height for responsiveness */
-  margin-right: 8px; /* Space between icon and text */
+.mode-icon,
+.back-icon {
+  height: 5vh; /* Adjust as needed */
 }
-
-/* Responsive styles for mobile devices */
-@media (max-width: 768px) {
-  .mode-toggle-btn {
-    padding: 10px; /* Adjust padding for mobile */
-    font-size: 14px; /* Adjust font size for mobile */
-    justify-content: center; /* Center align items */
-  }
-
-  .mode-icon {
-    height: 5vh; /* Ensure the icon is properly sized for mobile */
-    margin-right: 8px; /* Space between icon and text */
-  }
+.mode-icon,
+.back-icon {
+  height: 5vh;
+  /* Adjust as needed */
 }
-
 
 /* p {
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -1425,11 +1417,7 @@ padding: 8px;
 .item {
 width: calc(50% - 10px); /* 2 items per row on mobile */
 }
-/* img {
-  aspect-ratio: 16 / 9; 
-  width: 100%; 
-  height: auto; 
-} */
+
 }
 
 
