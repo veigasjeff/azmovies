@@ -1,11 +1,4 @@
 {
-    "cleanUrls": true,
-    "public": "public", 
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/$1"
-      }
-    ]
-  }
-  
+    "cleanUrls": true
+}
+
