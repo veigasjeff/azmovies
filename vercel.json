@@ -1,9 +1,11 @@
 {
     "cleanUrls": true,
-    "builds": [
-        {
-            "src": "dist/bundle.js",
-            "use": "@vercel/static"
-        }
+    "public": "public", 
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/$1"
+      }
     ]
-}
+  }
+  
