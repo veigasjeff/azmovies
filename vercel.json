@@ -1,9 +1,3 @@
 {
-    "cleanUrls": true,
-    "builds": [
-        {
-            "src": "dist/bundle.js",
-            "use": "@vercel/static"
-        }
-    ]
+    "cleanUrls": true
 }
