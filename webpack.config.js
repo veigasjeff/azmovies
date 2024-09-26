@@ -1,10 +1,10 @@
-const path = require('path'); // Import path module
+const path = require('path');
 
 module.exports = {
   entry: './src/index.js', // Main JS file
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'), // Output directory for bundled files
+    path: path.resolve(__dirname, 'public'), // Change this to 'public'
   },
   module: {
     rules: [
