@@ -3,7 +3,7 @@
 (function () {
     var script = document.createElement('script');
     script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-6GL2GZ882R';
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-E1Z24E5B50';
   
     document.head.appendChild(script);
   
@@ -11,7 +11,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
       gtag('js', new Date());
-      gtag('config', 'G-6GL2GZ882R');
+      gtag('config', 'G-E1Z24E5B50');
     };
   })();
 
