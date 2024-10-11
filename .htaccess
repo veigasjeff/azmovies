@@ -1,0 +1,15 @@
+# .htaccess file
+
+<IfModule mod_headers.c>
+    # Content-Security-Policy Header
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;"
+    
+    # X-Frame-Options Header
+    Header set X-Frame-Options "DENY"
+    
+    # X-Content-Type-Options Header
+    Header set X-Content-Type-Options "nosniff"
+    
+    # Referrer-Policy Header
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
