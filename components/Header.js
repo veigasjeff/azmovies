@@ -33,7 +33,7 @@ export default function Home() {
   <div className="px-4 mx-auto md:flex md:items-center md:justify-between md:px-8">
           <div className="flex items-center py-3 md:py-5">
             <div className="flex items-center flex-col">
-              <img src='/logo.png' alt='Logo' width={450} height={100} className="rounded-3xl" />
+              <img src='/logo.png' alt='Logo' title="Master Logo" width={450} height={100} className="rounded-3xl" />
               {/* <h1 className='px-0 py-2 text-3xl font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent'>
               SoftwareBay.
             </h1> */}
