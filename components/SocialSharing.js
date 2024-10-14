@@ -91,82 +91,41 @@
 
 
 // components/SocialSharing.js
-// components/SocialSharing.js
+// components/ManualSocialSharing.js
 import React from 'react';
-import {
-  FacebookShareButton,
-  FacebookIcon,
-  WhatsappShareButton,
-  WhatsappIcon,
-  TwitterShareButton,
-  TwitterIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
-  EmailShareButton,
-  EmailIcon,
-  TelegramShareButton,
-  TelegramIcon,
-} from 'react-share';
 import styles from '../styles/SocialSharing.module.css';
 
-const SocialSharing = ({ title, image }) => {
+const ManualSocialSharing = ({ title, image }) => {
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+
+  const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}&quote=${encodeURIComponent(title)}`;
+  const whatsappShareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(title)}%20${encodeURIComponent(currentUrl)}`;
+  const twitterShareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(title)}`;
+  const linkedinShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(title)}`;
+  const emailShareUrl = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(currentUrl)}`;
 
   return (
     <div className={styles.socialContainer}>
-      <FacebookShareButton
-        url={currentUrl}
-        quote={title} // Share the title
-        className={styles.shareButton}
-        media={image} // Optional: Include the image
-      >
-        <FacebookIcon size={40} round />
-      </FacebookShareButton>
-      
-      <WhatsappShareButton
-        url={currentUrl}
-        title={title} // Share the title
-        className={styles.shareButton}
-      >
-        <WhatsappIcon size={40} round />
-      </WhatsappShareButton>
-      
-      <TwitterShareButton
-        url={currentUrl}
-        title={title} // Share the title
-        className={styles.shareButton}
-      >
-        <TwitterIcon size={40} round />
-      </TwitterShareButton>
-      
-      <LinkedinShareButton
-        url={currentUrl}
-        title={title} // Share the title
-        className={styles.shareButton}
-      >
-        <LinkedinIcon size={40} round />
-      </LinkedinShareButton>
-      
-      <TelegramShareButton
-        url={currentUrl}
-        title={title} // Share the title
-        className={styles.shareButton}
-      >
-        <TelegramIcon size={40} round />
-      </TelegramShareButton>
-      
-      <EmailShareButton
-        url={currentUrl}
-        subject={title} // Share the title
-        className={styles.shareButton}
-      >
-        <EmailIcon size={40} round />
-      </EmailShareButton>
+      <a href={facebookShareUrl} target="_blank" rel="noopener noreferrer" className={styles.shareButton}>
+        Facebook
+      </a>
+      <a href={whatsappShareUrl} target="_blank" rel="noopener noreferrer" className={styles.shareButton}>
+        WhatsApp
+      </a>
+      <a href={twitterShareUrl} target="_blank" rel="noopener noreferrer" className={styles.shareButton}>
+        Twitter
+      </a>
+      <a href={linkedinShareUrl} target="_blank" rel="noopener noreferrer" className={styles.shareButton}>
+        LinkedIn
+      </a>
+      <a href={emailShareUrl} target="_blank" rel="noopener noreferrer" className={styles.shareButton}>
+        Email
+      </a>
     </div>
   );
 };
 
-export default SocialSharing;
+export default ManualSocialSharing;
 
 
 // This code should be placed in a component or a useEffect hook in a functional component
