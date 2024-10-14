@@ -6,6 +6,7 @@ import AdultSkipAds from '../../../components/AdultSkipAds'
 import GoogleTranslate from '../../../components/GoogleTranslate'
 import SocialSharing from '../../../components/SocialSharing'
 import SearchComponent from '../../../components/SearchComponent'
+
 import Rating from '../../../components/Rating'
 import buttonStyles from '../../../styles/Button.module.css'; // Rename the import for the button styles
 import HomeStyles from '@styles/styles.module.css'
@@ -472,7 +473,8 @@ const MovieDetail = () => {
         />
   
 </Head>
-     {/* <SocialSharing /> */}
+
+     <SocialSharing />
      {isAdult && <AdultSkipAds movie={movie} />}
      <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
