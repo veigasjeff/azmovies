@@ -1,4 +1,3 @@
-// pages/sitemap.xml.js
 import { getAllItems } from '../lib/api';
 
 export async function getServerSideProps({ res }) {
@@ -39,8 +38,8 @@ export async function getServerSideProps({ res }) {
         </urlset>
     `;
 
-    // Set the response header to indicate the content type is XML
-    res.setHeader('Content-Type', 'text/xml');
+    // Fix Content-Type header
+    res.setHeader('Content-Type', 'application/xml'); // Set correct content-type to 'application/xml'
 
     // Write the sitemap to the response and end it
     res.write(sitemap);
