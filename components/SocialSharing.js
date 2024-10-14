@@ -91,6 +91,7 @@
 
 
 // components/SocialSharing.js
+// components/SocialSharing.js
 import React from 'react';
 import {
   FacebookShareButton,
@@ -108,7 +109,7 @@ import {
 } from 'react-share';
 import styles from '../styles/SocialSharing.module.css';
 
-const SocialSharing = ({ title, image1 }) => {
+const SocialSharing = ({ title, image }) => {
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   return (
@@ -117,6 +118,7 @@ const SocialSharing = ({ title, image1 }) => {
         url={currentUrl}
         quote={title} // Share the title
         className={styles.shareButton}
+        media={image} // Optional: Include the image
       >
         <FacebookIcon size={40} round />
       </FacebookShareButton>

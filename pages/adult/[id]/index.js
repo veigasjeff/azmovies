@@ -472,7 +472,7 @@ const MovieDetail = () => {
         />
   
 </Head>
-     <SocialSharing />
+<SocialSharing title={movie.name} image={movie.image1} />
      <AdultSkipAds />
      <Script src='../../propler/ads.js' defer />
       <Script src='../../propler/ads2.js' defer />
