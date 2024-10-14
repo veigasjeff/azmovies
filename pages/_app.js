@@ -44,7 +44,7 @@ function Application({ Component, pageProps }) {
     />
   </Head>
     <div className="center">
-      <GoogleAnalytics measurementId="G-65SVDZN562" />
+      <GoogleAnalytics measurementId="G-E1Z24E5B50" />
     
     
       <PageTransition>
