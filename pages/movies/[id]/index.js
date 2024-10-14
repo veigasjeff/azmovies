@@ -787,7 +787,7 @@ const MovieDetail = () => {
   {/* Video Player Title */}
 <h2 className='px-0 bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-4xl hover:text-blue-800 font-bold mt-2'  
     style={{ marginTop: '30px' , borderRadius: '15px', }} >
-  Watch {movie.title}
+   {movie.title}
 </h2>
  {/* Video Player Title */}
   {/* Buttons */}
