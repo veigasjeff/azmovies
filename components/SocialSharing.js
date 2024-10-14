@@ -108,28 +108,56 @@ import {
 } from 'react-share';
 import styles from '../styles/SocialSharing.module.css';
 
-const SocialSharing = ({ title, description, image }) => {
-  // Get the current URL; ensures it's available in the browser context
+const SocialSharing = ({ title, image1 }) => {
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   return (
     <div className={styles.socialContainer}>
-      <FacebookShareButton url={currentUrl} quote={description || title} className={styles.shareButton}>
+      <FacebookShareButton
+        url={currentUrl}
+        quote={title} // Share the title
+        className={styles.shareButton}
+      >
         <FacebookIcon size={40} round />
       </FacebookShareButton>
-      <WhatsappShareButton url={currentUrl} title={description || title} className={styles.shareButton}>
+      
+      <WhatsappShareButton
+        url={currentUrl}
+        title={title} // Share the title
+        className={styles.shareButton}
+      >
         <WhatsappIcon size={40} round />
       </WhatsappShareButton>
-      <TwitterShareButton url={currentUrl} title={description || title} className={styles.shareButton}>
+      
+      <TwitterShareButton
+        url={currentUrl}
+        title={title} // Share the title
+        className={styles.shareButton}
+      >
         <TwitterIcon size={40} round />
       </TwitterShareButton>
-      <LinkedinShareButton url={currentUrl} title={description || title} className={styles.shareButton}>
+      
+      <LinkedinShareButton
+        url={currentUrl}
+        title={title} // Share the title
+        className={styles.shareButton}
+      >
         <LinkedinIcon size={40} round />
       </LinkedinShareButton>
-      <TelegramShareButton url={currentUrl} title={description || title} className={styles.shareButton}>
+      
+      <TelegramShareButton
+        url={currentUrl}
+        title={title} // Share the title
+        className={styles.shareButton}
+      >
         <TelegramIcon size={40} round />
       </TelegramShareButton>
-      <EmailShareButton url={currentUrl} subject={title} body={description} className={styles.shareButton}>
+      
+      <EmailShareButton
+        url={currentUrl}
+        subject={title} // Share the title
+        className={styles.shareButton}
+      >
         <EmailIcon size={40} round />
       </EmailShareButton>
     </div>
