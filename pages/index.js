@@ -83,15 +83,15 @@ const HomePage = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'AtoZ Movies™ - Online. Stream. Download. ',
+      name: 'AtoZ Movies™ - Online. Stream. Download.',
       url: 'https://atozmovies.vercel.app/',
-      image: ['https://atozmovies.vercel.app/favicon.ico'],
       logo: {
         '@type': 'ImageObject',
         url: 'https://atozmovies.vercel.app/logo.png',
         width: 280,
         height: 80
-      }
+      },
+      image: 'https://atozmovies.vercel.app/android-chrome-192x192.png' 
     },
     {
       '@context': 'https://schema.org',
@@ -106,7 +106,8 @@ const HomePage = () => {
         'query-input': 'required name=search_term_string'
       }
     }
-  ])
+  ]);
+  
   
   const rankMathSchema = JSON.stringify({
     '@context': 'https://schema.org',
@@ -139,11 +140,6 @@ const HomePage = () => {
           '@type': 'Organization',
           '@id': 'https://atozmovies.vercel.app/#organization'
         },
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: 'https://atozmovies.vercel.app/?s={search_term_string}',
-          'query-input': 'required name=search_term_string'
-        }
       },
       {
         '@type': 'WebPage',
