@@ -6,8 +6,7 @@ export default function MyDocument() {
     <Html lang="en">
       <Head>
         {/* Basic meta tags for SEO */}
-        <meta name="description" content="Watch the latest movies online for free." />
-        
+               
         {/* External stylesheets can be included here */}
         <link
           rel='stylesheet'
