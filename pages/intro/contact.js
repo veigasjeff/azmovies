@@ -21,29 +21,29 @@ const contact = () => {
       },
       {
         '@type': 'Organization',
-        '@id': 'https://atozmovies.vercel.app/#organization',
+        '@id': 'http://localhost:3000/#organization',
         name: 'AtoZ Movies™ - Online. Stream. Download.',
-        url: 'https://atozmovies.vercel.app'
+        url: 'http://localhost:3000'
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://atozmovies.vercel.app/#website',
-        url: 'https://atozmovies.vercel.app',
+        '@id': 'http://localhost:3000/#website',
+        url: 'http://localhost:3000',
         name: 'AtoZ Movies™ - Online. Stream. Download.',
         publisher: {
           '@type': 'Organization',
-          '@id': 'https://atozmovies.vercel.app/#organization'
+          '@id': 'http://localhost:3000/#organization'
         },
         potentialAction: {
           '@type': 'SearchAction',
-          target: 'https://atozmovies.vercel.app/?s={search_term_string}',
+          target: 'http://localhost:3000/?s={search_term_string}',
           'query-input': 'required name=search_term_string'
         }
       },
       {
         '@type': 'WebPage',
-        '@id': 'https://atozmovies.vercel.app/#webpage',
-        url: 'https://atozmovies.vercel.app/',
+        '@id': 'http://localhost:3000/#webpage',
+        url: 'http://localhost:3000/',
         name: 'Movie',
         datePublished: '2024-01-13T13:00:00+00:00',
         dateModified: '2024-01-13T13:13:00+00:00',
@@ -61,14 +61,14 @@ const contact = () => {
           }
         },
         isPartOf: {
-          '@id': 'https://atozmovies.vercel.app/#website'
+          '@id': 'http://localhost:3000/#website'
         },
         inLanguage: 'en-US',
         mainEntity: [
           {
             '@type': 'Article',
-            '@id': 'https://atozmovies.vercel.app/',
-            url: 'https://atozmovies.vercel.app/',
+            '@id': 'http://localhost:3000/',
+            url: 'http://localhost:3000/',
             headline: 'Movie',
             datePublished: '2024-01-13T13:00:00+00:00',
             dateModified: '2024-01-13T13:13:00+00:00',
@@ -87,15 +87,15 @@ const contact = () => {
             },
             publisher: {
               '@type': 'Organization',
-              '@id': 'https://atozmovies.vercel.app/#organization',
+              '@id': 'http://localhost:3000/#organization',
               name: 'AtoZ Movies™ - Online. Stream. Download.',
-              url: 'https://atozmovies.vercel.app'
+              url: 'http://localhost:3000'
             }
           },
           {
             '@type': 'Article',
-            '@id': 'https://atozmovies.vercel.app/',
-            url: 'https://atozmovies.vercel.app/',
+            '@id': 'http://localhost:3000/',
+            url: 'http://localhost:3000/',
             headline: 'Tvshow',
             datePublished: '2024-01-13T13:00:00+00:00',
             dateModified: '2024-01-13T13:13:00+00:00',
@@ -114,15 +114,15 @@ const contact = () => {
             },
             publisher: {
               '@type': 'Organization',
-              '@id': 'https://atozmovies.vercel.app/#organization',
+              '@id': 'http://localhost:3000/#organization',
               name: 'AtoZ Movies™ - Online. Stream. Download.',
-              url: 'https://atozmovies.vercel.app'
+              url: 'http://localhost:3000'
             }
           },
           {
             '@type': 'Article',
-            '@id': 'https://atozmovies.vercel.app/',
-            url: 'https://atozmovies.vercel.app/',
+            '@id': 'http://localhost:3000/',
+            url: 'http://localhost:3000/',
             headline: 'Adult',
             datePublished: '2024-01-13T13:00:00+00:00',
             dateModified: '2024-01-13T13:13:00+00:00',
@@ -141,9 +141,9 @@ const contact = () => {
             },
             publisher: {
               '@type': 'Organization',
-              '@id': 'https://atozmovies.vercel.app/#organization',
+              '@id': 'http://localhost:3000/#organization',
               name: 'AtoZ Movies™ - Online. Stream. Download.',
-              url: 'https://atozmovies.vercel.app'
+              url: 'http://localhost:3000'
             }
           }
         ]
@@ -160,7 +160,7 @@ const contact = () => {
           rel='sitemap'
           type='application/xml'
           title='Sitemap'
-          href='https://atozmovies.vercel.app/sitemap.xml'
+          href='http://localhost:3000/sitemap.xml'
         />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <link rel='icon' type='image/x-icon' href='/favicon.ico' />
@@ -199,7 +199,7 @@ const contact = () => {
 
         <link
           rel='canonical'
-          href='https://atozmovies.vercel.app/intro/contact'
+          href='http://localhost:3000/intro/contact'
         />
         <meta property='og:locale' content='en_US' />
         <meta property='og:type' content='website' />
@@ -210,12 +210,12 @@ const contact = () => {
         />
         <meta
           property='og:url'
-          content='https://atozmovies.vercel.app/intro/contact/'
+          content='http://localhost:3000/intro/contact/'
         />
         <meta property='og:site_name' content='AtoZ Movies™ ' />
         <meta
           property='og:image'
-          content='https://atozmovies.vercel.app/og_image.jpg'
+          content='http://localhost:3000/og_image.jpg'
         />
         <meta property='og:image:width' content='1280' />
         <meta property='og:image:height' content='720' />
@@ -229,7 +229,7 @@ const contact = () => {
           rel='sitemap'
           type='application/xml'
           title='Sitemap'
-          href='https://atozmovies.vercel.app/sitemap.xml'
+          href='http://localhost:3000/sitemap.xml'
         />
         <meta name='twitter:card' content='summary_large_image' />
         <meta

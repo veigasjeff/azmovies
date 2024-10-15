@@ -1,114 +1,37 @@
-import { useState, useEffect } from 'react';
-import Link from 'next/link'; // Import Link for Next.js routing
 import Head from 'next/head'
-import Image from 'next/image';
-// import styles from '/styles/Animation.module.css'; 
+import Link from 'next/link'
+import { useEffect } from 'react'
 
-// Sample JSON import
-import movies from '../public/movies.json'; // Path to the JSON file
-
-
-
-const HomePage = () => {
-  const [items, setItems] = useState({ movie: [], tvshow: [], adult: [] });  // Initialized categories as empty arrays
-  const [currentCategory, setCurrentCategory] = useState('movie');  // Current tab
-  const [currentPage, setCurrentPage] = useState(1);  // Current page for pagination
-  const itemsPerPage = 24;  // 24 items per page
-
-  // Fetch and categorize data on mount
-  useEffect(() => {
-    categorizeItems(movies); // Categorize items from the JSON
-  }, []);
-
-  // Categorizing items into movies, tv shows, adult
-  const categorizeItems = (data) => {
-    const categorizedItems = { movie: [], tvshow: [], adult: [] };
-
-    data.forEach(item => {
-      if (item.badge && item.badge.includes('[ Movie ]')) {
-        categorizedItems.movie.push({ id: item.id, image: item.image });
-      } else if (item.badge && item.badge.includes('[ TV Show ]')) {
-        categorizedItems.tvshow.push({ id: item.id, image: item.image });
-      } else if (item.badge && item.badge.includes('[ Adult ]')) {
-        categorizedItems.adult.push({ id: item.id, image: item.image });
-      }
-    });
-
-    setItems(categorizedItems);
-  };
-
-  // Get paginated items based on the current page
-  const getPaginatedItems = () => {
-    const categoryItems = items[currentCategory] || [];  // Ensure categoryItems is always an array
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    return categoryItems.slice(startIndex, startIndex + itemsPerPage);
-  };
-
-  // Render the items in the grid
-  const renderItems = () => {
-    const currentItems = getPaginatedItems();
-
-    if (!currentItems.length) {
-      return <p>No items available.</p>;
-    }
-
-    return currentItems.map((item, index) => (
-      <div key={index} className="p-2 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 "> {/* 2 images side by side on mobile */}
-        <Link href={`/${currentCategory === 'movie' ? 'movies' : currentCategory === 'tvshow' ? 'tvshow' : 'adult'}/${item.id}`}>
-          <Image
-            src={item.image}
-            alt={item.title}
-            width={400} // Adjust the width according to your needs
-            height={300} // Adjust the height according to your needs 
-            quality={90}
-            title={item.title}
-            //  loading='lazy'
-            priority
-            className="border-2 border-blue-500 object-cover w-full h-48"
-            style={{ width: '100%', height: 'auto',  boxShadow: '0 0 10px 0 #0000FF', filter: 'contrast(1.2) saturate(1.3) brightness(1.1) hue-rotate(0deg)' }}
-          />
-        </Link>
-      </div>
-    ));
-  };
-
-  // Pagination Logic
-  const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
-  };
-
-  const totalPages = Math.ceil(items[currentCategory]?.length / itemsPerPage);
-
+export default function HomePage () {
   const uwatchfreeSchema = JSON.stringify([
     {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'AtoZ Movies™ - Online. Stream. Download.',
-      url: 'https://atozmovies.vercel.app/',
+      name: 'AtoZ Movies™ - Online. Stream. Download. ',
+      url: 'http://localhost:3000/',
+      image: ['http://localhost:3000/favicon.ico'],
       logo: {
         '@type': 'ImageObject',
-        url: 'https://atozmovies.vercel.app/logo.png',
+        url: 'http://localhost:3000/logo.png',
         width: 280,
         height: 80
-      },
-      image: 'https://atozmovies.vercel.app/android-chrome-192x192.png' 
+      }
     },
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      url: 'https://atozmovies.vercel.app/',
+      url: 'http://localhost:3000/',
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://atozmovies.vercel.app/search?q={search_term_string}'
+          urlTemplate: 'http://localhost:3000/search?q={search_term_string}'
         },
         'query-input': 'required name=search_term_string'
       }
     }
-  ]);
-  
-  
+  ])
+
   const rankMathSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@graph': [
@@ -127,24 +50,29 @@ const HomePage = () => {
       },
       {
         '@type': 'Organization',
-        '@id': 'https://atozmovies.vercel.app/#organization',
+        '@id': 'http://localhost:3000/#organization',
         name: 'AtoZ Movies™ - Online. Stream. Download. ',
-        url: 'https://atozmovies.vercel.app'
+        url: 'http://localhost:3000'
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://atozmovies.vercel.app/#website',
-        url: 'https://atozmovies.vercel.app',
+        '@id': 'http://localhost:3000/#website',
+        url: 'http://localhost:3000',
         name: 'AtoZ Movies™ - Online. Stream. Download. ',
         publisher: {
           '@type': 'Organization',
-          '@id': 'https://atozmovies.vercel.app/#organization'
+          '@id': 'http://localhost:3000/#organization'
         },
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: 'http://localhost:3000/?s={search_term_string}',
+          'query-input': 'required name=search_term_string'
+        }
       },
       {
         '@type': 'WebPage',
-        '@id': 'https://atozmovies.vercel.app/#webpage',
-        url: 'https://atozmovies.vercel.app/',
+        '@id': 'http://localhost:3000/#webpage',
+        url: 'http://localhost:3000/',
         name: 'Movie',
         datePublished: '2024-01-13T13:00:00+00:00',
         dateModified: '2024-01-13T13:13:00+00:00',
@@ -162,14 +90,14 @@ const HomePage = () => {
           }
         },
         isPartOf: {
-          '@id': 'https://atozmovies.vercel.app/#website'
+          '@id': 'http://localhost:3000/#website'
         },
         inLanguage: 'en-US',
         mainEntity: [
           {
             '@type': 'Article',
-            '@id': 'https://atozmovies.vercel.app/',
-            url: 'https://atozmovies.vercel.app/',
+            '@id': 'http://localhost:3000/',
+            url: 'http://localhost:3000/',
             headline: 'AtoZ Movies™ - Online. Stream. Download. ',
             datePublished: '2024-01-13T13:00:00+00:00',
             dateModified: '2024-01-13T13:13:00+00:00',
@@ -188,15 +116,15 @@ const HomePage = () => {
             },
             publisher: {
               '@type': 'Organization',
-              '@id': 'https://atozmovies.vercel.app/#organization',
+              '@id': 'http://localhost:3000/#organization',
               name: 'AtoZ Movies™ - Online. Stream. Download. ',
-              url: 'https://atozmovies.vercel.app'
+              url: 'http://localhost:3000'
             }
           },
           {
             '@type': 'Article',
-            '@id': 'https://atozmovies.vercel.app/',
-            url: 'https://atozmovies.vercel.app/',
+            '@id': 'http://localhost:3000/',
+            url: 'http://localhost:3000/',
             headline: 'AtoZ Movies™ - Online. Stream. Download. ',
             datePublished: '2024-01-13T13:00:00+00:00',
             dateModified: '2024-01-13T13:13:00+00:00',
@@ -215,15 +143,15 @@ const HomePage = () => {
             },
             publisher: {
               '@type': 'Organization',
-              '@id': 'https://atozmovies.vercel.app/#organization',
+              '@id': 'http://localhost:3000/#organization',
               name: 'AtoZ Movies™ - Online. Stream. Download. ',
-              url: 'https://atozmovies.vercel.app'
+              url: 'http://localhost:3000'
             }
           },
           {
             '@type': 'Article',
-            '@id': 'https://atozmovies.vercel.app/',
-            url: 'https://atozmovies.vercel.app/',
+            '@id': 'http://localhost:3000/',
+            url: 'http://localhost:3000/',
             headline: 'AtoZ Movies™ - Online. Stream. Download. ',
             datePublished: '2024-01-13T13:00:00+00:00',
             dateModified: '2024-01-13T13:13:00+00:00',
@@ -245,10 +173,38 @@ const HomePage = () => {
       }
     ]
   })
-  
+
+  const languagesSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    url: 'http://localhost:3000/',
+    name: 'AtoZ Movies™ - Online. Stream. Download.',
+    alternateName: [
+      'AtoZ Movies™ - Explorar. Transmitir. En línea.',
+      'AtoZ Movies™ - Explorer. Diffuser. En ligne.',
+      'AtoZ Movies™ - Entdecken. Streamen. Online.',
+      'AtoZ Movies™ - 探索。串流。在线。',
+      'AtoZ Movies™ - 探索する。ストリーミング。オンライン。',
+      'AtoZ Movies™ - 탐험하다. 스트리밍. 온라인.',
+      'AtoZ Movies™ - Explorar. Transmitir. Online.',
+      'AtoZ Movies™ - Esplora. Streaming. Online.',
+      'AtoZ Movies™ - Исследовать. Поток. Онлайн.',
+      'AtoZ Movies™ - استكشاف. بث. اون لاين.'
+    ],
+    inLanguage: [
+      'es',
+      'fr',
+      'de',
+      'zh-Hans',
+      'ja',
+      'ko',
+      'pt',
+      'it',
+      'ru',
+      'ar'
+    ]
+  })
   return (
-
-
     <>
       <Head>
         <title>AtoZ Movies™ - Online. Stream. Download.</title>
@@ -257,7 +213,7 @@ const HomePage = () => {
           rel='sitemap'
           type='application/xml'
           title='Sitemap'
-          href='https://atozmovies.vercel.app/sitemap.xml'
+          href='http://localhost:3000/sitemap.xml'
         />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <link rel='icon' type='image/x-icon' href='/favicon.ico' />
@@ -294,7 +250,7 @@ const HomePage = () => {
           name='description'
           content='Stream HD movies and TV series for free on AtoZ Movies. Explore, stream, and download full-length movies and shows in HD quality without registration.'
         />
-        <link rel='canonical' href='https://atozmovies.vercel.app/' />
+        <link rel='canonical' href='http://localhost:3000/' />
         <meta property='og:locale' content='en_US' />
         <meta property='og:type' content='video.movie' />
         <meta property='og:type' content='website' />
@@ -302,14 +258,14 @@ const HomePage = () => {
           property='og:title'
           content='AtoZ Movies™ - Online. Stream. Download. '
         />
-        <meta property='og:url' content='https://atozmovies.vercel.app' />
+        <meta property='og:url' content='http://localhost:3000' />
         <meta
           property='og:site_name'
           content='AtoZ Movies™ - Online. Stream. Download. '
         />
         <meta
           property='og:image'
-          content='https://atozmovies.vercel.app/og_image.jpg'
+          content='http://localhost:3000/og_image.jpg'
         />
         <meta property='og:image:width' content='1200' />
         <meta property='og:image:height' content='630' />
@@ -326,7 +282,7 @@ const HomePage = () => {
           rel='sitemap'
           type='application/xml'
           title='Sitemap'
-          href='https://atozmovies.vercel.app/sitemap.xml'
+          href='http://localhost:3000/sitemap.xml'
         />
         <meta name='twitter:card' content='summary_large_image' />
         <meta
@@ -339,7 +295,7 @@ const HomePage = () => {
         />
         <meta
           name='twitter:image'
-          content='https://atozmovies.vercel.app/og_image.jpg'
+          content='http://localhost:3000/og_image.jpg'
         />
         <meta
           name='google-site-verification'
@@ -364,17 +320,19 @@ const HomePage = () => {
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: uwatchfreeSchema }}
         />
-        
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: languagesSchema }}
+        />
       </Head>
 
-    <div className="container mx-auto mt-3 text-center" style={{ marginTop: '50px', textShadow: '1px 1px 0px #000' }}>
-        <div className='container'>
+      <div className='container'>
         <div className='content'>
-          <h1 className='title font-bold text-2xl' style={{ fontWeight: 'bold', fontSize: '35px' }}>AtoZ Movies™ - Online. Stream. Download.</h1>
-          <h2 className='highlight' style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>
+          <h1 className='title'>AtoZ Movies™ - Online. Stream. Download.</h1>
+          <h2 className='highlight'>
             Discover the Best Movies and TV Shows to Stream on AtoZ Movies™
           </h2>
-          <p className='description' style={{  fontSize: '1.2rem' }}>
+          <p className='description'>
             Welcome to <strong>AtoZ Movies™</strong>, your premier destination for
             streaming the latest and most popular movies and TV shows. Our
             platform offers an extensive collection of entertainment options,
@@ -383,7 +341,7 @@ const HomePage = () => {
             heartwarming dramas, or laugh-out-loud comedies,{' '}
             <strong>AtoZ Movies™</strong> has something for everyone.
           </p>
-          <p className='description' style={{ fontSize: '1.2rem' }}>
+          <p className='description'>
             With a user-friendly interface and high-quality streaming,{' '}
             <strong>AtoZ Movies™</strong> makes it easy to find and enjoy your
             favorite content. Our library is regularly updated with the latest
@@ -391,7 +349,7 @@ const HomePage = () => {
             shows as soon as they are available. Stream online seamlessly and
             enjoy an immersive viewing experience from the comfort of your home.
           </p>
-          <p className='description'style={{ fontSize: '1.2rem' }}>
+          <p className='description'>
             At <strong>AtoZ Movies™</strong>, we are committed to providing a
             top-notch streaming service that meets all your entertainment needs.
             Join us today and explore the vast world of movies and TV shows
@@ -399,67 +357,178 @@ const HomePage = () => {
             dedicated binge-watcher, <strong>AtoZ Movies™</strong> is the perfect
             place to stream online and stay entertained. Enjoy the world of Entertainment.
           </p>
-          </div>
-          </div>
-      {/* Category Tabs */}
-      <ul className="flex justify-around border-b border-gray-300 mb-4 font-bold text-2xl" >
-        {['movie', 'tvshow', 'adult'].map(category => (
-          <li key={category} className="flex-1">
-            <button
-              className={`py-2 ${currentCategory === category ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600'} w-full font-bold`}
-              onClick={() => setCurrentCategory(category)}
-              style={{ marginTop: '50px' }}
-            >
-              {category.toUpperCase()}
-            </button>
-          </li>
-        ))}
-      </ul>
 
-      {/* Movie Grid */}
-      <div className="flex flex-wrap">
-        {renderItems()}
+          <a
+            href='https://t.me/watchmovietvshow/'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='telegram-link'
+            style={{
+              display: 'block',
+              textAlign: 'center',
+              margin: '0 auto',
+              marginTop: '20px'
+            }}
+          >
+            <p style={{ display: 'inline-block' }}>
+              For Request or Demand <br />
+              Movies & TV Series Join Telegram
+              <i
+                className='fab fa-telegram telegram-icon'
+                style={{ marginLeft: '8px' }}
+              ></i>
+            </p>
+          </a>
+
+          <p className='subtitle'>
+            The premier platform for the latest releases and secure downloads.
+          </p>
+          <Link href='/home/page1'>
+            <div className='cta-button'>Enter AtoZ Movies™</div>
+          </Link>
+        </div>
       </div>
 
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="flex justify-center mt-4">
-          <button
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="px-3 py-1 mx-1 border rounded disabled:opacity-100 bg-green-500 text-white hover:bg-green-800"  style={{  textShadow: '1px 1px 0px #000' }} 
-          >
-            Prev
-          </button>
-          
-          {/* need font to be bold */}
-          <span className="px-4">{`Page ${currentPage} of ${totalPages}`}</span>
-          <button
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="px-3 py-1 mx-1 border rounded disabled:opacity-100 bg-blue-500 text-white hover:bg-blue-800"
-            style={{  textShadow: '1px 1px 0px #000' }} >
-            Next
-          </button>
-        </div>
-      )}
-      
-    </div>
+      <style jsx>{`
+        .container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          padding: 0 20px;
+          background: #000;
+          font-family: 'Poppins', sans-serif;
+        }
+
+        .content {
+          text-align: center;
+          width: 100%;
+          color: #fff;
+          padding: 20px;
+        }
+
+        .title {
+          font-size: 1.25rem;
+          font-weight: 900;
+          margin-bottom: 1rem;
+          text-transform: uppercase;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .highlight {
+          font-size: 1.5rem;
+          background: linear-gradient(to right, #ff7e5f, #feb47b);
+          background-clip: text;
+          color: transparent;
+          font-weight: bold;
+          margin-top: 1rem;
+        }
+
+        .description {
+          font-size: 1rem;
+          background: linear-gradient(to right, #ff7e5f, #feb47b);
+          background-clip: text;
+          color: transparent;
+          margin-top: 1rem;
+        }
+
+        .telegram-link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          font-weight: bold;
+          background: linear-gradient(to right, #ff7e5f, #feb47b);
+          background-clip: text;
+          color: transparent;
+          margin-top: 25px;
+        }
+
+        .telegram-icon {
+          color: #0088cc;
+          margin-left: 10px;
+          font-size: 2rem;
+          animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.1);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        .subtitle {
+          font-size: 0.875rem;
+          margin-top: 1rem;
+          background: linear-gradient(to right, #ff7e5f, #feb47b);
+          background-clip: text;
+          color: transparent;
+        }
+
+        .cta-button {
+          display: inline-block;
+          padding: 0.5rem 1rem;
+          font-size: 1rem;
+          font-weight: 600;
+          color: #ff7e5f;
+          background-color: #fff;
+          border-radius: 50px;
+          box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+          text-transform: uppercase;
+          transition: all 0.3s ease;
+          margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+          background-color: #ff6f61;
+          color: #fff;
+          box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+          transform: translateY(-3px);
+        }
+
+        @media (min-width: 768px) {
+          .title {
+            font-size: 2rem;
+          }
+
+          .highlight {
+            font-size: 2rem;
+          }
+
+          .telegram-link {
+            font-size: 2rem;
+          }
+
+          .cta-button {
+            font-size: 1.125rem;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .title {
+            font-size: 2.5rem;
+          }
+
+          .highlight {
+            font-size: 2.5rem;
+          }
+
+          .telegram-link {
+            font-size: 2.5rem;
+          }
+
+          .cta-button {
+            font-size: 1.25rem;
+            padding: 1rem 2rem;
+          }
+        }
+      `}</style>
     </>
-  );
-};
-
-export default HomePage;
-
-
-
-
-
-
-
-
-
-
-
-
-
+  )
+}
