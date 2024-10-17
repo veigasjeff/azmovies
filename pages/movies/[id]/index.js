@@ -88,11 +88,11 @@ export default function MovieDetail({ movie }) {
     })),
     aggregateRating: {
       "@type": "AggregateRating",
-      "ratingValue": movie.ratingValue,    
-      "bestRating": "10",                   
-      "worstRating": "0",                  
-      "ratingCount": movie.ratingCount,     
-      "reviewCount": movie.reviewCount      
+      "ratingValue": movie.ratingValue ? String(movie.ratingValue) : "5.2", 
+      "bestRating": "10",                       
+      "worstRating": "0",                         
+      "ratingCount": movie.ratingCount > 0 ? String(movie.ratingCount) : "1", 
+      "reviewCount": movie.reviewCount > 0 ? String(movie.reviewCount) : "1"  
     },
     potentialAction: {
       "@type": "WatchAction",
