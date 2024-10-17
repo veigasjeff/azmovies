@@ -88,11 +88,11 @@ export default function MovieDetail({ movie }) {
     })),
     aggregateRating: {
       "@type": "AggregateRating",
-      "ratingValue": movie.ratingValue,      // Use the ratingValue from the movie object
-      "bestRating": "10",                     // Highest rating
-      "worstRating": "0",                     // Lowest rating
-      "ratingCount": movie.ratingCount,       // Use the ratingCount from the movie object
-      "reviewCount": movie.reviewCount,                      // Set to "0" as per your requirement
+      "ratingValue": movie.ratingValue,    // Using movie.ratingValue
+      "bestRating": "10",                   // Fixed value for best rating
+      "worstRating": "0",                   // Fixed value for worst rating
+      "ratingCount": movie.ratingCount,     // Using movie.ratingCount
+      "reviewCount": movie.reviewCount       // Using movie.reviewCount
     },
     potentialAction: {
       "@type": "WatchAction",
