@@ -64,11 +64,7 @@ export default function HomePage () {
           '@type': 'Organization',
           '@id': 'https://atozmovies.vercel.app/#organization'
         },
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: 'https://atozmovies.vercel.app/?s={search_term_string}',
-          'query-input': 'required name=search_term_string'
-        }
+     
       },
       {
         '@type': 'WebPage',
