@@ -34,29 +34,9 @@ function Application({ Component, pageProps }) {
     };
   }, []);
 
-  // useEffect(() => {
-  //   // Dynamically load the ShareThis script
-  //   const shareThisScript = document.createElement('script');
-  //   shareThisScript.src = 'https://platform-api.sharethis.com/js/sharethis.js#property=670cf6950661ee0019d47caf&product=sticky-share-buttons';
-  //   shareThisScript.async = true;
-
-  //   shareThisScript.onload = () => {
-  //     console.log('ShareThis script loaded.');
-  //   };
-
-  //   document.body.appendChild(shareThisScript);
-
-  //   return () => {
-  //     document.body.removeChild(shareThisScript);
-  //   };
-  // }, []);
 
   return (
     <>
-      <Head>
-        <title>Your Page Title</title>
-        <meta name="description" content="Your page description" />
-      </Head>
       
       <div className="center">
         {/* Google Analytics */}

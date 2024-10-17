@@ -177,13 +177,17 @@ const HomePage = ({ categorizedItems }) => {
   const [currentPage, setCurrentPage] = useState(1);  // Current page for pagination
   const itemsPerPage = 24;  // 24 items per page
 
+  // Handle page change
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
   // Get paginated items based on the current page
   const getPaginatedItems = () => {
     const categoryItems = categorizedItems[currentCategory] || [];  // Ensure categoryItems is always an array
     const startIndex = (currentPage - 1) * itemsPerPage;
     return categoryItems.slice(startIndex, startIndex + itemsPerPage);
   };
-
 
   // Render the items in the grid
   const renderItems = () => {
@@ -193,13 +197,13 @@ const HomePage = ({ categorizedItems }) => {
       return <p>No items available.</p>;
     }
     return currentItems.map((item, index) => (
-      <div key={index} className="p-2 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 "> {/* 2 images side by side on mobile */}
+      <div key={index} className="p-2 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 ">
         <Link href={`/${currentCategory === 'movie' ? 'movies' : currentCategory === 'tvshow' ? 'tvshow' : 'adult'}/${item.id}`}>
           <Image
             src={item.image}
             alt={item.title}
-            width={400} // Adjust the width according to your needs
-            height={300} // Adjust the height according to your needs 
+            width={400}
+            height={300}
             quality={90}
             title={item.title}
             priority
