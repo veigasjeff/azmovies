@@ -17,7 +17,7 @@ import {
 } from 'react-share';
 import styles from '../styles/SocialSharing.module.css';
 
-const SocialSharing = ({ title, image }) => {
+const SocialSharing = ({ title, image1 }) => {
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   return (
