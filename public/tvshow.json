@@ -20,10 +20,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Snowpiercer Season 4 (2024)",
         "name": "Snowpiercer Season 4 (2024) Tv Series",
@@ -126,10 +127,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Snowpiercer Season 3 (2020)",
         "name": "Snowpiercer Season 3 (2020) Tv Series",
@@ -227,10 +229,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Fringe Season 5 (2012)",
         "name": " Fringe Season 5 (2012) Tv Series",
@@ -342,10 +345,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Fringe Season 4 (2011)",
         "name": " Fringe Season 4 (2011) Tv Series",
@@ -481,10 +485,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Ripley Season 1 (2024)",
         "name": " Ripley Season 1 (2024) Tv Series",
@@ -577,10 +582,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Dark Matter Season 1 (2024)",
         "name": " Dark Matter Season 1 (2024) Tv Series",
@@ -678,10 +684,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch CSI: Vegas Season 1 (2024)",
         "name": "CSI: Vegas Season 1 (2024) Tv Series",
@@ -778,10 +785,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Fake Season 1 (2024)",
         "name": "Fake Season 1 (2024) Tv Series",
@@ -873,10 +881,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Hierarchy Season 1 (2024)",
         "name": "Hierarchy Season 1 (2024) Tv Series",
@@ -966,10 +975,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Mirzapur Season 3 (2024)",
         "name": "Mirzapur Season 3 (2024) Tv Series",
@@ -1072,10 +1082,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "image": "https://res.cloudinary.com/db36kfuq3/image/upload/c_scale,h_750,w_500/v1719644615/Halo_S2_nvexoa.webp",
         "movies.watch": "../tvshow/watch-halo-season-2-tv-series",
@@ -1167,10 +1178,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Halo Season 1 (2022)",
         "name": " Halo Season 1 (2022) Tv Series",
@@ -1267,10 +1279,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Passenger Season 1 (2024)",
         "name": " Passenger Season 1 (2024) Tv Series",
@@ -1357,10 +1370,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Red Eye Season 1 (2024)",
         "name": "Red Eye Season 1 (2024) Tv Series",
@@ -1447,10 +1461,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Undekhi Season 3 (2024)",
         "name": "Undekhi Season 3 (2024) Tv Series",
@@ -1543,10 +1558,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Heeramandi: The Diamond Bazaar Season 1 (2024)",
         "name": "Heeramandi: The Diamond Bazaar Season 1 (2024) Tv Series",
@@ -1639,10 +1655,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Tv Series House of the Dragon Season 2 (2024) ",
         "name": "House of the Dragon Season 2 (2024) ",
@@ -1734,10 +1751,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Sunflower Season 2 (2024)",
         "name": " Sunflower Season 2 (2024) Tv Series",
@@ -1829,10 +1847,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Gyaarah Gyaarah Season 1 (2024)",
         "name": "Gyaarah Gyaarah Season 1 (2024) Tv Series",
@@ -1925,10 +1944,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Life Hill Gayi Season 1 (2024)",
         "name": "Life Hill Gayi Season 1 (2024) Tv Series",
@@ -2014,10 +2034,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Cobra Kai Part 1 Season 6 (2024)",
         "name": "Cobra Kai Part 1 Season 6 (2024) Tv Series",
@@ -2104,10 +2125,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Bad Cop Season 1 (2024)",
         "name": "Bad Cop Season 1 (2024) Tv Series",
@@ -2200,10 +2222,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Classified Season 1 (2024)",
         "name": "Classified Season 1 (2024) Tv Series",
@@ -2296,10 +2319,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Critical Incident Season 1 (2024)",
         "name": "Critical Incident Season 1 (2024) Tv Series",
@@ -2386,10 +2410,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch The Umbrella Academy Season 4 (2024)",
         "name": "The Umbrella Academy Season 4 (2024) Tv Series",
@@ -2477,10 +2502,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch The Umbrella Academy Season 3 (2024)",
         "name": "The Umbrella Academy Season 3 (2024) Tv Series",
@@ -2581,10 +2607,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch The Umbrella Academy Season 2 (2024)",
         "name": "The Umbrella Academy Season 2 (2024) Tv Series",
@@ -2685,10 +2712,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch The Umbrella Academy Season 1 (2024)",
         "name": "The Umbrella Academy Season 1 (2024) Tv Series",
@@ -2788,10 +2816,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch The Lord of the Rings: The Rings of Power Season 2 (2024)",
         "name": "The Lord of the Rings: The Rings of Power Season 2 (2024) Tv Series",
@@ -2881,10 +2910,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch The Lord of the Rings: The Rings of Power Season 1 (2022)",
         "name": "The Lord of the Rings: The Rings of Power Season 1 (2022) Tv Series",
@@ -3059,10 +3089,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Kaos Season 1 (2024)",
         "name": "Kaos Season 1 (2024) Tv Series",
@@ -3155,10 +3186,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch The Ark Season 2 (2023)",
         "name": " The Ark Season 2 (2023) Tv Series",
@@ -3254,10 +3286,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch The Ark Season 1 (2023)",
         "name": " The Ark Season 1 (2023) Tv Series",
@@ -3365,10 +3398,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch The Acolyte Season 1 (2024)",
         "name": "The Acolyte Season 1 (2024) Tv Series",
@@ -3463,10 +3497,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Upload Season 2 (2020)",
         "name": "Upload Season 2 (2020) Tv Series",
@@ -3560,10 +3595,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Presumed Innocent Season 1 (2024)",
         "name": "Presumed Innocent Season 1 (2024) Tv Series",
@@ -3660,10 +3696,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Upload Season 1 (2020)",
         "name": "Upload Season 1 (2020) Tv Series",
@@ -3765,10 +3802,11 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "title": "Watch Hotel Cocaine Season 1 (2024)",
         "name": "Hotel Cocaine Season 1 (2024) Tv Series",
@@ -3913,10 +3951,11 @@
         "downloadlink10": "https://hellabyte.one/import/abyss/0lAkH3oxu",
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "genre": [
             "Crime, ",
@@ -4008,10 +4047,11 @@
         "downloadlink6": "https://hellabyte.one/import/abyss/uGGDia6Lw",
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "genre": [
             "Crime, ",
@@ -4108,10 +4148,11 @@
         "downloadlink8": "https://hellabyte.one/drive/s/66ccb7baa3fb848ac18eabae",
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 6.7,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "genre": [
             "Crime, ",
@@ -4574,10 +4615,11 @@
         "avgTime": "45 Min.",
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": 5.2,
+            "ratingValue": "5.2",
             "bestRating": "10",
             "worstRating": "0",
-            "ratingCount": "1"
+            "ratingCount": "1",
+            "reviewCount": "0"
         },
         "genre": [
             "Action, ",
