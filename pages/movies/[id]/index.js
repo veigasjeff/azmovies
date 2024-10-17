@@ -92,7 +92,7 @@ export default function MovieDetail({ movie }) {
       "bestRating": "10",                     // Highest rating
       "worstRating": "0",                     // Lowest rating
       "ratingCount": movie.ratingCount,       // Use the ratingCount from the movie object
-      "reviewCount": "0"                      // Set to "0" as per your requirement
+      "reviewCount": movie.reviewCount,                      // Set to "0" as per your requirement
     },
     potentialAction: {
       "@type": "WatchAction",
