@@ -49,7 +49,7 @@ module.exports = {
   siteUrl: 'https://atozmovies.vercel.app/', // Replace with your actual live domain
   changefreq: 'daily',
   sitemapSize: 7000,
-  generateRobotsTxt: true, // Optionally generate robots.txt
+  // generateRobotsTxt: true, // Optionally generate robots.txt
   transform: async (config, path) => {
     if (path === '/') {
       return {
