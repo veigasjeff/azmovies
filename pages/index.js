@@ -246,15 +246,15 @@ export default function HomePage({ allData }) {
   <SocialSharing />
     <div style={styles.container}>
     <header style={styles.hero}>
-  <div style={styles.heroImageContainer}>
-    <Image
-      src="/og_image.jpg"
-      alt="Hero Background"
-      layout="fill"
-      objectFit="cover"
-      priority // Prioritize loading this image
-    />
-  </div>
+    {/* <div style={styles.heroImageContainer}> */}
+      <Image
+        src="/og_image.jpg"
+        alt="Hero Background"
+        layout="fill"
+        objectFit="cover"
+        priority // Prioritize loading this image
+      />
+    {/* </div> */}
   <div style={styles.heroTextContainer}>
     <h1 style={styles.heroTitle}>Welcome to AtoZ Movies™</h1>
     <p style={styles.heroDescription}>
