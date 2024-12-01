@@ -70,7 +70,7 @@ export default function TvShowList({ tvshowData }) {
       {
         "@type": "NewsMediaOrganization",
         name: "AtoZ Movies™ – Tv Show Section.",
-        url: "https://atozmovies.vercel.app",
+        url: "https://a2zmovies.vercel.app",
         sameAs: [
           "https://www.facebook.com/news24channel",
           "https://twitter.com/WorldNews24",
@@ -79,7 +79,7 @@ export default function TvShowList({ tvshowData }) {
         ],
         logo: {
           "@type": "ImageObject",
-          url: "https://atozmovies.vercel.app/logo.png",
+          url: "https://a2zmovies.vercel.app/logo.png",
           width: "150",
           height: "60",
         },
@@ -94,49 +94,49 @@ export default function TvShowList({ tvshowData }) {
       },
       {
         "@type": "Organization",
-        "@id": "https://atozmovies.vercel.app/#organization",
+        "@id": "https://a2zmovies.vercel.app/#organization",
         name: "AtoZ Movies™ – Tv Show Section.",
-        url: "https://atozmovies.vercel.app/",
+        url: "https://a2zmovies.vercel.app/",
       },
       {
         "@type": "WebSite",
-        "@id": "https://atozmovies.vercel.app/tvshow#website",
-        url: "https://atozmovies.vercel.app/tvshow",
+        "@id": "https://a2zmovies.vercel.app/tvshow#website",
+        url: "https://a2zmovies.vercel.app/tvshow",
         name: "AtoZ Movies™ – Tv Show Section.",
         publisher: {
           "@type": "Organization",
-          "@id": "https://atozmovies.vercel.app/#organization",
+          "@id": "https://a2zmovies.vercel.app/#organization",
         },
         potentialAction: {
           "@type": "SearchAction",
-          target: "https://atozmovies.vercel.app/?s={search_term_string}",
+          target: "https://a2zmovies.vercel.app/?s={search_term_string}",
           "query-input": "required name=search_term_string",
         },
       },
       {
         "@type": "WebPage",
-        "@id": "https://atozmovies.vercel.app/tvshow#webpage",
-        url: "https://atozmovies.vercel.app/tvshow",
+        "@id": "https://a2zmovies.vercel.app/tvshow#webpage",
+        url: "https://a2zmovies.vercel.app/tvshow",
         name: "AtoZ Movies",
         datePublished: "2024-01-13T13:00:00+00:00",
         dateModified: "2024-01-13T13:13:00+00:00",
         isPartOf: {
-          "@id": "https://atozmovies.vercel.app/#website",
+          "@id": "https://a2zmovies.vercel.app/#website",
         },
         inLanguage: "en-US",
         mainEntity: [
           {
             "@type": "Article",
-            "@id": "https://atozmovies.vercel.app/tvshow",
-            url: "https://atozmovies.vercel.app/tvshow",
+            "@id": "https://a2zmovies.vercel.app/tvshow",
+            url: "https://a2zmovies.vercel.app/tvshow",
             headline: "AtoZ Movies™",
             datePublished: "2024-01-13T13:00:00+00:00",
             dateModified: "2024-01-13T13:13:00+00:00",
             publisher: {
               "@type": "Organization",
-              "@id": "https://atozmovies.vercel.app/#organization",
+              "@id": "https://a2zmovies.vercel.app/#organization",
               name: "AtoZ Movies™ – Tv Show Section.",
-              url: "https://atozmovies.vercel.app/",
+              url: "https://a2zmovies.vercel.app/",
             },
           },
         ],
@@ -159,7 +159,7 @@ export default function TvShowList({ tvshowData }) {
           rel="sitemap"
           type="application/xml"
           title="Sitemap"
-          href="https://atozmovies.vercel.app/sitemap.xml"
+          href="https://a2zmovies.vercel.app/sitemap.xml"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -190,7 +190,7 @@ export default function TvShowList({ tvshowData }) {
         />
         <meta
           name="keywords"
-          content="atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies"
+          content="a2zmovies,atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies"
         />
         <meta
           property="og:description"
@@ -200,13 +200,13 @@ export default function TvShowList({ tvshowData }) {
           name="description"
           content="Stream HD movies and TV series for free on AtoZ Movies™. Explore, stream, and download full-length movies and shows in HD quality without registration."
         />
-        <link rel="canonical" href="https://atozmovies.vercel.app/tvshow" />
+        <link rel="canonical" href="https://a2zmovies.vercel.app/tvshow" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content=" AtoZ Movies™ – Tv Show Section. " />
         <meta
           property="og:url"
-          content="https://atozmovies.vercel.app/tvshow"
+          content="https://a2zmovies.vercel.app/tvshow"
         />
         <meta
           property="og:site_name"
@@ -214,7 +214,7 @@ export default function TvShowList({ tvshowData }) {
         />
         <meta
           property="og:image"
-          content="https://atozmovies.vercel.app/og_image.jpg"
+          content="https://a2zmovies.vercel.app/og_image.jpg"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -231,7 +231,7 @@ export default function TvShowList({ tvshowData }) {
           rel="sitemap"
           type="application/xml"
           title="Sitemap"
-          href="https://atozmovies.vercel.app/sitemap.xml"
+          href="https://a2zmovies.vercel.app/sitemap.xml"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content=" AtoZ Movies™ – Tv Show Section." />
@@ -241,7 +241,7 @@ export default function TvShowList({ tvshowData }) {
         />
         <meta
           name="twitter:image"
-          content="https://atozmovies.vercel.app/og_image.jpg"
+          content="https://a2zmovies.vercel.app/og_image.jpg"
         />
         <meta
           name="google-site-verification"

@@ -323,7 +323,7 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
           rel="sitemap"
           type="application/xml"
           title="Sitemap"
-          href="https://atozmovies.vercel.app/sitemap.xml"
+          href="https://a2zmovies.vercel.app/sitemap.xml"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -354,7 +354,7 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
         />
         <meta
           name="keywords"
-          content="atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies"
+          content="a2zmovies,atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies"
         />
         <meta
           property="og:description"
@@ -379,7 +379,7 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
         />
         <meta
           property="og:image"
-          content="https://atozmovies.vercel.app/og_image.jpg"
+          content="https://a2zmovies.vercel.app/og_image.jpg"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -396,7 +396,7 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
           rel="sitemap"
           type="application/xml"
           title="Sitemap"
-          href="https://atozmovies.vercel.app/sitemap.xml"
+          href="https://a2zmovies.vercel.app/sitemap.xml"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -409,7 +409,7 @@ export default function MoviesArticle({ adultItem, videoSources = [] }) {
         />
         <meta
           name="twitter:image"
-          content="https://atozmovies.vercel.app/og_image.jpg"
+          content="https://a2zmovies.vercel.app/og_image.jpg"
         />
         <meta
           name="google-site-verification"

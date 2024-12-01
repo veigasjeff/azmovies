@@ -9,7 +9,7 @@ class MyDocument extends Document {
             rel='sitemap'
             type='application/xml'
             title='Sitemap'
-            href='https://atozmovies.vercel.app/sitemap.xml'
+            href='https://a2zmovies.vercel.app/sitemap.xml'
           />
           <link
             rel='icon'
@@ -33,7 +33,7 @@ class MyDocument extends Document {
             sizes='16x16'
             href='/favicon-16x16.png'
           />
-          <link rel="preload" as="image" href="https://atozmovies.vercel.app/og_image.jpg" />  
+          <link rel="preload" as="image" href="https://a2zmovies.vercel.app/og_image.jpg" />  
 
           <link rel='manifest' href='/site.webmanifest' />
           <meta name='googlebot' content='index,follow' />
@@ -42,14 +42,14 @@ class MyDocument extends Document {
             name='robots'
             content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
           />
-          <meta name="keywords" content="atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies" />
+          <meta name="keywords" content="a2zmovies,atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies" />
           <meta
             name='description'
             content='Stream HD movies and TV series for free on AtoZ Movies™. Explore, stream, and download full-length movies and shows in HD quality without registration.'
           />
           <link
             rel='canonical'
-            href='https://atozmovies.vercel.app/'
+            href='https://a2zmovies.vercel.app/'
           />
           <meta property='og:locale' content='en_US' />
           <meta property='og:type' content='website' />
@@ -63,7 +63,7 @@ class MyDocument extends Document {
           />
           <meta
             property='og:url'
-            content='https://atozmovies.vercel.app/'
+            content='https://a2zmovies.vercel.app/'
           />  
           <meta
             property='og:site_name'
@@ -71,7 +71,7 @@ class MyDocument extends Document {
           />
           <meta
             property='og:image'
-            content='https://atozmovies.vercel.app/og_image.jpg'
+            content='https://a2zmovies.vercel.app/og_image.jpg'
           />
           <meta property='og:image:width' content='1280' />
           <meta property='og:image:height' content='720' />
@@ -88,7 +88,7 @@ class MyDocument extends Document {
             rel='sitemap'
             type='application/xml'
             title='Sitemap'
-            href='https://atozmovies.vercel.app/sitemap.xml'
+            href='https://a2zmovies.vercel.app/sitemap.xml'
           />
           <meta name='twitter:card' content='summary_large_image' />
       

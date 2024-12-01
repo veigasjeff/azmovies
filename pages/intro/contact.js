@@ -8,49 +8,49 @@ const contact = () => {
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://atozmovies.vercel.app/#organization",
+        "@id": "https://a2zmovies.vercel.app/#organization",
         name: "AtoZ Movies™ – Online. Stream. Download.",
-        url: "https://atozmovies.vercel.app",
+        url: "https://a2zmovies.vercel.app",
       },
       {
         "@type": "WebSite",
-        "@id": "https://atozmovies.vercel.app/intro/contact#website",
-        url: "https://atozmovies.vercel.app/intro/contact",
+        "@id": "https://a2zmovies.vercel.app/intro/contact#website",
+        url: "https://a2zmovies.vercel.app/intro/contact",
         name: "AtoZ Movies™ – Online. Stream. Download.",
         publisher: {
           "@type": "Organization",
-          "@id": "https://atozmovies.vercel.app/#organization",
+          "@id": "https://a2zmovies.vercel.app/#organization",
         },
         potentialAction: {
           "@type": "SearchAction",
-          target: "https://atozmovies.vercel.app/?s={search_term_string}",
+          target: "https://a2zmovies.vercel.app/?s={search_term_string}",
           "query-input": "required name=search_term_string",
         },
       },
       {
         "@type": "WebPage",
-        "@id": "https://atozmovies.vercel.app/intro/contact#webpage",
-        url: "https://atozmovies.vercel.app/intro/contact",
+        "@id": "https://a2zmovies.vercel.app/intro/contact#webpage",
+        url: "https://a2zmovies.vercel.app/intro/contact",
         name: "Movie",
         datePublished: "2024-01-13T13:00:00+00:00",
         dateModified: "2024-01-13T13:13:00+00:00",
         isPartOf: {
-          "@id": "https://atozmovies.vercel.app/#website",
+          "@id": "https://a2zmovies.vercel.app/#website",
         },
         inLanguage: "en-US",
         mainEntity: [
           {
             "@type": "Article",
-            "@id": "https://atozmovies.vercel.app/intro/contact",
-            url: "https://atozmovies.vercel.app/intro/contact",
+            "@id": "https://a2zmovies.vercel.app/intro/contact",
+            url: "https://a2zmovies.vercel.app/intro/contact",
             headline: "Movie",
             datePublished: "2024-01-13T13:00:00+00:00",
             dateModified: "2024-01-13T13:13:00+00:00",
             publisher: {
               "@type": "Organization",
-              "@id": "https://atozmovies.vercel.app/#organization",
+              "@id": "https://a2zmovies.vercel.app/#organization",
               name: "AtoZ Movies™ – Online. Stream. Download.",
-              url: "https://atozmovies.vercel.app",
+              url: "https://a2zmovies.vercel.app",
             },
           },
         ],
@@ -67,7 +67,7 @@ const contact = () => {
           rel="sitemap"
           type="application/xml"
           title="Sitemap"
-          href="https://atozmovies.vercel.app/sitemap.xml"
+          href="https://a2zmovies.vercel.app/sitemap.xml"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -95,14 +95,14 @@ const contact = () => {
           name="robots"
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
-       <meta name="keywords" content="atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies" />
+       <meta name="keywords" content="a2zmovies,atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies" />
         <meta
           name="description"
           content="Stream HD movies and TV series for free on AtoZ Movies™. Explore, stream, and download full-length movies and shows in HD quality without registration."
         />
         <link
           rel="canonical"
-          href="https://atozmovies.vercel.app/intro/contact"
+          href="https://a2zmovies.vercel.app/intro/contact"
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
@@ -113,12 +113,12 @@ const contact = () => {
         />
         <meta
           property="og:url"
-          content="https://atozmovies.vercel.app/intro/contact/"
+          content="https://a2zmovies.vercel.app/intro/contact/"
         />
         <meta property="og:site_name" content="AtoZ Movies™  " />
         <meta
           property="og:image"
-          content="https://atozmovies.vercel.app/og_image.jpg"
+          content="https://a2zmovies.vercel.app/og_image.jpg"
         />
         <meta property="og:image:width" content="1280" />
         <meta property="og:image:height" content="720" />
@@ -132,7 +132,7 @@ const contact = () => {
           rel="sitemap"
           type="application/xml"
           title="Sitemap"
-          href="https://atozmovies.vercel.app/sitemap.xml"
+          href="https://a2zmovies.vercel.app/sitemap.xml"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta

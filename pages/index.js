@@ -52,49 +52,49 @@ const soap2daySchema = JSON.stringify({
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://atozmovies.vercel.app/",
-      url: "https://atozmovies.vercel.app/",
+      "@id": "https://a2zmovies.vercel.app/",
+      url: "https://a2zmovies.vercel.app/",
       name: "AtoZ Movies™ - Online. Stream. Download.",
-      isPartOf: { "@id": "https://atozmovies.vercel.app/#website" },
-      about: { "@id": "https://atozmovies.vercel.app/#organization" },
-      primaryImageOfPage: { "@id": "https://atozmovies.vercel.app/#primaryimage" },
-      image: { "@id": "https://atozmovies.vercel.app/#primaryimage" },
-      thumbnailUrl: "https://atozmovies.vercel.app/og_image.jpg",
+      isPartOf: { "@id": "https://a2zmovies.vercel.app/#website" },
+      about: { "@id": "https://a2zmovies.vercel.app/#organization" },
+      primaryImageOfPage: { "@id": "https://a2zmovies.vercel.app/#primaryimage" },
+      image: { "@id": "https://a2zmovies.vercel.app/#primaryimage" },
+      thumbnailUrl: "https://a2zmovies.vercel.app/og_image.jpg",
       datePublished: "2023-07-02T18:30:00+00:00",
       dateModified: "2024-09-24T05:11:20+00:00",
-      breadcrumb: { "@id": "https://atozmovies.vercel.app/#breadcrumb" },
+      breadcrumb: { "@id": "https://a2zmovies.vercel.app/#breadcrumb" },
       inLanguage: "en-US",
       potentialAction: [
-        { "@type": "ReadAction", target: ["https://atozmovies.vercel.app/"] },
+        { "@type": "ReadAction", target: ["https://a2zmovies.vercel.app/"] },
       ],
     },
     {
       "@type": "ImageObject",
       inLanguage: "en-US",
-      "@id": "https://atozmovies.vercel.app/#primaryimage",
-      url: "https://atozmovies.vercel.app/og_image.jpg",
-      contentUrl: "https://atozmovies.vercel.app/og_image.jpg",
+      "@id": "https://a2zmovies.vercel.app/#primaryimage",
+      url: "https://a2zmovies.vercel.app/og_image.jpg",
+      contentUrl: "https://a2zmovies.vercel.app/og_image.jpg",
       width: 1280,
       height: 720,
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://atozmovies.vercel.app/#breadcrumb",
+      "@id": "https://a2zmovies.vercel.app/#breadcrumb",
       itemListElement: [{ "@type": "ListItem", position: 1, name: "Home" }],
     },
     {
       "@type": "WebSite",
-      "@id": "https://atozmovies.vercel.app/#website",
-      url: "https://atozmovies.vercel.app/",
+      "@id": "https://a2zmovies.vercel.app/#website",
+      url: "https://a2zmovies.vercel.app/",
       name: "AtoZ Movies™ - Online. Stream. Download.",
       description: "",
-      publisher: { "@id": "https://atozmovies.vercel.app/#organization" },
+      publisher: { "@id": "https://a2zmovies.vercel.app/#organization" },
       potentialAction: [
         {
           "@type": "SearchAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: "https://atozmovies.vercel.app/?s={search_term_string}",
+            urlTemplate: "https://a2zmovies.vercel.app/?s={search_term_string}",
           },
           "query-input": {
             "@type": "PropertyValueSpecification",
@@ -107,20 +107,20 @@ const soap2daySchema = JSON.stringify({
     },
     {
       "@type": "Organization",
-      "@id": "https://atozmovies.vercel.app/#organization",
+      "@id": "https://a2zmovies.vercel.app/#organization",
       name: "AtoZ Movies™ - Online. Stream. Download.",
-      url: "https://atozmovies.vercel.app/",
+      url: "https://a2zmovies.vercel.app/",
       logo: {
         "@type": "ImageObject",
         inLanguage: "en-US",
-        "@id": "https://atozmovies.vercel.app/#/schema/logo/image/",
-        url: "https://atozmovies.vercel.app/logo.png",
-        contentUrl: "https://atozmovies.vercel.app/logo.png",
+        "@id": "https://a2zmovies.vercel.app/#/schema/logo/image/",
+        url: "https://a2zmovies.vercel.app/logo.png",
+        contentUrl: "https://a2zmovies.vercel.app/logo.png",
         width: 280,
         height: 100,
         caption: "AtoZ Movies™ - Online. Stream. Download.",
       },
-      image: { "@id": "https://atozmovies.vercel.app/#/schema/logo/image/" },
+      image: { "@id": "https://a2zmovies.vercel.app/#/schema/logo/image/" },
     },
   ],
 });
@@ -138,7 +138,7 @@ export default function HomePage({ allData }) {
       rel="sitemap"
       type="application/xml"
       title="Sitemap"
-      href="https://atozmovies.vercel.app/sitemap.xml"
+      href="https://a2zmovies.vercel.app/sitemap.xml"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -167,7 +167,7 @@ export default function HomePage({ allData }) {
       name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
-    <meta name="keywords" content="atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies" />
+    <meta name="keywords" content="a2zmovies,atozmovies,a to z movies,a-z movies,watch free movies,watch movies online,download movies,watch full movies,watch hd movies" />
     <meta
       property="og:description"
       content="Stream HD movies and TV series for free on AtoZ Movies™. Explore, stream, and download full-length movies and shows in HD quality without registration."
@@ -176,21 +176,21 @@ export default function HomePage({ allData }) {
       name="description"
       content="Stream HD movies and TV series for free on AtoZ Movies™. Explore, stream, and download full-length movies and shows in HD quality without registration."
     />
-    <link rel="canonical" href="https://atozmovies.vercel.app/" />
+    <link rel="canonical" href="https://a2zmovies.vercel.app/" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
       content=" AtoZ Movies™ - Online. Stream. Download. "
     />
-    <meta property="og:url" content="https://atozmovies.vercel.app" />
+    <meta property="og:url" content="https://a2zmovies.vercel.app" />
     <meta
       property="og:site_name"
       content=" AtoZ Movies™ - Online. Stream. Download. "
     />
     <meta
       property="og:image"
-      content="https://atozmovies.vercel.app/og_image.jpg"
+      content="https://a2zmovies.vercel.app/og_image.jpg"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -207,7 +207,7 @@ export default function HomePage({ allData }) {
       rel="sitemap"
       type="application/xml"
       title="Sitemap"
-      href="https://atozmovies.vercel.app/sitemap.xml"
+      href="https://a2zmovies.vercel.app/sitemap.xml"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
@@ -220,7 +220,7 @@ export default function HomePage({ allData }) {
     />
     <meta
       name="twitter:image"
-      content="https://atozmovies.vercel.app/og_image.jpg"
+      content="https://a2zmovies.vercel.app/og_image.jpg"
     />
     <meta
       name="google-site-verification"
@@ -397,7 +397,7 @@ const styles = {
   //   justifyContent: "center",
   //   alignItems: "center",
   //   // minHeight: "100vh", // Full viewport height for the hero section
-  //   backgroundImage: "url(https://atozmovies.vercel.app/og_image.jpg)", // Background image
+  //   backgroundImage: "url(https://a2zmovies.vercel.app/og_image.jpg)", // Background image
   //   backgroundSize: "cover", // Make the image cover the entire area
   //   backgroundPosition: "center", // Center the image
   //   backgroundRepeat: "no-repeat", // Prevent image repetition
