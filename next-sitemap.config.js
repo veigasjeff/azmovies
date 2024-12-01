@@ -46,7 +46,7 @@
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://atozmovies.vercel.app/', // Replace with your actual live domain
+  siteUrl: 'https://a2zmovies.vercel.app/', // Replace with your actual live domain
   changefreq: 'daily',
   sitemapSize: 7000,
   // generateRobotsTxt: true, // Optionally generate robots.txt
