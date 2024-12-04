@@ -47,83 +47,173 @@ export async function getStaticProps() {
 }
 
 
-const soap2daySchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://a2zmovies.vercel.app/",
-      url: "https://a2zmovies.vercel.app/",
-      name: "AtoZ Movies™ - Online. Stream. Download.",
-      isPartOf: { "@id": "https://a2zmovies.vercel.app/#website" },
-      about: { "@id": "https://a2zmovies.vercel.app/#organization" },
-      primaryImageOfPage: { "@id": "https://a2zmovies.vercel.app/#primaryimage" },
-      image: { "@id": "https://a2zmovies.vercel.app/#primaryimage" },
-      thumbnailUrl: "https://a2zmovies.vercel.app/og_image.jpg",
-      datePublished: "2023-07-02T18:30:00+00:00",
-      dateModified: "2024-09-24T05:11:20+00:00",
-      breadcrumb: { "@id": "https://a2zmovies.vercel.app/#breadcrumb" },
-      inLanguage: "en-US",
-      potentialAction: [
-        { "@type": "ReadAction", target: ["https://a2zmovies.vercel.app/"] },
-      ],
-    },
-    {
-      "@type": "ImageObject",
-      inLanguage: "en-US",
-      "@id": "https://a2zmovies.vercel.app/#primaryimage",
-      url: "https://a2zmovies.vercel.app/og_image.jpg",
-      contentUrl: "https://a2zmovies.vercel.app/og_image.jpg",
-      width: 1280,
-      height: 720,
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://a2zmovies.vercel.app/#breadcrumb",
-      itemListElement: [{ "@type": "ListItem", position: 1, name: "Home" }],
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://a2zmovies.vercel.app/#website",
-      url: "https://a2zmovies.vercel.app/",
-      name: "AtoZ Movies™ - Online. Stream. Download.",
-      description: "",
-      publisher: { "@id": "https://a2zmovies.vercel.app/#organization" },
-      potentialAction: [
-        {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate: "https://a2zmovies.vercel.app/?s={search_term_string}",
-          },
-          "query-input": {
-            "@type": "PropertyValueSpecification",
-            valueRequired: true,
-            valueName: "search_term_string",
-          },
-        },
-      ],
-      inLanguage: "en-US",
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://a2zmovies.vercel.app/#organization",
-      name: "AtoZ Movies™ - Online. Stream. Download.",
-      url: "https://a2zmovies.vercel.app/",
-      logo: {
-        "@type": "ImageObject",
-        inLanguage: "en-US",
-        "@id": "https://a2zmovies.vercel.app/#/schema/logo/image/",
-        url: "https://a2zmovies.vercel.app/logo.png",
-        contentUrl: "https://a2zmovies.vercel.app/logo.png",
-        width: 280,
-        height: 100,
-        caption: "AtoZ Movies™ - Online. Stream. Download.",
+const uwatchfreeSchema = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'AtoZ Movies™ - Online. Stream. Download. ',
+    url: 'https://a2zmovies.vercel.app/',
+    image: ['https://a2zmovies.vercel.app/favicon.ico'],
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://a2zmovies.vercel.app/logo.png',
+      width: 280,
+      height: 80
+    }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    url: 'https://a2zmovies.vercel.app/',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://a2zmovies.vercel.app/search?q={search_term_string}'
       },
-      image: { "@id": "https://a2zmovies.vercel.app/#/schema/logo/image/" },
+      'query-input': 'required name=search_term_string'
+    }
+  }
+])
+
+const rankMathSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://gravatar.com/drtrailer2022',
+      name: 'Dr Trailer',
+      url: 'https://gravatar.com/drtrailer2022',
+      image: {
+        '@type': 'ImageObject',
+        '@id': 'https://gravatar.com/drtrailer2022',
+        url: 'https://gravatar.com/drtrailer2022',
+        caption: 'Dr Trailer',
+        inLanguage: 'en-US'
+      }
     },
-  ],
-});
+    {
+      '@type': 'Organization',
+      '@id': 'https://a2zmovies.vercel.app/#organization',
+      name: 'AtoZ Movies™ - Online. Stream. Download. ',
+      url: 'https://a2zmovies.vercel.app'
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://a2zmovies.vercel.app/#website',
+      url: 'https://a2zmovies.vercel.app',
+      name: 'AtoZ Movies™ - Online. Stream. Download. ',
+      publisher: {
+        '@type': 'Organization',
+        '@id': 'https://a2zmovies.vercel.app/#organization'
+      },
+   
+    },
+    {
+      '@type': 'WebPage',
+      '@id': 'https://a2zmovies.vercel.app/#webpage',
+      url: 'https://a2zmovies.vercel.app/',
+      name: 'Movie',
+      datePublished: '2024-01-13T13:00:00+00:00',
+      dateModified: '2024-01-13T13:13:00+00:00',
+      about: {
+        '@type': 'Person',
+        '@id': 'https://gravatar.com/drtrailer2022',
+        name: 'Dr Trailer',
+        url: 'https://gravatar.com/drtrailer2022',
+        image: {
+          '@type': 'ImageObject',
+          '@id': 'https://gravatar.com/drtrailer2022',
+          url: 'https://gravatar.com/drtrailer2022',
+          caption: 'Dr Trailer',
+          inLanguage: 'en-US'
+        }
+      },
+      isPartOf: {
+        '@id': 'https://a2zmovies.vercel.app/#website'
+      },
+      inLanguage: 'en-US',
+      mainEntity: [
+        {
+          '@type': 'Article',
+          '@id': 'https://a2zmovies.vercel.app/',
+          url: 'https://a2zmovies.vercel.app/',
+          headline: 'AtoZ Movies™ - Online. Stream. Download. ',
+          datePublished: '2024-01-13T13:00:00+00:00',
+          dateModified: '2024-01-13T13:13:00+00:00',
+          author: {
+            '@type': 'Person',
+            '@id': 'https://gravatar.com/drtrailer2022',
+            name: 'Dr Trailer',
+            url: 'https://gravatar.com/drtrailer2022',
+            image: {
+              '@type': 'ImageObject',
+              '@id': 'https://gravatar.com/drtrailer2022',
+              url: 'https://gravatar.com/drtrailer2022',
+              caption: 'Dr Trailer',
+              inLanguage: 'en-US'
+            }
+          },
+          publisher: {
+            '@type': 'Organization',
+            '@id': 'https://a2zmovies.vercel.app/#organization',
+            name: 'AtoZ Movies™ - Online. Stream. Download. ',
+            url: 'https://a2zmovies.vercel.app'
+          }
+        },
+        {
+          '@type': 'Article',
+          '@id': 'https://a2zmovies.vercel.app/',
+          url: 'https://a2zmovies.vercel.app/',
+          headline: 'AtoZ Movies™ - Online. Stream. Download. ',
+          datePublished: '2024-01-13T13:00:00+00:00',
+          dateModified: '2024-01-13T13:13:00+00:00',
+          author: {
+            '@type': 'Person',
+            '@id': 'https://gravatar.com/drtrailer2022',
+            name: 'Dr Trailer',
+            url: 'https://gravatar.com/drtrailer2022',
+            image: {
+              '@type': 'ImageObject',
+              '@id': 'https://gravatar.com/drtrailer2022',
+              url: 'https://gravatar.com/drtrailer2022',
+              caption: 'Dr Trailer',
+              inLanguage: 'en-US'
+            }
+          },
+          publisher: {
+            '@type': 'Organization',
+            '@id': 'https://a2zmovies.vercel.app/#organization',
+            name: 'AtoZ Movies™ - Online. Stream. Download. ',
+            url: 'https://a2zmovies.vercel.app'
+          }
+        },
+        {
+          '@type': 'Article',
+          '@id': 'https://a2zmovies.vercel.app/',
+          url: 'https://a2zmovies.vercel.app/',
+          headline: 'AtoZ Movies™ - Online. Stream. Download. ',
+          datePublished: '2024-01-13T13:00:00+00:00',
+          dateModified: '2024-01-13T13:13:00+00:00',
+          author: {
+            '@type': 'Person',
+            '@id': 'https://gravatar.com/drtrailer2022',
+            name: 'Dr Trailer',
+            url: 'https://gravatar.com/drtrailer2022',
+            image: {
+              '@type': 'ImageObject',
+              '@id': 'https://gravatar.com/drtrailer2022',
+              url: 'https://gravatar.com/drtrailer2022',
+              caption: 'Dr Trailer',
+              inLanguage: 'en-US'
+            }
+          }
+        }
+      ]
+    }
+  ]
+})
+
 
 export default function HomePage({ allData }) {
  
@@ -236,11 +326,13 @@ export default function HomePage({ allData }) {
       content="dm3bs67ukdegz9qik"
     />
     <meta name="monetag" content="98a412cb5612b9188cd76b9744304b6c" />
-    
-  
+    <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: uwatchfreeSchema }}
+  />  
    <script
     type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: soap2daySchema }}
+    dangerouslySetInnerHTML={{ __html: rankMathSchema }}
   />
   </Head>
   <SocialSharing />
